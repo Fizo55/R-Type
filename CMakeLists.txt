@@ -14,10 +14,13 @@ add_library(engine-graphic OBJECT
     ${ENGINE_SRC_DIR}/graphic/wrapper/texture.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/event.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/clock.cpp
+    ${ENGINE_SRC_DIR}/graphic/wrapper/mask.cpp
+    ${ENGINE_SRC_DIR}/graphic/wrapper/windowHandler.cpp
 )
 target_include_directories(engine-graphic PRIVATE ./include)
 target_compile_definitions(engine-graphic PUBLIC OBJ)
 target_link_libraries(engine-graphic PRIVATE SDL2)
+target_link_libraries(engine-graphic PRIVATE SDL2_image)
 
 add_executable(server-executable
     ${SERVER_SRC_DIR}/main.cpp

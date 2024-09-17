@@ -2,6 +2,7 @@
     #define ENGINE_MATH_HPP_
 
     #include <iostream>
+    #include <string>
 
     /** Math is good for calculus **/
 
@@ -28,8 +29,8 @@
                 ~vector2() = default;
 
                 vector2 &operator=(vector2 const &other) {
-                    this.x = other.x;
-                    this.y = other.y;
+                    this->x = other.x;
+                    this->y = other.y;
                     return (*this);
                 };
                 vector2 &operator=(vector2 &&other) noexcept {
@@ -121,17 +122,18 @@
         };
 
         class bitFlag {
-            static unsigned long getFlag(unsigned long initialFlags, unsigned long toGet) {
-                return (initialFlags & toGet > 0);
-            };
+            public:
+                static unsigned long getFlag(unsigned long initialFlags, unsigned long toGet) {
+                    return ((initialFlags & toGet) > 0UL);
+                };
 
-            static unsigned long setFlag(unsigned long initialFlags, unsigned long toSet) {
-                return (initialFlags | toSet);
-            }
+                static unsigned long setFlag(unsigned long initialFlags, unsigned long toSet) {
+                    return (initialFlags | toSet);
+                }
 
-            static unsigned long removeFlag(unsigned long initialFlags, unsigned long toRemove) {
-                return (initialFlags & (~toRemove));
-            }
+                static unsigned long removeFlag(unsigned long initialFlags, unsigned long toRemove) {
+                    return (initialFlags & (~toRemove));
+                }
         };
     };
 
