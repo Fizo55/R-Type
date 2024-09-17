@@ -8,19 +8,25 @@ set(ENGINE_SRC_DIR ${CMAKE_SOURCE_DIR}/engine)
 set(SERVER_SRC_DIR ${CMAKE_SOURCE_DIR}/server)
 set(CLIENT_SRC_DIR ${CMAKE_SOURCE_DIR}/client)
 
-add_library(engine-core OBJECT
-    ${ENGINE_SRC_DIR}/test.cpp
+add_library(engine-graphic OBJECT
+    ${ENGINE_SRC_DIR}/graphic/wrapper/window.cpp
+    ${ENGINE_SRC_DIR}/graphic/wrapper/videoMode.cpp
+    ${ENGINE_SRC_DIR}/graphic/wrapper/texture.cpp
+    ${ENGINE_SRC_DIR}/graphic/wrapper/event.cpp
+    ${ENGINE_SRC_DIR}/graphic/wrapper/clock.cpp
 )
-
-target_compile_definitions(engine-core PUBLIC OBJ)
+target_include_directories(engine-graphic PRIVATE ./include)
+target_compile_definitions(engine-graphic PUBLIC OBJ)
+target_link_libraries(engine-graphic PRIVATE SDL2)
 
 add_executable(server-executable
     ${SERVER_SRC_DIR}/main.cpp
 )
+target_include_directories(server-executable PRIVATE ./include)
 
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp
 )
+target_include_directories(client-executable PRIVATE ./include)
 
-target_link_libraries(server-executable PRIVATE engine-core)
-target_link_libraries(client-executable PRIVATE engine-core)
+target_link_libraries(client-executable PRIVATE engine-graphic)
