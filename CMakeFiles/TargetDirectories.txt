@@ -1,0 +1,5 @@
+/root/.repos/R-Type/CMakeFiles/engine-core.so.dir
+/root/.repos/R-Type/CMakeFiles/server-executable.dir
+/root/.repos/R-Type/CMakeFiles/client-executable.dir
+/root/.repos/R-Type/CMakeFiles/edit_cache.dir
+/root/.repos/R-Type/CMakeFiles/rebuild_cache.dir

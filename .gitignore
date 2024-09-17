@@ -1,0 +1,12 @@
+client-executable
+server-executable
+*.o
+*.so
+*.a
+.ninja_deps
+*.dll
+*.exe
+.ninja_log
+build.ninja
+cmake_install.cmake
+CMakeCache.txt
