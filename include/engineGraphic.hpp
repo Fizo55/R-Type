@@ -5,6 +5,7 @@
     #include <memory>
     #include <SDL2/SDL_surface.h>
     #include <SDL2/SDL_video.h>
+    #include <SDL2/SDL_timer.h>
 
     #include "engineMath.hpp"
 
@@ -37,7 +38,7 @@
             public:
                 clock();
 
-                unsigned long tick(int fps);
+                unsigned long tick(int = -1);
 
             private:
                 unsigned long _oldTime;
