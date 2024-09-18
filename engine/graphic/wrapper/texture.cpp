@@ -45,14 +45,32 @@ void texture::draw_rect(const engine_math::vector2<int> &position, const engine_
 {
     SDL_Rect temp = {position.x, position.y, size.x, size.y};
 
-    SDL_FillRect(this->_texture, &temp, color);
+    SDL_FillRect(this->_texture, &temp, SDL_MapRGBA(this->_texture->format, this->_mask.getR(color), this->_mask.getG(color), this->_mask.getB(color), this->_mask.getA(color)));
 }
 
 void texture::clear(unsigned int color)
 {
-    SDL_Rect temp = {0, 0, this->_texture->w, this->_texture->h};
+    SDL_FillRect(this->_texture, (const SDL_Rect *)0, SDL_MapRGBA(this->_texture->format, this->_mask.getR(color), this->_mask.getG(color), this->_mask.getB(color), this->_mask.getA(color)));
+}
 
-    SDL_FillRect(this->_texture, &temp, color);
+void texture::setMask(const mask &mask)
+{
+    this->_mask = mask;
+
+    this->_texture->format->Rmask = mask.r;
+    this->_texture->format->Gmask = mask.g;
+    this->_texture->format->Bmask = mask.b;
+    this->_texture->format->Amask = mask.a;
+}
+
+std::unique_ptr<texture> &window::getSurface(void)
+{
+    return (this->_texture);
+}
+
+const std::unique_ptr<texture> &window::getSurface(void) const
+{
+    return (this->_texture);
 }
 
 void texture::optimize(const texture &other)
