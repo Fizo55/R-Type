@@ -31,5 +31,4 @@ add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp
 )
 target_include_directories(client-executable PRIVATE ./include)
-
 target_link_libraries(client-executable PRIVATE engine-graphic)
