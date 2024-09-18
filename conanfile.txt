@@ -1,12 +1,10 @@
 [requires]
 asio/1.18.2
-sdl2/2.26.5
-sdl2_image/2.6.3
+sdl/2.30.7
 
 [generators]
-CMakeToolchain
 CMakeDeps
+CMakeToolchain
 
-[options]
-sdl2:shared=True
-sdl2_image:shared=True
+[layout]
+cmake_layout
