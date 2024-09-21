@@ -32,6 +32,12 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 CPMAddPackage(
+    NAME ASIO
+    GITHUB_REPOSITORY chriskohlhoff/asio
+    GIT_TAG master
+)
+
+CPMAddPackage(
     NAME SDL2
     GITHUB_REPOSITORY libsdl-org/SDL
     GIT_TAG release-2.30.7
