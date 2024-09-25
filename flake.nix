@@ -19,6 +19,7 @@
           cmake
           SDL
           SDL2
+          SDL2_image
           pkg-config
           ninja
           yaml-cpp
