@@ -17,13 +17,13 @@
         packages = with pkgs; [
           gcc
           cmake
+          SDL
           SDL2
           SDL2_image
           pkg-config
           ninja
           yaml-cpp
         ];
-
         shellHook = ''
           echo Custom C++ nix-shell!
           echo -e "\e[97m"
