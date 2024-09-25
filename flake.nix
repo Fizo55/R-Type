@@ -21,6 +21,7 @@
           SDL2_image
           pkg-config
           ninja
+          yaml-cpp
         ];
 
         shellHook = ''
