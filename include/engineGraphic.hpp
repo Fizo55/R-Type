@@ -7,7 +7,7 @@
     #include <SDL2/SDL_surface.h>
     #include <SDL2/SDL_video.h>
     #include <SDL2/SDL_timer.h>
-    #include <SDL2/SDL_image.h>
+    #include <SDL_image.h>
 
     #include "engineMath.hpp"
     #include "engineExceptions.hpp"
