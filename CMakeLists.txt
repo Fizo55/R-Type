@@ -80,20 +80,14 @@ target_link_libraries(engine-core PUBLIC yaml-cpp)
 add_executable(server-executable
     ${SERVER_SRC_DIR}/main.cpp
 )
-<<<<<<< HEAD
 target_include_directories(server-executable PRIVATE ./include)
 target_link_libraries(server-executable PRIVATE engine-core)
-=======
 target_include_directories(server-executable PRIVATE ${SERVER_SRC_DIR}/udp)
 target_link_libraries(server-executable PRIVATE engine-graphic)
->>>>>>> origin
 
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp
 )
 target_include_directories(client-executable PRIVATE ./include)
 target_link_libraries(client-executable PRIVATE engine-graphic)
-<<<<<<< HEAD
 target_link_libraries(client-executable PRIVATE engine-core)
-=======
->>>>>>> origin
