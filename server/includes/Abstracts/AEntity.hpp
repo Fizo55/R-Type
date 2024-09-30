@@ -8,15 +8,11 @@
 #pragma once
 
 #include "includes/Interfaces/IEntity.hpp"
-
-enum class MoveDirection {
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
-};
+#include "includes/Utility/Movement.hpp"
+#include "includes/Utility/Acceleration.hpp"
 
 class AEntity : IEntity {
+
     public:
 
         // Constructor & Destructor //
@@ -31,9 +27,10 @@ class AEntity : IEntity {
          * @brief Construct a new AEntity object.
          *
          * @param pos - position of the entity.
-         * @param speed - speed of the entity.
+         * @param maxSpeed - max speed of the entity.
+         * @param acceleration - acceleration of the entity.
          */
-        AEntity(const Position &pos, int speed);
+        AEntity(Position &pos, int maxSpeed, int acceleration);
 
         // Getters //
 
@@ -47,9 +44,16 @@ class AEntity : IEntity {
         /**
          * @brief Get the Speed object.
          *
-         * @return double - speed of the entity.
+         * @return double - max speed of the entity.
          */
-        double getSpeed();
+        double getMaxSpeed();
+
+        /**
+         * @brief Get the Acceleration object.
+         *
+         * @return double - acceleration of the entity.
+         */
+        double getAcceleration();
 
         // Setters //
 
@@ -65,7 +69,14 @@ class AEntity : IEntity {
          *
          * @param speed - speed to set.
          */
-        void setSpeed(double speed);
+        void setMaxSpeed(float speed);
+
+        /**
+         * @brief Set the Acceleration object.
+         *
+         * @param acceleration - acceleration to set.
+         */
+        void setAcceleration(float acceleration);
 
         // Methods //
 
@@ -77,6 +88,8 @@ class AEntity : IEntity {
         void move(MoveDirection direction);
 
     protected:
-        Position _position;
-        int _speed;
+
+        Position &_position;
+        Movement _movement;
+        Acceleration _acceleration;
 };

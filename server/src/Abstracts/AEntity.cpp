@@ -7,10 +7,9 @@
 
 #include "AEntity.hpp"
 
-AEntity::AEntity(const Position &pos, int speed)
+AEntity::AEntity(Position &pos, int maxSpeed, int acceleration)
+    : _position(pos), _acceleration(maxSpeed, acceleration), _movement(_acceleration, _position)
 {
-    _position = pos;
-    _speed = speed;
 }
 
 Position AEntity::getPosition()
@@ -18,9 +17,9 @@ Position AEntity::getPosition()
     return _position;
 }
 
-double AEntity::getSpeed()
+double AEntity::getMaxSpeed()
 {
-    return _speed;
+    return _acceleration.getMaxSpeed();
 }
 
 void AEntity::setPosition(Position pos)
@@ -28,25 +27,17 @@ void AEntity::setPosition(Position pos)
     _position = pos;
 }
 
-void AEntity::setSpeed(double speed)
+void AEntity::setMaxSpeed(float speed)
 {
-    _speed = speed;
+    _acceleration.setMaxSpeed(speed);
+}
+
+void AEntity::setAcceleration(float acceleration)
+{
+    _acceleration.setAcceleration(acceleration);
 }
 
 void AEntity::move(MoveDirection direction)
 {
-    switch (direction) {
-    case MoveDirection::UP:
-        _position.setY(_position.getY() - _speed);
-        break;
-    case MoveDirection::DOWN:
-        _position.setY(_position.getY() + _speed);
-        break;
-    case MoveDirection::LEFT:
-        _position.setX(_position.getX() - _speed);
-        break;
-    case MoveDirection::RIGHT:
-        _position.setX(_position.getX() + _speed);
-        break;
-    }
+    _movement.update(direction);
 }
