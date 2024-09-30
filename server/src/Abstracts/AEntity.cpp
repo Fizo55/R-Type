@@ -7,7 +7,7 @@
 
 #include "Abstracts/AEntity.hpp"
 
-AEntity::AEntity(Position &pos, int maxSpeed, int acceleration)
+AEntity::AEntity(Position &pos, float maxSpeed, float acceleration)
     : _position(pos), _acceleration(maxSpeed, acceleration), _movement(_acceleration, _position)
 {
 }
@@ -17,9 +17,14 @@ Position AEntity::getPosition()
     return _position;
 }
 
-double AEntity::getMaxSpeed()
+float AEntity::getMaxSpeed()
 {
     return _acceleration.getMaxSpeed();
+}
+
+float AEntity::getAcceleration()
+{
+    return _acceleration.getAcceleration();
 }
 
 void AEntity::setPosition(Position pos)

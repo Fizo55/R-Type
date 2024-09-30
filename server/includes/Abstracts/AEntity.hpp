@@ -30,7 +30,7 @@ class AEntity : IEntity {
          * @param maxSpeed - max speed of the entity.
          * @param acceleration - acceleration of the entity.
          */
-        AEntity(Position &pos, int maxSpeed, int acceleration);
+        AEntity(Position &pos, float maxSpeed, float acceleration);
 
         // Getters //
 
@@ -46,14 +46,14 @@ class AEntity : IEntity {
          *
          * @return double - max speed of the entity.
          */
-        double getMaxSpeed();
+        float getMaxSpeed();
 
         /**
          * @brief Get the Acceleration object.
          *
          * @return double - acceleration of the entity.
          */
-        double getAcceleration();
+        float getAcceleration();
 
         // Setters //
 

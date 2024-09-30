@@ -30,11 +30,11 @@ class IEntity {
         virtual Position getPosition() = 0;
 
         /**
-         * @brief Get the Speed object.
+         * @brief Get the Max Speed object.
          *
-         * @return double - speed of the entity.
+         * @return double - max speed of the entity.
          */
-        virtual double getSpeed() = 0;
+        virtual float getMaxSpeed() = 0;
 
 
         // Setters //
@@ -47,10 +47,10 @@ class IEntity {
         virtual void setPosition(Position pos) = 0;
 
         /**
-         * @brief Set the Speed object.
+         * @brief Set the Max Speed object.
          *
-         * @param speed - speed to set.
+         * @param speed - max speed to set.
          */
-        virtual void setSpeed(double speed) = 0;
+        virtual void setMaxSpeed(float speed) = 0;
 
 };
