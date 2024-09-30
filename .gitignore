@@ -41,6 +41,5 @@ desktop.ini
 
 *.gch
 *.dSYM/
-*.lock
 
 cmake
