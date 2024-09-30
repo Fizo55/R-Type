@@ -5,7 +5,7 @@
 ** Movement
 */
 
-#include "Movement.hpp"
+#include "Utility/Movement.hpp"
 
 Movement::Movement(Acceleration& acceleration, Position& pos) :
     _position(pos), _acceleration(acceleration), _timer() {

@@ -9,7 +9,7 @@
 
 #include <utility>
 
-#include "Position.hpp"
+#include "Utility/Position.hpp"
 
 class IEntity {
     public:

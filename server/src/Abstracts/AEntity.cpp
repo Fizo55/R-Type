@@ -5,7 +5,7 @@
 ** AEntity class implementation
 */
 
-#include "AEntity.hpp"
+#include "Abstracts/AEntity.hpp"
 
 AEntity::AEntity(Position &pos, int maxSpeed, int acceleration)
     : _position(pos), _acceleration(maxSpeed, acceleration), _movement(_acceleration, _position)

@@ -5,7 +5,7 @@
 ** Timer
 */
 
-#include "Timer.hpp"
+#include "Utility/Timer.hpp"
 
 Timer::Timer()
     : _running(false), _elapsedTime(std::chrono::duration<double>::zero()) {}

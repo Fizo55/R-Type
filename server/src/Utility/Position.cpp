@@ -5,7 +5,7 @@
 ** Position
 */
 
-#include "Position.hpp"
+#include "Utility/Position.hpp"
 
 Position::Position(double x, double y)
 {

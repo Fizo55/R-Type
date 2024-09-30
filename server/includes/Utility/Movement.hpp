@@ -7,10 +7,10 @@
 
 #pragma once
 
-#include "Timer.hpp"
-#include "Position.hpp"
-#include "Direction.hpp"
-#include "Acceleration.hpp"
+#include "Utility/Timer.hpp"
+#include "Utility/Position.hpp"
+#include "Utility/Direction.hpp"
+#include "Utility/Acceleration.hpp"
 
 class Movement {
 

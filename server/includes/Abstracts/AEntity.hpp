@@ -7,9 +7,9 @@
 
 #pragma once
 
-#include "includes/Interfaces/IEntity.hpp"
-#include "includes/Utility/Movement.hpp"
-#include "includes/Utility/Acceleration.hpp"
+#include "Interfaces/IEntity.hpp"
+#include "Utility/Movement.hpp"
+#include "Utility/Acceleration.hpp"
 
 class AEntity : IEntity {
 

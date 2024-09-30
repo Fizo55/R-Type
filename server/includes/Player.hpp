@@ -9,7 +9,7 @@
 
 #include <utility>
 
-#include "includes/Abstracts/AEntity.hpp"
+#include "Abstracts/AEntity.hpp"
 
 class Player : public AEntity {
 
@@ -22,7 +22,5 @@ class Player : public AEntity {
         ~Player() = default;
 
     private:
-        Position _position;
-        int _speed;
 
 };
