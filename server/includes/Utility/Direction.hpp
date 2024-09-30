@@ -11,5 +11,6 @@ enum class MoveDirection {
     UP,
     DOWN,
     LEFT,
-    RIGHT
+    RIGHT,
+    NONE
 };
