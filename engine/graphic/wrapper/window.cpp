@@ -10,7 +10,7 @@ window::window(const std::string &title, const videoMode &mode)
     if (!this->_window)
         throw engine::outOfMemoryError("out of memory, failed to create window.");
 
-    this->_renderer = SDL_CreateRenderer(this->_window, -1, 0);
+    this->_renderer = SDL_CreateRenderer(this->_window, -1, ((engine_math::bitFlag::getFlag(mode.flags, grw::videoMode::VSYNC) ? SDL_RENDERER_PRESENTVSYNC : 0) | ((engine_math::bitFlag::getFlag(mode.flags, grw::videoMode::ACCELERATION)) ? SDL_RENDERER_ACCELERATED : 0)));
     if (!this->_renderer)
         throw engine::outOfMemoryError("out of memory, failed to create renderer.");
 
