@@ -30,6 +30,7 @@ include("${CMAKE_SOURCE_DIR}/cmake/CPM.cmake")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} `pkg-config --cflags --libs sdl2 SDL2_image`")
 
 CPMAddPackage(
     NAME ASIO
