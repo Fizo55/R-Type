@@ -18,6 +18,7 @@
           gcc
           cmake
           SDL
+          SDL_image
           SDL2
           SDL2_image
           pkg-config
