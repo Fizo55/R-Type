@@ -24,8 +24,13 @@ target_link_libraries(engine-graphic PRIVATE SDL2_image)
 
 add_executable(server-executable
     ${SERVER_SRC_DIR}/main.cpp
+    ${SERVER_SRC_DIR}/src/Abstracts/AEntity.cpp
+    ${SERVER_SRC_DIR}/src/Utility/Timer.cpp
+    ${SERVER_SRC_DIR}/src/Utility/Position.cpp
+    ${SERVER_SRC_DIR}/src/Utility/Movement.cpp
+    ${SERVER_SRC_DIR}/src/Utility/Acceleration.cpp
 )
-target_include_directories(server-executable PRIVATE ./include)
+target_include_directories(server-executable PRIVATE ./server/includes)
 
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp
