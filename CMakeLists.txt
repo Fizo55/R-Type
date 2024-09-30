@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.29)
+cmake_minimum_required(VERSION 3.27)
 project(server)
 
 if(NOT CPM_SOURCE_CACHE)

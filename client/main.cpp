@@ -12,5 +12,4 @@
 
 int main(int ac, char **av)
 {
-    std::vector<std::unique_ptr<ILib>> libs = getLibs(getType(), ac, av);
 }
