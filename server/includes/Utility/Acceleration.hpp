@@ -82,6 +82,16 @@ class Acceleration {
          */
         void update(float deltaTime);
 
+        // Operators //
+
+        /**
+         * @brief Overloaded operator=.
+         *
+         * @param other - acceleration to copy.
+         * @return Acceleration& - copied acceleration.
+         */
+        Acceleration& operator=(const Acceleration &other);
+
     private:
 
         float _currentSpeed;

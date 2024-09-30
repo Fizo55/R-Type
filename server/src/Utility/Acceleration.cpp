@@ -42,3 +42,12 @@ void Acceleration::update(float deltaTime) {
         }
     }
 }
+
+Acceleration& Acceleration::operator=(const Acceleration &other) {
+    if (this != &other) {
+        this->_currentSpeed = other._currentSpeed;
+        this->_maxSpeed = other._maxSpeed;
+        this->_acceleration = other._acceleration;
+    }
+    return *this;
+}
