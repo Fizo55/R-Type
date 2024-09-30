@@ -24,6 +24,7 @@
           pkg-config
           ninja
           yaml-cpp
+          asio
         ];
         shellHook = ''
           echo Custom C++ nix-shell!
