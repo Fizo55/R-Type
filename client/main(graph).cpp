@@ -6,9 +6,9 @@ int main(void)
     grw::mask theMask = grw::mask(0xff000000, 0x00ff0000, 0x0000ff00, 0x000000ff);
     grw::windowHandler winHandler = grw::windowHandler();
     grw::clock clock;
-    grw::window *win0 = new grw::window("test 0", grw::videoMode(engine_math::vector2(800, 600), engine_math::vector2(0, 0), 32, grw::videoMode::CLOSABLE));
-    grw::window *win1 = new grw::window("test 1", grw::videoMode(engine_math::vector2(800, 600), engine_math::vector2(100, 100), 32, grw::videoMode::CLOSABLE));
-    grw::window *win2 = new grw::window("test 2", grw::videoMode(engine_math::vector2(800, 600), engine_math::vector2(200, 200), 32, grw::videoMode::CLOSABLE));
+    grw::window *win0 = new grw::window("test 0", grw::videoMode(engine_math::vector2(800, 600), engine_math::vector2(0, 0), 32, grw::videoMode::CLOSABLE | grw::videoMode::ACCELERATION | grw::videoMode::VSYNC));
+    grw::window *win1 = new grw::window("test 1", grw::videoMode(engine_math::vector2(800, 600), engine_math::vector2(100, 100), 32, grw::videoMode::CLOSABLE | grw::videoMode::ACCELERATION | grw::videoMode::VSYNC));
+    grw::window *win2 = new grw::window("test 2", grw::videoMode(engine_math::vector2(800, 600), engine_math::vector2(200, 200), 32, grw::videoMode::CLOSABLE | grw::videoMode::ACCELERATION | grw::videoMode::VSYNC));
 
     win0->getSurface()->setMask(theMask);
     win1->getSurface()->setMask(theMask);
