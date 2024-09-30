@@ -74,6 +74,12 @@ class Movement {
 
         // Operators //
 
+        /**
+         * @brief Overload of the = operator.
+         *
+         * @param other - Movement to copy.
+         * @return Movement& - new Movement.
+         */
         Movement& operator=(const Movement &other);
 
     private:
