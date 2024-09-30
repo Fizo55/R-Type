@@ -5,11 +5,6 @@
 ** main
 */
 
-#include "common.hpp"
-#include "libs.hpp"
-#include <vector>
-#include <memory>
-
 int main(int ac, char **av)
 {
 }
