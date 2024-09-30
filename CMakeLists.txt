@@ -29,6 +29,7 @@ add_executable(server-executable
     ${SERVER_SRC_DIR}/src/Utility/Position.cpp
     ${SERVER_SRC_DIR}/src/Utility/Movement.cpp
     ${SERVER_SRC_DIR}/src/Utility/Acceleration.cpp
+    ${SERVER_SRC_DIR}/src/Player.cpp
 )
 target_include_directories(server-executable PRIVATE ./server/includes)
 
