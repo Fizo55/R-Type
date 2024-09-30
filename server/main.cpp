@@ -1,4 +1,6 @@
-int main(void)
-{
-    return (0);
+#include <asio.hpp>
+#include "GameServer.hpp"
+
+int main() {
+    return 0;
 }
