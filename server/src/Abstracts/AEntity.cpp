@@ -32,3 +32,21 @@ void AEntity::setSpeed(double speed)
 {
     _speed = speed;
 }
+
+void AEntity::move(MoveDirection direction)
+{
+    switch (direction) {
+    case MoveDirection::UP:
+        _position.setY(_position.getY() - _speed);
+        break;
+    case MoveDirection::DOWN:
+        _position.setY(_position.getY() + _speed);
+        break;
+    case MoveDirection::LEFT:
+        _position.setX(_position.getX() - _speed);
+        break;
+    case MoveDirection::RIGHT:
+        _position.setX(_position.getX() + _speed);
+        break;
+    }
+}

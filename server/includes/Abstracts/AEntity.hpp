@@ -9,6 +9,13 @@
 
 #include "includes/Interfaces/IEntity.hpp"
 
+enum class MoveDirection {
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+};
+
 class AEntity : IEntity {
     public:
 
@@ -59,6 +66,15 @@ class AEntity : IEntity {
          * @param speed - speed to set.
          */
         void setSpeed(double speed);
+
+        // Methods //
+
+        /**
+         * @brief Move the entity.
+         *
+         * @param direction - direction to move.
+         */
+        void move(MoveDirection direction);
 
     protected:
         Position _position;
