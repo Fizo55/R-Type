@@ -7,12 +7,20 @@
 
 #include "Utility/Movement.hpp"
 
-Movement::Movement(Acceleration& acceleration, Position& pos) :
-    _position(pos), _acceleration(acceleration), _timer() {
-        _timer.start();
-    }
+Movement::Movement(Acceleration& acceleration, Position& pos)
+    : _acceleration(acceleration), _position(pos)
+{
+}
 
 void Movement::update(MoveDirection direction) {
+
+    if (direction == MoveDirection::NONE) {
+        _timer.stop();
+        _acceleration.setCurrentSpeed(0);
+        return;
+    }
+
+    _timer.start();
     double deltaTime = _timer.elapsed();
     _acceleration.update(deltaTime);
 
@@ -31,7 +39,6 @@ void Movement::update(MoveDirection direction) {
             _position.setX(_position.getX() + currentSpeed * deltaTime);
             break;
     }
-    _timer.reset();
 }
 
 Position& Movement::getPosition() const {
