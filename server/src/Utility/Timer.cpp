@@ -12,6 +12,7 @@ Timer::Timer()
 
 void Timer::start() {
     if (!_running) {
+        _elapsedTime = std::chrono::duration<double>::zero();
         _startTime = std::chrono::high_resolution_clock::now();
         _running = true;
     }
@@ -27,22 +28,22 @@ void Timer::stop() {
 
 double Timer::elapsed() {
     if (!_running) {
-        return _elapsedTime.count(); // Retourne simplement le temps écoulé si le timer n'est pas en cours
+        return _elapsedTime.count();
     }
     auto now = std::chrono::high_resolution_clock::now();
-    return (_elapsedTime + (now - _startTime)).count();
+    return std::chrono::duration<double>(now - _startTime).count();
 }
 
 void Timer::reset() {
     _elapsedTime = std::chrono::duration<double>::zero();
-    _startTime = std::chrono::high_resolution_clock::now(); // Remet à zéro le point de départ
-    _running = false; // Arrête le timer lors de la réinitialisation
+    _startTime = std::chrono::high_resolution_clock::now();
+    _running = false;
 }
 
 void Timer::restart() {
     _elapsedTime = std::chrono::duration<double>::zero();
     _startTime = std::chrono::high_resolution_clock::now();
-    _running = true; // Redémarre le timer lors de la réinitialisation
+    _running = true;
 }
 
 bool Timer::isRunning() const {
