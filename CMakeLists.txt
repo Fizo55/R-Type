@@ -3,6 +3,7 @@ project(server)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} `pkg-config --cflags --libs sdl2 SDL2_image`")
 
 find_package(SDL2 CONFIG REQUIRED)
 find_package(SDL2_image CONFIG REQUIRED)
@@ -27,15 +28,23 @@ target_include_directories(engine-graphic PRIVATE ./include)
 target_compile_definitions(engine-graphic PUBLIC OBJ)
 target_link_libraries(engine-graphic PRIVATE SDL2::SDL2 SDL2::SDL2main SDL2_image)
 
-# add_executable(server-executable
-#     ${SERVER_SRC_DIR}/main.cpp
-#     ${SERVER_SRC_DIR}/src/tcp_server.cpp
-#     ${SERVER_SRC_DIR}/src/udp_server.cpp
-#     ${SERVER_SRC_DIR}/src/protocol.cpp
-# )
+add_library(engine-core OBJECT
+    ${ENGINE_SRC_DIR}/core/scene.cpp
+    ${ENGINE_SRC_DIR}/core/game.cpp
+    ${ENGINE_SRC_DIR}/core/entity.cpp
+    ${ENGINE_SRC_DIR}/core/registry.cpp
+)
+target_include_directories(engine-core PRIVATE ./include)
+target_compile_definitions(engine-core PUBLIC OBJ)
+target_link_libraries(engine-core PUBLIC yaml-cpp)
 
-# target_include_directories(server-executable PRIVATE ${SERVER_SRC_DIR}/include ${ENGINE_SRC_DIR}/graphic/wrapper)
-# target_link_libraries(server-executable PRIVATE engine-graphic asio)
+add_executable(server-executable
+    ${SERVER_SRC_DIR}/main.cpp
+)
+target_include_directories(server-executable PRIVATE ./include)
+target_link_libraries(server-executable PRIVATE engine-core)
+target_include_directories(server-executable PRIVATE ${SERVER_SRC_DIR}/udp)
+target_link_libraries(server-executable PRIVATE engine-graphic)
 
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp

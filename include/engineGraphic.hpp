@@ -20,6 +20,12 @@
                 mask(unsigned r = 0xff000000, unsigned int g = 0x00ff0000, unsigned int b = 0x0000ff00, unsigned int a = 0x000000ff);
                 ~mask() = default;
 
+                unsigned createColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a);
+                unsigned char getR(unsigned int color);
+                unsigned char getG(unsigned int color);
+                unsigned char getB(unsigned int color);
+                unsigned char getA(unsigned int color);
+
                 unsigned int r;
                 unsigned int g;
                 unsigned int b;
@@ -37,6 +43,7 @@
                 void draw_rect(const engine_math::vector2<int> &, const engine_math::vector2<int> &, unsigned int);
                 void clear(unsigned int);
                 void optimize(const texture &);
+                void setMask(const mask &);
 
                 SDL_Surface *getSurface(void) const;
                 const engine_math::vector2<int> &getSize(void) const;
@@ -109,6 +116,9 @@
                 void registerEvent(const event &);
                 unsigned char hasEvent(unsigned long);
                 const event getEvent(unsigned long) const;
+
+                std::unique_ptr<texture> &getSurface(void);
+                const std::unique_ptr<texture> &getSurface(void) const;
 
                 int getId(void) const;
 
