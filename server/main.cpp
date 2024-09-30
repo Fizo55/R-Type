@@ -1,4 +1,5 @@
-int main(void)
-{
-    return (0);
+#include <asio.hpp>
+
+int main() {
+    return 0;
 }

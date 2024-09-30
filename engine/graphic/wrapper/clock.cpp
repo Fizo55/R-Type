@@ -1,5 +1,7 @@
 #include "engineGraphic.hpp"
 
+#include <math.h>
+
 using namespace grw;
 
 clock::clock()
@@ -22,7 +24,7 @@ unsigned long clock::tick(int fps) {
     sleepTime = executionTime - delta;
 
     if (sleepTime > 0.5)
-        SDL_Delay((unsigned long)round(sleepTime));
+        SDL_Delay((unsigned long)std::round(sleepTime));
     this->_oldTime = SDL_GetTicks64();
     return (sleepTime > 0.0 ? delta + sleepTime : delta);
 }
