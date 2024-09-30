@@ -23,23 +23,23 @@ add_library(engine-graphic OBJECT
     ${ENGINE_SRC_DIR}/graphic/wrapper/windowHandler.cpp
 )
 
-target_include_directories(engine-graphic PRIVATE ${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
+target_include_directories(engine-graphic PRIVATE ./include)
 target_compile_definitions(engine-graphic PUBLIC OBJ)
-target_link_libraries(engine-graphic PRIVATE SDL2::SDL2 SDL2_image)
+target_link_libraries(engine-graphic PRIVATE SDL2::SDL2 SDL2::SDL2main SDL2_image)
 
-add_executable(server-executable
-    ${SERVER_SRC_DIR}/main.cpp
-    ${SERVER_SRC_DIR}/src/tcp_server.cpp
-    ${SERVER_SRC_DIR}/src/udp_server.cpp
-    ${SERVER_SRC_DIR}/src/protocol.cpp
-)
+# add_executable(server-executable
+#     ${SERVER_SRC_DIR}/main.cpp
+#     ${SERVER_SRC_DIR}/src/tcp_server.cpp
+#     ${SERVER_SRC_DIR}/src/udp_server.cpp
+#     ${SERVER_SRC_DIR}/src/protocol.cpp
+# )
 
-target_include_directories(server-executable PRIVATE ${SERVER_SRC_DIR}/include ${ENGINE_SRC_DIR}/graphic/wrapper ${ASIO_INCLUDE_DIR})
-target_link_libraries(server-executable PRIVATE engine-graphic asio)
+# target_include_directories(server-executable PRIVATE ${SERVER_SRC_DIR}/include ${ENGINE_SRC_DIR}/graphic/wrapper)
+# target_link_libraries(server-executable PRIVATE engine-graphic asio)
 
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp
 )
 
-target_include_directories(client-executable PRIVATE ${CLIENT_SRC_DIR}/include ${ENGINE_SRC_DIR}/graphic/wrapper ${SDL2_INCLUDE_DIRS})
-target_link_libraries(client-executable PRIVATE engine-graphic SDL2::SDL2 SDL2_image)
+target_include_directories(client-executable PRIVATE ./include ${CLIENT_SRC_DIR}/include ${ENGINE_SRC_DIR}/graphic/wrapper)
+target_link_libraries(client-executable PRIVATE SDL2::SDL2 SDL2::SDL2main SDL2_image)
