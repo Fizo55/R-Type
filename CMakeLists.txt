@@ -67,9 +67,21 @@ target_include_directories(engine-graphic PRIVATE ./include ${SDL2_SOURCE_DIR}/i
 target_compile_definitions(engine-graphic PUBLIC OBJ)
 target_link_libraries(engine-graphic PRIVATE SDL2::SDL2 SDL2_image::SDL2_image)
 
+add_library(engine-core OBJECT
+    ${ENGINE_SRC_DIR}/core/scene.cpp
+    ${ENGINE_SRC_DIR}/core/game.cpp
+    ${ENGINE_SRC_DIR}/core/entity.cpp
+    ${ENGINE_SRC_DIR}/core/registry.cpp
+)
+target_include_directories(engine-core PRIVATE ./include)
+target_compile_definitions(engine-core PUBLIC OBJ)
+target_link_libraries(engine-core PUBLIC yaml-cpp)
+
 add_executable(server-executable
     ${SERVER_SRC_DIR}/main.cpp
 )
+target_include_directories(server-executable PRIVATE ./include)
+target_link_libraries(server-executable PRIVATE engine-core)
 target_include_directories(server-executable PRIVATE ${SERVER_SRC_DIR}/udp)
 target_link_libraries(server-executable PRIVATE engine-graphic)
 
@@ -78,3 +90,4 @@ add_executable(client-executable
 )
 target_include_directories(client-executable PRIVATE ./include)
 target_link_libraries(client-executable PRIVATE engine-graphic)
+target_link_libraries(client-executable PRIVATE engine-core)
