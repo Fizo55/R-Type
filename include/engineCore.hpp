@@ -12,6 +12,8 @@
     #include <optional>
     #include <any>
 
+    #include <yaml-cpp/yaml.h>
+
     namespace engine {
         struct EcsSystem;
         struct ComponentPoolBase;
@@ -98,6 +100,19 @@
                 ObjectRef();
                 ObjectRef(const std::string &);
 
+                const std::string &getName(void) const;
+                void setName(const std::string &);
+
+                void addBuildComponent(const std::string &, const std::string &);
+                void removeBuildComponent(const std::string &);
+                const std::string &getBuildComponent(const std::string &) const;
+
+                void addBuildParameter(const std::string &, const std::vector<std::any> &);
+                void removeBuildParameter(const std::string &);
+                const std::vector<std::any> &getBuildParameter(const std::string &) const;
+
+                static std::any parameterBuilder(const YAML::Node &);
+
             private:
                 std::string _name;
                 std::map<std::string, std::string> _buildComponents;
@@ -108,6 +123,10 @@
             public:
                 Object();
                 Object(const std::string &);
+
+                void buildEntity(void);
+
+                const std::unique_ptr<Entity> &getEntity(void) const;
             private:
                 std::unique_ptr<Entity> _entity;
         };
@@ -120,19 +139,16 @@
                 const std::string &getName(void) const;
                 void setName(const std::string &);
 
-                void addHud(const std::string &, const std::string &);
-                void addObject(const std::string &, const std::string &);
+                void addHud(const std::string &, const ObjectRef &);
+                void addObject(const std::string &, const ObjectRef &);
 
-                void removeHud(const std::string &);
-                void removeObject(const std::string &);
-
-                const std::vector<std::pair<std::string, std::string>> &getHuds(void) const;
-                const std::vector<std::pair<std::string, std::string>> &getObjects(void) const;
+                const std::vector<std::pair<std::string, ObjectRef>> &getHuds(void) const;
+                const std::vector<std::pair<std::string, ObjectRef>> &getObjects(void) const;
 
             private:
                 std::string _name;
-                std::vector<std::pair<std::string, std::string>> _objects;
-                std::vector<std::pair<std::string, std::string>> _huds;
+                std::vector<std::pair<std::string, ObjectRef>> _objects;
+                std::vector<std::pair<std::string, ObjectRef>> _huds;
         };
 
         class Game {

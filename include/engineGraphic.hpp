@@ -166,8 +166,8 @@
             public:
                 displayManager();
 
-                void registerAsset(const std::string &);
-                void registerAsset(const grw::texture &);
+                void registerAsset(const std::string &, const std::string &);
+                void registerAsset(const std::string &, const grw::texture &);
 
             private:
                 std::map<std::string, grw::texture> textures;

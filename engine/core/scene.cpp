@@ -12,8 +12,39 @@ engine::Scene::Scene(const std::string &sceneConfig)
 
     this->_name = scene["name"] ? scene["name"].as<std::string>() : "undefined";
 
-    for (auto item : scene["objects"])
-        std::cout << item["name"] << std::endl;
+    if (scene["objects"]) {
+        for (auto item : scene["objects"]) {
+            ObjectRef temp = ObjectRef();
+
+            temp.setName(item["id"].as<std::string>());
+            for(YAML::const_iterator it = item["values"].begin(); it != item["values"].end(); ++it) {
+                std::vector<std::any> params;
+
+                for (auto param : it->second) {
+                    params.push_back(ObjectRef::parameterBuilder(param));
+                }
+                temp.addBuildParameter(it->first.as<std::string>(), params);
+            }
+            this->addHud(item["name"].as<std::string>(), temp);
+        }
+    }
+
+    if (scene["huds"]) {
+        for (auto item : scene["huds"]) {
+            ObjectRef temp = ObjectRef();
+
+            temp.setName(item["id"].as<std::string>());
+            for(YAML::const_iterator it = item["values"].begin(); it != item["values"].end(); ++it) {
+                std::vector<std::any> params;
+
+                for (auto param : it->second) {
+                    params.push_back(ObjectRef::parameterBuilder(param));
+                }
+                temp.addBuildParameter(it->first.as<std::string>(), params);
+            }
+            this->addHud(item["name"].as<std::string>(), temp);
+        }
+    }
 }
 
 const std::string &engine::Scene::getName(void) const
@@ -21,37 +52,27 @@ const std::string &engine::Scene::getName(void) const
     return (this->_name);
 }
 
-void engine::Scene::setName(const std::string &)
+void engine::Scene::setName(const std::string &name)
 {
-
+    this->_name = name;
 }
 
-void engine::Scene::addHud(const std::string &, const std::string &)
+void engine::Scene::addHud(const std::string &name, const engine::ObjectRef &ref)
 {
-
+    this->_huds.push_back(std::pair<std::string, engine::ObjectRef>(name, ref));
 }
 
-void engine::Scene::addObject(const std::string &, const std::string &)
+void engine::Scene::addObject(const std::string &name, const engine::ObjectRef &ref)
 {
-
+    this->_objects.push_back(std::pair<std::string, engine::ObjectRef>(name, ref));
 }
 
-void engine::Scene::removeHud(const std::string &)
-{
-
-}
-
-void engine::Scene::removeObject(const std::string &)
-{
-
-}
-
-const std::vector<std::pair<std::string, std::string>> &engine::Scene::getHuds(void) const
+const std::vector<std::pair<std::string, engine::ObjectRef>> &engine::Scene::getHuds(void) const
 {
     return (_huds);
 }
 
-const std::vector<std::pair<std::string, std::string>> &engine::Scene::getObjects(void) const
+const std::vector<std::pair<std::string, engine::ObjectRef>> &engine::Scene::getObjects(void) const
 {
     return (_objects);
 }
