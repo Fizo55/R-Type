@@ -10,6 +10,7 @@
     #include <typeindex>
     #include <unordered_map>
     #include <optional>
+    #include <any>
 
     namespace engine {
         struct EcsSystem;
@@ -92,25 +93,67 @@
                 std::vector<std::optional<Component>> components;
         };
 
+        class ObjectRef {
+            public:
+                ObjectRef();
+                ObjectRef(const std::string &);
+
+            private:
+                std::string _name;
+                std::map<std::string, std::string> _buildComponents;
+                std::map<std::string, std::vector<std::any>> _buildParameters;
+        };
+
+        class Object : public ObjectRef {
+            public:
+                Object();
+                Object(const std::string &);
+            private:
+                std::unique_ptr<Entity> _entity;
+        };
+
         class Scene {
             public:
                 Scene();
                 Scene(const std::string &);
 
+                const std::string &getName(void) const;
+                void setName(const std::string &);
+
+                void addHud(const std::string &, const std::string &);
+                void addObject(const std::string &, const std::string &);
+
+                void removeHud(const std::string &);
+                void removeObject(const std::string &);
+
+                const std::vector<std::pair<std::string, std::string>> &getHuds(void) const;
+                const std::vector<std::pair<std::string, std::string>> &getObjects(void) const;
+
             private:
                 std::string _name;
-                std::vector<std::unique_ptr<Entity>> _objects;
-                std::vector<std::unique_ptr<Entity>> _huds;
+                std::vector<std::pair<std::string, std::string>> _objects;
+                std::vector<std::pair<std::string, std::string>> _huds;
         };
 
         class Game {
             public:
                 Game();
 
+                const Scene &getScene(const std::string &) const;
+                const ObjectRef &getObject(const std::string &) const;
+
+                void registerScene(const std::string &);
+                void registerScene(const Scene &);
+
+                void registerObject(const std::string &);
+                void registerObject(const ObjectRef &);
+
+                void unregisterScene(const std::string &);
+                void unregisterObject(const std::string &);
+
             private:
-                std::vector<std::unique_ptr<Entity>> _objects;
-                std::vector<std::unique_ptr<Entity>> _huds;
-                std::map<std::string, std::unique_ptr<Scene>> _scenes;
+                std::map<std::string, ObjectRef> _objects;
+                std::map<std::string, Scene> _scenes;
                 std::string _loadedScene;
         };
     }
