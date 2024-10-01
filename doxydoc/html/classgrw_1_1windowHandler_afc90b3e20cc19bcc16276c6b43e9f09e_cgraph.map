@@ -1,0 +1,7 @@
+<map id="grw::windowHandler::eventWindows" name="grw::windowHandler::eventWindows">
+<area shape="rect" id="node1" title="Handle the events of the windows." alt="" coords="5,99,160,139"/>
+<area shape="rect" id="node2" href="$classgrw_1_1windowHandler.html#a502db37fbe0d034baf5a2ddb68ace078" title="Build an event from a SDL_Event." alt="" coords="229,5,384,45"/>
+<area shape="rect" id="node3" href="$classgrw_1_1windowHandler.html#a7a6d7836962f7eb2099ec0cb6a946f6e" title=" " alt="" coords="229,69,384,109"/>
+<area shape="rect" id="node4" href="$classgrw_1_1windowHandler.html#a30e79879e5fa282623f55633897671ea" title=" " alt="" coords="453,99,608,139"/>
+<area shape="rect" id="node5" href="$classgrw_1_1window.html#a14577db223a637059b4097267d3bab72" title="Register an event." alt="" coords="208,185,405,210"/>
+</map>

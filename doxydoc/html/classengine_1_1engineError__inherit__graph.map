@@ -1,0 +1,7 @@
+<map id="engine::engineError" name="engine::engineError">
+<area shape="rect" id="node1" title=" " alt="" coords="161,131,311,237"/>
+<area shape="rect" id="node3" href="$classengine_1_1loadError.html" title=" " alt="" coords="5,285,139,363"/>
+<area shape="rect" id="node4" href="$classengine_1_1nullPtrError.html" title=" " alt="" coords="163,285,309,363"/>
+<area shape="rect" id="node5" href="$classengine_1_1outOfMemoryError.html" title=" " alt="" coords="333,285,528,363"/>
+<area shape="rect" id="node2" title=" " alt="" coords="179,5,293,83"/>
+</map>
