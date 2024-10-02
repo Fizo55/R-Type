@@ -1,0 +1,42 @@
+digraph "main"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [label="main",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="steelblue1",style="solid"];
+  Node2 [label="grw::windowHandler\l::addWindow",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1windowHandler.html#aaf4c5e9071464ebb233d77939e2ed6d1",tooltip=" "];
+  Node2 -> Node3 [color="steelblue1",style="solid"];
+  Node3 [label="grw::window::getId",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1window.html#a82b193fed64bb031decebc084b3218bd",tooltip=" "];
+  Node1 -> Node4 [color="steelblue1",style="solid"];
+  Node4 [label="grw::window::clear",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1window.html#ab65ca772964e7d3f458fab326fd1aa40",tooltip=" "];
+  Node4 -> Node5 [color="steelblue1",style="solid"];
+  Node5 [label="grw::window::isClosed",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1window.html#ad8417a9e5de65e07f7cc911e8c41f782",tooltip=" "];
+  Node1 -> Node6 [color="steelblue1",style="solid"];
+  Node6 [label="grw::mask::createColor",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1mask.html#a65897b82ca07a98a443ef6bcaea9162a",tooltip="Create a new color with the mask."];
+  Node1 -> Node7 [color="steelblue1",style="solid"];
+  Node7 [label="grw::windowHandler\l::drawWindows",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1windowHandler.html#adf0ec2cdb961472815577b2e33081334",tooltip=" "];
+  Node1 -> Node8 [color="steelblue1",style="solid"];
+  Node8 [label="grw::windowHandler\l::eventWindows",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1windowHandler.html#afc90b3e20cc19bcc16276c6b43e9f09e",tooltip="Handle the events of the windows."];
+  Node8 -> Node9 [color="steelblue1",style="solid"];
+  Node9 [label="grw::windowHandler\l::buildEvent",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1windowHandler.html#a502db37fbe0d034baf5a2ddb68ace078",tooltip="Build an event from a SDL_Event."];
+  Node8 -> Node10 [color="steelblue1",style="solid"];
+  Node10 [label="grw::windowHandler\l::getWindow",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1windowHandler.html#a7a6d7836962f7eb2099ec0cb6a946f6e",tooltip=" "];
+  Node10 -> Node11 [color="steelblue1",style="solid"];
+  Node11 [label="grw::windowHandler\l::hasWindow",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1windowHandler.html#a30e79879e5fa282623f55633897671ea",tooltip=" "];
+  Node8 -> Node11 [color="steelblue1",style="solid"];
+  Node8 -> Node12 [color="steelblue1",style="solid"];
+  Node12 [label="grw::window::registerEvent",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1window.html#a14577db223a637059b4097267d3bab72",tooltip="Register an event."];
+  Node1 -> Node13 [color="steelblue1",style="solid"];
+  Node13 [label="grw::mask::getR",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1mask.html#a7d73d5f3a5062d33d428057ca0640c9f",tooltip="Get the red color from a color."];
+  Node1 -> Node14 [color="steelblue1",style="solid"];
+  Node14 [label="grw::window::getSurface",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1window.html#ad47642288c8dc28e1aa5a2ae8cf2b770",tooltip=" "];
+  Node1 -> Node15 [color="steelblue1",style="solid"];
+  Node15 [label="grw::windowHandler\l::isAllWindowClosed",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1windowHandler.html#a907ab3be2e3be1c8007da3836cba4aa9",tooltip=" "];
+  Node1 -> Node16 [color="steelblue1",style="solid"];
+  Node16 [label="grw::clock::tick",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1clock.html#a14eaafdc07a98b92c442feba967f11ea",tooltip="Get the time since the last call to this function."];
+  Node1 -> Node17 [color="steelblue1",style="solid"];
+  Node17 [label="grw::windowHandler\l::updateWindows",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1windowHandler.html#a36bdd78ba8e25f407815463983dc7c0d",tooltip=" "];
+}

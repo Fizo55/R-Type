@@ -1,0 +1,18 @@
+digraph "grw::windowHandler::eventWindows"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [label="grw::windowHandler\l::eventWindows",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Handle the events of the windows."];
+  Node1 -> Node2 [color="steelblue1",style="solid"];
+  Node2 [label="grw::windowHandler\l::buildEvent",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1windowHandler.html#a502db37fbe0d034baf5a2ddb68ace078",tooltip="Build an event from a SDL_Event."];
+  Node1 -> Node3 [color="steelblue1",style="solid"];
+  Node3 [label="grw::windowHandler\l::getWindow",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1windowHandler.html#a7a6d7836962f7eb2099ec0cb6a946f6e",tooltip=" "];
+  Node3 -> Node4 [color="steelblue1",style="solid"];
+  Node4 [label="grw::windowHandler\l::hasWindow",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1windowHandler.html#a30e79879e5fa282623f55633897671ea",tooltip=" "];
+  Node1 -> Node4 [color="steelblue1",style="solid"];
+  Node1 -> Node5 [color="steelblue1",style="solid"];
+  Node5 [label="grw::window::registerEvent",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgrw_1_1window.html#a14577db223a637059b4097267d3bab72",tooltip="Register an event."];
+}
