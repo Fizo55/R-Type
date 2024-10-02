@@ -44,6 +44,8 @@
                 void clear(unsigned int);
                 void optimize(const texture &);
                 void setMask(const mask &);
+                texture setScale(const engine_math::vector2<int> &size, const texture &originalTexture);
+
 
                 SDL_Surface *getSurface(void) const;
                 const engine_math::vector2<int> &getSize(void) const;
@@ -53,6 +55,27 @@
                 engine_math::vector2<int> _size;
                 unsigned int _depht;
                 mask _mask;
+        };
+
+        class sprite {
+            public:
+                sprite(const std::string &filePath, const engine_math::vector2<int> &position, const engine_math::vector2<int> &size);
+                sprite(SDL_Surface *surface, const engine_math::vector2<int> &position, const engine_math::vector2<int> &size);
+                ~sprite();
+
+                void setPosition(const engine_math::vector2<int> &position);
+                void setSize(const engine_math::vector2<int> &size);
+                texture *getTexture() const;
+
+                const engine_math::vector2<int> &getPosition() const;
+                const engine_math::vector2<int> &getSize() const;
+
+                void draw(texture &target, const engine_math::vector2<int> &position) const;
+
+            private:
+                texture _spriteTexture;
+                engine_math::vector2<int> _position;
+                engine_math::vector2<int> _size;
         };
 
         class event {
