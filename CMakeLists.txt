@@ -73,6 +73,7 @@ add_library(engine-core OBJECT
     ${ENGINE_SRC_DIR}/core/game.cpp
     ${ENGINE_SRC_DIR}/core/entity.cpp
     ${ENGINE_SRC_DIR}/core/registry.cpp
+    ${ENGINE_SRC_DIR}/core/object.cpp
 )
 target_include_directories(engine-core PRIVATE ./include)
 target_compile_definitions(engine-core PUBLIC OBJ)
