@@ -57,7 +57,7 @@ void engine::ObjectRef::removeBuildComponent(const std::string &name)
 
 const std::string &engine::ObjectRef::getBuildComponent(const std::string &name) const
 {
-    return (this->_buildComponents.at(name));
+    return (this->_buildComponents.find(name)->second);
 }
 
 void engine::ObjectRef::addBuildParameter(const std::string &name, const std::vector<std::any> &values)
@@ -72,7 +72,29 @@ void engine::ObjectRef::removeBuildParameter(const std::string &name)
 
 const std::vector<std::any> &engine::ObjectRef::getBuildParameter(const std::string &name) const
 {
-    return (this->_buildParameters.at(name));
+    return (this->_buildParameters.find(name)->second);
+}
+
+std::vector<std::string> engine::ObjectRef::getAllBuildComponent(void) const
+{
+    std::vector<std::string> keys;
+
+    for (auto it = this->_buildComponents.begin(); it != this->_buildComponents.end(); ++it) {
+        keys.push_back(it->first);
+    }
+
+    return (keys);
+}
+
+std::vector<std::string> engine::ObjectRef::getAllBuildParameter(void) const
+{
+        std::vector<std::string> keys;
+
+    for (auto it = this->_buildParameters.begin(); it != this->_buildParameters.end(); ++it) {
+        keys.push_back(it->first);
+    }
+
+    return (keys);
 }
 
 void engine::Object::buildEntity(void)
@@ -90,7 +112,111 @@ engine::Object::Object()
 
 }
 
-engine::Object::Object(const std::string &path)
-    : ObjectRef(path) {
+engine::Object::Object(const ObjectRef &other) {
+    this->setName(other.getName());
 
+    for (auto item : other.getAllBuildComponent())
+        this->addBuildComponent(item, other.getBuildComponent(item));
+    for (auto item : other.getAllBuildParameter())
+        this->addBuildParameter(item, other.getBuildParameter(item));
+
+    this->buildEntity();
+}
+
+void engine::Object::buildEntity(void) {
+    this->_entity = std::make_unique<Entity>(1);
+}
+
+std::ostream &operator<<(std::ostream &os, engine::ObjectRef const &obj) {
+    std::size_t i = 0;
+
+    os << "<ObjectRef[" << obj.getName() << "]";
+
+    if (!obj.getAllBuildComponent().empty()) {
+        os << " components={";
+        for (auto item : obj.getAllBuildComponent()) {
+            if (i)
+                    os << ", ";
+            os << item << "=" << obj.getBuildComponent(item);
+
+            ++i;
+        }
+        os << "}";
+    }
+    i = 0;
+    if (!obj.getAllBuildParameter().empty()) {
+        os << " parameters={";
+        for (auto item : obj.getAllBuildParameter()) {
+            std::size_t j = 0;
+
+            if (i)
+                os << ", ";
+            os << item << "=(";
+            for (auto param : obj.getBuildParameter(item)) {
+                if (j)
+                    os << " ";
+                if (param.type() == typeid(std::string))
+                    os << std::any_cast<std::string>(param);
+                else if (param.type() == typeid(int64_t))
+                    os << std::any_cast<int64_t>(param);
+                else
+                    os << "unknown";
+
+                ++j;
+            }
+            os << ")";
+
+            ++i;
+        }
+        os << "}";
+    }
+    os << ">";
+    return (os);
+}
+
+std::ostream &operator<<(std::ostream &os, engine::Object const &obj) {
+    std::size_t i = 0;
+
+    os << "<Object[" << obj.getName() << "]";
+
+    if (!obj.getAllBuildComponent().empty()) {
+        os << " components={";
+        for (auto item : obj.getAllBuildComponent()) {
+            if (i)
+                    os << ", ";
+            os << item << "=" << obj.getBuildComponent(item);
+
+            ++i;
+        }
+        os << "}";
+    }
+    i = 0;
+    if (!obj.getAllBuildParameter().empty()) {
+        os << " parameters={";
+        for (auto item : obj.getAllBuildParameter()) {
+            std::size_t j = 0;
+
+            if (i)
+                os << ", ";
+            os << item << "=(";
+            for (auto param : obj.getBuildParameter(item)) {
+                if (j)
+                    os << " ";
+                if (param.type() == typeid(std::string))
+                    os << std::any_cast<std::string>(param);
+                else if (param.type() == typeid(int64_t))
+                    os << std::any_cast<int64_t>(param);
+                else
+                    os << "unknown";
+
+                ++j;
+            }
+            os << ")";
+
+            ++i;
+        }
+        os << "}";
+    }
+    os << ">";
+    return (os);
 }

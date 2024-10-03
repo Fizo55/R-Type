@@ -106,10 +106,12 @@
                 void addBuildComponent(const std::string &, const std::string &);
                 void removeBuildComponent(const std::string &);
                 const std::string &getBuildComponent(const std::string &) const;
+                std::vector<std::string> getAllBuildComponent(void) const;
 
                 void addBuildParameter(const std::string &, const std::vector<std::any> &);
                 void removeBuildParameter(const std::string &);
                 const std::vector<std::any> &getBuildParameter(const std::string &) const;
+                std::vector<std::string> getAllBuildParameter(void) const;
 
                 static std::any parameterBuilder(const YAML::Node &);
 
@@ -122,7 +124,7 @@
         class Object : public ObjectRef {
             public:
                 Object();
-                Object(const std::string &);
+                Object(const ObjectRef &);
 
                 void buildEntity(void);
 
@@ -167,12 +169,25 @@
                 void unregisterScene(const std::string &);
                 void unregisterObject(const std::string &);
 
+                void loadObject(const ObjectRef &);
+
+                void loadScene(const std::string &);
+                void unloadScene(void);
+
+                Object buildObjectRef(const ObjectRef &);
+
             private:
                 std::map<std::string, ObjectRef> _objects;
                 std::map<std::string, Scene> _scenes;
+
+                std::vector<std::pair<std::string, Object>> _loadedGameObjects;
+
                 std::string _loadedScene;
         };
     }
+
+    std::ostream &operator<<(std::ostream &os, engine::ObjectRef const &obj);
+    std::ostream &operator<<(std::ostream &os, engine::Object const &obj);
 
     #include "engineCore.tpp"
 

@@ -25,7 +25,7 @@ engine::Scene::Scene(const std::string &sceneConfig)
                 }
                 temp.addBuildParameter(it->first.as<std::string>(), params);
             }
-            this->addHud(item["name"].as<std::string>(), temp);
+            this->addObject(item["name"].as<std::string>(), temp);
         }
     }
 
