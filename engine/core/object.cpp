@@ -97,11 +97,6 @@ std::vector<std::string> engine::ObjectRef::getAllBuildParameter(void) const
     return (keys);
 }
 
-void engine::Object::buildEntity(void)
-{
-
-}
-
 const std::unique_ptr<engine::Entity> &engine::Object::getEntity(void) const
 {
     return (this->_entity);
