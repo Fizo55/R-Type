@@ -62,6 +62,7 @@ add_library(engine-graphic OBJECT
     ${ENGINE_SRC_DIR}/graphic/wrapper/clock.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/mask.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/windowHandler.cpp
+    ${ENGINE_SRC_DIR}/graphic/displayManager.cpp
 )
 
 target_include_directories(engine-graphic PRIVATE ./include ${SDL2_SOURCE_DIR}/include ${SDL2_image_SOURCE_DIR}/include)
@@ -74,6 +75,7 @@ add_library(engine-core OBJECT
     ${ENGINE_SRC_DIR}/core/entity.cpp
     ${ENGINE_SRC_DIR}/core/registry.cpp
     ${ENGINE_SRC_DIR}/core/object.cpp
+    ${ENGINE_SRC_DIR}/core/components/position.cpp
 )
 target_include_directories(engine-core PRIVATE ./include)
 target_compile_definitions(engine-core PUBLIC OBJ)
