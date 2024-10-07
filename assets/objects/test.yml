@@ -3,11 +3,11 @@ components:
   - name: coords
     type: position
 
-  - name: size
-    type: size
+  # - name: size
+  #   type: size
 
-  - name: main_collider
-    type: collider
+  # - name: main_collider
+  #   type: collider
 
-  - name: main_script
-    type: script
+  # - name: main_script
+  #   type: script
