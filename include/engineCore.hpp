@@ -11,6 +11,7 @@
     #include <unordered_map>
     #include <optional>
     #include <any>
+    #include <functional>
 
     #include <yaml-cpp/yaml.h>
 
@@ -24,9 +25,6 @@
 
         class Entity {
             public:
-                Entity(const Entity&) = delete;
-                Entity& operator=(const Entity&) = delete;
-
                 explicit Entity(std::size_t id);
 
                 explicit operator std::size_t() const;
@@ -93,6 +91,45 @@
 
             private:
                 std::vector<std::optional<Component>> components;
+        };
+
+        class ComponentBuildRoute {
+            public:
+                ComponentBuildRoute(const std::string & = "", const std::function<void(const Entity &, const std::vector<std::any> &)> & = std::function<void(const Entity &, const std::vector<std::any> &)>());
+                ~ComponentBuildRoute() = default;
+
+                std::string name;
+                std::function<void(const Entity &, const std::vector<std::any> &)> callback;
+        };
+
+        class EntityBuildData {
+            public:
+                EntityBuildData(const std::string &, const std::vector<std::any> &);
+                ~EntityBuildData() = default;
+
+                std::string nameRef;
+                std::vector<std::any> buildArgs;
+        };
+
+        class EntityFactory {
+            public:
+                EntityFactory();
+                ~EntityFactory() = default;
+
+                template <typename Component>
+                void registerComponent() { this->_registry.register_component<Component>(); };
+
+                void registerBuildComponentRoute(const ComponentBuildRoute &);
+
+                void buildComponent(const Entity &, const EntityBuildData &);
+
+                Entity createEntityComponentReady(const std::vector<EntityBuildData> &);
+                Entity createEntity(void);
+
+            private:
+                Registry _registry;
+
+                std::map<std::string, ComponentBuildRoute> _routes;
         };
 
         class ObjectRef {
