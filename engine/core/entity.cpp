@@ -1,4 +1,5 @@
 #include "engineCore.hpp"
+#include "engineExceptions.hpp"
 
 engine::Entity::Entity(std::size_t id) : _id(id) {}
 
@@ -16,12 +17,12 @@ void engine::Entity::update_systems(engine::Registry& registry, float delta_time
     }
 }
 
-engine::EntityBuildData::EntityBuildData(const std::string &nameRef, const std::vector<std::any> &args)
-  :  nameRef(nameRef), buildArgs(args) {
+engine::EntityBuildData::EntityBuildData(const std::string &nameRef, const std::string &name, const std::vector<std::any> &args)
+  :  nameRef(nameRef), name(name), buildArgs(args) {
 
 }
 
-engine::ComponentBuildRoute::ComponentBuildRoute(const std::string &name, const std::function<void(const Entity &, const std::vector<std::any> &)> &callback)
+engine::ComponentBuildRoute::ComponentBuildRoute(const std::string &name, const std::function<void(const Entity &, const std::vector<std::any> &, Registry &)> &callback)
   :  name(name), callback(callback)
 {
 
@@ -37,6 +38,11 @@ engine::EntityFactory::EntityFactory()
 
 }
 
+engine::Registry &engine::EntityFactory::getRegistry(void)
+{
+    return (this->_registry);
+}
+
 void engine::EntityFactory::registerBuildComponentRoute(const ComponentBuildRoute &route)
 {
     this->_routes[route.name] = route;
@@ -44,7 +50,9 @@ void engine::EntityFactory::registerBuildComponentRoute(const ComponentBuildRout
 
 void engine::EntityFactory::buildComponent(const Entity &entity, const EntityBuildData &data)
 {
-
+    if (this->_routes.find(data.nameRef) == this->_routes.end())
+        throw engine::componentBuildError("component not found in registered components routes.");
+    this->_routes[data.nameRef].callback(entity, data.buildArgs, this->_registry);
 }
 
 engine::Entity engine::EntityFactory::createEntityComponentReady(const std::vector<EntityBuildData> &data)

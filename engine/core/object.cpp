@@ -70,8 +70,10 @@ void engine::ObjectRef::removeBuildParameter(const std::string &name)
     this->_buildParameters.erase(name);
 }
 
-const std::vector<std::any> &engine::ObjectRef::getBuildParameter(const std::string &name) const
+const std::vector<std::any> engine::ObjectRef::getBuildParameter(const std::string &name) const
 {
+    if (this->_buildParameters.find(name) == this->_buildParameters.end())
+        return (std::vector<std::any>());
     return (this->_buildParameters.find(name)->second);
 }
 
@@ -114,12 +116,16 @@ engine::Object::Object(const ObjectRef &other) {
         this->addBuildComponent(item, other.getBuildComponent(item));
     for (auto item : other.getAllBuildParameter())
         this->addBuildParameter(item, other.getBuildParameter(item));
-
-    this->buildEntity();
 }
 
-void engine::Object::buildEntity(void) {
-    this->_entity = std::make_unique<Entity>(1);
+void engine::Object::buildEntity(EntityFactory &factory) {
+    std::vector<EntityBuildData> buildData;
+
+    for (auto item : this->getAllBuildComponent()) {
+        buildData.push_back(EntityBuildData(this->getBuildComponent(item), item, this->getBuildParameter(item)));
+    }
+
+    this->_entity = std::make_unique<Entity>(factory.createEntityComponentReady(buildData));
 }
 
 std::ostream &operator<<(std::ostream &os, engine::ObjectRef const &obj) {

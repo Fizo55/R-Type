@@ -95,19 +95,20 @@
 
         class ComponentBuildRoute {
             public:
-                ComponentBuildRoute(const std::string & = "", const std::function<void(const Entity &, const std::vector<std::any> &)> & = std::function<void(const Entity &, const std::vector<std::any> &)>());
+                ComponentBuildRoute(const std::string & = "", const std::function<void(const Entity &, const std::vector<std::any> &, Registry &)> & = std::function<void(const Entity &, const std::vector<std::any> &, Registry &)>());
                 ~ComponentBuildRoute() = default;
 
                 std::string name;
-                std::function<void(const Entity &, const std::vector<std::any> &)> callback;
+                std::function<void(const Entity &, const std::vector<std::any> &, Registry &)> callback;
         };
 
         class EntityBuildData {
             public:
-                EntityBuildData(const std::string &, const std::vector<std::any> &);
+                EntityBuildData(const std::string &, const std::string &, const std::vector<std::any> &);
                 ~EntityBuildData() = default;
 
                 std::string nameRef;
+                std::string name;
                 std::vector<std::any> buildArgs;
         };
 
@@ -125,6 +126,8 @@
 
                 Entity createEntityComponentReady(const std::vector<EntityBuildData> &);
                 Entity createEntity(void);
+
+                Registry &getRegistry(void);
 
             private:
                 Registry _registry;
@@ -147,7 +150,7 @@
 
                 void addBuildParameter(const std::string &, const std::vector<std::any> &);
                 void removeBuildParameter(const std::string &);
-                const std::vector<std::any> &getBuildParameter(const std::string &) const;
+                const std::vector<std::any> getBuildParameter(const std::string &) const;
                 std::vector<std::string> getAllBuildParameter(void) const;
 
                 static std::any parameterBuilder(const YAML::Node &);
@@ -163,7 +166,7 @@
                 Object();
                 Object(const ObjectRef &);
 
-                void buildEntity(void);
+                void buildEntity(EntityFactory &);
 
                 const std::unique_ptr<Entity> &getEntity(void) const;
             private:
@@ -211,6 +214,8 @@
                 void loadScene(const std::string &);
                 void unloadScene(void);
 
+                void addFactory(EntityFactory *);
+
                 Object buildObjectRef(const ObjectRef &);
 
             private:
@@ -218,6 +223,8 @@
                 std::map<std::string, Scene> _scenes;
 
                 std::vector<std::pair<std::string, Object>> _loadedGameObjects;
+
+                EntityFactory *_factory;
 
                 std::string _loadedScene;
         };
