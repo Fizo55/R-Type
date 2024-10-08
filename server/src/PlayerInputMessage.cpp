@@ -1,5 +1,3 @@
-// PlayerInputMessage.cpp
-
 #include "PlayerInputMessage.hpp"
 #include "BinarySerializer.hpp"
 #include "BinaryDeserializer.hpp"

@@ -1,5 +1,3 @@
-// GameStateUpdateMessage.hpp
-
 #ifndef GAMESTATEUPDATEMESSAGE_HPP
 #define GAMESTATEUPDATEMESSAGE_HPP
 

@@ -1,5 +1,3 @@
-// INetwork.hpp
-
 #ifndef INETWORK_HPP
 #define INETWORK_HPP
 

@@ -1,5 +1,3 @@
-// RTypeGameLogic.cpp
-
 #include "RTypeGameLogic.hpp"
 #include "PlayerInputMessage.hpp"
 #include "GameStateUpdateMessage.hpp"

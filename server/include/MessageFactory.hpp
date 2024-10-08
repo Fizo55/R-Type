@@ -1,5 +1,3 @@
-// MessageFactory.hpp
-
 #ifndef MESSAGEFACTORY_HPP
 #define MESSAGEFACTORY_HPP
 

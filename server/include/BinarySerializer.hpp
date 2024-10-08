@@ -1,5 +1,3 @@
-// BinarySerializer.hpp
-
 #ifndef BINARYSERIALIZER_HPP
 #define BINARYSERIALIZER_HPP
 

@@ -6,26 +6,22 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
 
-# Fetch SDL2
 FetchContent_Declare(
   SDL2
   GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
   GIT_TAG release-2.26.5
 )
-# Configure SDL2 to build static library only
 set(SDL_SHARED OFF CACHE BOOL "" FORCE)
 set(SDL_STATIC ON CACHE BOOL "" FORCE)
 set(SDL_TEST OFF CACHE BOOL "" FORCE)
 set(SDL_DISABLE_INSTALL ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(SDL2)
 
-# Fetch SDL2_image
 FetchContent_Declare(
   SDL2_image
   GIT_REPOSITORY https://github.com/libsdl-org/SDL_image.git
   GIT_TAG release-2.6.2
 )
-# Configure SDL2_image to build static library only
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 set(SDL2IMAGE_BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 set(SDL2IMAGE_BUILD_STATIC_LIBS ON CACHE BOOL "" FORCE)
@@ -33,12 +29,10 @@ set(SDL2IMAGE_VENDORED ON CACHE BOOL "" FORCE)
 set(SDL2IMAGE_SAMPLES OFF CACHE BOOL "" FORCE)
 set(SDL2IMAGE_TESTS OFF CACHE BOOL "" FORCE)
 set(SDL2IMAGE_INSTALL OFF CACHE BOOL "" FORCE)
-# Ensure SDL2_image knows SDL2 is static
 set(SDL2_SHARED OFF CACHE BOOL "" FORCE)
 set(SDL2IMAGE_SDL2_SHARED OFF CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(SDL2_image)
 
-# Fetch yaml-cpp
 FetchContent_Declare(
   yaml_cpp
   GIT_REPOSITORY https://github.com/jbeder/yaml-cpp.git
@@ -47,7 +41,6 @@ FetchContent_Declare(
 set(YAML_CPP_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(yaml_cpp)
 
-# Fetch Asio
 FetchContent_Declare(
   asio
   GIT_REPOSITORY https://github.com/chriskohlhoff/asio.git
@@ -55,10 +48,8 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(asio)
 
-# Find Threads
 find_package(Threads REQUIRED)
 
-# Set directories
 set(ENGINE_SRC_DIR ${CMAKE_SOURCE_DIR}/engine)
 set(SERVER_SRC_DIR ${CMAKE_SOURCE_DIR}/server)
 set(CLIENT_SRC_DIR ${CMAKE_SOURCE_DIR}/client)
@@ -66,7 +57,6 @@ set(ENGINE_INCLUDE_DIR ${ENGINE_SRC_DIR}/include)
 set(SERVER_INCLUDE_DIR ${SERVER_SRC_DIR}/include)
 set(CLIENT_INCLUDE_DIR ${CLIENT_SRC_DIR}/include)
 
-# Engine Graphic Library
 add_library(engine-graphic STATIC
     ${ENGINE_SRC_DIR}/graphic/wrapper/window.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/videoMode.cpp
@@ -88,7 +78,6 @@ target_link_libraries(engine-graphic PUBLIC
     SDL2_image::SDL2_image
 )
 
-# Engine Core Library
 add_library(engine-core STATIC
     ${ENGINE_SRC_DIR}/core/scene.cpp
     ${ENGINE_SRC_DIR}/core/game.cpp
@@ -105,7 +94,6 @@ target_link_libraries(engine-core PUBLIC
     yaml-cpp
 )
 
-# Server Executable
 file(GLOB_RECURSE SERVER_SOURCES
     ${SERVER_SRC_DIR}/src/*.cpp
 )
@@ -120,7 +108,6 @@ target_include_directories(server-executable PRIVATE
     ${asio_SOURCE_DIR}/asio/include
 )
 
-# Define ASIO_STANDALONE macro
 target_compile_definitions(server-executable PRIVATE ASIO_STANDALONE)
 
 target_link_libraries(server-executable PRIVATE
@@ -128,7 +115,6 @@ target_link_libraries(server-executable PRIVATE
     Threads::Threads
 )
 
-# Client Executable
 file(GLOB_RECURSE CLIENT_SOURCES
     ${CLIENT_SRC_DIR}/src/*.cpp
 )
