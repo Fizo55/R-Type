@@ -19,10 +19,10 @@
 
         class Position : public IComponent {
             public:
-                Position(long x, long y);
+                Position(const std::string &, long x, long y);
                 ~Position();
 
-                void static buildComponent(const engine::Entity &, const std::vector<std::any> &, engine::Registry &);
+                void static buildComponent(const engine::Entity &, const std::string &, const std::vector<std::any> &, engine::Registry &);
 
                 engine_math::vector2<long> coordinates;
         };

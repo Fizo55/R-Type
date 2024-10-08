@@ -41,8 +41,9 @@ void engine::Game::loadScene(const std::string &sceneName)
         this->_loadedGameObjects.push_back(std::pair<std::string, Object>(obj.first, this->buildObjectRef(obj.second)));
     }
 
-    std::cout << this->_loadedGameObjects[0].second << std::endl;
-    std::cout << this->_factory->getRegistry().get_component<engine_components::Position>(*this->_loadedGameObjects[0].second.getEntity())->coordinates.y << std::endl;
+    for (auto obj : scene.getHuds()) {
+        this->_loadedGameHuds.push_back(std::pair<std::string, Object>(obj.first, this->buildObjectRef(obj.second)));
+    }
 }
 
 void engine::Game::unloadScene(void)

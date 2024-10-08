@@ -1,10 +1,10 @@
 #include "engineComponents.hpp"
 #include "engineExceptions.hpp"
 
-engine_components::Position::Position(long x, long y)
-  :  coordinates(engine_math::vector2<long>(x, y))
+engine_components::Position::Position(const std::string &name, long x, long y)
+  : coordinates(engine_math::vector2<long>(x, y))
 {
-
+    this->name = name;
 }
 
 engine_components::Position::~Position()
@@ -12,7 +12,7 @@ engine_components::Position::~Position()
 
 }
 
-void engine_components::Position::buildComponent(const engine::Entity &entity, const std::vector<std::any> &args, engine::Registry &registry)
+void engine_components::Position::buildComponent(const engine::Entity &entity, const std::string &name, const std::vector<std::any> &args, engine::Registry &registry)
 {
     std::vector<long> newVec;
 
@@ -24,5 +24,5 @@ void engine_components::Position::buildComponent(const engine::Entity &entity, c
         else
             newVec.push_back(0);
     }
-    registry.add_component(entity, Position{newVec[0], newVec[1]});
+    registry.add_component(entity, Position{name, newVec[0], newVec[1]});
 }

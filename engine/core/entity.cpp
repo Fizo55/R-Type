@@ -22,7 +22,7 @@ engine::EntityBuildData::EntityBuildData(const std::string &nameRef, const std::
 
 }
 
-engine::ComponentBuildRoute::ComponentBuildRoute(const std::string &name, const std::function<void(const Entity &, const std::vector<std::any> &, Registry &)> &callback)
+engine::ComponentBuildRoute::ComponentBuildRoute(const std::string &name, const std::function<void(const Entity &, const std::string &, const std::vector<std::any> &, Registry &)> &callback)
   :  name(name), callback(callback)
 {
 
@@ -52,7 +52,7 @@ void engine::EntityFactory::buildComponent(const Entity &entity, const EntityBui
 {
     if (this->_routes.find(data.nameRef) == this->_routes.end())
         throw engine::componentBuildError("component not found in registered components routes.");
-    this->_routes[data.nameRef].callback(entity, data.buildArgs, this->_registry);
+    this->_routes[data.nameRef].callback(entity, data.name, data.buildArgs, this->_registry);
 }
 
 engine::Entity engine::EntityFactory::createEntityComponentReady(const std::vector<EntityBuildData> &data)

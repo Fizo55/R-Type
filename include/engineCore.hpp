@@ -95,11 +95,11 @@
 
         class ComponentBuildRoute {
             public:
-                ComponentBuildRoute(const std::string & = "", const std::function<void(const Entity &, const std::vector<std::any> &, Registry &)> & = std::function<void(const Entity &, const std::vector<std::any> &, Registry &)>());
+                ComponentBuildRoute(const std::string & = "", const std::function<void(const Entity &, const std::string &, const std::vector<std::any> &, Registry &)> & = std::function<void(const Entity &, const std::string &, const std::vector<std::any> &, Registry &)>());
                 ~ComponentBuildRoute() = default;
 
                 std::string name;
-                std::function<void(const Entity &, const std::vector<std::any> &, Registry &)> callback;
+                std::function<void(const Entity &, const std::string &, const std::vector<std::any> &, Registry &)> callback;
         };
 
         class EntityBuildData {
@@ -223,6 +223,7 @@
                 std::map<std::string, Scene> _scenes;
 
                 std::vector<std::pair<std::string, Object>> _loadedGameObjects;
+                std::vector<std::pair<std::string, Object>> _loadedGameHuds;
 
                 EntityFactory *_factory;
 
