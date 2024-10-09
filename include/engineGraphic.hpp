@@ -162,7 +162,16 @@
     };
 
     namespace engine {
+        class displayManager {
+            public:
+                displayManager();
 
+                void registerAsset(const std::string &, const std::string &);
+                void registerAsset(const std::string &, const grw::texture &);
+
+            private:
+                std::map<std::string, grw::texture> textures;
+        };
     };
 
 #endif /* !ENGINE_GRAPHIC_HPP_ */
