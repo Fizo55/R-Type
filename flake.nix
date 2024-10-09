@@ -24,6 +24,7 @@
           pkg-config
           ninja
           yaml-cpp
+          valgrind
           asio
         ];
         shellHook = ''
