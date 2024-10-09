@@ -1,46 +1,28 @@
-#include "engineGraphic.hpp"
+/*
+** EPITECH PROJECT, 2024
+** R-Type
+** File description:
+** main
+*/
 
-int main(void)
+#include "engineCore.hpp"
+#include "engineComponents.hpp"
+
+using namespace engine;
+
+int main(int ac, char **av)
 {
-    unsigned long dt;
-    grw::mask theMask = grw::mask(0xff000000, 0x00ff0000, 0x0000ff00, 0x000000ff);
-    grw::windowHandler winHandler = grw::windowHandler();
-    grw::clock clock;
-    grw::window *win0 = new grw::window("test 0", grw::videoMode(engine_math::vector2(1920, 1000), engine_math::vector2(0, 0), 32, grw::videoMode::CLOSABLE | grw::videoMode::ACCELERATION | grw::videoMode::VSYNC));
-    // grw::window *win1 = new grw::window("test 1", grw::videoMode(engine_math::vector2(800, 600), engine_math::vector2(100, 100), 32, grw::videoMode::CLOSABLE | grw::videoMode::ACCELERATION | grw::videoMode::VSYNC));
-    // grw::window *win2 = new grw::window("test 2", grw::videoMode(engine_math::vector2(800, 600), engine_math::vector2(200, 200), 32, grw::videoMode::CLOSABLE | grw::videoMode::ACCELERATION | grw::videoMode::VSYNC));
-    grw::sprite *sprite1 = new grw::sprite("/home/pierre/Pictures/angryimg.png", engine_math::vector2(100, 100), engine_math::vector2(100, 100));
+    Game theGame = Game();
+    EntityFactory factory = EntityFactory();
 
-    win0->getSurface()->setMask(theMask);
-    // win1->getSurface()->setMask(theMask);
-    // win2->getSurface()->setMask(theMask);
+    factory.registerComponent<engine_components::Position>();
 
-    winHandler.addWindow(win0);
-    // winHandler.addWindow(win1);
-    // winHandler.addWindow(win2);
+    factory.registerBuildComponentRoute(ComponentBuildRoute("position", engine_components::Position::buildComponent));
 
-    std::cout << theMask.createColor(0xff, 0x00, 0x00, 0xff) << std::endl;
-    std::cout << (int)theMask.getR(theMask.createColor(0xff, 0x00, 0x00, 0xff)) << std::endl;
+    theGame.addFactory(&factory);
 
-    while (!winHandler.isAllWindowClosed()) {
-        winHandler.eventWindows();
-        winHandler.updateWindows();
-        win0->clear(theMask.createColor(0xff, 0xff, 0x00, 0xff));
-        // win1->clear(theMask.createColor(0x00, 0xff, 0xff, 0xff));
-        // win2->clear(theMask.createColor(0xff, 0kx00, 0xff, 0xff));
+    theGame.registerObject("assets/objects/test.yml");
+    theGame.registerScene("assets/scenes/main_scene.yml");
 
-        win0->blit(*sprite1->getTexture(), engine_math::vector2(100, 100), sprite1->getSize());
-        // win0->blit(*texture2, engine_math::vector2(100, 100), texture2->getSize());
-
-        winHandler.drawWindows();
-        dt = clock.tick(60);
-
-        std::cout << dt << std::endl;
-    }
-
-    delete sprite1;
-    delete win0;
-    // delete win1;
-    // delete win2;
-    return (0);
+    theGame.loadScene("scene0");
 }

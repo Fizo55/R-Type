@@ -1,0 +1,72 @@
+\hypertarget{structengine_1_1ComponentPool}{}\doxysection{engine\+::Component\+Pool\texorpdfstring{$<$}{<} Component \texorpdfstring{$>$}{>} Class Template Reference}
+\label{structengine_1_1ComponentPool}\index{engine::ComponentPool$<$ Component $>$@{engine::ComponentPool$<$ Component $>$}}
+
+
+{\ttfamily \#include $<$engine\+Core.\+hpp$>$}
+
+
+
+Inheritance diagram for engine\+::Component\+Pool\texorpdfstring{$<$}{<} Component \texorpdfstring{$>$}{>}\+:
+% FIG 0
+
+
+Collaboration diagram for engine\+::Component\+Pool\texorpdfstring{$<$}{<} Component \texorpdfstring{$>$}{>}\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{structengine_1_1ComponentPool_ab7a78791508b64c4f8dfb887cd2fbfca}{add\+\_\+component}} (uint64\+\_\+t entity\+\_\+id, const Component \&component)
+\item 
+std\+::optional$<$ Component $>$ \& \mbox{\hyperlink{structengine_1_1ComponentPool_a2d4ba95ac54ba564312e459d547fb1b1}{get\+\_\+component}} (uint64\+\_\+t entity\+\_\+id)
+\item 
+void \mbox{\hyperlink{structengine_1_1ComponentPool_a6d32e2636114f5c26a0b9fd1c306fa3f}{remove\+\_\+component}} (uint64\+\_\+t entity\+\_\+id) override
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{structengine_1_1ComponentPool_a777cb91b89dd1705b060d07e1c8db22c}{size}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classengine_1_1ComponentPoolBase}{engine\+::\+Component\+Pool\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classengine_1_1ComponentPoolBase_afc69a1888fd13bdc8d4e0bdc68fdfed4}{$\sim$\+Component\+Pool\+Base}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classengine_1_1ComponentPoolBase_a92be7602b6460fb48b963ffd5b979c01}{remove\+\_\+component}} (uint64\+\_\+t entity\+\_\+id)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structengine_1_1ComponentPool_ab7a78791508b64c4f8dfb887cd2fbfca}\label{structengine_1_1ComponentPool_ab7a78791508b64c4f8dfb887cd2fbfca}} 
+\index{engine::ComponentPool$<$ Component $>$@{engine::ComponentPool$<$ Component $>$}!add\_component@{add\_component}}
+\index{add\_component@{add\_component}!engine::ComponentPool$<$ Component $>$@{engine::ComponentPool$<$ Component $>$}}
+\doxysubsubsection{\texorpdfstring{add\_component()}{add\_component()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+void \mbox{\hyperlink{structengine_1_1ComponentPool}{engine\+::\+Component\+Pool}}$<$ Component $>$\+::add\+\_\+component (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{entity\+\_\+id,  }\item[{const Component \&}]{component }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structengine_1_1ComponentPool_a2d4ba95ac54ba564312e459d547fb1b1}\label{structengine_1_1ComponentPool_a2d4ba95ac54ba564312e459d547fb1b1}} 
+\index{engine::ComponentPool$<$ Component $>$@{engine::ComponentPool$<$ Component $>$}!get\_component@{get\_component}}
+\index{get\_component@{get\_component}!engine::ComponentPool$<$ Component $>$@{engine::ComponentPool$<$ Component $>$}}
+\doxysubsubsection{\texorpdfstring{get\_component()}{get\_component()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+std\+::optional$<$ Component $>$ \& \mbox{\hyperlink{structengine_1_1ComponentPool}{engine\+::\+Component\+Pool}}$<$ Component $>$\+::get\+\_\+component (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{entity\+\_\+id }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structengine_1_1ComponentPool_a6d32e2636114f5c26a0b9fd1c306fa3f}\label{structengine_1_1ComponentPool_a6d32e2636114f5c26a0b9fd1c306fa3f}} 
+\index{engine::ComponentPool$<$ Component $>$@{engine::ComponentPool$<$ Component $>$}!remove\_component@{remove\_component}}
+\index{remove\_component@{remove\_component}!engine::ComponentPool$<$ Component $>$@{engine::ComponentPool$<$ Component $>$}}
+\doxysubsubsection{\texorpdfstring{remove\_component()}{remove\_component()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+void \mbox{\hyperlink{structengine_1_1ComponentPool}{engine\+::\+Component\+Pool}}$<$ Component $>$\+::remove\+\_\+component (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{entity\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classengine_1_1ComponentPoolBase_a92be7602b6460fb48b963ffd5b979c01}{engine\+::\+Component\+Pool\+Base}}.
+
+\mbox{\Hypertarget{structengine_1_1ComponentPool_a777cb91b89dd1705b060d07e1c8db22c}\label{structengine_1_1ComponentPool_a777cb91b89dd1705b060d07e1c8db22c}} 
+\index{engine::ComponentPool$<$ Component $>$@{engine::ComponentPool$<$ Component $>$}!size@{size}}
+\index{size@{size}!engine::ComponentPool$<$ Component $>$@{engine::ComponentPool$<$ Component $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+std\+::size\+\_\+t \mbox{\hyperlink{structengine_1_1ComponentPool}{engine\+::\+Component\+Pool}}$<$ Component $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{engineCore_8hpp}{engine\+Core.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,13 @@
+name: obj0
+components:
+  - name: coords
+    type: position
+
+  # - name: size
+  #   type: size
+
+  # - name: main_collider
+  #   type: collider
+
+  # - name: main_script
+  #   type: script
