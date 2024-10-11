@@ -10,6 +10,10 @@ clock::clock()
 
 }
 
+
+/**
+ * @brief Get the time since the last call to this function
+ */
 unsigned long clock::tick(int fps) {
     long double executionTime;
     unsigned long delta = SDL_GetTicks64() - this->_oldTime;

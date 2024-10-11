@@ -1,0 +1,204 @@
+\hypertarget{classgrw_1_1mask}{}\doxysection{grw\+::mask Class Reference}
+\label{classgrw_1_1mask}\index{grw::mask@{grw::mask}}
+
+
+{\ttfamily \#include $<$engine\+Graphic.\+hpp$>$}
+
+
+
+Collaboration diagram for grw\+::mask\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgrw_1_1mask_aef99035a452f25bd5133045804364c1d}{mask}} (unsigned \mbox{\hyperlink{classgrw_1_1mask_a0590f94960656d994347adcae3a52ed3}{r}}=0xff000000, unsigned \mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{classgrw_1_1mask_a140628d9828780b76c0961cf26dd8867}{g}}=0x00ff0000, unsigned \mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{classgrw_1_1mask_a2f3b3318afef2351700410c718a0ed8a}{b}}=0x0000ff00, unsigned \mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{classgrw_1_1mask_a3ccc35909a4c01f8d209bd3ae959f240}{a}}=0x000000ff)
+\begin{DoxyCompactList}\small\item\em Create a new mask. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgrw_1_1mask_a4662716063bbdc32013ff5b84b5f8f45}{$\sim$mask}} ()=default
+\item 
+unsigned \mbox{\hyperlink{classgrw_1_1mask_a65897b82ca07a98a443ef6bcaea9162a}{create\+Color}} (unsigned char \mbox{\hyperlink{classgrw_1_1mask_a0590f94960656d994347adcae3a52ed3}{r}}, unsigned char \mbox{\hyperlink{classgrw_1_1mask_a140628d9828780b76c0961cf26dd8867}{g}}, unsigned char \mbox{\hyperlink{classgrw_1_1mask_a2f3b3318afef2351700410c718a0ed8a}{b}}, unsigned char \mbox{\hyperlink{classgrw_1_1mask_a3ccc35909a4c01f8d209bd3ae959f240}{a}})
+\begin{DoxyCompactList}\small\item\em Create a new color with the mask. \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{classgrw_1_1mask_a7d73d5f3a5062d33d428057ca0640c9f}{getR}} (unsigned \mbox{\hyperlink{classint}{int}} color)
+\begin{DoxyCompactList}\small\item\em Get the red color from a color. \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{classgrw_1_1mask_a295ba3db49dd51c985d5083f22e96ba0}{getG}} (unsigned \mbox{\hyperlink{classint}{int}} color)
+\begin{DoxyCompactList}\small\item\em Get the green color from a color. \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{classgrw_1_1mask_a421b5822b41b83a7bf8c8794861374d7}{getB}} (unsigned \mbox{\hyperlink{classint}{int}} color)
+\begin{DoxyCompactList}\small\item\em Get the blue color from a color. \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{classgrw_1_1mask_a7855c88e322797fb3792eb7a1f995e10}{getA}} (unsigned \mbox{\hyperlink{classint}{int}} color)
+\begin{DoxyCompactList}\small\item\em Get the alpha color from a color. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{classgrw_1_1mask_a0590f94960656d994347adcae3a52ed3}{r}}
+\item 
+unsigned \mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{classgrw_1_1mask_a140628d9828780b76c0961cf26dd8867}{g}}
+\item 
+unsigned \mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{classgrw_1_1mask_a2f3b3318afef2351700410c718a0ed8a}{b}}
+\item 
+unsigned \mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{classgrw_1_1mask_a3ccc35909a4c01f8d209bd3ae959f240}{a}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgrw_1_1mask_aef99035a452f25bd5133045804364c1d}\label{classgrw_1_1mask_aef99035a452f25bd5133045804364c1d}} 
+\index{grw::mask@{grw::mask}!mask@{mask}}
+\index{mask@{mask}!grw::mask@{grw::mask}}
+\doxysubsubsection{\texorpdfstring{mask()}{mask()}}
+{\footnotesize\ttfamily mask\+::mask (\begin{DoxyParamCaption}\item[{unsigned}]{r = {\ttfamily 0xff000000},  }\item[{unsigned \mbox{\hyperlink{classint}{int}}}]{g = {\ttfamily 0x00ff0000},  }\item[{unsigned \mbox{\hyperlink{classint}{int}}}]{b = {\ttfamily 0x0000ff00},  }\item[{unsigned \mbox{\hyperlink{classint}{int}}}]{a = {\ttfamily 0x000000ff} }\end{DoxyParamCaption})}
+
+
+
+Create a new mask. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & The red mask \\
+\hline
+{\em g} & The green mask \\
+\hline
+{\em b} & The blue mask \\
+\hline
+{\em a} & The alpha mask \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgrw_1_1mask_a4662716063bbdc32013ff5b84b5f8f45}\label{classgrw_1_1mask_a4662716063bbdc32013ff5b84b5f8f45}} 
+\index{grw::mask@{grw::mask}!````~mask@{$\sim$mask}}
+\index{````~mask@{$\sim$mask}!grw::mask@{grw::mask}}
+\doxysubsubsection{\texorpdfstring{$\sim$mask()}{~mask()}}
+{\footnotesize\ttfamily grw\+::mask\+::$\sim$mask (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgrw_1_1mask_a65897b82ca07a98a443ef6bcaea9162a}\label{classgrw_1_1mask_a65897b82ca07a98a443ef6bcaea9162a}} 
+\index{grw::mask@{grw::mask}!createColor@{createColor}}
+\index{createColor@{createColor}!grw::mask@{grw::mask}}
+\doxysubsubsection{\texorpdfstring{createColor()}{createColor()}}
+{\footnotesize\ttfamily unsigned mask\+::create\+Color (\begin{DoxyParamCaption}\item[{unsigned char}]{r\+Color,  }\item[{unsigned char}]{g\+Color,  }\item[{unsigned char}]{b\+Color,  }\item[{unsigned char}]{a\+Color }\end{DoxyParamCaption})}
+
+
+
+Create a new color with the mask. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r\+Color} & The red color \\
+\hline
+{\em g\+Color} & The green color \\
+\hline
+{\em b\+Color} & The blue color \\
+\hline
+{\em a\+Color} & The alpha color \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned The color 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{classgrw_1_1mask_a7855c88e322797fb3792eb7a1f995e10}\label{classgrw_1_1mask_a7855c88e322797fb3792eb7a1f995e10}} 
+\index{grw::mask@{grw::mask}!getA@{getA}}
+\index{getA@{getA}!grw::mask@{grw::mask}}
+\doxysubsubsection{\texorpdfstring{getA()}{getA()}}
+{\footnotesize\ttfamily unsigned char mask\+::getA (\begin{DoxyParamCaption}\item[{unsigned \mbox{\hyperlink{classint}{int}}}]{color }\end{DoxyParamCaption})}
+
+
+
+Get the alpha color from a color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The color \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned char The alpha color 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgrw_1_1mask_a421b5822b41b83a7bf8c8794861374d7}\label{classgrw_1_1mask_a421b5822b41b83a7bf8c8794861374d7}} 
+\index{grw::mask@{grw::mask}!getB@{getB}}
+\index{getB@{getB}!grw::mask@{grw::mask}}
+\doxysubsubsection{\texorpdfstring{getB()}{getB()}}
+{\footnotesize\ttfamily unsigned char mask\+::getB (\begin{DoxyParamCaption}\item[{unsigned \mbox{\hyperlink{classint}{int}}}]{color }\end{DoxyParamCaption})}
+
+
+
+Get the blue color from a color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The color \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned char The blue color 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgrw_1_1mask_a295ba3db49dd51c985d5083f22e96ba0}\label{classgrw_1_1mask_a295ba3db49dd51c985d5083f22e96ba0}} 
+\index{grw::mask@{grw::mask}!getG@{getG}}
+\index{getG@{getG}!grw::mask@{grw::mask}}
+\doxysubsubsection{\texorpdfstring{getG()}{getG()}}
+{\footnotesize\ttfamily unsigned char mask\+::getG (\begin{DoxyParamCaption}\item[{unsigned \mbox{\hyperlink{classint}{int}}}]{color }\end{DoxyParamCaption})}
+
+
+
+Get the green color from a color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The color \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned char The green color 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgrw_1_1mask_a7d73d5f3a5062d33d428057ca0640c9f}\label{classgrw_1_1mask_a7d73d5f3a5062d33d428057ca0640c9f}} 
+\index{grw::mask@{grw::mask}!getR@{getR}}
+\index{getR@{getR}!grw::mask@{grw::mask}}
+\doxysubsubsection{\texorpdfstring{getR()}{getR()}}
+{\footnotesize\ttfamily unsigned char mask\+::getR (\begin{DoxyParamCaption}\item[{unsigned \mbox{\hyperlink{classint}{int}}}]{color }\end{DoxyParamCaption})}
+
+
+
+Get the red color from a color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The color \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned char The red color 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classgrw_1_1mask_a3ccc35909a4c01f8d209bd3ae959f240}\label{classgrw_1_1mask_a3ccc35909a4c01f8d209bd3ae959f240}} 
+\index{grw::mask@{grw::mask}!a@{a}}
+\index{a@{a}!grw::mask@{grw::mask}}
+\doxysubsubsection{\texorpdfstring{a}{a}}
+{\footnotesize\ttfamily unsigned \mbox{\hyperlink{classint}{int}} grw\+::mask\+::a}
+
+\mbox{\Hypertarget{classgrw_1_1mask_a2f3b3318afef2351700410c718a0ed8a}\label{classgrw_1_1mask_a2f3b3318afef2351700410c718a0ed8a}} 
+\index{grw::mask@{grw::mask}!b@{b}}
+\index{b@{b}!grw::mask@{grw::mask}}
+\doxysubsubsection{\texorpdfstring{b}{b}}
+{\footnotesize\ttfamily unsigned \mbox{\hyperlink{classint}{int}} grw\+::mask\+::b}
+
+\mbox{\Hypertarget{classgrw_1_1mask_a140628d9828780b76c0961cf26dd8867}\label{classgrw_1_1mask_a140628d9828780b76c0961cf26dd8867}} 
+\index{grw::mask@{grw::mask}!g@{g}}
+\index{g@{g}!grw::mask@{grw::mask}}
+\doxysubsubsection{\texorpdfstring{g}{g}}
+{\footnotesize\ttfamily unsigned \mbox{\hyperlink{classint}{int}} grw\+::mask\+::g}
+
+\mbox{\Hypertarget{classgrw_1_1mask_a0590f94960656d994347adcae3a52ed3}\label{classgrw_1_1mask_a0590f94960656d994347adcae3a52ed3}} 
+\index{grw::mask@{grw::mask}!r@{r}}
+\index{r@{r}!grw::mask@{grw::mask}}
+\doxysubsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily unsigned \mbox{\hyperlink{classint}{int}} grw\+::mask\+::r}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{engineGraphic_8hpp}{engine\+Graphic.\+hpp}}\item 
+engine/graphic/wrapper/\mbox{\hyperlink{mask_8cpp}{mask.\+cpp}}\end{DoxyCompactItemize}

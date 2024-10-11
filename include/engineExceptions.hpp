@@ -32,6 +32,11 @@
             public:
                 loadError(const std::string &what_message) : engineError(what_message) {};
         };
+
+        class componentBuildError : public engineError {
+            public:
+                componentBuildError(const std::string &what_message) : engineError(what_message) {};
+        };
     };
 
 #endif /* !ENGINE_EXCEPTIONS_HPP_ */

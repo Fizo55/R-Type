@@ -2,6 +2,12 @@
 
 using namespace grw;
 
+/**
+ * @brief Create a new window
+ * 
+ * @param title The title of the window
+ * @param mode The video mode of the window
+ */
 window::window(const std::string &title, const videoMode &mode)
     : _closed(0), _title(title), _videoMode(mode)
 {
@@ -29,6 +35,9 @@ window::~window()
     SDL_DestroyWindow(this->_window);
 }
 
+/**
+ * @brief Close the window
+ */
 void window::close(void)
 {
     this->_closed = 1;
@@ -69,6 +78,11 @@ void window::clearEvents(void)
     this->_events.clear();
 }
 
+/**
+ * @brief Register an event
+ * 
+ * @param toRegister The event to register
+ */
 void window::registerEvent(const event &toRegister)
 {
     this->_events[toRegister.type] = toRegister;
@@ -86,6 +100,9 @@ unsigned char window::hasEvent(unsigned long eventType)
     return (this->_events.find(eventType) != this->_events.end());
 }
 
+/**
+ * @brief Update the window
+ */
 void window::update(void)
 {
     if (engine_math::bitFlag::getFlag(this->_videoMode.flags, videoMode::CLOSABLE)) {

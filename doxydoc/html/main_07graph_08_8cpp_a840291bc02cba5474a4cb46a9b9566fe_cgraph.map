@@ -1,0 +1,19 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title=" " alt="" coords="5,270,60,295"/>
+<area shape="rect" id="node2" href="$classgrw_1_1windowHandler.html#aaf4c5e9071464ebb233d77939e2ed6d1" title=" " alt="" coords="121,5,275,45"/>
+<area shape="rect" id="node4" href="$classgrw_1_1window.html#ab65ca772964e7d3f458fab326fd1aa40" title=" " alt="" coords="127,70,269,95"/>
+<area shape="rect" id="node6" href="$classgrw_1_1mask.html#a65897b82ca07a98a443ef6bcaea9162a" title="Create a new color with the mask." alt="" coords="112,119,284,145"/>
+<area shape="rect" id="node7" href="$classgrw_1_1windowHandler.html#adf0ec2cdb961472815577b2e33081334" title=" " alt="" coords="121,169,275,209"/>
+<area shape="rect" id="node8" href="$classgrw_1_1windowHandler.html#afc90b3e20cc19bcc16276c6b43e9f09e" title="Handle the events of the windows." alt="" coords="121,233,275,273"/>
+<area shape="rect" id="node13" href="$classgrw_1_1mask.html#a7d73d5f3a5062d33d428057ca0640c9f" title="Get the red color from a color." alt="" coords="135,298,261,323"/>
+<area shape="rect" id="node14" href="$classgrw_1_1window.html#ad47642288c8dc28e1aa5a2ae8cf2b770" title=" " alt="" coords="108,347,288,373"/>
+<area shape="rect" id="node15" href="$classgrw_1_1windowHandler.html#a907ab3be2e3be1c8007da3836cba4aa9" title=" " alt="" coords="121,397,275,437"/>
+<area shape="rect" id="node16" href="$classgrw_1_1clock.html#a14eaafdc07a98b92c442feba967f11ea" title="Get the time since the last call to this function." alt="" coords="139,462,257,487"/>
+<area shape="rect" id="node17" href="$classgrw_1_1windowHandler.html#a36bdd78ba8e25f407815463983dc7c0d" title=" " alt="" coords="121,512,275,552"/>
+<area shape="rect" id="node3" href="$classgrw_1_1window.html#a82b193fed64bb031decebc084b3218bd" title=" " alt="" coords="363,13,506,38"/>
+<area shape="rect" id="node5" href="$classgrw_1_1window.html#ad8417a9e5de65e07f7cc911e8c41f782" title=" " alt="" coords="352,70,517,95"/>
+<area shape="rect" id="node9" href="$classgrw_1_1windowHandler.html#a502db37fbe0d034baf5a2ddb68ace078" title="Build an event from a SDL_Event." alt="" coords="357,145,512,185"/>
+<area shape="rect" id="node10" href="$classgrw_1_1windowHandler.html#a7a6d7836962f7eb2099ec0cb6a946f6e" title=" " alt="" coords="357,209,512,249"/>
+<area shape="rect" id="node11" href="$classgrw_1_1windowHandler.html#a30e79879e5fa282623f55633897671ea" title=" " alt="" coords="581,239,736,279"/>
+<area shape="rect" id="node12" href="$classgrw_1_1window.html#a14577db223a637059b4097267d3bab72" title="Register an event." alt="" coords="336,325,533,350"/>
+</map>

@@ -1,0 +1,24 @@
+digraph "include/engineGraphic.hpp"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [label="include/engineGraphic.hpp",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="client/main(graph).cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_07graph_08_8cpp.html",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="engine/graphic/wrapper\l/clock.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$clock_8cpp.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="engine/graphic/wrapper\l/event.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$event_8cpp.html",tooltip=" "];
+  Node1 -> Node5 [dir="back",color="steelblue1",style="solid"];
+  Node5 [label="engine/graphic/wrapper\l/mask.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$mask_8cpp.html",tooltip=" "];
+  Node1 -> Node6 [dir="back",color="steelblue1",style="solid"];
+  Node6 [label="engine/graphic/wrapper\l/texture.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$texture_8cpp.html",tooltip=" "];
+  Node1 -> Node7 [dir="back",color="steelblue1",style="solid"];
+  Node7 [label="engine/graphic/wrapper\l/videoMode.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$videoMode_8cpp.html",tooltip=" "];
+  Node1 -> Node8 [dir="back",color="steelblue1",style="solid"];
+  Node8 [label="engine/graphic/wrapper\l/window.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$window_8cpp.html",tooltip=" "];
+  Node1 -> Node9 [dir="back",color="steelblue1",style="solid"];
+  Node9 [label="engine/graphic/wrapper\l/windowHandler.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$windowHandler_8cpp.html",tooltip=" "];
+}

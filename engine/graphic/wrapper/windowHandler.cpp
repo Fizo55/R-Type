@@ -43,6 +43,11 @@ unsigned char windowHandler::isWindowClosed(unsigned int id)
     return (!this->hasWindow(id) || this->_windows[id]->isClosed());
 }
 
+/**
+ * @brief Build an event from a SDL_Event
+ * 
+ * @param eventSDL The SDL_Event to build the event from
+ */
 event windowHandler::buildEvent(SDL_Event *eventSDL)
 {
     unsigned int eventType = 0;
@@ -59,6 +64,9 @@ event windowHandler::buildEvent(SDL_Event *eventSDL)
     return (event());
 }
 
+/**
+ * @brief Handle the events of the windows
+ */
 void windowHandler::eventWindows(void)
 {
     SDL_Event eventSDL;

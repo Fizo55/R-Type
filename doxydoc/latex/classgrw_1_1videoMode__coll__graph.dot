@@ -1,0 +1,15 @@
+digraph "grw::videoMode"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [shape=record,label="{grw::videoMode\n||+ videoMode()\l+ ~videoMode()\l}",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [color="grey25",style="solid",label=" +position\n+size" ,arrowhead="odiamond"];
+  Node2 [shape=record,label="{engine_math::vector2\l\< int \>\n||+ vector2()\l+ vector2()\l+ vector2()\l+ vector2()\l+ ~vector2()\l+ operator=()\l+ operator=()\l+ operator-()\l+ operator-()\l+ operator-()\land 17 more...\l}",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classengine__math_1_1vector2.html",tooltip=" "];
+  Node3 -> Node2 [color="grey25",style="solid",label=" +x\n+y" ,arrowhead="odiamond"];
+  Node3 [shape=record,label="{int\n||}",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classint.html",tooltip=" "];
+  Node3 -> Node1 [color="grey25",style="solid",label=" +depht" ,arrowhead="odiamond"];
+  Node4 -> Node1 [color="grey25",style="solid",label=" +flags" ,arrowhead="odiamond"];
+  Node4 [shape=record,label="{unsigned long\n||}",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+}
