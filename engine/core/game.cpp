@@ -112,7 +112,7 @@ const std::vector<std::pair<std::string, engine::Object>> &engine::Game::getLoad
     return (this->_loadedGameHuds);
 }
 
-engine::EntityFactory *engine::Game::getFactory()
+engine::EntityFactory *engine::Game::getFactory(void)
 {
     return (this->_factory);
 }
