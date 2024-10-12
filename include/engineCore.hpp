@@ -214,7 +214,11 @@
                 void loadScene(const std::string &);
                 void unloadScene(void);
 
+                const std::vector<std::pair<std::string, Object>> &getLoadedObjects(void);
+                const std::vector<std::pair<std::string, Object>> &getLoadedHuds(void);
+
                 void addFactory(EntityFactory *);
+                engine::EntityFactory *getFactory(void);
 
                 Object buildObjectRef(const ObjectRef &);
 

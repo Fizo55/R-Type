@@ -6,8 +6,8 @@ objects:
       coords:
         - 10
         - 10
-      main_script:
-        - "assets/test0.cpp"
+      sprite:
+        - "sprite0"
 
 huds:
 

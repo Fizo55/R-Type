@@ -1,8 +1,8 @@
 #include "engineComponents.hpp"
 #include "engineExceptions.hpp"
 
-engine_components::Position::Position(const std::string &name, long x, long y)
-  : coordinates(engine_math::vector2<long>(x, y))
+engine_components::Position::Position(const std::string &name, int x, int y)
+  : coordinates(engine_math::vector2<int>(x, y))
 {
     this->name = name;
 }
@@ -14,7 +14,7 @@ engine_components::Position::~Position()
 
 void engine_components::Position::buildComponent(const engine::Entity &entity, const std::string &name, const std::vector<std::any> &args, engine::Registry &registry)
 {
-    std::vector<long> newVec;
+    std::vector<int> newVec;
 
     if (args.size() > 2)
         throw engine::componentBuildError("too many argument in componentBuild for Position.");

@@ -8,39 +8,36 @@
 #include <string>
 #include "engineGraphic.hpp"
 
-sprite::sprite(const std::string &filePath, const engine_math::vector2<int> &position, const engine_math::vector2<int> &size)
-    : _spriteTexture(filePath), _position(position), _size(size) {}
+grw::sprite::sprite(const std::shared_ptr<grw::texture> &tex, const engine_math::vector2<int> &position, const engine_math::vector2<int> &size)
+    : _spriteTexture(tex), _position(position), _size(size) {}
 
-sprite::sprite(SDL_Surface *surface, const engine_math::vector2<int> &position, const engine_math::vector2<int> &size)
-    : _spriteTexture(surface), _position(position), _size(size) {}
+grw::sprite::~sprite() {}
 
-sprite::~sprite() {}
-
-void sprite::setPosition(const engine_math::vector2<int> &position)
+void grw::sprite::setPosition(const engine_math::vector2<int> &position)
 {
     this->_position = position;
 }
 
-void sprite::setSize(const engine_math::vector2<int> &size)
+void grw::sprite::setSize(const engine_math::vector2<int> &size)
 {
     this->_size = size;
 }
 
-const engine_math::vector2<int> &sprite::getPosition() const
+const engine_math::vector2<int> &grw::sprite::getPosition() const
 {
     return this->_position;
 }
 
-const engine_math::vector2<int> &sprite::getSize() const
+const engine_math::vector2<int> &grw::sprite::getSize() const
 {
     return this->_size;
 }
 
-texture *getTexture() const
+std::shared_ptr<grw::texture> &grw::sprite::getTexture()
 {
-    return this->_texture;
+    return this->_spriteTexture;
 }
 
-void sprite::draw(texture &texture, const engine_math::vector2<int> &position) const {
-    texture.blit(_spriteTexture, position, this->_size);
+void grw::sprite::draw(const std::shared_ptr<grw::texture> &target) const {
+    target->blit(*this->_spriteTexture, this->_position, this->_size);
 }

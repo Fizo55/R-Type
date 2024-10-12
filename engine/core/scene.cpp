@@ -13,14 +13,14 @@ engine::Scene::Scene(const std::string &sceneConfig)
     this->_name = scene["name"] ? scene["name"].as<std::string>() : "undefined";
 
     if (scene["objects"]) {
-        for (auto item : scene["objects"]) {
+        for (const auto &item : scene["objects"]) {
             ObjectRef temp = ObjectRef();
 
             temp.setName(item["id"].as<std::string>());
             for(YAML::const_iterator it = item["values"].begin(); it != item["values"].end(); ++it) {
                 std::vector<std::any> params;
 
-                for (auto param : it->second) {
+                for (const auto &param : it->second) {
                     params.push_back(ObjectRef::parameterBuilder(param));
                 }
                 temp.addBuildParameter(it->first.as<std::string>(), params);
@@ -30,14 +30,14 @@ engine::Scene::Scene(const std::string &sceneConfig)
     }
 
     if (scene["huds"]) {
-        for (auto item : scene["huds"]) {
+        for (const auto &item : scene["huds"]) {
             ObjectRef temp = ObjectRef();
 
             temp.setName(item["id"].as<std::string>());
             for(YAML::const_iterator it = item["values"].begin(); it != item["values"].end(); ++it) {
                 std::vector<std::any> params;
 
-                for (auto param : it->second) {
+                for (const auto &param : it->second) {
                     params.push_back(ObjectRef::parameterBuilder(param));
                 }
                 temp.addBuildParameter(it->first.as<std::string>(), params);

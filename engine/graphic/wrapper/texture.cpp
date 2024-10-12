@@ -98,12 +98,12 @@ void texture::setMask(const mask &mask)
     this->_texture->format->Amask = mask.a;
 }
 
-std::unique_ptr<texture> &window::getSurface(void)
+std::shared_ptr<texture> &window::getSurface(void)
 {
     return (this->_texture);
 }
 
-const std::unique_ptr<texture> &window::getSurface(void) const
+const std::shared_ptr<texture> &window::getSurface(void) const
 {
     return (this->_texture);
 }
@@ -126,32 +126,15 @@ const engine_math::vector2<int> &texture::getSize(void) const
     return (this->_size);
 }
 
-texture texture::setScale(const engine_math::vector2<int> &size, const texture &originalTexture)
-{
-    // Create a new texture with the specified size and the same format as the original texture
-    // texture newTexture(size, originalTexture.getSurface()->format->BitsPerPixel, mask(
-    //     originalTexture.getSurface()->format->Rmask,
-    //     originalTexture.getSurface()->format->Gmask,
-    //     originalTexture.getSurface()->format->Bmask,
-    //     originalTexture.getSurface()->format->Amask
-    // ));
-
-    // // Blit the original texture to the new texture with scaling
-    // SDL_Rect srcRect = {0, 0, originalTexture.getSize().x, originalTexture.getSize().y};
-    // SDL_Rect destRect = {0, 0, size.x, size.y};
-
-    // // if (SDL_BlitScaled(originalTexture.getSurface(), &srcRect, newTexture.getSurface(), &destRect) != 0)
-    // // {
-    // //     throw engine::blitError("Failed to blit scaled texture.");
-    // // }
-
-    // return newTexture;
-}
-
 texture::~texture()
 {
     if (this->_texture) {
         SDL_FreeSurface(this->_texture);
         this->_texture = nullptr;
     }
+}
+
+const mask &texture::getMask(void) const
+{
+    return (this->_mask);
 }

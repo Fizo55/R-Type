@@ -59,6 +59,7 @@ add_library(engine-graphic OBJECT
     ${ENGINE_SRC_DIR}/graphic/wrapper/videoMode.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/texture.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/event.cpp
+    ${ENGINE_SRC_DIR}/graphic/wrapper/sprite.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/clock.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/mask.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/windowHandler.cpp
@@ -76,6 +77,7 @@ add_library(engine-core OBJECT
     ${ENGINE_SRC_DIR}/core/registry.cpp
     ${ENGINE_SRC_DIR}/core/object.cpp
     ${ENGINE_SRC_DIR}/core/components/position.cpp
+    ${ENGINE_SRC_DIR}/core/components/sprite.cpp
 )
 target_include_directories(engine-core PRIVATE ./include)
 target_compile_definitions(engine-core PUBLIC OBJ)
@@ -91,6 +93,7 @@ target_link_libraries(server-executable PRIVATE engine-graphic)
 
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp
+    ${CLIENT_SRC_DIR}/src/client.cpp
 )
 target_include_directories(client-executable PRIVATE ./include)
 target_link_libraries(client-executable PRIVATE engine-graphic)
