@@ -202,7 +202,7 @@
 
                 unsigned int createWindow(void);
 
-                void useEntity(const Entity &, Registry &);
+                void useEntity(const Entity &, Registry &, unsigned int);
             private:
                 grw::windowHandler _winHandler;
 

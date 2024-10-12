@@ -5,7 +5,7 @@ objects:
     values:
       coords:
         - 10
-        - 10
+        - 110
       sprite:
         - "sprite0"
 

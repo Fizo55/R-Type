@@ -19,7 +19,7 @@ void engine_components::Position::buildComponent(const engine::Entity &entity, c
     if (args.size() > 2)
         throw engine::componentBuildError("too many argument in componentBuild for Position.");
     for (std::size_t i = 0; i < 2; ++i) {
-        if (args.size() > (i + 1))
+        if (args.size() > (i))
             newVec.push_back(std::any_cast<long>(args[i]));
         else
             newVec.push_back(0);

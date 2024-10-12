@@ -37,9 +37,12 @@ void engine::displayManager::update(void)
 {
     this->_winHandler.updateWindows();
 
-    for (auto it = this->_rendering.begin(); it != this->_rendering.end(); ++it) {
-        if (this->_winHandler.isWindowClosed(it->first))
-            this->_rendering.erase(it->first);
+    for (auto it = this->_rendering.begin(); it != this->_rendering.end();) {
+        if (this->_winHandler.isWindowClosed(it->first)) {
+            it = this->_rendering.erase(it);
+        } else {
+            ++it;
+        }
     }
 }
 
@@ -75,7 +78,7 @@ bool engine::displayManager::event(void)
     return (this->_winHandler.isAllWindowClosed());
 }
 
-void engine::displayManager::useEntity(const engine::Entity &entity, engine::Registry &registry)
+void engine::displayManager::useEntity(const engine::Entity &entity, engine::Registry &registry, unsigned int windowId)
 {
     auto &position = registry.get_component<engine_components::Position>(entity);
     auto &sprite = registry.get_component<engine_components::Sprite>(entity);
@@ -83,5 +86,6 @@ void engine::displayManager::useEntity(const engine::Entity &entity, engine::Reg
     if (!position || !sprite)
         return;
 
-    grw::sprite newSprite(this->_textures[sprite->name], position->coordinates, engine_math::vector2<int>(-1, -1));
+    grw::sprite newSprite(this->_textures[sprite->sprite], position->coordinates, engine_math::vector2<int>(-1, -1));
+    this->_rendering[windowId].push_back(newSprite);
 }

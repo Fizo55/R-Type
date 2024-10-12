@@ -18,8 +18,8 @@ void engine_components::Sprite::buildComponent(const engine::Entity &entity, con
 
     if (args.size() > 1)
         throw engine::componentBuildError("too many argument in componentBuild for Sprite.");
-    for (std::size_t i = 0; i < 2; ++i) {
-        if (args.size() > (i + 1))
+    for (std::size_t i = 0; i < 1; ++i) {
+        if (args.size() > (i))
             newVec.push_back(std::any_cast<std::string>(args[i]));
         else
             newVec.push_back("");

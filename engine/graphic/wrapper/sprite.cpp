@@ -9,7 +9,9 @@
 #include "engineGraphic.hpp"
 
 grw::sprite::sprite(const std::shared_ptr<grw::texture> &tex, const engine_math::vector2<int> &position, const engine_math::vector2<int> &size)
-    : _spriteTexture(tex), _position(position), _size(size) {}
+    : _spriteTexture(tex), _position(position), _size(size)
+{
+}
 
 grw::sprite::~sprite() {}
 
