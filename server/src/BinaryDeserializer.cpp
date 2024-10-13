@@ -1,9 +1,23 @@
 #include "BinaryDeserializer.hpp"
 #include <cstring>
-#include <arpa/inet.h>
+#include <stdexcept>
+#include <vector>
+#include <string>
+#include <cstdint>
 
 BinaryDeserializer::BinaryDeserializer(const std::vector<uint8_t>& buffer)
     : buffer_(buffer), offset_(0) {
+}
+
+uint32_t BinaryDeserializer::toBigEndian(uint32_t value) {
+    return ((value & 0xFF000000) >> 24) |
+           ((value & 0x00FF0000) >> 8) |
+           ((value & 0x0000FF00) << 8) |
+           ((value & 0x000000FF) << 24);
+}
+
+uint32_t BinaryDeserializer::toHostOrder(uint32_t networkValue) {
+    return toBigEndian(networkValue);
 }
 
 int32_t BinaryDeserializer::readInt32() {
@@ -13,7 +27,7 @@ int32_t BinaryDeserializer::readInt32() {
     uint32_t networkValue;
     std::memcpy(&networkValue, &buffer_[offset_], 4);
     offset_ += 4;
-    return static_cast<int32_t>(ntohl(networkValue));
+    return static_cast<int32_t>(toHostOrder(networkValue));
 }
 
 uint32_t BinaryDeserializer::readUInt32() {
@@ -23,7 +37,7 @@ uint32_t BinaryDeserializer::readUInt32() {
     uint32_t networkValue;
     std::memcpy(&networkValue, &buffer_[offset_], 4);
     offset_ += 4;
-    return ntohl(networkValue);
+    return toHostOrder(networkValue);
 }
 
 float BinaryDeserializer::readFloat() {
@@ -32,7 +46,7 @@ float BinaryDeserializer::readFloat() {
     }
     uint32_t networkValue;
     std::memcpy(&networkValue, &buffer_[offset_], 4);
-    networkValue = ntohl(networkValue);
+    networkValue = toHostOrder(networkValue);
     float value;
     std::memcpy(&value, &networkValue, 4);
     offset_ += 4;

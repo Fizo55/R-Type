@@ -4,6 +4,7 @@
 #include "IDeserializer.hpp"
 #include <vector>
 #include <cstdint>
+#include <string>
 
 class BinaryDeserializer : public IDeserializer {
 public:
@@ -15,6 +16,9 @@ public:
     std::string readString() override;
 
 private:
+    static uint32_t toBigEndian(uint32_t value);
+    static uint32_t toHostOrder(uint32_t networkValue);
+
     const std::vector<uint8_t>& buffer_;
     size_t offset_;
 };

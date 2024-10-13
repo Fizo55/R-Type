@@ -1,13 +1,7 @@
 TODO : Rewrite the INSTALL.md correctly
 
-git submodule update --init
+Download xmake
 
-.\vcpkg\bootstrap-vcpkg.bat
+Open your rtype direction in command line interface then type :
 
-mkdir build
-
-cd build
-
-cmake .. .
-
-ninja -C build
+xmake

@@ -15,6 +15,8 @@ public:
     void writeString(const std::string& value) override;
 
 private:
+    static uint32_t toBigEndian(uint32_t value);
+
     std::vector<uint8_t>& buffer_;
 };
 
