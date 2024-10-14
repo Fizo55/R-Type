@@ -5,9 +5,9 @@ objects:
     values:
       coords:
         - 10
-        - 10
-      main_script:
-        - "assets/test0.cpp"
+        - 110
+      sprite:
+        - "sprite0"
 
 huds:
 

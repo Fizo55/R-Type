@@ -3,6 +3,9 @@ components:
   - name: coords
     type: position
 
+  - name: sprite
+    type: sprite
+
   # - name: size
   #   type: size
 

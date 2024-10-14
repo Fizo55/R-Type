@@ -98,12 +98,12 @@ void texture::setMask(const mask &mask)
     this->_texture->format->Amask = mask.a;
 }
 
-std::unique_ptr<texture> &window::getSurface(void)
+std::shared_ptr<texture> &window::getSurface(void)
 {
     return (this->_texture);
 }
 
-const std::unique_ptr<texture> &window::getSurface(void) const
+const std::shared_ptr<texture> &window::getSurface(void) const
 {
     return (this->_texture);
 }
@@ -132,4 +132,9 @@ texture::~texture()
         SDL_FreeSurface(this->_texture);
         this->_texture = nullptr;
     }
+}
+
+const mask &texture::getMask(void) const
+{
+    return (this->_mask);
 }

@@ -19,11 +19,11 @@ engine::Object engine::Game::buildObjectRef(const engine::ObjectRef &obj)
     ObjectRef objRegisterd = this->_objects[obj.getName()];
     ObjectRef newObj = ObjectRef();
 
-    for (auto item : objRegisterd.getAllBuildComponent()) {
+    for (const auto &item : objRegisterd.getAllBuildComponent()) {
         newObj.addBuildComponent(item, objRegisterd.getBuildComponent(item));
     }
 
-    for (auto item : obj.getAllBuildParameter()) {
+    for (const auto &item : obj.getAllBuildParameter()) {
         newObj.addBuildParameter(item, obj.getBuildParameter(item));
     }
     temp = Object(newObj);
@@ -37,11 +37,11 @@ void engine::Game::loadScene(const std::string &sceneName)
 {
     Scene scene = this->_scenes[sceneName];
 
-    for (auto obj : scene.getObjects()) {
+    for (const auto &obj : scene.getObjects()) {
         this->_loadedGameObjects.push_back(std::pair<std::string, Object>(obj.first, this->buildObjectRef(obj.second)));
     }
 
-    for (auto obj : scene.getHuds()) {
+    for (const auto &obj : scene.getHuds()) {
         this->_loadedGameHuds.push_back(std::pair<std::string, Object>(obj.first, this->buildObjectRef(obj.second)));
     }
 }
@@ -100,4 +100,19 @@ void engine::Game::unregisterObject(const std::string &name)
 void engine::Game::addFactory(EntityFactory *factory)
 {
     this->_factory = factory;
+}
+
+const std::vector<std::pair<std::string, engine::Object>> &engine::Game::getLoadedObjects(void)
+{
+    return (this->_loadedGameObjects);
+}
+
+const std::vector<std::pair<std::string, engine::Object>> &engine::Game::getLoadedHuds(void)
+{
+    return (this->_loadedGameHuds);
+}
+
+engine::EntityFactory *engine::Game::getFactory(void)
+{
+    return (this->_factory);
 }

@@ -59,7 +59,7 @@ engine::Entity engine::EntityFactory::createEntityComponentReady(const std::vect
 {
     Entity entity = this->_registry.create_entity();
 
-    for (auto buildData : data) {
+    for (const auto &buildData : data) {
         this->buildComponent(entity, buildData);
     }
     return (entity);

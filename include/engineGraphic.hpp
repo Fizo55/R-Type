@@ -4,6 +4,7 @@
     #include <iostream>
     #include <memory>
     #include <map>
+    #include <vector>
     #include <SDL2/SDL_surface.h>
     #include <SDL2/SDL_video.h>
     #include <SDL2/SDL_timer.h>
@@ -11,6 +12,7 @@
 
     #include "engineMath.hpp"
     #include "engineExceptions.hpp"
+    #include "engineCore.hpp"
 
     /** Base abstractions **/
 
@@ -45,14 +47,36 @@
                 void optimize(const texture &);
                 void setMask(const mask &);
 
+
                 SDL_Surface *getSurface(void) const;
                 const engine_math::vector2<int> &getSize(void) const;
+                const mask &getMask(void) const;
 
             private:
                 SDL_Surface *_texture;
                 engine_math::vector2<int> _size;
                 unsigned int _depht;
                 mask _mask;
+        };
+
+        class sprite {
+            public:
+                sprite(const std::shared_ptr<texture> &, const engine_math::vector2<int> &, const engine_math::vector2<int> &);
+                ~sprite();
+
+                void setPosition(const engine_math::vector2<int> &);
+                void setSize(const engine_math::vector2<int> &);
+                std::shared_ptr<texture> &getTexture();
+
+                const engine_math::vector2<int> &getPosition() const;
+                const engine_math::vector2<int> &getSize() const;
+
+                void draw(const std::shared_ptr<texture> &) const;
+
+            private:
+                std::shared_ptr<texture> _spriteTexture;
+                engine_math::vector2<int> _position;
+                engine_math::vector2<int> _size;
         };
 
         class event {
@@ -117,8 +141,8 @@
                 unsigned char hasEvent(unsigned long);
                 const event getEvent(unsigned long) const;
 
-                std::unique_ptr<texture> &getSurface(void);
-                const std::unique_ptr<texture> &getSurface(void) const;
+                std::shared_ptr<texture> &getSurface(void);
+                const std::shared_ptr<texture> &getSurface(void) const;
 
                 int getId(void) const;
 
@@ -130,7 +154,7 @@
                 videoMode _videoMode;
                 unsigned int _id;
 
-                std::unique_ptr<texture> _texture;
+                std::shared_ptr<texture> _texture;
 
                 SDL_Window *_window;
                 SDL_Renderer *_renderer;
@@ -167,10 +191,23 @@
                 displayManager();
 
                 void registerAsset(const std::string &, const std::string &);
-                void registerAsset(const std::string &, const grw::texture &);
+                void registerAsset(const std::string &, const std::shared_ptr<grw::texture> &);
 
+                void addWindow(grw::window *);
+
+                bool event(void);
+                void update(void);
+                void draw(void);
+                void clear(void);
+
+                unsigned int createWindow(void);
+
+                void useEntity(const Entity &, Registry &, unsigned int);
             private:
-                std::map<std::string, grw::texture> textures;
+                grw::windowHandler _winHandler;
+
+                std::map<unsigned int, std::vector<grw::sprite>> _rendering;
+                std::map<std::string, std::shared_ptr<grw::texture>> _textures;
         };
     };
 

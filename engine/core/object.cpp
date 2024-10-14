@@ -15,7 +15,7 @@ engine::ObjectRef::ObjectRef(const std::string &path)
     this->_name = obj["name"] ? obj["name"].as<std::string>() : "undefined";
 
     if (obj["components"]) {
-        for (auto item : obj["components"]) {
+        for (const auto &item : obj["components"]) {
             this->addBuildComponent(item["name"].as<std::string>(), item["type"].as<std::string>());
         }
     }
@@ -112,16 +112,16 @@ engine::Object::Object()
 engine::Object::Object(const ObjectRef &other) {
     this->setName(other.getName());
 
-    for (auto item : other.getAllBuildComponent())
+    for (const auto &item : other.getAllBuildComponent())
         this->addBuildComponent(item, other.getBuildComponent(item));
-    for (auto item : other.getAllBuildParameter())
+    for (const auto &item : other.getAllBuildParameter())
         this->addBuildParameter(item, other.getBuildParameter(item));
 }
 
 void engine::Object::buildEntity(EntityFactory &factory) {
     std::vector<EntityBuildData> buildData;
 
-    for (auto item : this->getAllBuildComponent()) {
+    for (const auto &item : this->getAllBuildComponent()) {
         buildData.push_back(EntityBuildData(this->getBuildComponent(item), item, this->getBuildParameter(item)));
     }
 
@@ -135,7 +135,7 @@ std::ostream &operator<<(std::ostream &os, engine::ObjectRef const &obj) {
 
     if (!obj.getAllBuildComponent().empty()) {
         os << " components={";
-        for (auto item : obj.getAllBuildComponent()) {
+        for (const auto &item : obj.getAllBuildComponent()) {
             if (i)
                     os << ", ";
             os << item << "=" << obj.getBuildComponent(item);
@@ -147,13 +147,13 @@ std::ostream &operator<<(std::ostream &os, engine::ObjectRef const &obj) {
     i = 0;
     if (!obj.getAllBuildParameter().empty()) {
         os << " parameters={";
-        for (auto item : obj.getAllBuildParameter()) {
+        for (const auto &item : obj.getAllBuildParameter()) {
             std::size_t j = 0;
 
             if (i)
                 os << ", ";
             os << item << "=(";
-            for (auto param : obj.getBuildParameter(item)) {
+            for (const auto &param : obj.getBuildParameter(item)) {
                 if (j)
                     os << " ";
                 if (param.type() == typeid(std::string))
@@ -182,7 +182,7 @@ std::ostream &operator<<(std::ostream &os, engine::Object const &obj) {
 
     if (!obj.getAllBuildComponent().empty()) {
         os << " components={";
-        for (auto item : obj.getAllBuildComponent()) {
+        for (const auto &item : obj.getAllBuildComponent()) {
             if (i)
                     os << ", ";
             os << item << "=" << obj.getBuildComponent(item);
@@ -194,13 +194,13 @@ std::ostream &operator<<(std::ostream &os, engine::Object const &obj) {
     i = 0;
     if (!obj.getAllBuildParameter().empty()) {
         os << " parameters={";
-        for (auto item : obj.getAllBuildParameter()) {
+        for (const auto &item : obj.getAllBuildParameter()) {
             std::size_t j = 0;
 
             if (i)
                 os << ", ";
             os << item << "=(";
-            for (auto param : obj.getBuildParameter(item)) {
+            for (const auto &param : obj.getBuildParameter(item)) {
                 if (j)
                     os << " ";
                 if (param.type() == typeid(std::string))

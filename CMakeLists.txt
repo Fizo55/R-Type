@@ -62,6 +62,7 @@ add_library(engine-graphic STATIC
     ${ENGINE_SRC_DIR}/graphic/wrapper/videoMode.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/texture.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/event.cpp
+    ${ENGINE_SRC_DIR}/graphic/wrapper/sprite.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/clock.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/mask.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/windowHandler.cpp
@@ -86,6 +87,7 @@ add_library(engine-core STATIC
     ${ENGINE_SRC_DIR}/core/registry.cpp
     ${ENGINE_SRC_DIR}/core/object.cpp
     ${ENGINE_SRC_DIR}/core/components/position.cpp
+    ${ENGINE_SRC_DIR}/core/components/sprite.cpp
 )
 
 target_include_directories(engine-core PUBLIC
@@ -124,6 +126,7 @@ file(GLOB_RECURSE CLIENT_SOURCES
 
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp
+    ${CLIENT_SRC_DIR}/src/client.cpp
 )
 
 target_include_directories(client-executable PRIVATE
