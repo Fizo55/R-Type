@@ -10,6 +10,10 @@
     #include <typeindex>
     #include <unordered_map>
     #include <optional>
+    #include <any>
+    #include <functional>
+
+    #include <yaml-cpp/yaml.h>
 
     namespace engine {
         struct EcsSystem;
@@ -21,9 +25,6 @@
 
         class Entity {
             public:
-                Entity(const Entity&) = delete;
-                Entity& operator=(const Entity&) = delete;
-
                 explicit Entity(std::size_t id);
 
                 explicit operator std::size_t() const;
@@ -92,28 +93,150 @@
                 std::vector<std::optional<Component>> components;
         };
 
+        class ComponentBuildRoute {
+            public:
+                ComponentBuildRoute(const std::string & = "", const std::function<void(const Entity &, const std::string &, const std::vector<std::any> &, Registry &)> & = std::function<void(const Entity &, const std::string &, const std::vector<std::any> &, Registry &)>());
+                ~ComponentBuildRoute() = default;
+
+                std::string name;
+                std::function<void(const Entity &, const std::string &, const std::vector<std::any> &, Registry &)> callback;
+        };
+
+        class EntityBuildData {
+            public:
+                EntityBuildData(const std::string &, const std::string &, const std::vector<std::any> &);
+                ~EntityBuildData() = default;
+
+                std::string nameRef;
+                std::string name;
+                std::vector<std::any> buildArgs;
+        };
+
+        class EntityFactory {
+            public:
+                EntityFactory();
+                ~EntityFactory() = default;
+
+                template <typename Component>
+                void registerComponent() { this->_registry.register_component<Component>(); };
+
+                void registerBuildComponentRoute(const ComponentBuildRoute &);
+
+                void buildComponent(const Entity &, const EntityBuildData &);
+
+                Entity createEntityComponentReady(const std::vector<EntityBuildData> &);
+                Entity createEntity(void);
+
+                Registry &getRegistry(void);
+
+            private:
+                Registry _registry;
+
+                std::map<std::string, ComponentBuildRoute> _routes;
+        };
+
+        class ObjectRef {
+            public:
+                ObjectRef();
+                ObjectRef(const std::string &);
+
+                const std::string &getName(void) const;
+                void setName(const std::string &);
+
+                void addBuildComponent(const std::string &, const std::string &);
+                void removeBuildComponent(const std::string &);
+                const std::string &getBuildComponent(const std::string &) const;
+                std::vector<std::string> getAllBuildComponent(void) const;
+
+                void addBuildParameter(const std::string &, const std::vector<std::any> &);
+                void removeBuildParameter(const std::string &);
+                const std::vector<std::any> getBuildParameter(const std::string &) const;
+                std::vector<std::string> getAllBuildParameter(void) const;
+
+                static std::any parameterBuilder(const YAML::Node &);
+
+            private:
+                std::string _name;
+                std::map<std::string, std::string> _buildComponents;
+                std::map<std::string, std::vector<std::any>> _buildParameters;
+        };
+
+        class Object : public ObjectRef {
+            public:
+                Object();
+                Object(const ObjectRef &);
+
+                void buildEntity(EntityFactory &);
+
+                const std::unique_ptr<Entity> &getEntity(void) const;
+            private:
+                std::unique_ptr<Entity> _entity;
+        };
+
         class Scene {
             public:
                 Scene();
                 Scene(const std::string &);
 
+                const std::string &getName(void) const;
+                void setName(const std::string &);
+
+                void addHud(const std::string &, const ObjectRef &);
+                void addObject(const std::string &, const ObjectRef &);
+
+                const std::vector<std::pair<std::string, ObjectRef>> &getHuds(void) const;
+                const std::vector<std::pair<std::string, ObjectRef>> &getObjects(void) const;
+
             private:
                 std::string _name;
-                std::vector<std::unique_ptr<Entity>> _objects;
-                std::vector<std::unique_ptr<Entity>> _huds;
+                std::vector<std::pair<std::string, ObjectRef>> _objects;
+                std::vector<std::pair<std::string, ObjectRef>> _huds;
         };
 
         class Game {
             public:
                 Game();
 
+                const Scene &getScene(const std::string &) const;
+                const ObjectRef &getObject(const std::string &) const;
+
+                void registerScene(const std::string &);
+                void registerScene(const Scene &);
+
+                void registerObject(const std::string &);
+                void registerObject(const ObjectRef &);
+
+                void unregisterScene(const std::string &);
+                void unregisterObject(const std::string &);
+
+                void loadObject(const ObjectRef &);
+
+                void loadScene(const std::string &);
+                void unloadScene(void);
+
+                const std::vector<std::pair<std::string, Object>> &getLoadedObjects(void);
+                const std::vector<std::pair<std::string, Object>> &getLoadedHuds(void);
+
+                void addFactory(EntityFactory *);
+                engine::EntityFactory *getFactory(void);
+
+                Object buildObjectRef(const ObjectRef &);
+
             private:
-                std::vector<std::unique_ptr<Entity>> _objects;
-                std::vector<std::unique_ptr<Entity>> _huds;
-                std::map<std::string, std::unique_ptr<Scene>> _scenes;
+                std::map<std::string, ObjectRef> _objects;
+                std::map<std::string, Scene> _scenes;
+
+                std::vector<std::pair<std::string, Object>> _loadedGameObjects;
+                std::vector<std::pair<std::string, Object>> _loadedGameHuds;
+
+                EntityFactory *_factory;
+
                 std::string _loadedScene;
         };
     }
+
+    std::ostream &operator<<(std::ostream &os, engine::ObjectRef const &obj);
+    std::ostream &operator<<(std::ostream &os, engine::Object const &obj);
 
     #include "engineCore.tpp"
 

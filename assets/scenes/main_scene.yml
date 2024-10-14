@@ -1,0 +1,13 @@
+name: scene0
+objects:
+  - name: test
+    id: obj0
+    values:
+      coords:
+        - 10
+        - 110
+      sprite:
+        - "sprite0"
+
+huds:
+
