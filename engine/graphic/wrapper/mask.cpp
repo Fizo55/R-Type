@@ -2,12 +2,29 @@
 
 using namespace grw;
 
+/**
+ * @brief Create a new mask
+ * 
+ * @param r The red mask
+ * @param g The green mask
+ * @param b The blue mask
+ * @param a The alpha mask
+ */
 mask::mask(unsigned int r, unsigned int g, unsigned int b, unsigned int a)
     : r(r), g(g), b(b), a(a)
 {
 
 }
 
+/**
+ * @brief Create a new color with the mask
+ * 
+ * @param rColor The red color
+ * @param gColor The green color
+ * @param bColor The blue color
+ * @param aColor The alpha color
+ * @return unsigned The color
+ */
 unsigned mask::createColor(unsigned char rColor, unsigned char gColor, unsigned char bColor, unsigned char aColor)
 {
     unsigned int rColorTemp = 0x00;
@@ -38,6 +55,12 @@ unsigned mask::createColor(unsigned char rColor, unsigned char gColor, unsigned 
     return ((this->r & rColorTemp) | (this->g & gColorTemp) | (this->b & bColorTemp) | (this->a & aColorTemp));
 }
 
+/**
+ * @brief Get the red color from a color
+ * 
+ * @param color The color
+ * @return unsigned char The red color
+ */ 
 unsigned char mask::getR(unsigned int color)
 {
     color = color & this->r;
@@ -46,6 +69,12 @@ unsigned char mask::getR(unsigned int color)
     return ((unsigned char)color);
 }
 
+/**
+ * @brief Get the green color from a color
+ * 
+ * @param color The color
+ * @return unsigned char The green color
+ */
 unsigned char mask::getG(unsigned int color)
 {
     color = color & this->g;
@@ -54,6 +83,12 @@ unsigned char mask::getG(unsigned int color)
     return ((unsigned char)color);
 }
 
+/**
+ * @brief Get the blue color from a color
+ * 
+ * @param color The color
+ * @return unsigned char The blue color
+ */
 unsigned char mask::getB(unsigned int color)
 {
     color = color & this->b;
@@ -62,6 +97,12 @@ unsigned char mask::getB(unsigned int color)
     return ((unsigned char)color);
 }
 
+/**
+ * @brief Get the alpha color from a color
+ * 
+ * @param color The color
+ * @return unsigned char The alpha color
+ */
 unsigned char mask::getA(unsigned int color)
 {
     color = color & this->a;

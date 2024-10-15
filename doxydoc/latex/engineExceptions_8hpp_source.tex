@@ -1,0 +1,43 @@
+\hypertarget{engineExceptions_8hpp_source}{}\doxysection{engine\+Exceptions.\+hpp}
+\label{engineExceptions_8hpp_source}\index{include/engineExceptions.hpp@{include/engineExceptions.hpp}}
+\mbox{\hyperlink{engineExceptions_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ENGINE\_EXCEPTIONS\_HPP\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\ \ \ \ \#define\ ENGINE\_EXCEPTIONS\_HPP\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <iostream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceengine}{engine}}\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1engineError}{engineError}}\ :\ \textcolor{keyword}{public}\ std::exception\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1engineError_a94b86b738f102de3d39d9d6833dce8cb}{engineError}}(\textcolor{keyword}{const}\ std::string\ \&what\_message)\ :\ \_what\_message(what\_message)\ \{\};}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1engineError_a2f3f911cfda601f4ad64cb0bb3b8e261}{\string~engineError}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classengine_1_1engineError_ad1b0087b70bfbe6965e801ea217d9151}{what}}()\ const\ noexcept\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\_what\_message.c\_str());}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \_what\_message;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1outOfMemoryError}{outOfMemoryError}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classengine_1_1engineError}{engineError}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1outOfMemoryError_a81f9a9841351147a70cb67a24d76f1c0}{outOfMemoryError}}(\textcolor{keyword}{const}\ std::string\ \&what\_message)\ :\ \mbox{\hyperlink{classengine_1_1engineError}{engineError}}(what\_message)\ \{\};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1nullPtrError}{nullPtrError}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classengine_1_1engineError}{engineError}}\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1nullPtrError_a0c571f45f4cfcfd20377b0ed045dc99c}{nullPtrError}}(\textcolor{keyword}{const}\ std::string\ \&what\_message)\ :\ \mbox{\hyperlink{classengine_1_1engineError}{engineError}}(what\_message)\ \{\};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1loadError}{loadError}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classengine_1_1engineError}{engineError}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1loadError_aa3067f34bd603e9185fd6702b3df92af}{loadError}}(\textcolor{keyword}{const}\ std::string\ \&what\_message)\ :\ \mbox{\hyperlink{classengine_1_1engineError}{engineError}}(what\_message)\ \{\};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !ENGINE\_EXCEPTIONS\_HPP\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
