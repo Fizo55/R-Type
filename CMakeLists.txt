@@ -49,8 +49,20 @@ CPMAddPackage(
     GIT_TAG release-2.8.2
 )
 
+CPMAddPackage(
+    NAME yaml-cpp
+    GITHUB_REPOSITORY jbeder/yaml-cpp
+    GIT_TAG master
+)
+
+CPMAddPackage(
+    NAME luacpp
+    GITHUB_REPOSITORY jordanvrtanoski/luacpp
+    GIT_TAG master
+)
+
 set(ENGINE_SRC_DIR ${CMAKE_SOURCE_DIR}/engine)
-set(SERVER_SRC_DIR ${CMAKE_SOURCE_DIR}/server)
+set(SERVER_SRC_DIR ${CMAKE_SOURCE_DIR}/server/src)
 set(CLIENT_SRC_DIR ${CMAKE_SOURCE_DIR}/client)
 
 add_library(engine-graphic OBJECT
@@ -82,13 +94,24 @@ target_include_directories(engine-core PRIVATE ./include)
 target_compile_definitions(engine-core PUBLIC OBJ)
 target_link_libraries(engine-core PUBLIC yaml-cpp)
 
-# add_executable(server-executable
-#     ${SERVER_SRC_DIR}/main.cpp
-# )
-# target_include_directories(server-executable PRIVATE ./include)
-# target_link_libraries(server-executable PRIVATE engine-core)
-# target_include_directories(server-executable PRIVATE ${SERVER_SRC_DIR}/udp)
-# target_link_libraries(server-executable PRIVATE engine-graphic)
+add_executable(server-executable
+    ${SERVER_SRC_DIR}/main.cpp
+    ${SERVER_SRC_DIR}/AsioNetwork.cpp
+    ${SERVER_SRC_DIR}/BinaryDeserializer.cpp
+    ${SERVER_SRC_DIR}/BinarySerializer.cpp
+    ${SERVER_SRC_DIR}/ConsoleLogger.cpp
+    ${SERVER_SRC_DIR}/GameStateUpdateMessage.cpp
+    ${SERVER_SRC_DIR}/MessageDispatcher.cpp
+    ${SERVER_SRC_DIR}/MessageFactory.cpp
+    ${SERVER_SRC_DIR}/PlayerInputMessage.cpp
+    ${SERVER_SRC_DIR}/RTypeGameLogic.cpp
+    ${SERVER_SRC_DIR}/Server.cpp
+    ${SERVER_SRC_DIR}/ThreadPoolScheduler.cpp
+)
+
+target_include_directories(server-executable PRIVATE ${CMAKE_SOURCE_DIR}/server/include)
+target_link_libraries(server-executable PRIVATE engine-core)
+target_link_libraries(server-executable PRIVATE asio)
 
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp
