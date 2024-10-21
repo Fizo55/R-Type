@@ -30,7 +30,6 @@ include("${CMAKE_SOURCE_DIR}/cmake/CPM.cmake")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} `pkg-config --cflags --libs sdl2 SDL2_image`")
 
 CPMAddPackage(
     NAME ASIO
@@ -83,13 +82,13 @@ target_include_directories(engine-core PRIVATE ./include)
 target_compile_definitions(engine-core PUBLIC OBJ)
 target_link_libraries(engine-core PUBLIC yaml-cpp)
 
-add_executable(server-executable
-    ${SERVER_SRC_DIR}/main.cpp
-)
-target_include_directories(server-executable PRIVATE ./include)
-target_link_libraries(server-executable PRIVATE engine-core)
-target_include_directories(server-executable PRIVATE ${SERVER_SRC_DIR}/udp)
-target_link_libraries(server-executable PRIVATE engine-graphic)
+# add_executable(server-executable
+#     ${SERVER_SRC_DIR}/main.cpp
+# )
+# target_include_directories(server-executable PRIVATE ./include)
+# target_link_libraries(server-executable PRIVATE engine-core)
+# target_include_directories(server-executable PRIVATE ${SERVER_SRC_DIR}/udp)
+# target_link_libraries(server-executable PRIVATE engine-graphic)
 
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp
