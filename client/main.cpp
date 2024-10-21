@@ -16,4 +16,5 @@ int main(int ac, char **av)
     client game = client();
 
     game.mainloop();
+    return 0;
 }

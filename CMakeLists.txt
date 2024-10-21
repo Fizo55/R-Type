@@ -1,65 +1,13 @@
 cmake_minimum_required(VERSION 3.27)
-project(server)
-
-if(NOT CPM_SOURCE_CACHE)
-    set(CPM_SOURCE_CACHE "${CMAKE_SOURCE_DIR}/cmake/CPM_cache")
-endif()
-
-if(NOT IS_DIRECTORY "${CPM_SOURCE_CACHE}")
-    file(MAKE_DIRECTORY "${CPM_SOURCE_CACHE}")
-endif()
-
-if(NOT EXISTS "${CMAKE_SOURCE_DIR}/cmake")
-    file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/cmake")
-endif()
-
-if(NOT EXISTS "${CMAKE_SOURCE_DIR}/cmake/CPM.cmake")
-    message(STATUS "Downloading CPM.cmake to ${CMAKE_SOURCE_DIR}/cmake/CPM.cmake")
-    file(DOWNLOAD
-        https://github.com/cpm-cmake/CPM.cmake/releases/latest/download/cpm.cmake
-        "${CMAKE_SOURCE_DIR}/cmake/CPM.cmake"
-        SHOW_PROGRESS
-    )
-
-    if(NOT EXISTS "${CMAKE_SOURCE_DIR}/cmake/CPM.cmake")
-        message(FATAL_ERROR "Failed to download CPM.cmake!")
-    endif()
-endif()
-
-include("${CMAKE_SOURCE_DIR}/cmake/CPM.cmake")
+project(rtype)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-CPMAddPackage(
-    NAME ASIO
-    GITHUB_REPOSITORY chriskohlhoff/asio
-    GIT_TAG master
-)
-
-CPMAddPackage(
-    NAME SDL2
-    GITHUB_REPOSITORY libsdl-org/SDL
-    GIT_TAG release-2.30.7
-)
-
-CPMAddPackage(
-    NAME SDL2_image
-    GITHUB_REPOSITORY libsdl-org/SDL_image
-    GIT_TAG release-2.8.2
-)
-
-CPMAddPackage(
-    NAME yaml-cpp
-    GITHUB_REPOSITORY jbeder/yaml-cpp
-    GIT_TAG master
-)
-
-CPMAddPackage(
-    NAME luacpp
-    GITHUB_REPOSITORY jordanvrtanoski/luacpp
-    GIT_TAG master
-)
+find_package(asio CONFIG REQUIRED)
+find_package(sdl2 CONFIG REQUIRED)
+find_package(SDL2_image CONFIG REQUIRED)
+find_package(yaml-cpp CONFIG REQUIRED)
 
 set(ENGINE_SRC_DIR ${CMAKE_SOURCE_DIR}/engine)
 set(SERVER_SRC_DIR ${CMAKE_SOURCE_DIR}/server/src)
@@ -77,9 +25,14 @@ add_library(engine-graphic OBJECT
     ${ENGINE_SRC_DIR}/graphic/displayManager.cpp
 )
 
-target_include_directories(engine-graphic PRIVATE ./include ${SDL2_SOURCE_DIR}/include ${SDL2_image_SOURCE_DIR}/include)
+target_include_directories(engine-graphic PRIVATE ./include ${SDL2_INCLUDE_DIRS} ${SDL2_image_INCLUDE_DIRS})
 target_compile_definitions(engine-graphic PUBLIC OBJ)
-target_link_libraries(engine-graphic PRIVATE SDL2::SDL2 SDL2_image::SDL2_image)
+target_link_libraries(engine-graphic
+    PRIVATE
+    $<TARGET_NAME_IF_EXISTS:SDL2::SDL2main>
+    $<IF:$<TARGET_EXISTS:SDL2::SDL2>,SDL2::SDL2,SDL2::SDL2-static>
+    $<IF:$<TARGET_EXISTS:SDL2_image::SDL2_image>,SDL2_image::SDL2_image,SDL2_image::SDL2_image-static>
+)
 
 add_library(engine-core OBJECT
     ${ENGINE_SRC_DIR}/core/scene.cpp
@@ -92,7 +45,7 @@ add_library(engine-core OBJECT
 )
 target_include_directories(engine-core PRIVATE ./include)
 target_compile_definitions(engine-core PUBLIC OBJ)
-target_link_libraries(engine-core PUBLIC yaml-cpp)
+target_link_libraries(engine-core PUBLIC yaml-cpp::yaml-cpp)
 
 add_executable(server-executable
     ${SERVER_SRC_DIR}/main.cpp
@@ -111,7 +64,7 @@ add_executable(server-executable
 
 target_include_directories(server-executable PRIVATE ${CMAKE_SOURCE_DIR}/server/include)
 target_link_libraries(server-executable PRIVATE engine-core)
-target_link_libraries(server-executable PRIVATE asio)
+target_link_libraries(server-executable PRIVATE asio::asio)
 
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp

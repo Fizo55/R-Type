@@ -2,14 +2,12 @@
     "version": 3,
     "cmakeMinimumRequired": {
         "major": 3,
-        "minor": 29,
+        "minor": 27,
         "patch": 0
     },
     "configurePresets": [
         {
             "name": "vcpkg",
-            "description": "Configure with vcpkg toolchain using Ninja generator",
-            "generator": "Ninja",
             "cacheVariables": {
                 "CMAKE_TOOLCHAIN_FILE": {
                     "type": "FILEPATH",
@@ -18,9 +16,7 @@
             }
         },
         {
-            "name": "vcpkg-and-compile-commands",
-            "description": "Configure with vcpkg toolchain and export compile commands using Ninja generator",
-            "generator": "Ninja",
+            "name": "vcpkg-with-compile-commands",
             "cacheVariables": {
                 "CMAKE_TOOLCHAIN_FILE": {
                     "type": "FILEPATH",
