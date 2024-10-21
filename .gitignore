@@ -8,7 +8,6 @@ cmake
 /*.ninja_log
 /.ninja_deps
 /.ninja_log
-/CPM_modules
 
 .vscode/
 .vs/
