@@ -55,12 +55,6 @@ CPMAddPackage(
     GIT_TAG master
 )
 
-CPMAddPackage(
-    NAME luacpp
-    GITHUB_REPOSITORY jordanvrtanoski/luacpp
-    GIT_TAG master
-)
-
 set(ENGINE_SRC_DIR ${CMAKE_SOURCE_DIR}/engine)
 set(SERVER_SRC_DIR ${CMAKE_SOURCE_DIR}/server/src)
 set(CLIENT_SRC_DIR ${CMAKE_SOURCE_DIR}/client)

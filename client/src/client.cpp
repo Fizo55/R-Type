@@ -30,16 +30,67 @@ client::~client()
 
 }
 
+/**
+ * @brief Connect to the server
+ * 
+ * @param host The host to connect to
+ * @param port The port to connect to
+ */
+
+void client::connect(const std::string &host, int port)
+{
+    boost::asio::io_context io_context;
+    boost::asio::ip::tcp::resolver resolver(io_context);
+    auto endpoints = resolver.resolve(host, std::to_string(port));
+    _socket = boost::asio::ip::tcp::socket(io_context);
+    boost::asio::connect(_socket, endpoints);
+}
+
+
+/**
+ * @brief Send an action to the server
+ * 
+ * @param event The event to send
+ */
+void client::sendAction(grw::event &event)
+{
+    switch (event.type) {
+        case grw::event::UP:
+            std::cout << "UP" << std::endl;
+            break;
+        case grw::event::DOWN:
+            std::cout << "DOWN" << std::endl;
+            break;
+        case grw::event::LEFT:
+            std::cout << "LEFT" << std::endl;
+            break;
+        case grw::event::RIGHT:
+            std::cout << "RIGHT" << std::endl;
+            break;
+        case grw::event::SHOOT:
+            std::cout << "SHOOT" << std::endl;
+            break;
+        default:
+            break;
+    }
+}
+
 void client::event(void)
 {
     this->_running = !this->_displayManager.event();
+    _events = this->_displayManager.getEvents(this->_gameWindow);
+    for (const auto &event : _events) {
+        if (event.second.type == grw::event::QUIT || event.second.type == grw::event::CLOSE) {
+            this->_running = false;
+        } else {
+            this->sendAction(event.second);
+        }
+    }
 }
 
 void client::update(void)
 {
     this->_displayManager.update();
-    _events = this->_displayManager.getEvents(this->_gameWindow);
-
 }
 
 void client::draw(void)
