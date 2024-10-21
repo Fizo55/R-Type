@@ -92,6 +92,19 @@ event windowHandler::buildEvent(SDL_Event *eventSDL)
 }
 
 /**
+ * @brief Get the events of a window
+ * 
+ * @param id The id of the window
+ * @return std::map<unsigned long, event> The events of the window
+ */
+std::map<unsigned long, event> &windowHandler::getEvents(unsigned int id)
+{
+    if (!this->hasWindow(id))
+        return (new std::map<unsigned long, event>());
+    return (this->_windows[id]->getEvents());
+}
+
+/**
  * @brief Handle the events of the windows
  */
 void windowHandler::eventWindows(void)

@@ -99,6 +99,16 @@ unsigned char window::hasEvent(unsigned long eventType)
 }
 
 /**
+ * @brief Get the events of the window
+ * 
+ * @return std::map<unsigned long, event> The events of the window
+ */
+std::map<unsigned long, event> &window::getEvents(void)
+{
+    return (this->_events);
+}
+
+/**
  * @brief Update the window
  */
 void window::update(void)

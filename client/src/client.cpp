@@ -38,6 +38,8 @@ void client::event(void)
 void client::update(void)
 {
     this->_displayManager.update();
+    _events = this->_displayManager.getEvents(this->_gameWindow);
+
 }
 
 void client::draw(void)

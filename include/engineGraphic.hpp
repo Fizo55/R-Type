@@ -145,6 +145,7 @@
                 void registerEvent(const event &);
                 unsigned char hasEvent(unsigned long);
                 const event getEvent(unsigned long) const;
+                std::map<unsigned long, event> &getEvents(void);
 
                 std::shared_ptr<texture> &getSurface(void);
                 const std::shared_ptr<texture> &getSurface(void) const;
@@ -181,6 +182,7 @@
                 unsigned char isWindowClosed(unsigned int);
                 event buildEvent(SDL_Event *);
                 event parseKey(unsigned int);
+                std::map<unsigned long, event> &getEvents(unsigned int);
 
                 void eventWindows(void);
                 void updateWindows(void);
