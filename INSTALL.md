@@ -72,7 +72,7 @@ This guide will walk you through the steps needed to configure, build, and run t
 
 6. Open the solution in Visual Studio: You can now open the generated .sln file with Visual Studio or build directly from the command line using:
     ```bash
-    msbuild /p:Configuration=Release <solution_name>.sln
+    msbuild /p:Configuration=Release server.sln
     ```
 
 7. Run the executable: After building, you can run the executable from the build folder:
