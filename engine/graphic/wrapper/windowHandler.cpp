@@ -44,6 +44,30 @@ unsigned char windowHandler::isWindowClosed(unsigned int id)
 }
 
 /**
+ * @brief Parse a key event
+ * 
+ * @param key The key to parse
+ * @return event The event type
+ */
+event windowHandler::parseKey(unsigned int key)
+{
+    switch (key) {
+        case SDLK_UP:
+            return (event(event::UP));
+        case SDLK_DOWN:
+            return (event(event::DOWN));
+        case SDLK_LEFT:
+            return (event(event::LEFT));
+        case SDLK_RIGHT:
+            return (event(event::RIGHT));
+        case SDLK_SPACE:
+            return (event(event::SHOOT));
+        default:
+            return (event());
+    }
+}
+
+/**
  * @brief Build an event from a SDL_Event
  * 
  * @param eventSDL The SDL_Event to build the event from
@@ -61,6 +85,9 @@ event windowHandler::buildEvent(SDL_Event *eventSDL)
         return (event(event::QUIT));
     if (eventType == SDL_WINDOWEVENT_CLOSE)
         return (event(event::CLOSE));
+    if (eventType == SDL_KEYDOWN)
+        return (this->parseKey(eventSDL->key.keysym.sym));
+
     return (event());
 }
 

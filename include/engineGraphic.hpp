@@ -84,7 +84,12 @@
                 enum eventTypes {
                     NO_EVENT = 0,
                     CLOSE = 1,
-                    QUIT = 2
+                    QUIT = 2,
+                    UP = 7,
+                    DOWN = 8,
+                    RIGHT = 9,
+                    LEFT = 10,
+                    SHOOT = 11
                 };
 
                 event(unsigned long type = 0, const engine_math::vector2<int> &position = engine_math::vector2<int>(0, 0), int key = -1);
@@ -175,6 +180,7 @@
                 unsigned char isAllWindowClosed(void);
                 unsigned char isWindowClosed(unsigned int);
                 event buildEvent(SDL_Event *);
+                event parseKey(unsigned int);
 
                 void eventWindows(void);
                 void updateWindows(void);

@@ -3,6 +3,7 @@
 
     #include "engineCore.hpp"
     #include "engineGraphic.hpp"
+    #include <memory>
 
     class client {
         public:
@@ -26,6 +27,9 @@
             grw::clock _clock;
 
             unsigned int _gameWindow;
+
+            std::map<unsigned, grw::event> _events;
+            // std::unique_ptr<grw::event> _algo_events; // TODO adapter à l'énum de l'algo
     };
 
 #endif /* CLIENT_HPP_ */
