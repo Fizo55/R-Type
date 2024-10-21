@@ -49,6 +49,18 @@ CPMAddPackage(
     GIT_TAG release-2.8.2
 )
 
+CPMAddPackage(
+    NAME yaml-cpp
+    GITHUB_REPOSITORY jbeder/yaml-cpp
+    GIT_TAG master
+)
+
+CPMAddPackage(
+    NAME luacpp
+    GITHUB_REPOSITORY jordanvrtanoski/luacpp
+    GIT_TAG master
+)
+
 set(ENGINE_SRC_DIR ${CMAKE_SOURCE_DIR}/engine)
 set(SERVER_SRC_DIR ${CMAKE_SOURCE_DIR}/server/src)
 set(CLIENT_SRC_DIR ${CMAKE_SOURCE_DIR}/client)
@@ -99,6 +111,7 @@ add_executable(server-executable
 
 target_include_directories(server-executable PRIVATE ${CMAKE_SOURCE_DIR}/server/include)
 target_link_libraries(server-executable PRIVATE engine-core)
+target_link_libraries(server-executable PRIVATE asio)
 
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp
