@@ -31,29 +31,10 @@ include("${CMAKE_SOURCE_DIR}/cmake/CPM.cmake")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-CPMAddPackage(
-    NAME ASIO
-    GITHUB_REPOSITORY chriskohlhoff/asio
-    GIT_TAG master
-)
-
-CPMAddPackage(
-    NAME SDL2
-    GITHUB_REPOSITORY libsdl-org/SDL
-    GIT_TAG release-2.30.7
-)
-
-CPMAddPackage(
-    NAME SDL2_image
-    GITHUB_REPOSITORY libsdl-org/SDL_image
-    GIT_TAG release-2.8.2
-)
-
-CPMAddPackage(
-    NAME yaml-cpp
-    GITHUB_REPOSITORY jbeder/yaml-cpp
-    GIT_TAG master
-)
+find_package(asio CONFIG REQUIRED)
+find_package(sdl2 CONFIG REQUIRED)
+find_package(SDL2_image CONFIG REQUIRED)
+find_package(yaml-cpp CONFIG REQUIRED)
 
 set(ENGINE_SRC_DIR ${CMAKE_SOURCE_DIR}/engine)
 set(SERVER_SRC_DIR ${CMAKE_SOURCE_DIR}/server/src)
