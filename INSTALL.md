@@ -22,6 +22,7 @@ This guide will walk you through the steps needed to configure, build, and run t
     ./vcpkg/vcpkg install
     ```
 
+
 5. **Run CMake to configure the project: Use Ninja as the generator:**
     ```bash
     cmake -B build -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake -G Ninja
