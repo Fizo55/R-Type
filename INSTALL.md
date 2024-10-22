@@ -12,7 +12,7 @@ This guide will walk you through the steps needed to configure, build, and run t
 ### Steps:
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/Fizo55/R-Type.git
+    git clone --recursive https://github.com/Fizo55/R-Type.git
     cd R-Type
     ```
 
@@ -64,7 +64,7 @@ automake libtool pkg-config
 
 3. Clone the repository: Open a terminal (PowerShell or Git Bash) and clone the repository:
     ```bash
-    git clone https://github.com/Fizo55/R-Type.git
+    git clone --recursive https://github.com/Fizo55/R-Type.git
     cd R-Type
     ```
 
