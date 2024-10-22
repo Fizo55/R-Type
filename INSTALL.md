@@ -22,6 +22,8 @@ This guide will walk you through the steps needed to configure, build, and run t
     cd build
     ```
 
+automake libtool pkg-config
+
 3. **Set up vcpkg:**
     ```bash
     ./vcpkg/bootstrap-vcpkg.sh
@@ -30,7 +32,7 @@ This guide will walk you through the steps needed to configure, build, and run t
 
 4. **Run CMake to configure the project: Use Ninja as the generator:**
     ```bash
-    cmake -B build "-DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake -G Ninja"
+    cmake -B build "-DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake" -G Ninja
     ```
 
 5. **Build the project: Once the configuration is done, you can start the build process:**
