@@ -22,17 +22,23 @@ This guide will walk you through the steps needed to configure, build, and run t
     cd build
     ```
 
-3. **Run CMake to configure the project: Use Ninja as the generator:**
+3. **Set up vcpkg:**
     ```bash
-    cmake -G Ninja ..
+    ./vcpkg/bootstrap-vcpkg.sh
+    ./vcpkg/vcpkg install
     ```
 
-4. **Build the project: Once the configuration is done, you can start the build process:**
+4. **Run CMake to configure the project: Use Ninja as the generator:**
     ```bash
-    ninja
+    cmake -B build -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake -G Ninja
     ```
 
-5. **Run the executable: After building, run the generated executable:**
+5. **Build the project: Once the configuration is done, you can start the build process:**
+    ```bash
+    ninja -C build
+    ```
+
+6. **Run the executable: After building, run the generated executable:**
     ```bash
     ./<executable_name>
     ```
@@ -43,6 +49,7 @@ This guide will walk you through the steps needed to configure, build, and run t
 - **Visual Studio 2022** (Ensure C++ build tools are installed)
 - ***CMake** version 3.27 or above
 - **Git**
+- **vcpkg** for package management
 
 ### Steps:
 
@@ -59,23 +66,23 @@ This guide will walk you through the steps needed to configure, build, and run t
     cd R-Type
     ```
 
-4. Create a build directory:
+4. Set up vcpkg:
     ```bash
-    mkdir build
-    cd build
+    .\vcpkg\bootstrap-vcpkg.bat
+    .\vcpkg\vcpkg.exe install
     ```
 
-5. Run CMake to configure the project: Use Visual Studio 17 2022 as the generator:
+5. Run CMake to configure the project:
     ```bash
-    cmake -G "Visual Studio 17 2022" ..
+    cmake -B build -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake
     ```
 
-6. Open the solution in Visual Studio: You can now open the generated .sln file with Visual Studio or build directly from the command line using:
+6. Open the project in Visual Studio:
     ```bash
     msbuild /p:Configuration=Release server.sln
     ```
 
 7. Run the executable: After building, you can run the executable from the build folder:
     ```bash
-    ./<executable_name>.exe
+    ./build/<executable_name>.exe
     ```
