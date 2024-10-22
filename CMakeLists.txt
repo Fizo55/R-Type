@@ -4,10 +4,12 @@ project(rtype)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(asio CONFIG REQUIRED)
-find_package(sdl2 CONFIG REQUIRED)
+find_package(Boost)
+find_package(SDL2 CONFIG REQUIRED)
 find_package(SDL2_image CONFIG REQUIRED)
 find_package(yaml-cpp CONFIG REQUIRED)
+
+include_directories(${Boost_INCLUDE_DIRS})
 
 set(ENGINE_SRC_DIR ${CMAKE_SOURCE_DIR}/engine)
 set(SERVER_SRC_DIR ${CMAKE_SOURCE_DIR}/server/src)
@@ -64,7 +66,6 @@ add_executable(server-executable
 
 target_include_directories(server-executable PRIVATE ${CMAKE_SOURCE_DIR}/server/include)
 target_link_libraries(server-executable PRIVATE engine-core)
-target_link_libraries(server-executable PRIVATE asio::asio)
 
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp
