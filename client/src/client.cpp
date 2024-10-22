@@ -54,24 +54,18 @@ void client::connect(const std::string &host, int port)
  */
 void client::sendAction(grw::event &event)
 {
-    switch (event.type) {
-        case grw::event::UP:
-            std::cout << "UP" << std::endl;
-            break;
-        case grw::event::DOWN:
-            std::cout << "DOWN" << std::endl;
-            break;
-        case grw::event::LEFT:
-            std::cout << "LEFT" << std::endl;
-            break;
-        case grw::event::RIGHT:
-            std::cout << "RIGHT" << std::endl;
-            break;
-        case grw::event::SHOOT:
-            std::cout << "SHOOT" << std::endl;
-            break;
-        default:
-            break;
+    std::vector<uint8_t> outData;
+    gameStateMessage->serialize(outData);
+
+    for (const auto& [address, player] : players_) {
+        std::string ip;
+        uint16_t port;
+        size_t separatorPos = address.find(':');
+        if (separatorPos != std::string::npos) {
+            ip = address.substr(0, separatorPos);
+            port = static_cast<uint16_t>(std::stoi(address.substr(separatorPos + 1)));
+            network_->send(outData, ip, port);
+        }
     }
 }
 
