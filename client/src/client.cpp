@@ -39,11 +39,8 @@ client::~client()
 
 void client::connect(const std::string &host, int port)
 {
-    boost::asio::io_context io_context;
-    boost::asio::ip::tcp::resolver resolver(io_context);
-    auto endpoints = resolver.resolve(host, std::to_string(port));
-    _socket = boost::asio::ip::tcp::socket(io_context);
-    boost::asio::connect(_socket, endpoints);
+    auto network = std::make_shared<AsioNetwork>(port);
+    network_ = network;
 }
 
 
@@ -54,26 +51,19 @@ void client::connect(const std::string &host, int port)
  */
 void client::sendAction(grw::event &event)
 {
+    auto gameStateMessage = std::make_shared<GameStateUpdateMessage>();
+
     std::vector<uint8_t> outData;
     gameStateMessage->serialize(outData);
 
-    for (const auto& [address, player] : players_) {
-        std::string ip;
-        uint16_t port;
-        size_t separatorPos = address.find(':');
-        if (separatorPos != std::string::npos) {
-            ip = address.substr(0, separatorPos);
-            port = static_cast<uint16_t>(std::stoi(address.substr(separatorPos + 1)));
-            network_->send(outData, ip, port);
-        }
-    }
+    network_->send(outData, _host, _port);
 }
 
 void client::event(void)
 {
     this->_running = !this->_displayManager.event();
     _events = this->_displayManager.getEvents(this->_gameWindow);
-    for (const auto &event : _events) {
+    for (auto &event : _events) {
         if (event.second.type == grw::event::QUIT || event.second.type == grw::event::CLOSE) {
             this->_running = false;
         } else {

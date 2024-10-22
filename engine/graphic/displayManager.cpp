@@ -89,3 +89,9 @@ void engine::displayManager::useEntity(const engine::Entity &entity, engine::Reg
     grw::sprite newSprite(this->_textures[sprite->sprite], position->coordinates, engine_math::vector2<int>(-1, -1));
     this->_rendering[windowId].push_back(newSprite);
 }
+
+
+std::map<unsigned long, grw::event> &engine::displayManager::getEvents(unsigned int id)
+{
+    return _winHandler.getEvents(id);
+}

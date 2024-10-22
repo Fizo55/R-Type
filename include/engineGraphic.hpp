@@ -211,6 +211,7 @@
                 unsigned int createWindow(void);
 
                 void useEntity(const Entity &, Registry &, unsigned int);
+                std::map<unsigned long, grw::event> &getEvents(unsigned int);
             private:
                 grw::windowHandler _winHandler;
 

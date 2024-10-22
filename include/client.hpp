@@ -5,6 +5,9 @@
     #include "engineGraphic.hpp"
     #include "MessageDispatcher.hpp"
     #include "MessageFactory.hpp"
+    #include "INetwork.hpp"
+    #include "AsioNetwork.hpp"
+    #include "GameStateUpdateMessage.hpp"
     #include <boost/asio.hpp>
     #include <memory>
 
@@ -38,10 +41,11 @@
 
             unsigned int _gameWindow;
 
-            std::map<unsigned, grw::event> _events;
+            std::map<unsigned long, grw::event> _events;
             // std::unique_ptr<grw::event> _algo_events; // TODO adapter à l'énum de l'algo
 
-            boost::asio::ip::tcp::socket _socket;
+            std::shared_ptr<INetwork> network_;
+
     };
 
 #endif /* CLIENT_HPP_ */
