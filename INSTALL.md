@@ -16,29 +16,23 @@ This guide will walk you through the steps needed to configure, build, and run t
     cd R-Type
     ```
 
-2. **Create a build directory:**
-    ```bash
-    mkdir build
-    cd build
-    ```
-
-3. **Set up vcpkg:**
+4. **Set up vcpkg:**
     ```bash
     ./vcpkg/bootstrap-vcpkg.sh
     ./vcpkg/vcpkg install
     ```
 
-4. **Run CMake to configure the project: Use Ninja as the generator:**
+5. **Run CMake to configure the project: Use Ninja as the generator:**
     ```bash
     cmake -B build -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake -G Ninja
     ```
 
-5. **Build the project: Once the configuration is done, you can start the build process:**
+6. **Build the project: Once the configuration is done, you can start the build process:**
     ```bash
     ninja -C build
     ```
 
-6. **Run the executable: After building, run the generated executable:**
+7. **Run the executable: After building, run the generated executable:**
     ```bash
     ./<executable_name>
     ```
