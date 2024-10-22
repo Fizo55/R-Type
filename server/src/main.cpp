@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Server.hpp"
 #include "AsioNetwork.hpp"
 #include "RTypeGameLogic.hpp"

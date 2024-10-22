@@ -51,6 +51,7 @@ target_link_libraries(engine-core PUBLIC yaml-cpp::yaml-cpp)
 
 add_executable(server-executable
     ${SERVER_SRC_DIR}/main.cpp
+    ${SERVER_SRC_DIR}/MessageBase.cpp
     ${SERVER_SRC_DIR}/AsioNetwork.cpp
     ${SERVER_SRC_DIR}/BinaryDeserializer.cpp
     ${SERVER_SRC_DIR}/BinarySerializer.cpp
