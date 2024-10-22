@@ -51,10 +51,30 @@ void client::connect(const std::string &host, int port)
  */
 void client::sendAction(grw::event &event)
 {
-    auto gameStateMessage = std::make_shared<GameStateUpdateMessage>();
+    auto playerInputMessage = std::make_shared<PlayerInputMessage>();
+
+    switch(event.type) {
+        case grw::event::UP:
+            playerInputMessage->inputFlags |= 0x01;
+            break;
+        case grw::event::DOWN:
+            playerInputMessage->inputFlags |= 0x02;
+            break;
+        case grw::event::LEFT:
+            playerInputMessage->inputFlags |= 0x04;
+            break;
+        case grw::event::RIGHT:
+            playerInputMessage->inputFlags |= 0x08;
+            break;
+        case grw::event::SHOOT:
+            playerInputMessage->inputFlags |= 0x10;
+            break;
+        default:
+            break;
+    }
 
     std::vector<uint8_t> outData;
-    gameStateMessage->serialize(outData);
+    playerInputMessage->serialize(outData);
 
     network_->send(outData, _host, _port);
 }

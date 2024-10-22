@@ -7,7 +7,7 @@
     #include "MessageFactory.hpp"
     #include "INetwork.hpp"
     #include "AsioNetwork.hpp"
-    #include "GameStateUpdateMessage.hpp"
+    #include "PlayerInputMessage.hpp"
     #include <boost/asio.hpp>
     #include <memory>
 
