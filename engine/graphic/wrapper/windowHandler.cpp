@@ -100,7 +100,7 @@ event windowHandler::buildEvent(SDL_Event *eventSDL)
 std::map<unsigned long, event> &windowHandler::getEvents(unsigned int id)
 {
     if (!this->hasWindow(id))
-        return (new std::map<unsigned long, event>());
+        throw std::runtime_error("Window not found");
     return (this->_windows[id]->getEvents());
 }
 

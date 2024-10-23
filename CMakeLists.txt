@@ -71,7 +71,15 @@ target_link_libraries(server-executable PRIVATE engine-core)
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp
     ${CLIENT_SRC_DIR}/src/client.cpp
+    ${SERVER_SRC_DIR}/MessageBase.cpp
+    ${SERVER_SRC_DIR}/AsioNetwork.cpp
+    ${SERVER_SRC_DIR}/BinaryDeserializer.cpp
+    ${SERVER_SRC_DIR}/BinarySerializer.cpp
+    ${SERVER_SRC_DIR}/MessageDispatcher.cpp
+    ${SERVER_SRC_DIR}/MessageFactory.cpp
+    ${SERVER_SRC_DIR}/PlayerInputMessage.cpp
 )
 target_include_directories(client-executable PRIVATE ./include)
+target_include_directories(client-executable PRIVATE ${CMAKE_SOURCE_DIR}/server/include)
 target_link_libraries(client-executable PRIVATE engine-graphic)
 target_link_libraries(client-executable PRIVATE engine-core)

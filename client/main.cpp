@@ -11,6 +11,14 @@
 
 using namespace engine;
 
+void help(void)
+{
+    std::cout << "Usage: ./client -p P -h H" << std::endl;
+    std::cout << "P: Port" << std::endl;
+    std::cout << "H: Host" << std::endl;
+    exit(0);
+}
+
 int getPort(char **av)
 {
     int port;
@@ -35,13 +43,6 @@ std::string getHost(char **av)
     return host;
 }
 
-void help(void)
-{
-    std::cout << "Usage: ./client -p P -h H" << std::endl;
-    std::cout << "P: Port" << std::endl;
-    std::cout << "H: Host" << std::endl;
-    exit(0);
-}
 
 int main(int ac, char **av)
 {

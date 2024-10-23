@@ -82,7 +82,16 @@ void client::sendAction(grw::event &event)
 void client::event(void)
 {
     this->_running = !this->_displayManager.event();
-    _events = this->_displayManager.getEvents(this->_gameWindow);
+    try
+    {
+        _events = this->_displayManager.getEvents(this->_gameWindow);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return;
+    }
+    
     for (auto &event : _events) {
         if (event.second.type == grw::event::QUIT || event.second.type == grw::event::CLOSE) {
             this->_running = false;
