@@ -29,6 +29,7 @@ int getPort(char **av)
         port = std::stoi(av[2]);
     } catch (std::exception &e) {
         help();
+        return 0;
     }
     return port;
 }
@@ -62,7 +63,17 @@ int main(int ac, char **av)
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
+        return 84;
     }
-    game.mainloop();
+    try
+    {
+        game.mainloop();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return 84;
+    }
+    
     return 0;
 }

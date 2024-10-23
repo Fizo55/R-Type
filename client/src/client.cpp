@@ -23,6 +23,16 @@ client::client()
     this->_game.loadScene("scene0");
 
     this->_gameWindow = this->_displayManager.createWindow();
+    
+    try
+    {
+        grw::init();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return;
+    }
 }
 
 client::~client()
@@ -95,7 +105,7 @@ void client::event(void)
     for (auto &event : _events) {
         if (event.second.type == grw::event::QUIT || event.second.type == grw::event::CLOSE) {
             this->_running = false;
-        } else {
+        } else if (event.second.type != grw::event::NO_EVENT) {
             this->sendAction(event.second);
         }
     }

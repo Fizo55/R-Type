@@ -3,7 +3,6 @@
 
 engine::displayManager::displayManager()
 {
-
 }
 
 void engine::displayManager::registerAsset(const std::string &name, const std::string &path)

@@ -153,6 +153,7 @@
                 int getId(void) const;
 
                 unsigned char isClosed(void);
+
             private:
                 unsigned char _closed;
 
@@ -191,6 +192,8 @@
             private:
                 std::map<unsigned int, window *> _windows;
         };
+
+        void init(void);
     };
 
     namespace engine {
