@@ -7,6 +7,7 @@
 #include <memory>
 #include <unordered_map>
 #include <string>
+#include <vector>
 
 class RTypeGameLogic : public IGameLogic {
 public:
@@ -26,7 +27,16 @@ private:
         int32_t inputFlags;
     };
 
+    struct Entity {
+        int id;
+        struct {
+            float x;
+            float y;
+        } position, velocity;
+    };
+
     std::unordered_map<std::string, Player> players_;
+    std::vector<Entity> entities_;
 };
 
 #endif
