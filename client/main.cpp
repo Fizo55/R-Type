@@ -6,7 +6,7 @@
 */
 
 #include "engineCore.hpp"
-#include "client.hpp"
+#include "gameClient.hpp"
 #include "engineComponents.hpp"
 
 using namespace engine;

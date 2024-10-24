@@ -63,9 +63,11 @@ add_executable(server-executable
     ${SERVER_SRC_DIR}/RTypeGameLogic.cpp
     ${SERVER_SRC_DIR}/Server.cpp
     ${SERVER_SRC_DIR}/ThreadPoolScheduler.cpp
+    ${SERVER_SRC_DIR}/ArgumentParser.cpp
 )
 
 target_include_directories(server-executable PRIVATE ${CMAKE_SOURCE_DIR}/server/include)
+target_include_directories(server-executable PRIVATE ./include)
 target_link_libraries(server-executable PRIVATE engine-core)
 
 add_executable(client-executable
