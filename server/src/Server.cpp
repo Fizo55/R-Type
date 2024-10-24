@@ -1,8 +1,9 @@
 #include "Server.hpp"
 #include "BinaryDeserializer.hpp"
 
-Server::Server(std::shared_ptr<INetwork> network, std::shared_ptr<IGameLogic> gameLogic, std::shared_ptr<ILogger> logger)
-    : network_(network), gameLogic_(gameLogic), logger_(logger) {
+Server::Server(std::shared_ptr<INetwork> network, std::shared_ptr<IGameLogic> gameLogic, std::shared_ptr<ILogger> logger, const std::string& ipAddress, uint16_t port)
+    : network_(network), gameLogic_(gameLogic), logger_(logger), ipAddress_(ipAddress), port_(port)
+{
     network_->onReceive = [this](const std::vector<uint8_t>& data, const std::string& address, uint16_t port) {
         onReceive(data, address, port);
     };
@@ -14,18 +15,21 @@ Server::Server(std::shared_ptr<INetwork> network, std::shared_ptr<IGameLogic> ga
     };
 }
 
-void Server::start() {
+void Server::start()
+{
     gameLogic_->initialize();
     network_->start();
-    logger_->logInfo("Server started");
+    logger_->logInfo("Server is running on " + ipAddress_ + ":" + std::to_string(port_) + ". Type 'exit' to stop the server.\n");
 }
 
-void Server::stop() {
+void Server::stop()
+{
     network_->stop();
     logger_->logInfo("Server stopped");
 }
 
-void Server::onReceive(const std::vector<uint8_t>& data, const std::string& address, uint16_t port) {
+void Server::onReceive(const std::vector<uint8_t>& data, const std::string& address, uint16_t port)
+{
     try {
         BinaryDeserializer deserializer(data);
         uint32_t messageType = deserializer.readUInt32();

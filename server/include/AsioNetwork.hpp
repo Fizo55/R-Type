@@ -8,7 +8,7 @@
 
 class AsioNetwork : public INetwork {
 public:
-    AsioNetwork(uint16_t port);
+    AsioNetwork(const std::string& ipAddress, uint16_t port);
     ~AsioNetwork();
 
     void start() override;

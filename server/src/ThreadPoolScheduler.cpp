@@ -1,13 +1,15 @@
 #include "ThreadPoolScheduler.hpp"
 
 ThreadPoolScheduler::ThreadPoolScheduler(size_t threadCount)
-    : stop_(false) {
+    : stop_(false)
+{
     for (size_t i = 0; i < threadCount; ++i) {
         threads_.emplace_back(&ThreadPoolScheduler::workerThread, this);
     }
 }
 
-ThreadPoolScheduler::~ThreadPoolScheduler() {
+ThreadPoolScheduler::~ThreadPoolScheduler()
+{
     stop_ = true;
     condition_.notify_all();
     for (auto& thread : threads_) {
@@ -17,7 +19,8 @@ ThreadPoolScheduler::~ThreadPoolScheduler() {
     }
 }
 
-void ThreadPoolScheduler::scheduleTask(const std::function<void()>& task) {
+void ThreadPoolScheduler::scheduleTask(const std::function<void()>& task)
+{
     {
         std::unique_lock<std::mutex> lock(tasksMutex_);
         tasks_.push(task);
@@ -25,11 +28,13 @@ void ThreadPoolScheduler::scheduleTask(const std::function<void()>& task) {
     condition_.notify_one();
 }
 
-void ThreadPoolScheduler::run() {
+void ThreadPoolScheduler::run()
+{
     // Useless for now
 }
 
-void ThreadPoolScheduler::workerThread() {
+void ThreadPoolScheduler::workerThread()
+{
     while (!stop_) {
         std::function<void()> task;
         {

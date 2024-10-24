@@ -1,22 +1,26 @@
 #include "MessageFactory.hpp"
 #include "PlayerInputMessage.hpp"
 
-std::unordered_map<uint32_t, std::function<std::shared_ptr<IMessage>()>>& MessageFactory::getCreators() {
+std::unordered_map<uint32_t, std::function<std::shared_ptr<IMessage>()>>& MessageFactory::getCreators()
+{
     static std::unordered_map<uint32_t, std::function<std::shared_ptr<IMessage>()>> creators;
     return creators;
 }
 
-std::shared_ptr<IMessage> MessageFactory::createMessage(uint32_t messageType) {
+std::shared_ptr<IMessage> MessageFactory::createMessage(uint32_t messageType)
+{
     auto& creators = getCreators();
     auto it = creators.find(messageType);
-    if (it != creators.end()) {
+
+    if (it != creators.end())
         return it->second();
-    }
+
     return nullptr;
 }
 
 template<typename T>
-void MessageFactory::registerMessageType(uint32_t messageType) {
+void MessageFactory::registerMessageType(uint32_t messageType)
+{
     auto& creators = getCreators();
     creators[messageType] = []() { return std::make_shared<T>(); };
 }
