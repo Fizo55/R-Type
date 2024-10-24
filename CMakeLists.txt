@@ -14,6 +14,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 set(ENGINE_SRC_DIR ${CMAKE_SOURCE_DIR}/engine)
 set(SERVER_SRC_DIR ${CMAKE_SOURCE_DIR}/server/src)
 set(CLIENT_SRC_DIR ${CMAKE_SOURCE_DIR}/client)
+set(ASSETS_DIR ${CMAKE_SOURCE_DIR}/assets)
 
 add_library(engine-graphic OBJECT
     ${ENGINE_SRC_DIR}/graphic/wrapper/window.cpp
@@ -77,3 +78,13 @@ add_executable(client-executable
 target_include_directories(client-executable PRIVATE ./include)
 target_link_libraries(client-executable PRIVATE engine-graphic)
 target_link_libraries(client-executable PRIVATE engine-core)
+
+add_custom_command(TARGET client-executable POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${ASSETS_DIR} $<TARGET_FILE_DIR:client-executable>/assets
+)
+
+add_custom_command(TARGET client-executable POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${ASSETS_DIR} ${CMAKE_BINARY_DIR}/assets
+)
