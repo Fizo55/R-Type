@@ -20,8 +20,6 @@ client::client()
     std::string basePath = "";
 #endif
 
-    std::cout << "Current working directory: " << std::filesystem::current_path() << std::endl;
-
     this->_displayManager.registerAsset("sprite0", basePath + "assets/images/error.png");
 
     this->_game.registerObject(basePath + "assets/objects/test.yml");
