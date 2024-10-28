@@ -28,7 +28,8 @@ uint16_t BinaryDeserializer::readUInt16()
     return Endianness::networkToHostUint16(networkValue);
 }
 
-uint32_t BinaryDeserializer::readUInt32() {
+uint32_t BinaryDeserializer::readUInt32()
+{
     if (offset_ + 4 > buffer_.size())
         throw std::runtime_error("Buffer underflow in readUInt32");
 
@@ -60,7 +61,8 @@ uint8_t BinaryDeserializer::readUInt8()
     return value;
 }
 
-float BinaryDeserializer::readFloat() {
+float BinaryDeserializer::readFloat()
+{
     if (offset_ + 4 > buffer_.size())
         throw std::runtime_error("Buffer underflow in readFloat");
 

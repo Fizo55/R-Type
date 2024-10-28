@@ -15,7 +15,7 @@ public:
     float readFloat();
     std::string readString();
     std::vector<uint8_t> readBytes(size_t length);
-    void BinaryDeserializer::readBytes(uint8_t *destination, size_t length);
+    void readBytes(uint8_t *destination, size_t length);
 
     void readHeader(uint16_t& length, uint16_t& sequenceId, uint8_t& messageType, uint8_t& flags);
 private:
