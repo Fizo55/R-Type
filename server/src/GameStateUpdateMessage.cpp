@@ -3,10 +3,12 @@
 #include "BinaryDeserializer.hpp"
 
 GameStateUpdateMessage::GameStateUpdateMessage()
-    : MessageBase(MessageType::GameStateUpdate) {
+    : MessageBase(MessageType::GameStateUpdate)
+{
 }
 
-void GameStateUpdateMessage::serialize(std::vector<uint8_t>& outData) const {
+void GameStateUpdateMessage::serialize(std::vector<uint8_t>& outData) const
+{
     BinarySerializer serializer(outData);
     serializer.writeUInt32(getType());
     serializer.writeUInt32(static_cast<uint32_t>(entityStates.size()));
@@ -20,7 +22,8 @@ void GameStateUpdateMessage::serialize(std::vector<uint8_t>& outData) const {
     }
 }
 
-void GameStateUpdateMessage::deserialize(const std::vector<uint8_t>& inData) {
+void GameStateUpdateMessage::deserialize(const std::vector<uint8_t>& inData)
+{
     BinaryDeserializer deserializer(inData);
     uint32_t entityCount = deserializer.readUInt32();
     entityStates.resize(entityCount);

@@ -10,7 +10,7 @@
 
 class Server {
 public:
-    Server(std::shared_ptr<INetwork> network, std::shared_ptr<IGameLogic> gameLogic, std::shared_ptr<ILogger> logger);
+    Server(std::shared_ptr<INetwork> network, std::shared_ptr<IGameLogic> gameLogic, std::shared_ptr<ILogger> logger, const std::string& ipAddress, uint16_t port);
 
     void start();
     void stop();
@@ -23,6 +23,9 @@ private:
     std::shared_ptr<INetwork> network_;
     std::shared_ptr<IGameLogic> gameLogic_;
     std::shared_ptr<ILogger> logger_;
+
+    std::string ipAddress_;
+    uint16_t port_;
 };
 
 #endif

@@ -1,61 +1,96 @@
-# R-TYPE
+<h1>R-TYPE: A Modern Recreation</h1>
 
-This is a recreation of a famous game, the R-Type.
-A network game with multiple players and ennemies to kill.
-The game is a shoot them up, a game where you shoot enemies on a horizontal world.
+<p>Welcome to <strong>R-TYPE</strong>, a modern reimagining of the iconic side-scrolling shoot 'em up game. Immerse yourself in this multiplayer network game where players band together to fend off waves of enemies in a fast-paced, action-packed space adventure.</p>
 
-## First executable: R-type Server
+<p><strong>R-TYPE</strong> combines classic gameplay mechanics with modern networking features, allowing players to connect across the globe and enjoy intense battles in space.</p>
 
-This is the main server, that generates everything we need.
-> Created in C++
+<hr>
 
-### Usage
+<h2>Game Overview</h2>
 
-```sh
-USAGE: ./r-type_server -p port
+<p><strong>R-TYPE</strong> is a horizontal shoot 'em up game set in space, where you and other players battle alien forces. Equipped with powerful weapons, upgrades, and boosts, your mission is to survive and defeat as many enemies as possible while navigating through dangerous space environments.</p>
+
+<hr>
+
+<h2>R-TYPE Server: The Core of the Game</h2>
+
+<p>The <strong>R-TYPE Server</strong> is the heart of the game. It handles all network operations, player connections, game state management, and interactions between players and enemies.</p>
+
+<blockquote>
+    <p><strong>Written in C++</strong></p>
+</blockquote>
+
+<h3>Usage</h3>
+
+<pre><code>USAGE: ./r-type_server -p port
     port        the port number
-```
+</code></pre>
 
-The server, once launched, is the core of the game himself.
-We can connect multiple <span style="color:#4d30bf">GUI</span> in order to interact with it.
+<p>Once launched, the server manages the game state and allows multiple <span style="color:#4d30bf">GUI</span> clients to connect and interact with it.</p>
 
-## GUI executable
+<hr>
 
-### Usage
+<h2>GUI Client: Your Window into the Game</h2>
 
-```sh
-USAGE: ./r-type_gui -p port -n name [-h host]
+<p>The <strong>GUI Client</strong> allows players to interact with the game visually, controlling their spaceship, shooting enemies, and seeing other players.</p>
+
+<h3>Usage</h3>
+
+<pre><code>USAGE: ./r-type_gui -p port -n name [-h host]
     port        the port number
     name        the player name
-    host        the host (default localhost)
-```
+    host        the server host (default: localhost)
+</code></pre>
 
-The <span style="color:#4d30bf">GUI</span> is used to display menus and levels. You can also see other players.
+<p>The <span style="color:#4d30bf">GUI</span> displays menus, game levels, and other players in real-time.</p>
 
-#### Protocol
+<h3>Client-Server Communication Protocol</h3>
 
-> This is how the <span style="color:#4d30bf">GUI</span> can interact with the server
-> See the protocol [here](./server/readme.md)
+<p>The <strong>GUI</strong> communicates with the server using a well-defined protocol. For more details, see the <a href="./server/readme.md">server protocol documentation</a>.</p>
 
-##### Commands:
+<h4>Example Commands:</h4>
 
-|                   Server                   |   Client  |                   Details                     |
-|--------------------------------------------|:---------:|-----------------------------------------------|
-| player X Y\n                               | player\n  | player position                               |
+<table>
+  <thead>
+    <tr>
+      <th>Command from Server</th>
+      <th>Command from Client</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>player X Y\n</td>
+      <td>player\n</td>
+      <td>Sends the player's position</td>
+    </tr>
+  </tbody>
+</table>
 
-This is how informations are transmitted between the server and the <span style="color:#4d30bf">GUI</span>:
+<p>This communication flow ensures smooth synchronization between the client and the server:</p>
 
-```
-1- The client connects the GUI to the server's port
+<ol>
+  <li>The client connects to the server on the specified port.</li>
+  <li>The server and the client exchange data using the protocol defined above.</li>
+</ol>
 
-2- The server and the client communicate the following way:
-```
+<hr>
 
-### General informations
-#### Context
+<h2>Game Mechanics and Features</h2>
+
+<h3>Context</h3>
+
 <pre>
-The game is about killing monstruous ennemies in space.
-You can have power ups, guns and boosts that allows you to
-complete your mission more easily.
-You move with arrows.
+The game takes place in outer space where you must defeat monstrous enemies.
+You can collect power-ups, new weapons, and boosts to help you survive
+and complete your mission. Movement is controlled using the arrow keys,
+while firing weapons is handled via keyboard inputs.
 </pre>
+
+<p>Prepare for thrilling multiplayer action as you fight your way through enemies in classic <strong>R-TYPE</strong> fashion!</p>
+
+<hr>
+
+<h2>General Information</h2>
+
+<p>For more detailed documentation, refer to the protocol and server details in the respective subdirectories. Enjoy the game!</p>
