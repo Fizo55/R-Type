@@ -1,5 +1,3 @@
-// ClientHelloMessage.cpp
-
 #include "ClientHelloMessage.hpp"
 #include "BinarySerializer.hpp"
 #include "BinaryDeserializer.hpp"
