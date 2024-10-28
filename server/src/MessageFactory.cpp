@@ -1,5 +1,9 @@
 #include "MessageFactory.hpp"
 #include "PlayerInputMessage.hpp"
+#include "ClientHelloMessage.hpp"
+#include "GameStateUpdateMessage.hpp"
+#include "AcknowledgmentMessage.hpp"
+#include "ServerWelcomeMessage.hpp"
 
 std::unordered_map<uint32_t, std::function<std::shared_ptr<IMessage>()>>& MessageFactory::getCreators()
 {
@@ -26,3 +30,7 @@ void MessageFactory::registerMessageType(uint32_t messageType)
 }
 
 template void MessageFactory::registerMessageType<PlayerInputMessage>(uint32_t);
+template void MessageFactory::registerMessageType<ClientHelloMessage>(uint32_t);
+template void MessageFactory::registerMessageType<GameStateUpdateMessage>(uint32_t);
+template void MessageFactory::registerMessageType<AcknowledgmentMessage>(uint32_t);
+template void MessageFactory::registerMessageType<ServerWelcomeMessage>(uint32_t);

@@ -1,16 +1,17 @@
-#include "PlayerInputMessage.hpp"
+// ClientHelloMessage.cpp
+
+#include "ClientHelloMessage.hpp"
 #include "BinarySerializer.hpp"
 #include "BinaryDeserializer.hpp"
 #include "Endianness.hpp"
 #include <stdexcept>
 
-PlayerInputMessage::PlayerInputMessage()
-    : MessageBase(0x10), inputFlags(0), timestamp(0), sequenceId_(0), flags_(0)
+ClientHelloMessage::ClientHelloMessage()
+    : MessageBase(0x01), sequenceId_(0), flags_(0)
 {
 }
 
-void PlayerInputMessage::serialize(std::vector<uint8_t>& outBuffer, uint16_t sequenceId, uint8_t flags) const
-{
+void ClientHelloMessage::serialize(std::vector<uint8_t>& outBuffer, uint16_t sequenceId, uint8_t flags) const {
     BinarySerializer serializer(outBuffer);
 
     size_t headerStart = outBuffer.size();
@@ -21,8 +22,7 @@ void PlayerInputMessage::serialize(std::vector<uint8_t>& outBuffer, uint16_t seq
 
     size_t payloadStart = outBuffer.size();
 
-    serializer.writeUInt8(inputFlags);
-    serializer.writeUInt32(timestamp);
+    serializer.writeString(clientName);
 
     uint16_t payloadLength = static_cast<uint16_t>(outBuffer.size() - payloadStart);
     uint16_t totalLength = payloadLength;
@@ -32,27 +32,26 @@ void PlayerInputMessage::serialize(std::vector<uint8_t>& outBuffer, uint16_t seq
     outBuffer[headerStart + 1] = static_cast<uint8_t>(networkLength & 0xFF);
 }
 
-void PlayerInputMessage::deserialize(const std::vector<uint8_t>& inData)
+void ClientHelloMessage::deserialize(const std::vector<uint8_t>& inBuffer)
 {
-    BinaryDeserializer deserializer(inData);
+    BinaryDeserializer deserializer(inBuffer);
 
     uint16_t length;
     uint8_t messageType;
     deserializer.readHeader(length, sequenceId_, messageType, flags_);
 
     if (messageType != type_)
-        throw std::runtime_error("Incorrect message type for PlayerInputMessage");
+        throw std::runtime_error("Incorrect message type for ClientHelloMessage");
 
-    inputFlags = deserializer.readUInt8();
-    timestamp = deserializer.readUInt32();
+    clientName = deserializer.readString();
 }
 
-uint16_t PlayerInputMessage::getSequenceId() const
+uint16_t ClientHelloMessage::getSequenceId() const
 {
     return sequenceId_;
 }
 
-uint8_t PlayerInputMessage::getFlags() const
+uint8_t ClientHelloMessage::getFlags() const
 {
     return flags_;
 }

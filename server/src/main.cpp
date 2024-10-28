@@ -1,10 +1,14 @@
 #include <iostream>
-#include "Server.hpp"
+#include "RTypeServer.hpp"
 #include "AsioNetwork.hpp"
 #include "RTypeGameLogic.hpp"
 #include "ConsoleLogger.hpp"
 #include "MessageFactory.hpp"
 #include "PlayerInputMessage.hpp"
+#include "ClientHelloMessage.hpp"
+#include "GameStateUpdateMessage.hpp"
+#include "AcknowledgmentMessage.hpp"
+#include "ServerWelcomeMessage.hpp"
 #include "gameServer.hpp"
 
 int main(int argc, char **argv)
@@ -57,15 +61,21 @@ int main(int argc, char **argv)
         return 84;
     }
 
-    MessageFactory::registerMessageType<PlayerInputMessage>(MessageType::PlayerInput);
+    MessageFactory::registerMessageType<PlayerInputMessage>(0x10);
+    MessageFactory::registerMessageType<ClientHelloMessage>(0x01);
+    MessageFactory::registerMessageType<GameStateUpdateMessage>(0x11);
+    MessageFactory::registerMessageType<AcknowledgmentMessage>(0xFE);
+    MessageFactory::registerMessageType<ServerWelcomeMessage>(0x02);
 
     auto logger = std::make_shared<ConsoleLogger>();
     auto network = std::make_shared<AsioNetwork>(ipAddress, port);
     auto gameLogic = std::make_shared<RTypeGameLogic>(network, logger);
 
-    Server server(network, gameLogic, logger, ipAddress, port);
+    RTypeServer server(network, logger);
 
     server.start();
+
+    logger->logInfo("Server is running. Type 'exit' to stop.");
 
     while (true) {
         std::string command;
@@ -76,6 +86,7 @@ int main(int argc, char **argv)
     }
 
     server.stop();
+    logger->logInfo("Server has been stopped.");
 
     return 0;
 }

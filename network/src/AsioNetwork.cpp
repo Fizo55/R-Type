@@ -22,51 +22,88 @@ AsioNetwork::~AsioNetwork()
 
 void AsioNetwork::start()
 {
+    if (isRunning_)
+        return;
+
     isRunning_ = true;
-    doReceive();
-    ioThread_ = std::thread([this]() { ioContext_.run(); });
+
+    startReceive();
+
+    ioThread_ = std::thread([this]() { runIoContext(); });
 }
 
 void AsioNetwork::stop()
 {
+    if (!isRunning_)
+        return;
+
     isRunning_ = false;
-    socket_.close();
+
     ioContext_.stop();
-    if (ioThread_.joinable()) {
+
+    if (ioThread_.joinable())
         ioThread_.join();
-    }
 }
 
 void AsioNetwork::send(const std::vector<uint8_t>& data, const std::string& address, uint16_t port)
 {
-    boost::asio::ip::udp::endpoint endpoint(boost::asio::ip::make_address(address), port);
-    // TODO : Check for a potential segfault
+    boost::asio::ip::udp::endpoint endpoint(boost::asio::ip::address::from_string(address), port);
     socket_.async_send_to(
-        boost::asio::buffer(data), endpoint,
-        [](const boost::system::error_code& /*error*/, std::size_t /*bytesTransferred*/) {
-            // This is send result but we don't need to do anything here
+        boost::asio::buffer(data),
+        endpoint,
+        [](const boost::system::error_code& /*error*/, std::size_t /*bytes_transferred*/) {
+            // If there is errors we can debug
         });
 }
 
-void AsioNetwork::doReceive()
+void AsioNetwork::setReceiveHandler(std::function<void(const std::vector<uint8_t>&, const std::string&, uint16_t)> handler)
 {
-    socket_.async_receive_from(
-        boost::asio::buffer(recvBuffer_), remoteEndpoint_,
-        [this](const boost::system::error_code& error, std::size_t bytesTransferred) {
-            handleReceive(error, bytesTransferred);
-        });
+    receiveHandler_ = handler;
 }
 
-void AsioNetwork::handleReceive(const boost::system::error_code& error, std::size_t bytesTransferred)
+void AsioNetwork::setClientConnectedHandler(std::function<void(const std::string&, uint16_t)> handler)
 {
-    if (!error && bytesTransferred > 0) {
-        std::vector<uint8_t> data(recvBuffer_.begin(), recvBuffer_.begin() + bytesTransferred);
-        if (onReceive)
-            onReceive(data, remoteEndpoint_.address().to_string(), remoteEndpoint_.port());
-    } else {
-        std::cerr << "Receive error: " << error.message() << std::endl;
+    clientConnectedHandler_ = handler;
+}
+
+void AsioNetwork::setClientDisconnectedHandler(std::function<void(const std::string&, uint16_t)> handler)
+{
+    clientDisconnectedHandler_ = handler;
+}
+
+void AsioNetwork::runIoContext()
+{
+    while (isRunning_) {
+        try {
+            ioContext_.run();
+        } catch (const std::exception& e) {
+            std::cerr << "IO context error: " << e.what() << std::endl;
+        }
     }
+}
 
-    if (isRunning_)
-        doReceive();
+void AsioNetwork::startReceive() {
+    socket_.async_receive_from(
+        boost::asio::buffer(recvBuffer_),
+        remoteEndpoint_,
+        [this](const boost::system::error_code& error, std::size_t bytesTransferred) {
+            if (!error && bytesTransferred > 0) {
+                std::vector<uint8_t> data(recvBuffer_.begin(), recvBuffer_.begin() + bytesTransferred);
+                std::string address = remoteEndpoint_.address().to_string();
+                uint16_t port = remoteEndpoint_.port();
+
+                std::string clientKey = address + ":" + std::to_string(port);
+                if (connectedClients_.find(clientKey) == connectedClients_.end()) {
+                    connectedClients_.insert(clientKey);
+                    if (clientConnectedHandler_)
+                        clientConnectedHandler_(address, port);
+                }
+
+                if (receiveHandler_)
+                    receiveHandler_(data, address, port);
+            }
+
+            if (isRunning_)
+                startReceive();
+        });
 }

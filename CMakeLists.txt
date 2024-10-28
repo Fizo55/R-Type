@@ -59,11 +59,14 @@ add_executable(server-executable
     ${SERVER_SRC_DIR}/BinarySerializer.cpp
     ${SERVER_SRC_DIR}/ConsoleLogger.cpp
     ${SERVER_SRC_DIR}/GameStateUpdateMessage.cpp
+    ${SERVER_SRC_DIR}/ServerWelcomeMessage.cpp
+    ${SERVER_SRC_DIR}/ClientHelloMessage.cpp
+    ${SERVER_SRC_DIR}/AcknowledgmentMessage.cpp
     ${SERVER_SRC_DIR}/MessageDispatcher.cpp
     ${SERVER_SRC_DIR}/MessageFactory.cpp
     ${SERVER_SRC_DIR}/PlayerInputMessage.cpp
     ${SERVER_SRC_DIR}/RTypeGameLogic.cpp
-    ${SERVER_SRC_DIR}/Server.cpp
+    ${SERVER_SRC_DIR}/RTypeServer.cpp
     ${SERVER_SRC_DIR}/ThreadPoolScheduler.cpp
     ${SERVER_SRC_DIR}/ArgumentParser.cpp
 )
