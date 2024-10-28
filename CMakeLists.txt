@@ -50,10 +50,11 @@ target_include_directories(engine-core PRIVATE ./include)
 target_compile_definitions(engine-core PUBLIC OBJ)
 target_link_libraries(engine-core PUBLIC yaml-cpp::yaml-cpp)
 
+add_subdirectory(network)
+
 add_executable(server-executable
     ${SERVER_SRC_DIR}/main.cpp
     ${SERVER_SRC_DIR}/MessageBase.cpp
-    ${SERVER_SRC_DIR}/AsioNetwork.cpp
     ${SERVER_SRC_DIR}/BinaryDeserializer.cpp
     ${SERVER_SRC_DIR}/BinarySerializer.cpp
     ${SERVER_SRC_DIR}/ConsoleLogger.cpp
@@ -69,7 +70,7 @@ add_executable(server-executable
 
 target_include_directories(server-executable PRIVATE ${CMAKE_SOURCE_DIR}/server/include)
 target_include_directories(server-executable PRIVATE ./include)
-target_link_libraries(server-executable PRIVATE engine-core)
+target_link_libraries(server-executable PRIVATE engine-core network)
 
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main.cpp
