@@ -29,3 +29,8 @@ void engine::ScriptEnvironment::loadScript(const std::string &path)
     if (luaL_dofile(this->_ctx, path.c_str()))
         throw engine::loadError(path + ": failed to load lua file: " + lua_tostring(this->_ctx, -1));
 }
+
+lua_State *engine::ScriptEnvironment::getCtx(void) const
+{
+    return (this->_ctx);
+}

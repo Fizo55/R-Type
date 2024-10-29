@@ -8,16 +8,19 @@ static int game_delete(lua_State *ctx)
 
 static int game_test(lua_State *ctx)
 {
-    lua_pushnumber(ctx, (lua_Number)(std::size_t)(*reinterpret_cast<engine::Game**>(luaL_checkudata(ctx, 1, "game"))));
+    std::cout << "the game is real " << (std::size_t)(void *)(*reinterpret_cast<engine::Game**>(luaL_checkudata(ctx, 1, "game"))) << std::endl;
+
     return (0);
 }
 
 void game_register(lua_State *ctx)
 {
+    // lua_register(ctx, "game", game_new); NO CONSTRUCTOR FOR GAME, POR FAVOR
+
     luaL_newmetatable(ctx, "game");
 
-    lua_pushcfunction(ctx, game_delete);
-    lua_setfield(ctx, -2, "__gc");
+    // lua_pushcfunction(ctx, game_delete);
+    // lua_setfield(ctx, -2, "__gc"); NO DESTRUCTOR FOR GAME, POR FAVOR
 
     lua_pushvalue(ctx, -1);
     lua_setfield(ctx, -2, "__index");

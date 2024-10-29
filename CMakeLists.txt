@@ -53,9 +53,10 @@ target_compile_definitions(engine-core PUBLIC OBJ)
 target_link_libraries(engine-core PUBLIC yaml-cpp::yaml-cpp)
 
 add_library(engine-scripting OBJECT
-    ${ENGINE_SRC_DIR}/scripting/game.cpp
+    ${ENGINE_SRC_DIR}/scripting/bindings/game.cpp
     ${ENGINE_SRC_DIR}/scripting/ScriptEnvironment.cpp
     ${ENGINE_SRC_DIR}/scripting/ScriptOrchestrator.cpp
+    ${ENGINE_SRC_DIR}/scripting/ScriptGlobalDefinition.cpp
 )
 target_include_directories(engine-scripting PRIVATE ./include)
 target_include_directories(engine-scripting PRIVATE ${LUA_INCLUDE_DIR})
