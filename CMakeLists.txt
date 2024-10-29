@@ -1,13 +1,17 @@
 cmake_minimum_required(VERSION 3.27)
 project(rtype)
 
+cmake_policy(SET CMP0167 NEW)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Boost)
+set(CMAKE_PREFIX_PATH "/usr;/usr/local")
+
+find_package(Boost REQUIRED)
 find_package(SDL2 CONFIG REQUIRED)
 find_package(SDL2_image CONFIG REQUIRED)
-find_package(yaml-cpp CONFIG REQUIRED)
+find_package(yaml-cpp REQUIRED)
 
 include_directories(${Boost_INCLUDE_DIRS})
 
@@ -27,7 +31,6 @@ add_library(engine-graphic OBJECT
     ${ENGINE_SRC_DIR}/graphic/wrapper/windowHandler.cpp
     ${ENGINE_SRC_DIR}/graphic/displayManager.cpp
 )
-
 target_include_directories(engine-graphic PRIVATE ./include ${SDL2_INCLUDE_DIRS} ${SDL2_image_INCLUDE_DIRS})
 target_compile_definitions(engine-graphic PUBLIC OBJ)
 target_link_libraries(engine-graphic
@@ -48,7 +51,7 @@ add_library(engine-core OBJECT
 )
 target_include_directories(engine-core PRIVATE ./include)
 target_compile_definitions(engine-core PUBLIC OBJ)
-target_link_libraries(engine-core PUBLIC yaml-cpp::yaml-cpp)
+target_link_libraries(engine-core PRIVATE yaml-cpp)
 
 add_subdirectory(network)
 
@@ -67,7 +70,6 @@ add_executable(server-executable
     ${SERVER_SRC_DIR}/ThreadPoolScheduler.cpp
     ${SERVER_SRC_DIR}/ArgumentParser.cpp
 )
-
 target_include_directories(server-executable PRIVATE ${CMAKE_SOURCE_DIR}/server/include)
 target_include_directories(server-executable PRIVATE ./include)
 target_link_libraries(server-executable PRIVATE engine-core network)
@@ -84,7 +86,6 @@ add_custom_command(TARGET client-executable POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
     ${ASSETS_DIR} $<TARGET_FILE_DIR:client-executable>/assets
 )
-
 add_custom_command(TARGET client-executable POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
     ${ASSETS_DIR} ${CMAKE_BINARY_DIR}/assets
