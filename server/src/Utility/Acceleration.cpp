@@ -8,7 +8,7 @@
 #include "Utility/Acceleration.hpp"
 
 Acceleration::Acceleration(float maxSpeed, float acceleration)
-            : _currentSpeed(0), _maxSpeed(maxSpeed), _acceleration(acceleration) {}
+            : _currentSpeed(Speed::NO_SPEED), _maxSpeed(maxSpeed), _acceleration(acceleration) {}
 
 float Acceleration::getCurrentSpeed() {
     return _currentSpeed;

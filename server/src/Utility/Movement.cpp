@@ -16,7 +16,7 @@ void Movement::update(MoveDirection direction) {
 
     if (direction == MoveDirection::NONE) {
         _timer.stop();
-        _acceleration.setCurrentSpeed(0);
+        _acceleration.setCurrentSpeed(Speed::NO_SPEED);
         return;
     }
 

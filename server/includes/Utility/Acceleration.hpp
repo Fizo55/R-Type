@@ -7,6 +7,10 @@
 
 #pragma once
 
+enum Speed {
+    NO_SPEED = 0
+};
+
 class Acceleration {
 
     public:
