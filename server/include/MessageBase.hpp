@@ -9,10 +9,10 @@ public:
 
     uint32_t getType() const override;
 
-    void serialize(std::vector<uint8_t>& outData) const override = 0;
+    void serialize(std::vector<uint8_t>& outBuffer, uint16_t sequenceId, uint8_t flags) const override = 0;
     void deserialize(const std::vector<uint8_t>& inData) override = 0;
 
-private:
+protected:
     uint32_t type_;
 };
 
