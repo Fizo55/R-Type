@@ -2,46 +2,62 @@
 #include <cstring>
 #include <stdexcept>
 #include <vector>
+#include "Endianness.hpp"
 
 BinarySerializer::BinarySerializer(std::vector<uint8_t>& buffer)
-    : buffer_(buffer) {
+    : buffer_(buffer)
+{
 }
 
-uint32_t hostToBigEndian32(uint32_t hostValue) {
-    uint8_t bytes[4];
-    bytes[0] = static_cast<uint8_t>(hostValue >> 24);
-    bytes[1] = static_cast<uint8_t>(hostValue >> 16);
-    bytes[2] = static_cast<uint8_t>(hostValue >> 8);
-    bytes[3] = static_cast<uint8_t>(hostValue);
-    uint32_t bigEndianValue;
-    std::memcpy(&bigEndianValue, bytes, 4);
-    return bigEndianValue;
-}
-
-void BinarySerializer::writeInt32(int32_t value) {
-    uint32_t networkValue = hostToBigEndian32(static_cast<uint32_t>(value));
+void BinarySerializer::writeUInt32(uint32_t value)
+{
+    uint32_t networkValue = Endianness::hostToNetworkUint32(value);
     uint8_t bytes[4];
     std::memcpy(bytes, &networkValue, 4);
     buffer_.insert(buffer_.end(), bytes, bytes + 4);
 }
 
-void BinarySerializer::writeUInt32(uint32_t value) {
-    uint32_t networkValue = hostToBigEndian32(value);
-    uint8_t bytes[4];
-    std::memcpy(bytes, &networkValue, 4);
-    buffer_.insert(buffer_.end(), bytes, bytes + 4);
+void BinarySerializer::writeFloat(float value)
+{
+    static_assert(sizeof(float) == sizeof(uint32_t), "Size of float is not 32 bits");
+    uint32_t asInt;
+    std::memcpy(&asInt, &value, sizeof(float));
+    writeUInt32(asInt);
 }
 
-void BinarySerializer::writeFloat(float value) {
-    uint32_t networkValue;
-    std::memcpy(&networkValue, &value, 4);
-    networkValue = hostToBigEndian32(networkValue);
-    uint8_t bytes[4];
-    std::memcpy(bytes, &networkValue, 4);
-    buffer_.insert(buffer_.end(), bytes, bytes + 4);
-}
-
-void BinarySerializer::writeString(const std::string& value) {
+void BinarySerializer::writeString(const std::string& value)
+{
     writeUInt32(static_cast<uint32_t>(value.size()));
     buffer_.insert(buffer_.end(), value.begin(), value.end());
+}
+
+void BinarySerializer::writeUInt16(uint16_t value)
+{
+    uint16_t networkValue = Endianness::hostToNetworkUint16(value);
+    uint8_t bytes[2];
+    std::memcpy(bytes, &networkValue, 2);
+    buffer_.insert(buffer_.end(), bytes, bytes + 2);
+}
+
+void BinarySerializer::writeUInt8(uint8_t value)
+{
+    buffer_.push_back(value);
+}
+
+void BinarySerializer::writeHeader(uint16_t length, uint16_t sequenceId, uint8_t messageType, uint8_t flags)
+{
+    writeUInt16(length);
+    writeUInt16(sequenceId);
+    writeUInt8(messageType);
+    writeUInt8(flags);
+}
+
+void BinarySerializer::writeBytes(const uint8_t *data, size_t length)
+{
+    buffer_.insert(buffer_.end(), data, data + length);
+}
+
+void BinarySerializer::writeBytes(const std::vector<uint8_t>& data)
+{
+    buffer_.insert(buffer_.end(), data.begin(), data.end());
 }

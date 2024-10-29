@@ -12,5 +12,5 @@ components:
   # - name: main_collider
   #   type: collider
 
-  # - name: main_script
-  #   type: script
+  - name: main_script
+    type: script

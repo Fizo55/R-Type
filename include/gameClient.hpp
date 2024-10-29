@@ -1,5 +1,5 @@
-#ifndef CLIENT_HPP_
-    #define CLIENT_HPP_
+#ifndef GAME_CLIENT_HPP_
+    #define GAME_CLIENT_HPP_
 
     #include "engineCore.hpp"
     #include "engineGraphic.hpp"
@@ -11,6 +11,7 @@
     #include <boost/asio.hpp>
     #include <memory>
     
+    #include "engineScripting.hpp"
 
     class client {
         public:
@@ -47,6 +48,7 @@
 
             std::shared_ptr<INetwork> network_;
 
+            engine::ScriptOrchestrator _orchestrator;
     };
 
-#endif /* CLIENT_HPP_ */
+#endif /* GAME_CLIENT_HPP_ */

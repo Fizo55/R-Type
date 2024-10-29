@@ -1,6 +1,7 @@
-#include "client.hpp"
+#include "gameClient.hpp"
 #include "engineComponents.hpp"
 #include "engineGraphic.hpp"
+#include <filesystem>
 
 using namespace engine;
 
@@ -9,18 +10,30 @@ client::client()
 {
     this->_factory.registerComponent<engine_components::Position>();
     this->_factory.registerComponent<engine_components::Sprite>();
+    this->_factory.registerComponent<engine_components::Script>();
 
     this->_factory.registerBuildComponentRoute(ComponentBuildRoute("position", engine_components::Position::buildComponent));
     this->_factory.registerBuildComponentRoute(ComponentBuildRoute("sprite", engine_components::Sprite::buildComponent));
+    this->_factory.registerBuildComponentRoute(ComponentBuildRoute("script", engine_components::Script::buildComponent));
 
-    this->_displayManager.registerAsset("sprite0", "assets/images/error.png");
+#ifdef _WIN32
+    std::string basePath = std::filesystem::current_path().string() + "\\";
+#else
+    std::string basePath = "";
+#endif
 
-    this->_game.registerObject("assets/objects/test.yml");
-    this->_game.registerScene("assets/scenes/main_scene.yml");
+    this->_orchestrator.registerScript("test", "assets/scripts/test.lua");
+
+    this->_displayManager.registerAsset("sprite0", basePath + "assets/images/error.png");
+
+    this->_game.registerObject(basePath + "assets/objects/test.yml");
+    this->_game.registerScene(basePath + "assets/scenes/main_scene.yml");
 
     this->_game.addFactory(&this->_factory);
 
     this->_game.loadScene("scene0");
+
+    this->_orchestrator.fromGameObject(this->_game);
 
     this->_gameWindow = this->_displayManager.createWindow();
     

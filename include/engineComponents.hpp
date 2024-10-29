@@ -36,6 +36,16 @@
 
                 std::string sprite;
         };
+
+        class Script : public IComponent {
+            public:
+                Script(const std::string &, const std::string &);
+                ~Script();
+
+                void static buildComponent(const engine::Entity &, const std::string &, const std::vector<std::any> &, engine::Registry &);
+
+                std::string script;
+        };
     };
 
 #endif /* ENGINE_COMPONENTS_HPP_ */
