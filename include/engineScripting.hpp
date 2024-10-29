@@ -10,10 +10,46 @@
     #endif //__cplusplus
 
     #include <iostream>
+    #include <variant>
 
     #include "engineCore.hpp"
 
     namespace engine {
+        class IScriptTypeDefinitor {
+            public:
+                IScriptTypeDefinitor() = default;
+                ~IScriptTypeDefinitor() = default;
+
+                virtual void magicSet(void *, void *) const = 0;
+                virtual std::size_t magicSize(void) const = 0;
+        };
+
+        template <typename T>
+        class ScriptTypeDefinitor : public IScriptTypeDefinitor {
+            public:
+                ScriptTypeDefinitor() = default;
+                ~ScriptTypeDefinitor() = default;
+
+                void magicSet(void *data, void *other) const {
+                    *reinterpret_cast<T**>(data) = (T*)other;
+                }
+                std::size_t magicSize(void) const
+                {
+                    return (sizeof(T*));
+                }
+        };
+
+        class ScriptGlobalDefinition {
+            public:
+                ScriptGlobalDefinition(IScriptTypeDefinitor *, const std::string &, const std::string &, void *);
+                ~ScriptGlobalDefinition() = default;
+
+                IScriptTypeDefinitor *type;
+                std::string name;
+                std::string luaTable;
+                void *data;
+        };
+
         class ScriptEnvironment {
             public:
                 ScriptEnvironment();
@@ -23,6 +59,13 @@
 
                 void loadScript(const std::string &);
 
+                void registerGlobalObject(const ScriptGlobalDefinition &scriptDef)
+                {
+                    scriptDef.type->magicSet(lua_newuserdata(this->_ctx, scriptDef.type->magicSize()), scriptDef.data);
+                    luaL_setmetatable(this->_ctx, scriptDef.luaTable.c_str());
+                    lua_setglobal(this->_ctx, scriptDef.name.c_str());
+                }
+                lua_State *getCtx(void) const;
             private:
                 lua_State *_ctx;
         };
@@ -34,10 +77,20 @@
 
                 void registerScript(const std::string &, const std::string &);
                 void buildScript(const std::string &name);
+
+                void registerGlobal(const ScriptGlobalDefinition &scriptDef)
+                {
+                    this->_luaGlobals.push_back(scriptDef);
+                }
+
                 void fromGameObject(Game &);
+                void addBinding(std::function<void(lua_State *)>);
+
             private:
                 std::map<std::string, std::shared_ptr<ScriptEnvironment>> _scripts;
                 std::map<std::string, std::string> _registeredScripts;
+                std::vector<ScriptGlobalDefinition> _luaGlobals;
+                std::vector<std::function<void(lua_State *)>> _bindings;
         };
     };
 
