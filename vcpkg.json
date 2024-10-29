@@ -7,6 +7,7 @@
         "yaml-cpp",
         "boost-asio",
         "boost-system",
-        "boost-thread"
+        "boost-thread",
+        "lua"
     ]
 }

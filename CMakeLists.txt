@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Boost REQUIRED)
-find_package(lua REQUIRED)
+find_package(Lua REQUIRED)
 find_package(SDL2 CONFIG REQUIRED)
 find_package(SDL2_image CONFIG REQUIRED)
 find_package(yaml-cpp CONFIG REQUIRED)
@@ -46,10 +46,21 @@ add_library(engine-core OBJECT
     ${ENGINE_SRC_DIR}/core/object.cpp
     ${ENGINE_SRC_DIR}/core/components/position.cpp
     ${ENGINE_SRC_DIR}/core/components/sprite.cpp
+    ${ENGINE_SRC_DIR}/core/components/script.cpp
 )
 target_include_directories(engine-core PRIVATE ./include)
 target_compile_definitions(engine-core PUBLIC OBJ)
 target_link_libraries(engine-core PUBLIC yaml-cpp::yaml-cpp)
+
+add_library(engine-scripting OBJECT
+    ${ENGINE_SRC_DIR}/scripting/game.cpp
+    ${ENGINE_SRC_DIR}/scripting/ScriptEnvironment.cpp
+    ${ENGINE_SRC_DIR}/scripting/ScriptOrchestrator.cpp
+)
+target_include_directories(engine-scripting PRIVATE ./include)
+target_include_directories(engine-scripting PRIVATE ${LUA_INCLUDE_DIR})
+target_compile_definitions(engine-scripting PUBLIC OBJ)
+target_link_libraries(engine-scripting PRIVATE ${LUA_LIBRARIES})
 
 add_subdirectory(network)
 
@@ -83,6 +94,7 @@ add_executable(client-executable
 target_include_directories(client-executable PRIVATE ./include)
 target_link_libraries(client-executable PRIVATE engine-graphic)
 target_link_libraries(client-executable PRIVATE engine-core)
+target_link_libraries(client-executable PRIVATE engine-scripting)
 
 add_custom_command(TARGET client-executable POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory

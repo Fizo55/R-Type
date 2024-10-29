@@ -3,6 +3,7 @@
 
     #include "engineCore.hpp"
     #include "engineGraphic.hpp"
+    #include "engineScripting.hpp"
 
     class client {
         public:
@@ -26,6 +27,8 @@
             grw::clock _clock;
 
             unsigned int _gameWindow;
+
+            engine::ScriptOrchestrator _orchestrator;
     };
 
 #endif /* GAME_CLIENT_HPP_ */
