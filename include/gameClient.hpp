@@ -7,7 +7,7 @@
 
     class client {
         public:
-            client();
+            client(const std::string &);
             ~client();
 
             void event(void);
