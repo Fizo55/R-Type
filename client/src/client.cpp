@@ -8,6 +8,8 @@ using namespace engine;
 client::client()
   : _running(false)
 {
+    engine::ScriptTypeDefinitor gameDefinitor = engine::ScriptTypeDefinitor<Game>();
+
     this->_factory.registerComponent<engine_components::Position>();
     this->_factory.registerComponent<engine_components::Sprite>();
     this->_factory.registerComponent<engine_components::Script>();
@@ -23,6 +25,8 @@ client::client()
 #endif
 
     this->_orchestrator.registerScript("test", "assets/scripts/test.lua");
+
+    this->_orchestrator.registerGlobal(ScriptGlobalDefinition((engine::IScriptTypeDefinitor *)&gameDefinitor, "game", "game", (void *)&(this->_game)));
 
     this->_displayManager.registerAsset("sprite0", basePath + "assets/images/error.png");
 

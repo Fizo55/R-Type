@@ -1,3 +1,3 @@
--- game:test()
 
-print("Hello World!")
+local tempGame = game
+tempGame:test()

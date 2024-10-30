@@ -37,7 +37,21 @@ void engine::ScriptOrchestrator::buildScript(const std::string &name)
     std::shared_ptr<ScriptEnvironment> newScript = std::make_shared<ScriptEnvironment>();
 
     newScript->buildCoreLibrary();
+
+    for (const auto &item : this->_bindings) {
+        item(newScript->getCtx());
+    }
+
+    for (const auto &item : this->_luaGlobals) {
+        newScript->registerGlobalObject(item);
+    }
+
     newScript->loadScript(this->_registeredScripts[name]);
 
     this->_scripts[name] = newScript;
+}
+
+void engine::ScriptOrchestrator::addBinding(std::function<void(lua_State *)> binding)
+{
+    this->_bindings.push_back(binding);
 }
