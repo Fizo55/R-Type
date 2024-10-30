@@ -49,6 +49,9 @@ add_library(engine-core OBJECT
     ${ENGINE_SRC_DIR}/core/components/position.cpp
     ${ENGINE_SRC_DIR}/core/components/sprite.cpp
     ${ENGINE_SRC_DIR}/core/components/script.cpp
+    ${ENGINE_SRC_DIR}/core/algorithm/Acceleration.cpp
+    ${ENGINE_SRC_DIR}/core/algorithm/Movement.cpp
+    ${ENGINE_SRC_DIR}/core/algorithm/Timer.cpp
 )
 target_include_directories(engine-core PRIVATE ./include)
 target_compile_definitions(engine-core PUBLIC OBJ)
