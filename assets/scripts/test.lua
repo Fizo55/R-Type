@@ -1,3 +1,3 @@
+game:test()
 
-local tempGame = game
-tempGame:test()
+-- game:change_scene("scene0")
