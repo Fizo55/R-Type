@@ -40,6 +40,17 @@
                 float _acceleration;
         };
 
+        class Movement {
+            public:
+                Movement();
+                ~Movement() = default;
+
+                void update(MoveDirection direction, engine_components::Position &position, Acceleration &acceleration, float currentSpeed, float maxSpeed);
+
+            private:
+                Timer _timer;
+        };
+
     };
 
 #endif /* ENGINE_ALGORITHM_HPP_ */
