@@ -2,10 +2,11 @@
 #include "engineComponents.hpp"
 #include "engineGraphic.hpp"
 #include <filesystem>
+#include <yaml.h>
 
 using namespace engine;
 
-client::client()
+client::client(const std::string &configPath)
   : _running(false)
 {
     engine::ScriptTypeDefinitor gameDefinitor = engine::ScriptTypeDefinitor<Game>();
@@ -24,18 +25,38 @@ client::client()
     std::string basePath = "";
 #endif
 
-    this->_orchestrator.registerScript("test", "assets/scripts/test.lua");
+    YAML::Node gameData = YAML::LoadFile(configPath);
+
+    if (gameData["images"]) {
+        for (YAML::const_iterator it = gameData["images"].begin(); it != gameData["images"].end(); ++it) {
+            this->_displayManager.registerAsset(it->first.as<std::string>(), basePath + it->second.as<std::string>());
+        }
+    }
+
+    if (gameData["scripts"]) {
+        for (YAML::const_iterator it = gameData["scripts"].begin(); it != gameData["scripts"].end(); ++it) {
+            this->_orchestrator.registerScript(it->first.as<std::string>(), basePath + it->second.as<std::string>());
+        }
+    }
+
+    if (gameData["objects"]) {
+        for (const auto &item : gameData["objects"]) {
+            this->_game.registerObject(basePath + item.as<std::string>());
+        }
+    }
+
+    if (gameData["scenes"]) {
+        for (const auto &item : gameData["scenes"]) {
+            this->_game.registerScene(basePath + item.as<std::string>());
+        }
+    }
 
     this->_orchestrator.registerGlobal(ScriptGlobalDefinition((engine::IScriptTypeDefinitor *)&gameDefinitor, "game", "game", (void *)&(this->_game)));
 
-    this->_displayManager.registerAsset("sprite0", basePath + "assets/images/error.png");
-
-    this->_game.registerObject(basePath + "assets/objects/test.yml");
-    this->_game.registerScene(basePath + "assets/scenes/main_scene.yml");
-
     this->_game.addFactory(&this->_factory);
 
-    this->_game.loadScene("scene0");
+    if (gameData["entryScene"])
+        this->_game.loadScene(gameData["entryScene"].as<std::string>());
 
     this->_orchestrator.fromGameObject(this->_game);
 
