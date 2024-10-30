@@ -1,0 +1,36 @@
+name: scene0
+objects:
+  - name: bg1
+    id: bg_lvl1
+    values:
+      coords:
+        - 0
+        - 0
+      sprite:
+        - "sprite_bg_lvl1"
+      main_script:
+        - "test"
+
+  - name: button2
+    id: obj0
+    values:
+      coords:
+        - 10
+        - 110
+      sprite:
+        - "sprite0"
+      main_script:
+        - "test"
+
+  - name: button2
+    id: obj0
+    values:
+      coords:
+        - 100
+        - 110
+      sprite:
+        - "sprite0"
+      main_script:
+        - "test"
+huds:
+
