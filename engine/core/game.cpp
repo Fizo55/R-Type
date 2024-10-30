@@ -37,6 +37,9 @@ void engine::Game::loadScene(const std::string &sceneName)
 {
     Scene scene = this->_scenes[sceneName];
 
+    this->_loadedGameObjects.clear();
+    this->_loadedGameHuds.clear();
+
     for (const auto &obj : scene.getObjects()) {
         this->_loadedGameObjects.push_back(std::pair<std::string, Object>(obj.first, this->buildObjectRef(obj.second)));
     }

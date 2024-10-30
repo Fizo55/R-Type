@@ -1,17 +1,17 @@
-name: scene1
+name: scene0
 objects:
-  - name: test
-    id: obj0
+  - name: bg1
+    id: bg_lvl1
     values:
       coords:
-        - 100
-        - 110
+        - 0
+        - 0
       sprite:
-        - "sprite0"
+        - "sprite_bg_lvl1"
       main_script:
         - "test"
 
-  - name: test2
+  - name: button2
     id: obj0
     values:
       coords:
@@ -22,5 +22,15 @@ objects:
       main_script:
         - "test"
 
+  - name: button2
+    id: obj0
+    values:
+      coords:
+        - 100
+        - 110
+      sprite:
+        - "sprite0"
+      main_script:
+        - "test"
 huds:
 
