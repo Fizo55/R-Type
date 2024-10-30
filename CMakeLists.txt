@@ -96,6 +96,7 @@ target_include_directories(client-executable PRIVATE ./include)
 target_link_libraries(client-executable PRIVATE engine-graphic)
 target_link_libraries(client-executable PRIVATE engine-core)
 target_link_libraries(client-executable PRIVATE engine-scripting)
+target_link_libraries(client-executable PUBLIC yaml-cpp::yaml-cpp)
 
 add_custom_command(TARGET client-executable POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
