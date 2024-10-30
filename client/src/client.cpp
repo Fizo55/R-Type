@@ -2,7 +2,7 @@
 #include "engineComponents.hpp"
 #include "engineGraphic.hpp"
 #include <filesystem>
-#include <yaml.h>
+#include <yaml-cpp/yaml.h>
 
 using namespace engine;
 
