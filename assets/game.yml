@@ -1,0 +1,13 @@
+scenes:
+  - assets/scenes/main_scene.yml
+
+objects:
+  - assets/objects/test.yml
+
+scripts:
+  test: assets/scripts/test.lua
+
+images:
+  sprite0: assets/images/error.png
+
+entryScene: scene0
