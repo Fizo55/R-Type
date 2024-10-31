@@ -14,10 +14,12 @@ client::client(const std::string &configPath)
     this->_factory.registerComponent<engine_components::Position>();
     this->_factory.registerComponent<engine_components::Sprite>();
     this->_factory.registerComponent<engine_components::Script>();
+    this->_factory.registerComponent<engine_components::Volatile>();
 
     this->_factory.registerBuildComponentRoute(ComponentBuildRoute("position", engine_components::Position::buildComponent));
     this->_factory.registerBuildComponentRoute(ComponentBuildRoute("sprite", engine_components::Sprite::buildComponent));
     this->_factory.registerBuildComponentRoute(ComponentBuildRoute("script", engine_components::Script::buildComponent));
+    this->_factory.registerBuildComponentRoute(ComponentBuildRoute("volatile", engine_components::Volatile::buildComponent));
 
 #ifdef _WIN32
     std::string basePath = std::filesystem::current_path().string() + "\\";
@@ -83,11 +85,11 @@ void client::draw(void)
     this->_displayManager.clear();
 
     for (const auto &item : this->_game.getLoadedObjects()) {
-        this->_displayManager.useEntity(*item.second.getEntity(), this->_game.getFactory()->getRegistry(), this->_gameWindow);
+        this->_displayManager.useEntity(*item.getEntity(), this->_game.getFactory()->getRegistry(), this->_gameWindow);
     }
 
     for (const auto &item : this->_game.getLoadedHuds()) {
-        this->_displayManager.useEntity(*item.second.getEntity(), this->_game.getFactory()->getRegistry(), this->_gameWindow);
+        this->_displayManager.useEntity(*item.getEntity(), this->_game.getFactory()->getRegistry(), this->_gameWindow);
     }
 
     this->_displayManager.draw();

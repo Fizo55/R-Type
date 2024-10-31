@@ -214,20 +214,20 @@
                 void loadScene(const std::string &);
                 void unloadScene(void);
 
-                const std::vector<std::pair<std::string, Object>> &getLoadedObjects(void);
-                const std::vector<std::pair<std::string, Object>> &getLoadedHuds(void);
+                const std::vector<Object> &getLoadedObjects(void);
+                const std::vector<Object> &getLoadedHuds(void);
 
                 void addFactory(EntityFactory *);
                 engine::EntityFactory *getFactory(void);
 
-                Object buildObjectRef(const ObjectRef &);
+                Object buildObjectRef(const ObjectRef &, const std::string &);
 
             private:
                 std::map<std::string, ObjectRef> _objects;
                 std::map<std::string, Scene> _scenes;
 
-                std::vector<std::pair<std::string, Object>> _loadedGameObjects;
-                std::vector<std::pair<std::string, Object>> _loadedGameHuds;
+                std::vector<Object> _loadedGameObjects;
+                std::vector<Object> _loadedGameHuds;
 
                 EntityFactory *_factory;
 

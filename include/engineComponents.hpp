@@ -46,6 +46,14 @@
 
                 std::string script;
         };
+
+        class Volatile : public IComponent {
+            public:
+                Volatile(const std::string &);
+                ~Volatile();
+
+                void static buildComponent(const engine::Entity &, const std::string &, const std::vector<std::any> &, engine::Registry &);
+        };
     };
 
 #endif /* ENGINE_COMPONENTS_HPP_ */
