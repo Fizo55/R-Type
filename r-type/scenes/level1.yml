@@ -10,6 +10,7 @@ objects:
         - "sprite_bg_lvl1"
       main_script:
         - "test"
+
   - name: player1
     id: player1
     values:
@@ -18,6 +19,9 @@ objects:
         - 110
       sprite:
         - "sprite_player1"
+      size:
+        - 1000
+        - 1000
       main_script:
         - "test"
 

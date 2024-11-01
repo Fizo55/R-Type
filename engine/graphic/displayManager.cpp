@@ -82,10 +82,11 @@ void engine::displayManager::useEntity(const engine::Entity &entity, engine::Reg
 {
     auto &position = registry.get_component<engine_components::Position>(entity);
     auto &sprite = registry.get_component<engine_components::Sprite>(entity);
+    auto &size = registry.get_component<engine_components::Size>(entity);
 
-    if (!position || !sprite)
+    if (!position || !sprite || !size)
         return;
 
-    grw::sprite newSprite(this->_textures[sprite->sprite], position->coordinates, engine_math::vector2<int>(-1, -1));
+    grw::sprite newSprite(this->_textures[sprite->sprite], position->coordinates, size->coordinates);
     this->_rendering[windowId].push_back(newSprite);
 }
