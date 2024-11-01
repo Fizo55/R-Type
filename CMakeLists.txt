@@ -8,6 +8,8 @@ find_package(Boost REQUIRED)
 find_package(Lua REQUIRED)
 find_package(SDL2 CONFIG REQUIRED)
 find_package(SDL2_image CONFIG REQUIRED)
+find_package(raylib REQUIRED)
+find_package(glfw3 REQUIRED)
 find_package(yaml-cpp CONFIG REQUIRED)
 
 include_directories(${Boost_INCLUDE_DIRS})
@@ -17,7 +19,7 @@ set(SERVER_SRC_DIR ${CMAKE_SOURCE_DIR}/server/src)
 set(CLIENT_SRC_DIR ${CMAKE_SOURCE_DIR}/client)
 set(ASSETS_DIR ${CMAKE_SOURCE_DIR}/assets)
 
-add_library(engine-graphic OBJECT
+add_library(engine-graphicSDL OBJECT
     ${ENGINE_SRC_DIR}/graphic/wrapper/window.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/videoMode.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/texture.cpp
@@ -29,14 +31,34 @@ add_library(engine-graphic OBJECT
     ${ENGINE_SRC_DIR}/graphic/displayManager.cpp
 )
 
+
+target_include_directories(engine-graphicSDL PRIVATE ./include ${SDL2_INCLUDE_DIRS} ${SDL2_image_INCLUDE_DIRS})
+target_compile_definitions(engine-graphicSDL PUBLIC OBJ)
+target_link_libraries(engine-graphicSDL
+PRIVATE
+$<TARGET_NAME_IF_EXISTS:SDL2::SDL2main>
+$<IF:$<TARGET_EXISTS:SDL2::SDL2>,SDL2::SDL2,SDL2::SDL2-static>
+$<IF:$<TARGET_EXISTS:SDL2_image::SDL2_image>,SDL2_image::SDL2_image,SDL2_image::SDL2_image-static>
+)
+
+add_library(engine-graphic OBJECT
+    ${ENGINE_SRC_DIR}/raylib/wrapper/window.cpp
+    ${ENGINE_SRC_DIR}/raylib/wrapper/videoMode.cpp
+    ${ENGINE_SRC_DIR}/raylib/wrapper/texture.cpp
+    ${ENGINE_SRC_DIR}/raylib/wrapper/event.cpp
+    ${ENGINE_SRC_DIR}/raylib/wrapper/sprite.cpp
+    ${ENGINE_SRC_DIR}/raylib/wrapper/clock.cpp
+    ${ENGINE_SRC_DIR}/raylib/wrapper/mask.cpp
+    ${ENGINE_SRC_DIR}/raylib/wrapper/windowHandler.cpp
+    ${ENGINE_SRC_DIR}/raylib/displayManager.cpp
+)
+
 target_include_directories(engine-graphic PRIVATE ./include ${SDL2_INCLUDE_DIRS} ${SDL2_image_INCLUDE_DIRS})
 target_compile_definitions(engine-graphic PUBLIC OBJ)
-target_link_libraries(engine-graphic
-    PRIVATE
-    $<TARGET_NAME_IF_EXISTS:SDL2::SDL2main>
-    $<IF:$<TARGET_EXISTS:SDL2::SDL2>,SDL2::SDL2,SDL2::SDL2-static>
-    $<IF:$<TARGET_EXISTS:SDL2_image::SDL2_image>,SDL2_image::SDL2_image,SDL2_image::SDL2_image-static>
-)
+target_link_libraries(engine-graphic PRIVATE raylib)
+target_link_libraries(engine-graphic PRIVATE raylib glfw)
+
+
 
 add_library(engine-core OBJECT
     ${ENGINE_SRC_DIR}/core/scene.cpp
