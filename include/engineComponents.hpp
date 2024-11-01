@@ -27,6 +27,16 @@
                 engine_math::vector2<int> coordinates;
         };
 
+        class Size : public IComponent {
+            public:
+                Size(const std::string &, int x, int y);
+                ~Size();
+
+                void static buildComponent(const engine::Entity &, const std::string &, const std::vector<std::any> &, engine::Registry &);
+
+                engine_math::vector2<int> coordinates;
+        };
+
         class Sprite : public IComponent {
             public:
                 Sprite(const std::string &, const std::string &);

@@ -45,6 +45,7 @@ add_library(engine-core OBJECT
     ${ENGINE_SRC_DIR}/core/registry.cpp
     ${ENGINE_SRC_DIR}/core/object.cpp
     ${ENGINE_SRC_DIR}/core/components/position.cpp
+    ${ENGINE_SRC_DIR}/core/components/size.cpp
     ${ENGINE_SRC_DIR}/core/components/sprite.cpp
     ${ENGINE_SRC_DIR}/core/components/script.cpp
     ${ENGINE_SRC_DIR}/core/components/volatile.cpp
