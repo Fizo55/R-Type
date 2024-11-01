@@ -76,7 +76,7 @@
                 ~ScriptOrchestrator() = default;
 
                 void registerScript(const std::string &, const std::string &);
-                void buildScript(const std::string &name);
+                void buildScript(const std::string &name, const std::vector<engine::ScriptGlobalDefinition> &extraDefs = std::vector<engine::ScriptGlobalDefinition>());
 
                 void registerGlobal(const ScriptGlobalDefinition &scriptDef)
                 {
@@ -95,5 +95,6 @@
     };
 
     void game_register(lua_State *ctx);
+    void object_register(lua_State *ctx);
 
 #endif /* !ENGINE_SCRIPTING_HPP_ */

@@ -13,6 +13,15 @@ static int game_test(lua_State *ctx)
     return (0);
 }
 
+static int change_scene(lua_State *ctx)
+{
+    std::string sceneName = luaL_checkstring(ctx, 2);
+    engine::Game *mygame = (*reinterpret_cast<engine::Game**>(luaL_checkudata(ctx, 1, "game")));
+    mygame->loadScene(sceneName);
+
+    return 0;
+}
+
 void game_register(lua_State *ctx)
 {
     // lua_register(ctx, "game", game_new); NO CONSTRUCTOR FOR GAME, POR FAVOR
@@ -27,6 +36,9 @@ void game_register(lua_State *ctx)
 
     lua_pushcfunction(ctx, game_test);
     lua_setfield(ctx, -2, "test");
+
+    lua_pushcfunction(ctx, change_scene);
+    lua_setfield(ctx, -2, "change_scene");
 
     lua_pop(ctx, 1);
 }

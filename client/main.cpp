@@ -13,7 +13,7 @@ using namespace engine;
 
 int main(int ac, char **av)
 {
-    client game = client("assets/game.yml");
+    client game = client("r-type/game.yml");
 
     game.mainloop();
     return 0;

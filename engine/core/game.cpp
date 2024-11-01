@@ -13,7 +13,7 @@ void engine::Game::loadObject(const ObjectRef &objref)
 
 }
 
-engine::Object engine::Game::buildObjectRef(const engine::ObjectRef &obj)
+engine::Object engine::Game::buildObjectRef(const engine::ObjectRef &obj, const std::string &name)
 {
     Object temp;
     ObjectRef objRegisterd = this->_objects[obj.getName()];
@@ -30,6 +30,7 @@ engine::Object engine::Game::buildObjectRef(const engine::ObjectRef &obj)
     if (!this->_factory)
         throw (engine::nullPtrError("factory as not been setup for game"));
     temp.buildEntity(*this->_factory);
+    temp.setName(name);
     return (temp);
 }
 
@@ -37,18 +38,22 @@ void engine::Game::loadScene(const std::string &sceneName)
 {
     Scene scene = this->_scenes[sceneName];
 
+    this->_loadedGameObjects.clear();
+    this->_loadedGameHuds.clear();
+
     for (const auto &obj : scene.getObjects()) {
-        this->_loadedGameObjects.push_back(std::pair<std::string, Object>(obj.first, this->buildObjectRef(obj.second)));
+        this->_loadedGameObjects.push_back(this->buildObjectRef(obj.second, obj.first));
     }
 
     for (const auto &obj : scene.getHuds()) {
-        this->_loadedGameHuds.push_back(std::pair<std::string, Object>(obj.first, this->buildObjectRef(obj.second)));
+        this->_loadedGameHuds.push_back(this->buildObjectRef(obj.second, obj.first));
     }
 }
 
 void engine::Game::unloadScene(void)
 {
-    this->_loadedGameObjects = std::vector<std::pair<std::string, Object>>();
+    this->_loadedGameObjects = std::vector<Object>();
+    this->_loadedGameHuds = std::vector<Object>();
     this->_loadedScene = "none";
 }
 
@@ -102,12 +107,12 @@ void engine::Game::addFactory(EntityFactory *factory)
     this->_factory = factory;
 }
 
-const std::vector<std::pair<std::string, engine::Object>> &engine::Game::getLoadedObjects(void)
+const std::vector<engine::Object> &engine::Game::getLoadedObjects(void)
 {
     return (this->_loadedGameObjects);
 }
 
-const std::vector<std::pair<std::string, engine::Object>> &engine::Game::getLoadedHuds(void)
+const std::vector<engine::Object> &engine::Game::getLoadedHuds(void)
 {
     return (this->_loadedGameHuds);
 }

@@ -1,0 +1,16 @@
+name: ennemy_p-staff
+components:
+  - name: coords
+    type: position
+
+  - name: sprite
+    type: sprite
+
+  # - name: size
+  #   type: size
+
+  # - name: main_collider
+  #   type: collider
+
+  - name: main_script
+    type: script
