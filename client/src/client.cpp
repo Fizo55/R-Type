@@ -23,6 +23,7 @@ client::client(const std::string &configPath)
     this->_factory.registerBuildComponentRoute(ComponentBuildRoute("script", engine_components::Script::buildComponent));
     this->_factory.registerBuildComponentRoute(ComponentBuildRoute("volatile", engine_components::Volatile::buildComponent));
 
+
 #ifdef _WIN32
     std::string basePath = std::filesystem::current_path().string() + "\\";
 #else
@@ -31,6 +32,7 @@ client::client(const std::string &configPath)
 
     YAML::Node gameData = YAML::LoadFile(configPath);
 
+    this->_gameWindow = this->_displayManager.createWindow();
     if (gameData["images"]) {
         for (YAML::const_iterator it = gameData["images"].begin(); it != gameData["images"].end(); ++it) {
             this->_displayManager.registerAsset(it->first.as<std::string>(), basePath + it->second.as<std::string>());
@@ -64,7 +66,6 @@ client::client(const std::string &configPath)
 
     this->_orchestrator.fromGameObject(this->_game);
 
-    this->_gameWindow = this->_displayManager.createWindow();
 }
 
 client::~client()
@@ -102,10 +103,15 @@ void client::mainloop(void)
     this->_running = true;
 
     while (this->_running) {
+        std::cout << "Running" << std::endl;
         this->event();
+        std::cout << "Event" << std::endl;
         this->update();
+        std::cout << "Update" << std::endl;
         this->draw();
+        std::cout << "Draw" << std::endl;
         this->_clock.tick(60);
+        std::cout << "Tick" << std::endl;
     }
 
 }

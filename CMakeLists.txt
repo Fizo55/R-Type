@@ -53,7 +53,7 @@ add_library(engine-graphic OBJECT
     ${ENGINE_SRC_DIR}/raylib/displayManager.cpp
 )
 
-target_include_directories(engine-graphic PRIVATE ./include ${SDL2_INCLUDE_DIRS} ${SDL2_image_INCLUDE_DIRS})
+target_include_directories(engine-graphic PRIVATE ./include)
 target_compile_definitions(engine-graphic PUBLIC OBJ)
 target_link_libraries(engine-graphic PRIVATE raylib)
 target_link_libraries(engine-graphic PRIVATE raylib glfw)

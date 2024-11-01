@@ -52,7 +52,6 @@ texture::texture(const std::string &filePath)
     }
 
     std::cout << "Texture loaded successfully. ID: " << _texture.id << std::endl;
-    std::cout << "Texture Width: " << _texture.width << ", Height: " << _texture.height << std::endl;
 
     _size = engine_math::vector2<int>(_texture.width, _texture.height);
 }
@@ -70,8 +69,8 @@ void texture::blit(const texture &other, const engine_math::vector2<int> &positi
     Rectangle dest = {static_cast<float>(position.x), static_cast<float>(position.y), static_cast<float>(size.x), static_cast<float>(size.y)};
     Vector2 origin = {0.0f, 0.0f};
 
-    DrawTexturePro(other.getTexture(), source, dest, origin, 0.0f, WHITE);
-    EndTextureMode();
+    std::cout << "Blitting texture " << other.getTexture().id << " to texture " << _texture.id << " at position (" << position.x << ", " << position.y << ") with size (" << size.x << ", " << size.y << ")" << std::endl;
+    DrawTexture( other.getTexture(), position.x, position.y, WHITE);
 }
 
 /**
@@ -86,7 +85,6 @@ void texture::draw_rect(const engine_math::vector2<int> &position, const engine_
     Color rayColor = {(unsigned char)_mask.getR(color), (unsigned char)_mask.getG(color), (unsigned char)_mask.getB(color), (unsigned char)_mask.getA(color)};
 
     DrawRectangle(position.x, position.y, size.x, size.y, rayColor);
-    EndTextureMode();
 }
 
 /**
@@ -97,9 +95,6 @@ void texture::draw_rect(const engine_math::vector2<int> &position, const engine_
 void texture::clear(unsigned int color)
 {
     Color rayColor = {(unsigned char)_mask.getR(color), (unsigned char)_mask.getG(color), (unsigned char)_mask.getB(color), (unsigned char)_mask.getA(color)};
-
-    ClearBackground(rayColor);
-    EndTextureMode();
 }
 
 void texture::setMask(const mask &textureMask)

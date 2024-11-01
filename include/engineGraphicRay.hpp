@@ -14,45 +14,24 @@
 /** Base abstractions **/
 
     namespace grw {
-        class mask {
-            public:
-                mask(unsigned r = 0xff000000, unsigned int g = 0x00ff0000, unsigned int b = 0x0000ff00, unsigned int a = 0x000000ff);
-                ~mask() = default;
-
-                unsigned createColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a);
-                unsigned char getR(unsigned int color);
-                unsigned char getG(unsigned int color);
-                unsigned char getB(unsigned int color);
-                unsigned char getA(unsigned int color);
-
-                unsigned int r;
-                unsigned int g;
-                unsigned int b;
-                unsigned int a;
-        };
 
         class texture {
             public:
-                texture(const engine_math::vector2<int> & = engine_math::vector2<int>(256, 256), unsigned int = 32, const mask & = mask());
+                texture(const engine_math::vector2<int> & = engine_math::vector2<int>(256, 256), unsigned int = 32);
                 texture(const std::string &filePath);
                 ~texture();
 
-                void blit(const texture &, const engine_math::vector2<int> &, const engine_math::vector2<int> &);
+                void draw();
                 void draw_rect(const engine_math::vector2<int> &, const engine_math::vector2<int> &, unsigned int);
                 void clear(unsigned int);
                 void optimize(const texture &);
-                void setMask(const mask &);
 
                 Texture2D getTexture(void) const;
                 const engine_math::vector2<int> &getSize(void) const;
-                const mask &getMask(void) const;
 
             private:
                 Texture2D _texture;
-                RenderTexture2D _renderTexture;
                 engine_math::vector2<int> _size;
-                unsigned int _depth;
-                mask _mask;
         };
 
         class sprite {
@@ -67,10 +46,11 @@
                 const engine_math::vector2<int> &getPosition() const;
                 const engine_math::vector2<int> &getSize() const;
 
-                void draw(const std::shared_ptr<texture> &) const;
+                void draw() const;
 
             private:
                 std::shared_ptr<texture> _spriteTexture;
+                RenderTexture2D _renderTexture;
                 engine_math::vector2<int> _position;
                 engine_math::vector2<int> _size;
         };
@@ -125,7 +105,6 @@
                 window(const std::string & = "New Window", const videoMode & = videoMode(engine_math::vector2<int>(800, 600), engine_math::vector2<int>(0, 0), 32, 0));
                 ~window();
 
-                void blit(const texture &, const engine_math::vector2<int> &, const engine_math::vector2<int> &);
                 void clear(unsigned int color);
                 void update(void);
                 void draw(void);
@@ -137,9 +116,6 @@
                 unsigned char hasEvent(unsigned long);
                 const event getEvent(unsigned long) const;
 
-                std::shared_ptr<texture> &getSurface(void);
-                const std::shared_ptr<texture> &getSurface(void) const;
-
 
                 unsigned char isClosed(void);
             private:
@@ -148,7 +124,7 @@
                 std::string _title;
                 videoMode _videoMode;
 
-                std::shared_ptr<texture> _texture;
+                std::vector<sprite> _sprites;
 
                 int _windowId;
 
@@ -197,9 +173,6 @@
                 void useEntity(const Entity &, Registry &, unsigned int);
             private:
                 grw::windowHandler _winHandler;
-
-                std::map<unsigned int, std::vector<grw::sprite>> _rendering;
-                std::map<std::string, std::shared_ptr<grw::texture>> _textures;
         };
     };
 

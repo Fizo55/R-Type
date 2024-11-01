@@ -11,9 +11,10 @@ clock::clock()
 /**
  * @brief Get the time since the last call to this function
  */
-unsigned long clock::tick(int fps) {
-    unsigned long currentTime = static_cast<unsigned long>(GetTime() * 1000);  // Current time in milliseconds
-    unsigned long delta = currentTime - this->_oldTime;  // Time difference since last tick
+unsigned long clock::tick(int fps)
+{
+    unsigned long currentTime = static_cast<unsigned long>(GetTime() * 1000);
+    unsigned long delta = currentTime - this->_oldTime;
     long double executionTime;
     long double sleepTime;
 
@@ -22,13 +23,13 @@ unsigned long clock::tick(int fps) {
         return delta;
     }
 
-    executionTime = 1000.0 / fps;  // Target frame time in milliseconds
+    executionTime = 1000.0 / fps;
     sleepTime = executionTime - delta;
 
     if (sleepTime > 0.5) {
-        sleep(static_cast<int>(std::round(sleepTime)));  // Sleep in milliseconds
+        sleep(static_cast<int>(std::round(sleepTime)));
     }
-    this->_oldTime = static_cast<unsigned long>(GetTime() * 1000);  // Update _oldTime
+    this->_oldTime = static_cast<unsigned long>(GetTime() * 1000);
     return (sleepTime > 0.0 ? delta + sleepTime : delta);
 }
 

@@ -9,7 +9,7 @@
 #include "engineGraphicRay.hpp"
 
 grw::sprite::sprite(const std::shared_ptr<grw::texture> &tex, const engine_math::vector2<int> &position, const engine_math::vector2<int> &size)
-    : _spriteTexture(tex), _position(position), _size(size)
+    : _spriteTexture(tex), _position(position), _size(size), _renderTexture{0}
 {
 }
 
@@ -41,5 +41,7 @@ std::shared_ptr<grw::texture> &grw::sprite::getTexture()
 }
 
 void grw::sprite::draw(const std::shared_ptr<grw::texture> &target) const {
+    BeginTextureMode(this->_renderTexture);
     target->blit(*this->_spriteTexture, this->_position, this->_size);
+    EndTextureMode();
 }

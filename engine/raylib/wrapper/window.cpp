@@ -45,9 +45,8 @@ void window::draw(void)
     if (this->isClosed())
         return;
 
-    BeginDrawing();
-    ClearBackground(RAYWHITE); // Or any default background color
-    EndDrawing();
+    clear(0);
+    
 }
 
 void window::clear(unsigned int color)

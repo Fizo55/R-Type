@@ -1,5 +1,6 @@
 #include "engineGraphicRay.hpp"
 #include "engineComponents.hpp"
+#include <iostream>
 
 engine::displayManager::displayManager()
 {
@@ -28,6 +29,7 @@ unsigned int engine::displayManager::createWindow(void)
 {
     grw::window *window = new grw::window("New Window", grw::videoMode(engine_math::vector2<int>(800, 600), engine_math::vector2<int>(0, 0), 32, grw::videoMode::CLOSABLE));
 
+    SetTraceLogLevel(LOG_NONE);
     this->_winHandler.addWindow(window);
     this->_rendering[0] = std::vector<grw::sprite>();
     return (0);
@@ -48,15 +50,18 @@ void engine::displayManager::update(void)
 
 void engine::displayManager::draw(void)
 {
+    BeginDrawing();
+    this->_winHandler.drawWindows();
     for (auto it = this->_rendering.begin(); it != this->_rendering.end(); ++it) {
         if (!this->_winHandler.isWindowClosed(it->first)) {
             for (const auto &entity : it->second) {
+                std::cout << it->first << std::endl;
                 entity.draw(this->_winHandler.getWindow(it->first)->getSurface());
             }
         }
     }
 
-    this->_winHandler.drawWindows();
+    EndDrawing();
 }
 
 void engine::displayManager::clear(void)
