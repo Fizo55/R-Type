@@ -1,0 +1,23 @@
+scenes:
+  # - r-type/scenes/main_scene.yml
+  - r-type/scenes/menu_scene.yml
+  - r-type/scenes/level1.yml
+  # - r-type/scenes/scene_test.yml
+
+objects:
+  - r-type/objects/test.yml
+  - r-type/objects/background_level1.yml
+  - r-type/objects/ennemies/ennemy_pata-pata.yml
+  - r-type/objects/allies/player1.yml
+
+scripts:
+  test: r-type/scripts/test.lua
+
+images:
+  sprite_bg_lvl1: r-type/assets/images/backgrounds/level1_bg_1080p.png
+  sprite0:        r-type/assets/images/error.png
+
+  sprite_player1: r-type/assets/images/allies/player1.png
+  sprite_pata-pata: r-type/assets/images/ennemies/red_ship_back.png
+
+entryScene: level1

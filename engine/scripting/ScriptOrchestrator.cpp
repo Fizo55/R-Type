@@ -9,21 +9,30 @@ engine::ScriptOrchestrator::ScriptOrchestrator()
 void engine::ScriptOrchestrator::fromGameObject(Game &game)
 {
     for (const auto &obj : game.getLoadedObjects()) {
-        auto &script = game.getFactory()->getRegistry().get_component<engine_components::Script>(*obj.second.getEntity());
+        auto &script = game.getFactory()->getRegistry().get_component<engine_components::Script>(*obj.getEntity());
+        std::vector<engine::ScriptGlobalDefinition> temp;
+        engine::ScriptTypeDefinitor tempDefinitor = engine::ScriptTypeDefinitor<Object>();
 
         if (!script)
             continue;
 
-        this->buildScript(script->script);
+        temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitor), "object", "self", (void *)(&obj)));
+
+        this->buildScript(script->script, temp);
     }
 
     for (const auto &obj : game.getLoadedHuds()) {
-        auto &script = game.getFactory()->getRegistry().get_component<engine_components::Script>(*obj.second.getEntity());
+        auto &script = game.getFactory()->getRegistry().get_component<engine_components::Script>(*obj.getEntity());
+        std::vector<engine::ScriptGlobalDefinition> temp;
+        engine::ScriptTypeDefinitor tempDefinitor = engine::ScriptTypeDefinitor<Object>();
 
         if (!script)
             continue;
 
-        this->buildScript(script->script);
+        temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitor), "object", "self", (void *)(&obj)));
+
+
+        this->buildScript(script->script, temp);
     }
 }
 
@@ -32,7 +41,7 @@ void engine::ScriptOrchestrator::registerScript(const std::string &name, const s
     this->_registeredScripts[name] = path;
 }
 
-void engine::ScriptOrchestrator::buildScript(const std::string &name)
+void engine::ScriptOrchestrator::buildScript(const std::string &name, const std::vector<engine::ScriptGlobalDefinition> &extraDefs)
 {
     std::shared_ptr<ScriptEnvironment> newScript = std::make_shared<ScriptEnvironment>();
 
@@ -43,6 +52,10 @@ void engine::ScriptOrchestrator::buildScript(const std::string &name)
     }
 
     for (const auto &item : this->_luaGlobals) {
+        newScript->registerGlobalObject(item);
+    }
+
+    for (const auto &item : extraDefs) {
         newScript->registerGlobalObject(item);
     }
 

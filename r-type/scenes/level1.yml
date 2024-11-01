@@ -1,0 +1,36 @@
+name: level1
+objects:
+  - name: bg1
+    id: bg_lvl1
+    values:
+      coords:
+        - 0
+        - 0
+      sprite:
+        - "sprite_bg_lvl1"
+      main_script:
+        - "test"
+  - name: player1
+    id: player1
+    values:
+      coords:
+        - 100
+        - 110
+      sprite:
+        - "sprite_player1"
+      main_script:
+        - "test"
+
+  - name: ennemy1
+    id: ennemy_pata-pata
+    values:
+      coords:
+        - 900
+        - 400
+      sprite:
+        - "sprite_pata-pata"
+      main_script:
+        - "test"
+
+huds:
+

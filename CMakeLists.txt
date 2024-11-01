@@ -15,7 +15,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 set(ENGINE_SRC_DIR ${CMAKE_SOURCE_DIR}/engine)
 set(SERVER_SRC_DIR ${CMAKE_SOURCE_DIR}/server/src)
 set(CLIENT_SRC_DIR ${CMAKE_SOURCE_DIR}/client)
-set(ASSETS_DIR ${CMAKE_SOURCE_DIR}/assets)
+set(ASSETS_DIR ${CMAKE_SOURCE_DIR}/r-type)
 
 add_library(engine-graphic OBJECT
     ${ENGINE_SRC_DIR}/graphic/wrapper/window.cpp
@@ -45,8 +45,10 @@ add_library(engine-core OBJECT
     ${ENGINE_SRC_DIR}/core/registry.cpp
     ${ENGINE_SRC_DIR}/core/object.cpp
     ${ENGINE_SRC_DIR}/core/components/position.cpp
+    ${ENGINE_SRC_DIR}/core/components/size.cpp
     ${ENGINE_SRC_DIR}/core/components/sprite.cpp
     ${ENGINE_SRC_DIR}/core/components/script.cpp
+    ${ENGINE_SRC_DIR}/core/components/volatile.cpp
 )
 target_include_directories(engine-core PRIVATE ./include)
 target_compile_definitions(engine-core PUBLIC OBJ)
@@ -54,6 +56,7 @@ target_link_libraries(engine-core PUBLIC yaml-cpp::yaml-cpp)
 
 add_library(engine-scripting OBJECT
     ${ENGINE_SRC_DIR}/scripting/bindings/game.cpp
+    ${ENGINE_SRC_DIR}/scripting/bindings/object.cpp
     ${ENGINE_SRC_DIR}/scripting/ScriptEnvironment.cpp
     ${ENGINE_SRC_DIR}/scripting/ScriptOrchestrator.cpp
     ${ENGINE_SRC_DIR}/scripting/ScriptGlobalDefinition.cpp
@@ -100,10 +103,10 @@ target_link_libraries(client-executable PUBLIC yaml-cpp::yaml-cpp)
 
 add_custom_command(TARGET client-executable POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${ASSETS_DIR} $<TARGET_FILE_DIR:client-executable>/assets
+    ${ASSETS_DIR} $<TARGET_FILE_DIR:client-executable>/r-type
 )
 
 add_custom_command(TARGET client-executable POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${ASSETS_DIR} ${CMAKE_BINARY_DIR}/assets
+    ${ASSETS_DIR} ${CMAKE_BINARY_DIR}/r-type
 )
