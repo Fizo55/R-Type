@@ -1,6 +1,6 @@
 #include "engineGraphicRay.hpp"
 #include "engineExceptions.hpp"
-#include <raylib.h>
+#include <filesystem>
 
 using namespace grw;
 
@@ -28,15 +28,33 @@ texture::texture(const engine_math::vector2<int> &size, unsigned int depth, cons
  * @param filePath The path to the file
  */
 texture::texture(const std::string &filePath)
-    : _size(engine_math::vector2<int>(0, 0))
+    : _size(engine_math::vector2<int>(0, 0)), _depth(32), _mask(0xff000000, 0x00ff0000, 0x0000ff00, 0x000000ff)
 {
+    // Verify graphics context initialization
+    if (!IsWindowReady()) {
+        std::cerr << "Window is not initialized. Please initialize the window before loading textures." << std::endl;
+        return;
+    }
+
+    // Verify file existence
+    if (!std::filesystem::exists(filePath)) {
+        throw engine::loadError("Texture file does not exist: " + filePath);
+    }
+
+    std::cout << "Loading texture from file: " << filePath << std::endl;
+
+    // Load texture
     _texture = LoadTexture(filePath.c_str());
-    if (_texture.id == 0)
+
+    // Check for successful loading
+    if (_texture.id == 0) {
         throw engine::loadError("Failed to load texture from filepath: " + filePath + ".");
+    }
+
+    std::cout << "Texture loaded successfully. ID: " << _texture.id << std::endl;
+    std::cout << "Texture Width: " << _texture.width << ", Height: " << _texture.height << std::endl;
 
     _size = engine_math::vector2<int>(_texture.width, _texture.height);
-    _depth = 32; // Raylib uses 32-bit textures by default
-    _mask = mask(0xff000000, 0x00ff0000, 0x0000ff00, 0x000000ff);  // Standard RGBA mask
 }
 
 /**
