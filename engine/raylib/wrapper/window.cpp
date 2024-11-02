@@ -36,15 +36,21 @@ void window::close(void)
 
 unsigned char window::isClosed(void)
 {
+    if (WindowShouldClose()) {
+        this->_closed = 1;
+        window::close();
+    }
     return (this->_closed || WindowShouldClose());
 }
 
 void window::draw(void)
 {
+    clear(0);
     if (this->isClosed())
         return;
-
-    clear(0);
+    for (const auto &sprite : _sprites) {
+        sprite.draw();
+    }
     
 }
 
@@ -57,7 +63,7 @@ void window::clear(unsigned int color)
     unsigned char b = color >> 8;
     unsigned char a = color >> 0;
     Color rayColor = {r, g, b, a};
-    ClearBackground(rayColor);
+    ClearBackground(RAYWHITE);
 }
 
 void window::clearEvents(void)

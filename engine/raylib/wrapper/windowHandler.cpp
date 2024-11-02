@@ -94,7 +94,6 @@ void windowHandler::drawWindows(void)
     for (const auto &win : this->_windows) {
         if (win->isClosed())
             continue;
-
         win->draw();
     }
 }

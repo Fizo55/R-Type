@@ -103,15 +103,10 @@ void client::mainloop(void)
     this->_running = true;
 
     while (this->_running) {
-        std::cout << "Running" << std::endl;
         this->event();
-        std::cout << "Event" << std::endl;
         this->update();
-        std::cout << "Update" << std::endl;
         this->draw();
-        std::cout << "Draw" << std::endl;
         this->_clock.tick(60);
-        std::cout << "Tick" << std::endl;
     }
 
 }

@@ -27,7 +27,7 @@ unsigned long clock::tick(int fps)
     sleepTime = executionTime - delta;
 
     if (sleepTime > 0.5) {
-        sleep(static_cast<int>(std::round(sleepTime)));
+        usleep(static_cast<useconds_t>(std::round(sleepTime)));
     }
     this->_oldTime = static_cast<unsigned long>(GetTime() * 1000);
     return (sleepTime > 0.0 ? delta + sleepTime : delta);

@@ -9,7 +9,7 @@ engine::displayManager::displayManager()
 
 void engine::displayManager::registerAsset(const std::string &name, const std::string &path)
 {
-    this->_winHandler.getWindow(0)->addSprite(name);
+    this->_winHandler.getWindow(0)->addSprite(path);
 }
 
 void engine::displayManager::registerAsset(const std::string &name, const std::shared_ptr<grw::texture> &texture)

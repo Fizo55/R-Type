@@ -41,7 +41,5 @@ std::shared_ptr<grw::texture> &grw::sprite::getTexture()
 }
 
 void grw::sprite::draw() const {
-    BeginTextureMode(this->_renderTexture);
     _spriteTexture->draw(this->_position.x, this->_position.y);
-    EndTextureMode();
 }
