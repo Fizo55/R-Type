@@ -29,6 +29,9 @@ static int object_move(lua_State *ctx)
 
     std::optional<engine_components::Position> &tempPos = (tempGame->getFactory())->getRegistry().get_component<engine_components::Position>(*self->getEntity());
 
+    if (!tempPos)
+        return;
+
     tempPos->coordinates.x = (int)x;
     tempPos->coordinates.y = (int)y;
 
