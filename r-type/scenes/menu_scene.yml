@@ -28,7 +28,7 @@ objects:
       main_script:
         - "test"
 
-  - name: button2
+  - name: button3
     id: obj0
     values:
       coords:
