@@ -20,4 +20,4 @@ images:
   sprite_player1: r-type/assets/images/allies/player1.png
   sprite_pata-pata: r-type/assets/images/ennemies/red_ship_back.png
 
-entryScene: level1
+entryScene: scene0
