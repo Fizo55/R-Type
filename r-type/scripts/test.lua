@@ -20,4 +20,4 @@ valuey = self:get_pos("y")
 
 print("Pos: ", valuex, " ", valuey, ". That was the poses")
 
--- game:change_scene("level1")
+game:change_scene("level1")

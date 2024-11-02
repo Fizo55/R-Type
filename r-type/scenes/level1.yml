@@ -8,6 +8,9 @@ objects:
         - 0
       sprite:
         - "sprite_bg_lvl1"
+      size:
+        - 1920
+        - 1080
       main_script:
         - "test"
 
@@ -20,8 +23,8 @@ objects:
       sprite:
         - "sprite_player1"
       size:
-        - 1000
-        - 1000
+        - 36
+        - 18
       main_script:
         - "test"
 
@@ -33,6 +36,9 @@ objects:
         - 400
       sprite:
         - "sprite_pata-pata"
+      size:
+        - 36
+        - 36
       main_script:
         - "test"
 
