@@ -64,9 +64,11 @@ void engine::displayManager::useEntity(const engine::Entity &entity, engine::Reg
 {
     auto &position = registry.get_component<engine_components::Position>(entity);
     auto &sprite = registry.get_component<engine_components::Sprite>(entity);
-    auto &size = registry.get_component<engine_components::Size>(entity);
+    auto &sizeOpt = registry.get_component<engine_components::Size>(entity);
 
-    if (!position || !sprite || !this->_textures[sprite->sprite])
+    if (!position || !sprite || !this->_textures[sprite->sprite] || !sizeOpt)
         return;
-    _winHandler.getWindow(windowId)->addSprite(sprite->sprite, this->_textures[sprite->sprite], position->coordinates, size);
+
+    _winHandler.getWindow(windowId)->addSprite(sprite->sprite, this->_textures[sprite->sprite], position->coordinates, sizeOpt->coordinates);
 }
+

@@ -107,5 +107,5 @@ void window::update(void)
 void window::addSprite(const std::string &name, const std::shared_ptr<texture> &texture, engine_math::vector2<int> &pos, engine_math::vector2<int> &size)
 {
     sprite newSprite(texture, pos, size);
-    // _sprites.emplace(name, newSprite);
+    _sprites.emplace(name, newSprite);
 }
