@@ -6,8 +6,8 @@ static int object_create(lua_State *ctx)
 {
     engine::Object *temp = new engine::Object();
     auto gIndex = lua_getglobal(ctx, "game");
-    engine::Game *tempGame = *reinterpret_cast<engine::Game**>(lua_touserdata(ctx, gIndex));
-    lua_pop(ctx, gIndex);
+    engine::Game *tempGame = *reinterpret_cast<engine::Game**>(lua_touserdata(ctx, 1));
+    lua_pop(ctx, 1);
 
     temp->addBuildComponent("__def_volatility", "volatile");
     temp->buildEntity(*tempGame->getFactory());
@@ -17,6 +17,27 @@ static int object_create(lua_State *ctx)
     luaL_setmetatable(ctx, "object");
 
 	return (1);
+}
+
+static int object_move(lua_State *ctx)
+{
+    lua_Number x = luaL_checknumber(ctx, 2);
+    lua_Number y = luaL_checknumber(ctx, 3);
+    auto gIndex = lua_getglobal(ctx, "game");
+    auto self = *reinterpret_cast<engine::Object**>(luaL_checkudata(ctx, 1, "object"));
+    engine::Game *tempGame = *reinterpret_cast<engine::Game**>(lua_touserdata(ctx, 4));
+
+    std::optional<engine_components::Position> &tempPos = (tempGame->getFactory())->getRegistry().get_component<engine_components::Position>(*self->getEntity());
+
+    if (!tempPos)
+        return;
+
+    tempPos->coordinates.x = (int)x;
+    tempPos->coordinates.y = (int)y;
+
+    lua_pop(ctx, 4);
+
+    return (0);
 }
 
 static int object_getname(lua_State *ctx)
@@ -40,6 +61,9 @@ void object_register(lua_State *ctx)
 
     lua_pushcfunction(ctx, object_getname);
     lua_setfield(ctx, -2, "get_name");
+
+    lua_pushcfunction(ctx, object_move);
+    lua_setfield(ctx, -2, "move");
 
     lua_pop(ctx, 1);
 }
