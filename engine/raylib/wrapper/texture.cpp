@@ -8,11 +8,9 @@ using namespace grw;
  * @brief Create a new texture
  * 
  * @param size The size of the texture
- * @param depth The depth of the texture
- * @param textureMask The mask of the texture
  */
-texture::texture(const engine_math::vector2<int> &size, unsigned int depth, const mask &textureMask)
-    : _size(size), _depth(depth), _mask(textureMask)
+texture::texture(const engine_math::vector2<int> &size)
+    : _size(size)
 {
     Image image = GenImageColor(size.x, size.y, BLANK);  // Create a blank image in Raylib
     _texture = LoadTextureFromImage(image);              // Convert image to a texture
@@ -28,7 +26,7 @@ texture::texture(const engine_math::vector2<int> &size, unsigned int depth, cons
  * @param filePath The path to the file
  */
 texture::texture(const std::string &filePath)
-    : _size(engine_math::vector2<int>(0, 0)), _depth(32), _mask(0xff000000, 0x00ff0000, 0x0000ff00, 0x000000ff)
+    : _size(engine_math::vector2<int>(0, 0))
 {
     // Verify graphics context initialization
     if (!IsWindowReady()) {
@@ -41,7 +39,6 @@ texture::texture(const std::string &filePath)
         throw engine::loadError("Texture file does not exist: " + filePath);
     }
 
-    std::cout << "Loading texture from file: " << filePath << std::endl;
 
     // Load texture
     _texture = LoadTexture(filePath.c_str());
@@ -51,26 +48,18 @@ texture::texture(const std::string &filePath)
         throw engine::loadError("Failed to load texture from filepath: " + filePath + ".");
     }
 
-    std::cout << "Texture loaded successfully. ID: " << _texture.id << std::endl;
-
     _size = engine_math::vector2<int>(_texture.width, _texture.height);
 }
 
 /**
  * @brief Blit (draw) a texture on another texture
  * 
- * @param other The texture to blit
- * @param position The position to blit the texture
- * @param size The size of the texture to blit
+ * @param x The x position to draw the texture
+ * @param y The y position to draw the texture
  */
-void texture::blit(const texture &other, const engine_math::vector2<int> &position, const engine_math::vector2<int> &size)
+void texture::draw(int x, int y)
 {
-    Rectangle source = {0, 0, static_cast<float>(size.x), static_cast<float>(size.y)};
-    Rectangle dest = {static_cast<float>(position.x), static_cast<float>(position.y), static_cast<float>(size.x), static_cast<float>(size.y)};
-    Vector2 origin = {0.0f, 0.0f};
-
-    std::cout << "Blitting texture " << other.getTexture().id << " to texture " << _texture.id << " at position (" << position.x << ", " << position.y << ") with size (" << size.x << ", " << size.y << ")" << std::endl;
-    DrawTexture( other.getTexture(), position.x, position.y, WHITE);
+    DrawTexture(_texture, x, y, WHITE);
 }
 
 /**
@@ -82,7 +71,7 @@ void texture::blit(const texture &other, const engine_math::vector2<int> &positi
  */
 void texture::draw_rect(const engine_math::vector2<int> &position, const engine_math::vector2<int> &size, unsigned int color)
 {
-    Color rayColor = {(unsigned char)_mask.getR(color), (unsigned char)_mask.getG(color), (unsigned char)_mask.getB(color), (unsigned char)_mask.getA(color)};
+    Color rayColor = {};
 
     DrawRectangle(position.x, position.y, size.x, size.y, rayColor);
 }
@@ -94,23 +83,9 @@ void texture::draw_rect(const engine_math::vector2<int> &position, const engine_
  */
 void texture::clear(unsigned int color)
 {
-    Color rayColor = {(unsigned char)_mask.getR(color), (unsigned char)_mask.getG(color), (unsigned char)_mask.getB(color), (unsigned char)_mask.getA(color)};
+    Color rayColor = {};
 }
 
-void texture::setMask(const mask &textureMask)
-{
-    _mask = textureMask;
-}
-
-std::shared_ptr<texture> &window::getSurface(void)
-{
-    return _texture;
-}
-
-const std::shared_ptr<texture> &window::getSurface(void) const
-{
-    return _texture;
-}
 
 /**
  * @brief Optimize the texture by converting it to the format of another texture
@@ -138,9 +113,4 @@ texture::~texture()
     if (_texture.id != 0) {
         UnloadTexture(_texture);
     }
-}
-
-const mask &texture::getMask(void) const
-{
-    return _mask;
 }

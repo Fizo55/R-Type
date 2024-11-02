@@ -40,8 +40,8 @@ std::shared_ptr<grw::texture> &grw::sprite::getTexture()
     return this->_spriteTexture;
 }
 
-void grw::sprite::draw(const std::shared_ptr<grw::texture> &target) const {
+void grw::sprite::draw() const {
     BeginTextureMode(this->_renderTexture);
-    target->blit(*this->_spriteTexture, this->_position, this->_size);
+    _spriteTexture->draw(this->_position.x, this->_position.y);
     EndTextureMode();
 }

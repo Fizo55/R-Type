@@ -9,12 +9,12 @@ engine::displayManager::displayManager()
 
 void engine::displayManager::registerAsset(const std::string &name, const std::string &path)
 {
-    this->_textures[name] = std::make_shared<grw::texture>(path);
+    this->_winHandler.getWindow(0)->addSprite(name);
 }
 
 void engine::displayManager::registerAsset(const std::string &name, const std::shared_ptr<grw::texture> &texture)
 {
-    this->_textures[name] = texture;
+    this->_winHandler.getWindow(0)->addSprite(name, texture);
 }
 
 void engine::displayManager::addWindow(grw::window *window)
@@ -22,7 +22,6 @@ void engine::displayManager::addWindow(grw::window *window)
     if (!window)
         throw nullPtrError("window argument in displayManager::addWindow should not be a null ptr");
     this->_winHandler.addWindow(window);
-    this->_rendering[0] = std::vector<grw::sprite>();
 }
 
 unsigned int engine::displayManager::createWindow(void)
@@ -31,49 +30,24 @@ unsigned int engine::displayManager::createWindow(void)
 
     SetTraceLogLevel(LOG_NONE);
     this->_winHandler.addWindow(window);
-    this->_rendering[0] = std::vector<grw::sprite>();
     return (0);
 }
 
 void engine::displayManager::update(void)
 {
     this->_winHandler.updateWindows();
-
-    for (auto it = this->_rendering.begin(); it != this->_rendering.end();) {
-        if (this->_winHandler.isWindowClosed(it->first)) {
-            it = this->_rendering.erase(it);
-        } else {
-            ++it;
-        }
-    }
 }
 
 void engine::displayManager::draw(void)
 {
     BeginDrawing();
     this->_winHandler.drawWindows();
-    for (auto it = this->_rendering.begin(); it != this->_rendering.end(); ++it) {
-        if (!this->_winHandler.isWindowClosed(it->first)) {
-            for (const auto &entity : it->second) {
-                std::cout << it->first << std::endl;
-                entity.draw(this->_winHandler.getWindow(it->first)->getSurface());
-            }
-        }
-    }
-
     EndDrawing();
 }
 
 void engine::displayManager::clear(void)
 {
-    for (auto it = this->_rendering.begin(); it != this->_rendering.end(); ++it) {
-        if (!this->_winHandler.isWindowClosed(it->first)) {
-            auto mask = this->_winHandler.getWindow(it->first)->getSurface()->getMask();
-
-            this->_rendering[it->first].clear();
-            this->_winHandler.getWindow(it->first)->clear(mask.createColor(0x00, 0x00, 0x00, 0xff));
-        }
-    }
+    this->_winHandler.clearWindows();
 }
 
 bool engine::displayManager::event(void)
@@ -91,6 +65,4 @@ void engine::displayManager::useEntity(const engine::Entity &entity, engine::Reg
     if (!position || !sprite)
         return;
 
-    grw::sprite newSprite(this->_textures[sprite->sprite], position->coordinates, engine_math::vector2<int>(-1, -1));
-    this->_rendering[windowId].push_back(newSprite);
 }

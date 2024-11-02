@@ -17,11 +17,11 @@
 
         class texture {
             public:
-                texture(const engine_math::vector2<int> & = engine_math::vector2<int>(256, 256), unsigned int = 32);
+                texture(const engine_math::vector2<int> & = engine_math::vector2<int>(256, 256));
                 texture(const std::string &filePath);
                 ~texture();
 
-                void draw();
+                void draw(int x, int y);
                 void draw_rect(const engine_math::vector2<int> &, const engine_math::vector2<int> &, unsigned int);
                 void clear(unsigned int);
                 void optimize(const texture &);
@@ -118,6 +118,8 @@
 
 
                 unsigned char isClosed(void);
+                void addSprite(const std::string &, const std::shared_ptr<texture> &);
+                void addSprite(const std::string &);
             private:
                 unsigned char _closed;
 
@@ -147,6 +149,7 @@
                 void eventWindows(void);
                 void updateWindows(void);
                 void drawWindows(void);
+                void clearWindows(void);
 
             private:
                 std::vector<window *> _windows;

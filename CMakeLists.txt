@@ -48,7 +48,6 @@ add_library(engine-graphic OBJECT
     ${ENGINE_SRC_DIR}/raylib/wrapper/event.cpp
     ${ENGINE_SRC_DIR}/raylib/wrapper/sprite.cpp
     ${ENGINE_SRC_DIR}/raylib/wrapper/clock.cpp
-    ${ENGINE_SRC_DIR}/raylib/wrapper/mask.cpp
     ${ENGINE_SRC_DIR}/raylib/wrapper/windowHandler.cpp
     ${ENGINE_SRC_DIR}/raylib/displayManager.cpp
 )

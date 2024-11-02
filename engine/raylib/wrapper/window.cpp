@@ -16,7 +16,6 @@ window::window(const std::string &title, const videoMode &mode)
     if (engine_math::bitFlag::getFlag(mode.flags, grw::videoMode::VSYNC)) {
         SetTargetFPS(60); // Assuming 60 FPS for VSYNC; adjust as needed
     }
-    this->_texture = std::make_shared<texture>(mode.size); // Initialize texture based on window size
 }
 
 window::~window()
@@ -61,13 +60,6 @@ void window::clear(unsigned int color)
     ClearBackground(rayColor);
 }
 
-void window::blit(const texture &other, const engine_math::vector2<int> &position, const engine_math::vector2<int> &size)
-{
-    if (this->isClosed())
-        return;
-    DrawTextureRec(other.getTexture(), Rectangle{ 0, 0, static_cast<float>(size.x), static_cast<float>(size.y) }, Vector2{ static_cast<float>(position.x), static_cast<float>(position.y) }, WHITE);
-}
-
 void window::clearEvents(void)
 {
     this->_events.clear();
@@ -105,4 +97,14 @@ void window::update(void)
             this->close();
         }
     }
+}
+
+void window::addSprite(const std::string &name, const std::shared_ptr<texture> &texture)
+{
+    _sprites.push_back(sprite(texture, engine_math::vector2<int>(0, 0), engine_math::vector2<int>(texture->getSize().x, texture->getSize().y)));
+}
+
+void window::addSprite(const std::string &name)
+{
+    _sprites.push_back(sprite(std::shared_ptr<texture>(new texture(name)), engine_math::vector2<int>(0, 0), engine_math::vector2<int>(0, 0)));
 }

@@ -98,3 +98,16 @@ void windowHandler::drawWindows(void)
         win->draw();
     }
 }
+
+/**
+ * @brief Clear all windows
+ */
+void windowHandler::clearWindows(void)
+{
+    for (const auto &win : this->_windows) {
+        if (win->isClosed())
+            continue;
+
+        win->clear(0);
+    }
+}
