@@ -118,15 +118,14 @@
 
 
                 unsigned char isClosed(void);
-                void addSprite(const std::string &, const std::shared_ptr<texture> &);
-                void addSprite(const std::string &);
+                void addSprite(const std::string &, const std::shared_ptr<texture> &, engine_math::vector2<int> &, engine_math::vector2<int> &);
             private:
                 unsigned char _closed;
 
                 std::string _title;
                 videoMode _videoMode;
 
-                std::vector<sprite> _sprites;
+                std::map<std::string, sprite> _sprites;
 
                 int _windowId;
 
@@ -176,6 +175,7 @@
                 void useEntity(const Entity &, Registry &, unsigned int);
             private:
                 grw::windowHandler _winHandler;
+                std::map<std::string, std::shared_ptr<grw::texture>> _textures;
         };
     };
 

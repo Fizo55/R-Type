@@ -1,5 +1,4 @@
 #include "engineGraphicRay.hpp"
-#include <raylib.h>
 
 using namespace grw;
 
@@ -49,7 +48,7 @@ void window::draw(void)
     if (this->isClosed())
         return;
     for (const auto &sprite : _sprites) {
-        sprite.draw();
+        sprite.second.draw();
     }
     
 }
@@ -105,12 +104,8 @@ void window::update(void)
     }
 }
 
-void window::addSprite(const std::string &name, const std::shared_ptr<texture> &texture)
+void window::addSprite(const std::string &name, const std::shared_ptr<texture> &texture, engine_math::vector2<int> &pos, engine_math::vector2<int> &size)
 {
-    _sprites.push_back(sprite(texture, engine_math::vector2<int>(0, 0), engine_math::vector2<int>(texture->getSize().x, texture->getSize().y)));
-}
-
-void window::addSprite(const std::string &name)
-{
-    _sprites.push_back(sprite(std::shared_ptr<texture>(new texture(name)), engine_math::vector2<int>(0, 0), engine_math::vector2<int>(0, 0)));
+    sprite newSprite(texture, pos, size);
+    // _sprites.emplace(name, newSprite);
 }

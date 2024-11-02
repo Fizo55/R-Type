@@ -9,12 +9,15 @@ engine::displayManager::displayManager()
 
 void engine::displayManager::registerAsset(const std::string &name, const std::string &path)
 {
-    this->_winHandler.getWindow(0)->addSprite(path);
+    std::shared_ptr<grw::texture> texture = std::make_shared<grw::texture>(path);
+    this->_textures[name] = texture;
 }
 
 void engine::displayManager::registerAsset(const std::string &name, const std::shared_ptr<grw::texture> &texture)
 {
-    this->_winHandler.getWindow(0)->addSprite(name, texture);
+    if (!texture)
+        throw nullPtrError("texture argument in displayManager::registerAsset should not be a null ptr");
+    this->_textures[name] = texture;
 }
 
 void engine::displayManager::addWindow(grw::window *window)
@@ -61,8 +64,9 @@ void engine::displayManager::useEntity(const engine::Entity &entity, engine::Reg
 {
     auto &position = registry.get_component<engine_components::Position>(entity);
     auto &sprite = registry.get_component<engine_components::Sprite>(entity);
+    auto &size = registry.get_component<engine_components::Size>(entity);
 
-    if (!position || !sprite)
+    if (!position || !sprite || !this->_textures[sprite->sprite])
         return;
-
+    _winHandler.getWindow(windowId)->addSprite(sprite->sprite, this->_textures[sprite->sprite], position->coordinates, size);
 }
