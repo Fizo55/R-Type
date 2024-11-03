@@ -1,7 +1,5 @@
 #!/bin/bash
 
-REPO_URL="https://github.com/Fizo55/R-Type.git"
-REPO_DIR="R-Type"
 BUILD_DIR="build"
 
 install_if_missing() {
@@ -35,14 +33,10 @@ if [ ! -f "./vcpkg/bootstrap-vcpkg.sh" ]; then
     echo "Error: vcpkg/bootstrap-vcpkg.sh not found. Make sure vcpkg is in the repository."
     exit 1
 fi
-echo "Bootstrapping vcpkg..."
 ./vcpkg/bootstrap-vcpkg.sh
 
-echo "Installing dependencies with vcpkg..."
 ./vcpkg/vcpkg install
 
-echo "Configuring the project with CMake..."
 cmake -B "$BUILD_DIR" "-DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake" -G Ninja
 
-echo "Building the project..."
 ninja -C "$BUILD_DIR"
