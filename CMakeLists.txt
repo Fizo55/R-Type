@@ -19,7 +19,7 @@ set(SERVER_SRC_DIR ${CMAKE_SOURCE_DIR}/server/src)
 set(CLIENT_SRC_DIR ${CMAKE_SOURCE_DIR}/client)
 set(ASSETS_DIR ${CMAKE_SOURCE_DIR}/r-type)
 
-add_library(engine-graphicSDL OBJECT
+add_library(engine-graphic OBJECT
     ${ENGINE_SRC_DIR}/graphic/wrapper/window.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/videoMode.cpp
     ${ENGINE_SRC_DIR}/graphic/wrapper/texture.cpp
@@ -32,16 +32,16 @@ add_library(engine-graphicSDL OBJECT
 )
 
 
-target_include_directories(engine-graphicSDL PRIVATE ./include ${SDL2_INCLUDE_DIRS} ${SDL2_image_INCLUDE_DIRS})
-target_compile_definitions(engine-graphicSDL PUBLIC OBJ)
-target_link_libraries(engine-graphicSDL
+target_include_directories(engine-graphic PRIVATE ./include ${SDL2_INCLUDE_DIRS} ${SDL2_image_INCLUDE_DIRS})
+target_compile_definitions(engine-graphic PUBLIC OBJ)
+target_link_libraries(engine-graphic
 PRIVATE
 $<TARGET_NAME_IF_EXISTS:SDL2::SDL2main>
 $<IF:$<TARGET_EXISTS:SDL2::SDL2>,SDL2::SDL2,SDL2::SDL2-static>
 $<IF:$<TARGET_EXISTS:SDL2_image::SDL2_image>,SDL2_image::SDL2_image,SDL2_image::SDL2_image-static>
 )
 
-add_library(engine-graphic OBJECT
+add_library(engine-graphicRaylib OBJECT
     ${ENGINE_SRC_DIR}/raylib/wrapper/window.cpp
     ${ENGINE_SRC_DIR}/raylib/wrapper/videoMode.cpp
     ${ENGINE_SRC_DIR}/raylib/wrapper/texture.cpp
@@ -52,10 +52,10 @@ add_library(engine-graphic OBJECT
     ${ENGINE_SRC_DIR}/raylib/displayManager.cpp
 )
 
-target_include_directories(engine-graphic PRIVATE ./include)
-target_compile_definitions(engine-graphic PUBLIC OBJ)
-target_link_libraries(engine-graphic PRIVATE raylib)
-target_link_libraries(engine-graphic PRIVATE raylib glfw)
+target_include_directories(engine-graphicRaylib PRIVATE ./include)
+target_compile_definitions(engine-graphicRaylib PUBLIC OBJ)
+target_link_libraries(engine-graphicRaylib PRIVATE raylib)
+target_link_libraries(engine-graphicRaylib PRIVATE raylib glfw)
 
 
 
