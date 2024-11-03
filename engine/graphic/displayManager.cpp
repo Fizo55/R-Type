@@ -71,6 +71,22 @@ void engine::displayManager::clear(void)
     }
 }
 
+bool engine::displayManager::hasEvent(unsigned int window, grw::event::eventTypes event)
+{
+    if (this->_winHandler.hasWindow(window))
+        return (this->_winHandler.getWindow(window)->hasEvent(event));
+
+    return false;
+}
+
+grw::event engine::displayManager::getEvent(unsigned int window, grw::event::eventTypes event)
+{
+    if (this->_winHandler.hasWindow(window))
+        return (this->_winHandler.getWindow(window)->getEvent(event));
+
+    return (grw::event());
+}
+
 bool engine::displayManager::event(void)
 {
     this->_winHandler.eventWindows();

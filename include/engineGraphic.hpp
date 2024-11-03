@@ -205,6 +205,9 @@
                 unsigned int createWindow(void);
 
                 void useEntity(const Entity &, Registry &, unsigned int);
+
+                bool hasEvent(unsigned int window, grw::event::eventTypes event);
+                grw::event getEvent(unsigned int window, grw::event::eventTypes event);
             private:
                 grw::windowHandler _winHandler;
 

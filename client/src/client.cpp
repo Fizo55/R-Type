@@ -75,6 +75,13 @@ client::~client()
 void client::event(void)
 {
     this->_running = !this->_displayManager.event();
+
+    if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::NO_EVENT)) {
+        std::cout << "noevent" << std::endl;
+
+        // ton code gadjo
+    }
+
 }
 
 void client::update(void)

@@ -23,6 +23,8 @@ void engine::ScriptEnvironment::buildCoreLibrary()
     // object
     object_register(this->_ctx);
 
+    orchestrator_register(this->_ctx);
+
     // std
     luaL_openlibs(this->_ctx);
 }
@@ -42,6 +44,7 @@ void engine::ScriptEnvironment::callFunction(const std::string &name)
     if (lua_isfunction(_ctx, -1)) {
         lua_pcall(_ctx, 0, 1, 0);
     }
+    lua_pop(_ctx, -1);
 }
 
 lua_State *engine::ScriptEnvironment::getCtx(void) const
