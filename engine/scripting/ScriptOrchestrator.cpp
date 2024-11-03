@@ -6,39 +6,6 @@ engine::ScriptOrchestrator::ScriptOrchestrator()
 
 }
 
-void engine::ScriptOrchestrator::runLuaFunctions(const std::string &scriptName, const std::string &functionName, const std::vector<std::string> &args)
-{
-
-    std::cout << "step1: " << scriptName << std::endl;
-    auto currentScript = this->_scripts.find(scriptName);
-    if (currentScript == this->_scripts.end()) {
-        std::cerr << "Script " << scriptName << " not found." << std::endl;
-        return;
-    }
-    std::cout << "step2" << std::endl;
-
-    auto &scriptEnv = currentScript->second;
-    lua_State *ctx = scriptEnv.getCtx();
-
-    lua_getglobal(ctx, functionName.c_str());
-    if (!lua_isfunction(ctx, -1)) {
-        std::cerr << "Function " << functionName << " not found." << std::endl;
-        lua_pop(ctx, 1);
-        return;
-    }
-
-    std::cout << "step3" << std::endl;
-    for (const auto &arg : args) {
-        lua_pushstring(ctx, arg.c_str());
-    }
-
-    std::cout << "step4" << std::endl;
-    if (lua_pcall(ctx, args.size(), 0, 0) != LUA_OK) {
-        std::cerr << "Error calling function " << lua_tostring(ctx, -1) << std::endl;
-        lua_pop(ctx, 1);
-    }
-}
-
 void engine::ScriptOrchestrator::fromGameObject(Game &game)
 {
     for (const auto &obj : game.getLoadedObjects()) {
