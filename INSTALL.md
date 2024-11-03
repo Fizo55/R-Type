@@ -8,6 +8,9 @@ This guide will walk you through the steps needed to configure, build, and run t
 - **CMake** version 3.27 or above
 - **Ninja** build system
 - **Git**
+- **automake**
+- **libtool**
+- **pkg-config**
 
 ### Steps:
 1. **Clone the repository:**
@@ -16,31 +19,23 @@ This guide will walk you through the steps needed to configure, build, and run t
     cd R-Type
     ```
 
-2. **Create a build directory:**
-    ```bash
-    mkdir build
-    cd build
-    ```
-
-automake libtool pkg-config
-
-3. **Set up vcpkg:**
+2. **Set up vcpkg:**
     ```bash
     ./vcpkg/bootstrap-vcpkg.sh
     ./vcpkg/vcpkg install
     ```
 
-4. **Run CMake to configure the project: Use Ninja as the generator:**
+3. **Run CMake to configure the project: Use Ninja as the generator:**
     ```bash
     cmake -B build "-DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake" -G Ninja
     ```
 
-5. **Build the project: Once the configuration is done, you can start the build process:**
+4. **Build the project: Once the configuration is done, you can start the build process:**
     ```bash
     ninja -C build
     ```
 
-6. **Run the executable: After building, run the generated executable:**
+5. **Run the executable: After building, run the generated executable:**
     ```bash
     ./<executable_name>
     ```
