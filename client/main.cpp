@@ -15,6 +15,14 @@ int main(int ac, char **av)
 {
     client game = client("r-type/game.yml");
 
-    game.mainloop();
+    try
+    {
+        game.mainloop();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
     return 0;
 }
