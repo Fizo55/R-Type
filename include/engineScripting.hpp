@@ -76,6 +76,7 @@
                 ~ScriptOrchestrator() = default;
 
                 void registerScript(const std::string &, const std::string &);
+
                 void buildScript(const std::string &name, const std::vector<engine::ScriptGlobalDefinition> &extraDefs = std::vector<engine::ScriptGlobalDefinition>());
 
                 void registerGlobal(const ScriptGlobalDefinition &scriptDef)
