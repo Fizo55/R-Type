@@ -9,7 +9,7 @@ using namespace engine;
 client::client(const std::string &configPath)
   : _running(false)
 {
-    engine::ScriptTypeDefinitor gameDefinitor = engine::ScriptTypeDefinitor<Game>();
+    engine::ScriptTypeDefinitor<Game> *gameDefinitor = new engine::ScriptTypeDefinitor<Game>();
 
     this->_factory.registerComponent<engine_components::Position>();
     this->_factory.registerComponent<engine_components::Size>();
@@ -55,7 +55,7 @@ client::client(const std::string &configPath)
         }
     }
 
-    this->_orchestrator.registerGlobal(ScriptGlobalDefinition((engine::IScriptTypeDefinitor *)&gameDefinitor, "game", "game", (void *)&(this->_game)));
+    this->_orchestrator.registerGlobal(ScriptGlobalDefinition((engine::IScriptTypeDefinitor *)gameDefinitor, "game", "game", (void *)&(this->_game)));
 
     this->_game.addFactory(&this->_factory);
 
@@ -86,10 +86,7 @@ void client::event(void)
 
 void client::update(void)
 {
-    this->_orchestrator.callFunctionAll("move_background");
-    this->_orchestrator.callFunctionAll("move_player");
-    this->_orchestrator.callFunctionAll("nothing");
-
+    this->_orchestrator.callFunctionAll("update");
 
     this->_displayManager.update();
 }

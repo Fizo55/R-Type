@@ -1,0 +1,20 @@
+scenes:
+  - jetpack_joyride/scenes/main_game.yml
+
+objects:
+  - jetpack_joyride/objects/background.yml
+  - jetpack_joyride/objects/coin.yml
+  - jetpack_joyride/objects/player.yml
+
+scripts:
+  bg_script: jetpack_joyride/scripts/background.lua
+  main_player: jetpack_joyride/scripts/main_player.lua
+  bg_script: jetpack_joyride/scripts/background.lua
+  coin_script: jetpack_joyride/scripts/coin_script.lua
+
+images:
+  sprite_bg: jetpack_joyride/assets/big_background.png
+  sprite_player: jetpack_joyride/assets/player.png
+  sprite_coin: jetpack_joyride/assets/coin.png
+
+entryScene: main_game
