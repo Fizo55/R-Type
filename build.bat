@@ -26,7 +26,7 @@ call vcpkg\bootstrap-vcpkg.bat
 
 call vcpkg\vcpkg install
 
-cmake -B "%BUILD_DIR%" -DCMAKE_TOOLCHAIN_FILE=..\vcpkg\scripts\buildsystems\vcpkg.cmake -G Ninja
+cmake -B "%BUILD_DIR%" -DCMAKE_TOOLCHAIN_FILE=..\vcpkg\scripts\buildsystems\vcpkg.cmake
 
 
 endlocal
