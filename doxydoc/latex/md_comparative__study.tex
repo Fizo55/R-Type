@@ -1,0 +1,85 @@
+\chapter{Comparative Study}
+\hypertarget{md_comparative__study}{}\label{md_comparative__study}\index{Comparative Study@{Comparative Study}}
+\label{md_comparative__study_autotoc_md58}%
+\Hypertarget{md_comparative__study_autotoc_md58}%
+ While developping our R-\/type, we had to make som technology choices to improve the process speed and other aspects of the program.\hypertarget{md_comparative__study_autotoc_md59}{}\doxysubsubsection{\texorpdfstring{1. Data Transmission\+: Binary Protocol with UDP}{1. Data Transmission\+: Binary Protocol with UDP}}\label{md_comparative__study_autotoc_md59}
+{\bfseries{Choice}}\+: Utilizing binary data transmission via UDP (User Datagram Protocol).
+
+{\bfseries{Rationale}}\+:
+\begin{DoxyItemize}
+\item {\bfseries{Performance}}\+:
+\begin{DoxyItemize}
+\item {\bfseries{Speed}}\+: UDP is faster than TCP (Transmission Control Protocol) because it does not require handshaking, which reduces latency. It is something important for a real time multiplayer game, for both the players to get the informations at the same time.
+\item {\bfseries{Reduced Overhead}}\+: Binary protocols result in smaller message sizes compared to text-\/based protocols. This decreases bandwidth usage and transmission delay.
+\end{DoxyItemize}
+\item {\bfseries{Real-\/\+Time Communication}}\+:
+\begin{DoxyItemize}
+\item UDP is connectionless, which allows the server and clients to send messages without establishing a persistent connection. This is ideal for real-\/time applications like gaming, where timely delivery is more important than guaranteed delivery.
+\end{DoxyItemize}
+\item {\bfseries{Simplicity in Data Structure}}\+:
+\begin{DoxyItemize}
+\item Binary data can represent complex data structures more efficiently. This is particularly advantageous for transmitting game state information, player actions, and other game events.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+{\bfseries{Considerations}}\+:
+\begin{DoxyItemize}
+\item {\bfseries{Reliability}}\+:
+\begin{DoxyItemize}
+\item UDP does not guarantee message delivery, order, or integrity. This means that some packets may be lost or arrive out of order. However, in many fast-\/paced games, it’s often acceptable to lose some data rather than suffer from the latency introduced by waiting for missing packets.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_comparative__study_autotoc_md60}{}\doxysubsubsection{\texorpdfstring{2. Graphics Library\+: SDL2}{2. Graphics Library\+: SDL2}}\label{md_comparative__study_autotoc_md60}
+{\bfseries{Choice}}\+: Selecting SDL2 (Simple Direct\+Media Layer 2) as the graphics library.
+
+{\bfseries{Rationale}}\+:
+\begin{DoxyItemize}
+\item {\bfseries{Cross-\/\+Platform Compatibility}}\+:
+\begin{DoxyItemize}
+\item SDL2 is highly portable, supporting multiple platforms, Windows and Linux, on which our we want our game to work.
+\end{DoxyItemize}
+\item {\bfseries{Ease of Use}}\+:
+\begin{DoxyItemize}
+\item SDL2 provides a simple API that simplifies the handling of graphics and input, making it easier for us, developers, to focus on game logic rather than low-\/level programming details.
+\end{DoxyItemize}
+\item {\bfseries{Performance}}\+:
+\begin{DoxyItemize}
+\item SDL2 is designed for high performance, enabling hardware acceleration for rendering, which is crucial for a visually demanding game like R-\/type. It efficiently manages graphics rendering, audio playback, and input handling.
+\end{DoxyItemize}
+\item {\bfseries{Community and Resources}}\+:
+\begin{DoxyItemize}
+\item A large community and extensive documentation exist around SDL2, providing ample resources for troubleshooting, examples, and libraries that can be integrated with SDL2 for enhanced functionalities (e.\+g., physics engines, networking).
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+{\bfseries{Considerations}}\+:
+\begin{DoxyItemize}
+\item {\bfseries{Limited High-\/\+Level Features}}\+:
+\begin{DoxyItemize}
+\item While SDL2 provides a solid foundation for 2D graphics and basic input handling, it may lack some higher-\/level features found in more comprehensive engines like Unity or Unreal. This means developers may need to implement additional systems (e.\+g., entity-\/component systems, physics) from scratch.
+\end{DoxyItemize}
+\item {\bfseries{Learning Curve for Advanced Features}}\+:
+\begin{DoxyItemize}
+\item While basic usage is straightforward, mastering SDL2’s more advanced features (e.\+g., handling multiple windows, advanced audio control) can present a learning curve for developers who are new to game development.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_comparative__study_autotoc_md61}{}\doxysubsection{\texorpdfstring{Comparative Summary}{Comparative Summary}}\label{md_comparative__study_autotoc_md61}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Feature   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Binary Data Transmission with UDP   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ SDL2 Graphics Library    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Feature   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Binary Data Transmission with UDP   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ SDL2 Graphics Library    }\\\cline{1-3}
+\endhead
+{\bfseries{Performance}}   &High-\/speed, low-\/latency   &High-\/performance graphics rendering    \\\cline{1-3}
+{\bfseries{Overhead}}   &Low packet size   &Moderate overhead with API abstractions    \\\cline{1-3}
+{\bfseries{Complexity}}   &Requires custom reliability logic   &Simplifies graphics and input handling    \\\cline{1-3}
+{\bfseries{Platform Support}}   &Platform agnostic   &Cross-\/platform compatibility    \\\cline{1-3}
+{\bfseries{Community Support}}   &Niche but growing   &Large community, extensive resources    \\\cline{1-3}
+{\bfseries{Learning Curve}}   &Moderate (for custom protocols)   &Low for basics, moderate for advanced    \\\cline{1-3}
+{\bfseries{Real-\/time Suitability}}   &Excellent for real-\/time gaming   &Great for fast-\/paced graphics    \\\cline{1-3}
+{\bfseries{Error Handling}}   &Custom implementation needed   &Built-\/in but limited to graphics context   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md_comparative__study_autotoc_md62}{}\doxysubsection{\texorpdfstring{Conclusion}{Conclusion}}\label{md_comparative__study_autotoc_md62}
+The choice of using binary data transmission over UDP and SDL2 for graphics in the R-\/type project supports the primary objectives of performance and responsiveness in a real-\/time gaming environment. While both choices have considerations regarding reliability and feature richness, they collectively enable a robust framework for developing a high-\/performance multiplayer game. This comparative study can guide future enhancements and assist in evaluating alternative technologies as the project evolves. 

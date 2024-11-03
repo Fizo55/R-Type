@@ -8,6 +8,7 @@ var searchData=
   ['2_205_20chat_20message_5',['6.2.5 Chat Message',['..//home/floriang/Documents/projets/tek3/R-Type/network/README.md#autotoc_md43',1,'']]],
   ['2_20conventions_6',['2. Conventions',['..//home/floriang/Documents/projets/tek3/R-Type/network/README.md#autotoc_md23',1,'']]],
   ['2_20gameplay_20packets_7',['6.2 Gameplay Packets',['..//home/floriang/Documents/projets/tek3/R-Type/network/README.md#autotoc_md38',1,'']]],
-  ['2_20message_20types_8',['4.2 Message Types',['..//home/floriang/Documents/projets/tek3/R-Type/network/README.md#autotoc_md29',1,'']]],
-  ['2_20server_20welcome_9',['6.1.2 Server Welcome',['..//home/floriang/Documents/projets/tek3/R-Type/network/README.md#autotoc_md36',1,'']]]
+  ['2_20graphics_20library_3a_20sdl2_8',['2. Graphics Library: SDL2',['../md_comparative__study.html#autotoc_md60',1,'']]],
+  ['2_20message_20types_9',['4.2 Message Types',['..//home/floriang/Documents/projets/tek3/R-Type/network/README.md#autotoc_md29',1,'']]],
+  ['2_20server_20welcome_10',['6.1.2 Server Welcome',['..//home/floriang/Documents/projets/tek3/R-Type/network/README.md#autotoc_md36',1,'']]]
 ];

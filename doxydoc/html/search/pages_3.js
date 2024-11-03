@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['modules_0',['modules',['../md_modules.html',1,'']]]
+  ['licences_0',['LICENCES',['../md_LICENSE.html',1,'']]]
 ];

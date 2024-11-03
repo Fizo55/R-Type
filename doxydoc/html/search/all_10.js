@@ -49,7 +49,8 @@ var searchData=
   ['gettype_46',['getType',['../classIMessage.html#a7fe3be9a36348ee1752a2e8e0a7ae2b1',1,'IMessage::getType()'],['../classMessageBase.html#ad1213b92c1f9764ae9bf58ba386a313f',1,'MessageBase::getType()']]],
   ['getunnamedargs_47',['getUnnamedArgs',['../classargumentParser.html#aff50fe9780ae1566bca1486c7bb4c61e',1,'argumentParser']]],
   ['getwindow_48',['getWindow',['../classgrw_1_1windowHandler.html#a7a6d7836962f7eb2099ec0cb6a946f6e',1,'grw::windowHandler']]],
-  ['green_49',['GREEN',['../ConsoleLogger_8cpp.html#ace790543ffe3663a896a5f074bd2a3ef',1,'ConsoleLogger.cpp']]],
-  ['grw_50',['grw',['../namespacegrw.html',1,'']]],
-  ['guide_51',['Installation Guide',['../md_INSTALL.html',1,'']]]
+  ['graphics_20library_3a_20sdl2_49',['2. Graphics Library: SDL2',['../md_comparative__study.html#autotoc_md60',1,'']]],
+  ['green_50',['GREEN',['../ConsoleLogger_8cpp.html#ace790543ffe3663a896a5f074bd2a3ef',1,'ConsoleLogger.cpp']]],
+  ['grw_51',['grw',['../namespacegrw.html',1,'']]],
+  ['guide_52',['Installation Guide',['../md_INSTALL.html',1,'']]]
 ];

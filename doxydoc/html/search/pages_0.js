@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['guide_0',['Installation Guide',['../md_INSTALL.html',1,'']]]
+  ['comparative_20study_0',['Comparative Study',['../md_comparative__study.html',1,'']]]
 ];
