@@ -2,13 +2,17 @@ function move_player()
     print("hello")
 end
 
-valuex = self:get_pos("x")
-valuey = self:get_pos("y")
 
 print("Pos: ", valuex, " ", valuey, ". That was the poses")
 
-game:change_scene("level1")
+local angle = 10
+local radius = 10
+function update()
+    local valuex = self:get_pos("x") + radius * math.cos(angle)
+    local valuey = self:get_pos("y") + radius * math.sin(angle)
+    
+    self:move(valuex, valuey)
 
-function update ()
-    print("ok")
+    angle = angle + 0.1
+    print("update function")
 end
