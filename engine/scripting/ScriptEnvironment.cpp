@@ -35,6 +35,15 @@ void engine::ScriptEnvironment::loadScript(const std::string &path)
         throw engine::loadError(path + ": failed to load lua file: " + lua_tostring(this->_ctx, -1));
 }
 
+void engine::ScriptEnvironment::callFunction(const std::string &name)
+{
+    lua_getglobal(this->_ctx, name.c_str());
+
+    if (lua_isfunction(_ctx, -1)) {
+        lua_pcall(_ctx, 0, 1, 0);
+    }
+}
+
 lua_State *engine::ScriptEnvironment::getCtx(void) const
 {
     return (this->_ctx);

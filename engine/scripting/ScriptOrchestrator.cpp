@@ -36,6 +36,13 @@ void engine::ScriptOrchestrator::fromGameObject(Game &game)
     }
 }
 
+void engine::ScriptOrchestrator::callFunctionAll(const std::string &name)
+{
+    for (auto it = this->_scripts.begin(); it != this->_scripts.end(); ++it) {
+        it->second->callFunction(name);
+    }
+}
+
 void engine::ScriptOrchestrator::registerScript(const std::string &name, const std::string &path)
 {
     this->_registeredScripts[name] = path;

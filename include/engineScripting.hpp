@@ -59,6 +59,8 @@
 
                 void loadScript(const std::string &);
 
+                void callFunction(const std::string &);
+
                 void registerGlobalObject(const ScriptGlobalDefinition &scriptDef)
                 {
                     scriptDef.type->magicSet(lua_newuserdata(this->_ctx, scriptDef.type->magicSize()), scriptDef.data);
@@ -85,6 +87,7 @@
 
                 void fromGameObject(Game &);
                 void addBinding(std::function<void(lua_State *)>);
+                void callFunctionAll(const std::string &name);
 
             private:
                 std::map<std::string, std::shared_ptr<ScriptEnvironment>> _scripts;

@@ -99,9 +99,11 @@
                 clock();
 
                 unsigned long tick(int = -1);
+                unsigned long lastDT(void);
 
             private:
                 unsigned long _oldTime;
+                unsigned long _lastDT;
         };
 
         // videoMode for the window
