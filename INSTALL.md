@@ -8,6 +8,9 @@ This guide will walk you through the steps needed to configure, build, and run t
 - **CMake** version 3.27 or above
 - **Ninja** build system
 - **Git**
+- **automake**
+- **libtool**
+- **pkg-config**
 
 ### Steps:
 1. **Clone the repository:**
@@ -21,8 +24,6 @@ This guide will walk you through the steps needed to configure, build, and run t
     mkdir build
     cd build
     ```
-
-automake libtool pkg-config
 
 3. **Set up vcpkg:**
     ```bash
