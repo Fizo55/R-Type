@@ -84,7 +84,14 @@
                 enum eventTypes {
                     NO_EVENT = 0,
                     CLOSE = 1,
-                    QUIT = 2
+                    QUIT = 2,
+                    KEY_PRESSED = 3,
+                    KEY_RELEASED = 4,
+                    UP = 5,
+                    DOWN = 6,
+                    LEFT = 7,
+                    RIGHT = 8,
+                    SPACE = 9
                 };
 
                 event(unsigned long type = 0, const engine_math::vector2<int> &position = engine_math::vector2<int>(0, 0), int key = -1);

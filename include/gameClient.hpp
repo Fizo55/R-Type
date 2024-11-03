@@ -10,7 +10,7 @@
             client(const std::string &);
             ~client();
 
-            void event(void);
+            void event(bool &isFlying);
             void update(void);
             void draw(void);
 

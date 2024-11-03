@@ -61,6 +61,25 @@ event windowHandler::buildEvent(SDL_Event *eventSDL)
         return (event(event::QUIT));
     if (eventType == SDL_WINDOWEVENT_CLOSE)
         return (event(event::CLOSE));
+    if (eventType == SDL_KEYDOWN) {
+            switch (eventSDL->key.keysym.sym) {
+        case SDLK_UP:
+            return (event::UP);
+        case SDLK_DOWN:
+            return (event::DOWN);
+        case SDLK_LEFT:
+            return (event::LEFT);
+        case SDLK_RIGHT:
+            return (event::RIGHT);
+        case SDLK_SPACE:
+            return (event::SPACE);
+        default:
+            return (event(event::KEY_PRESSED));
+        }
+    }
+    if (eventType == SDL_KEYUP) {
+        return (event(event::KEY_RELEASED));
+    }
     return (event());
 }
 
