@@ -77,6 +77,8 @@
 
                 void registerScript(const std::string &, const std::string &);
 
+                void runLuaFunctions(const std::string &scriptName, const std::string &functionName, const std::vector<std::string> &args);
+
                 void buildScript(const std::string &name, const std::vector<engine::ScriptGlobalDefinition> &extraDefs = std::vector<engine::ScriptGlobalDefinition>());
 
                 void registerGlobal(const ScriptGlobalDefinition &scriptDef)
