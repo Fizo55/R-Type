@@ -87,6 +87,9 @@ void client::event(void)
 void client::update(void)
 {
     this->_orchestrator.callFunctionAll("update");
+    this->_orchestrator.callFunctionAll("hello");
+    this->_orchestrator.callFunctionAll("level1");
+    this->_orchestrator.callFunctionAll("do_nothing");
 
     this->_displayManager.update();
 }

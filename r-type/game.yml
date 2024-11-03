@@ -18,6 +18,7 @@ scripts:
 
 images:
   sprite_bg_lvl1: r-type/assets/images/backgrounds/level1_bg_1080p.png
+  sprite_bg_menu: r-type/assets/images/backgrounds/menu_background.png
   sprite0:        r-type/assets/images/error.png
 
   sprite_player1: r-type/assets/images/allies/player1.png
