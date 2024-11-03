@@ -1,0 +1,11 @@
+<map id="BinarySerializer::writeString" name="BinarySerializer::writeString">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,188,57"/>
+<area shape="rect" id="Node000002" href="$classBinarySerializer.html#aa0ff808667c02df67c6b5b06599730e2" title=" " alt="" coords="236,31,423,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,41,220,41,220,47,188,47"/>
+<area shape="rect" id="Node000003" href="$namespaceEndianness.html#a15671f63b5f2c131895139907b4cd001" title=" " alt="" coords="471,23,656,65"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="424,41,456,41,456,47,424,47"/>
+<area shape="rect" id="Node000004" href="$namespaceEndianness.html#aa1760cd4396acf65407ec2fb13da530f" title=" " alt="" coords="704,5,880,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="656,31,688,27,689,33,657,36"/>
+<area shape="rect" id="Node000005" href="$namespaceEndianness.html#acbec439e5b66d4e9d0f379fbb096d45f" title=" " alt="" coords="709,56,875,83"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="657,52,694,56,693,61,656,57"/>
+</map>

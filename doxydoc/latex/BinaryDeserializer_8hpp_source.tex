@@ -1,0 +1,32 @@
+\doxysection{Binary\+Deserializer.\+hpp}
+\hypertarget{BinaryDeserializer_8hpp_source}{}\label{BinaryDeserializer_8hpp_source}\index{server/include/BinaryDeserializer.hpp@{server/include/BinaryDeserializer.hpp}}
+\mbox{\hyperlink{BinaryDeserializer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BINARYDESERIALIZER\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BINARYDESERIALIZER\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{IDeserializer_8hpp}{IDeserializer.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBinaryDeserializer}{BinaryDeserializer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIDeserializer}{IDeserializer}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{classBinaryDeserializer_a52594a9b7a9020d85fb4596946ca4d40}{BinaryDeserializer}}(\textcolor{keyword}{const}\ std::vector<uint8\_t>\&\ buffer);}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{classBinaryDeserializer_abbdfcd27c21ff2ee90fdab28a80077df}{readUInt16}}();}
+\DoxyCodeLine{00013\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classBinaryDeserializer_aea63bb944224d576179e484b2c5f9127}{readUInt32}}();}
+\DoxyCodeLine{00014\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classBinaryDeserializer_af64d3c4bbb3ebc23b4bb528889af3242}{readUInt8}}();}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classBinaryDeserializer_a6587c6927ce6c179514d5b300c13a7d8}{readFloat}}();}
+\DoxyCodeLine{00016\ \ \ \ \ std::string\ \mbox{\hyperlink{classBinaryDeserializer_adf27ef0f22e245cdbb1157272058356d}{readString}}();}
+\DoxyCodeLine{00017\ \ \ \ \ std::vector<uint8\_t>\ \mbox{\hyperlink{classBinaryDeserializer_aa80e1027b52c47d3dba0cb49e348ddfe}{readBytes}}(\textcolor{keywordtype}{size\_t}\ length);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBinaryDeserializer_aa80e1027b52c47d3dba0cb49e348ddfe}{readBytes}}(uint8\_t\ *destination,\ \textcolor{keywordtype}{size\_t}\ length);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBinaryDeserializer_a3e75e1fae49ccd1a25e29cbd36f53da7}{readHeader}}(uint16\_t\&\ length,\ uint16\_t\&\ sequenceId,\ uint8\_t\&\ messageType,\ uint8\_t\&\ flags);}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<uint8\_t>\&\ buffer\_;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ offset\_;}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

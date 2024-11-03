@@ -1,0 +1,140 @@
+\doxysection{Server\+Welcome\+Message Class Reference}
+\hypertarget{classServerWelcomeMessage}{}\label{classServerWelcomeMessage}\index{ServerWelcomeMessage@{ServerWelcomeMessage}}
+
+
+{\ttfamily \#include $<$Server\+Welcome\+Message.\+hpp$>$}
+
+
+
+Inheritance diagram for Server\+Welcome\+Message\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classServerWelcomeMessage__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Server\+Welcome\+Message\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classServerWelcomeMessage__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classServerWelcomeMessage_a780530da03b8a95c56588c5219b3ab9a}{Server\+Welcome\+Message}} ()
+\item 
+void \mbox{\hyperlink{classServerWelcomeMessage_a4c9e5bc4eb340bd86ffd86e3f0d53aa7}{serialize}} (std\+::vector$<$ uint8\+\_\+t $>$ \&out\+Buffer, uint16\+\_\+t sequence\+Id, uint8\+\_\+t flags) const override
+\item 
+void \mbox{\hyperlink{classServerWelcomeMessage_a93c998a507b46a4a101a14db57580c32}{deserialize}} (const std\+::vector$<$ uint8\+\_\+t $>$ \&in\+Buffer) override
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classServerWelcomeMessage_a61185c9d503011fe6ab96f583c26948d}{get\+Sequence\+Id}} () const
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classServerWelcomeMessage_a2c9e28fbb5b2246078c4be86e98a0377}{get\+Flags}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classMessageBase}{Message\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMessageBase_a851e7d355497b91ab2c2cd7e3b353603}{Message\+Base}} (uint32\+\_\+t type)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMessageBase_ad1213b92c1f9764ae9bf58ba386a313f}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classIMessage}{IMessage}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classIMessage_ab02076630dc982a6d2ecb5af9459907c}{\texorpdfstring{$\sim$}{\string~}\+IMessage}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classServerWelcomeMessage_a4d1fae0bf78d4b3e547fced290bec4e6}{client\+Id}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classMessageBase}{Message\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMessageBase_ac0f51f26d0c8139a224ed6d19d262c59}{type\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classServerWelcomeMessage_a780530da03b8a95c56588c5219b3ab9a}\label{classServerWelcomeMessage_a780530da03b8a95c56588c5219b3ab9a} 
+\index{ServerWelcomeMessage@{ServerWelcomeMessage}!ServerWelcomeMessage@{ServerWelcomeMessage}}
+\index{ServerWelcomeMessage@{ServerWelcomeMessage}!ServerWelcomeMessage@{ServerWelcomeMessage}}
+\doxysubsubsection{\texorpdfstring{ServerWelcomeMessage()}{ServerWelcomeMessage()}}
+{\footnotesize\ttfamily Server\+Welcome\+Message\+::\+Server\+Welcome\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classServerWelcomeMessage_a93c998a507b46a4a101a14db57580c32}\label{classServerWelcomeMessage_a93c998a507b46a4a101a14db57580c32} 
+\index{ServerWelcomeMessage@{ServerWelcomeMessage}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!ServerWelcomeMessage@{ServerWelcomeMessage}}
+\doxysubsubsection{\texorpdfstring{deserialize()}{deserialize()}}
+{\footnotesize\ttfamily void Server\+Welcome\+Message\+::deserialize (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint8\+\_\+t $>$ \&}]{in\+Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classMessageBase_a2198714282a75b8b1187bbd5078913cf}{Message\+Base}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classServerWelcomeMessage_a93c998a507b46a4a101a14db57580c32_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classServerWelcomeMessage_a2c9e28fbb5b2246078c4be86e98a0377}\label{classServerWelcomeMessage_a2c9e28fbb5b2246078c4be86e98a0377} 
+\index{ServerWelcomeMessage@{ServerWelcomeMessage}!getFlags@{getFlags}}
+\index{getFlags@{getFlags}!ServerWelcomeMessage@{ServerWelcomeMessage}}
+\doxysubsubsection{\texorpdfstring{getFlags()}{getFlags()}}
+{\footnotesize\ttfamily uint8\+\_\+t Server\+Welcome\+Message\+::get\+Flags (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classServerWelcomeMessage_a61185c9d503011fe6ab96f583c26948d}\label{classServerWelcomeMessage_a61185c9d503011fe6ab96f583c26948d} 
+\index{ServerWelcomeMessage@{ServerWelcomeMessage}!getSequenceId@{getSequenceId}}
+\index{getSequenceId@{getSequenceId}!ServerWelcomeMessage@{ServerWelcomeMessage}}
+\doxysubsubsection{\texorpdfstring{getSequenceId()}{getSequenceId()}}
+{\footnotesize\ttfamily uint16\+\_\+t Server\+Welcome\+Message\+::get\+Sequence\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classServerWelcomeMessage_a4c9e5bc4eb340bd86ffd86e3f0d53aa7}\label{classServerWelcomeMessage_a4c9e5bc4eb340bd86ffd86e3f0d53aa7} 
+\index{ServerWelcomeMessage@{ServerWelcomeMessage}!serialize@{serialize}}
+\index{serialize@{serialize}!ServerWelcomeMessage@{ServerWelcomeMessage}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily void Server\+Welcome\+Message\+::serialize (\begin{DoxyParamCaption}\item[{std\+::vector$<$ uint8\+\_\+t $>$ \&}]{out\+Buffer,  }\item[{uint16\+\_\+t}]{sequence\+Id,  }\item[{uint8\+\_\+t}]{flags }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classMessageBase_a0ef34665add7ae2315dbf340e02a311d}{Message\+Base}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classServerWelcomeMessage_a4c9e5bc4eb340bd86ffd86e3f0d53aa7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classServerWelcomeMessage_a4c9e5bc4eb340bd86ffd86e3f0d53aa7_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classServerWelcomeMessage_a4d1fae0bf78d4b3e547fced290bec4e6}\label{classServerWelcomeMessage_a4d1fae0bf78d4b3e547fced290bec4e6} 
+\index{ServerWelcomeMessage@{ServerWelcomeMessage}!clientId@{clientId}}
+\index{clientId@{clientId}!ServerWelcomeMessage@{ServerWelcomeMessage}}
+\doxysubsubsection{\texorpdfstring{clientId}{clientId}}
+{\footnotesize\ttfamily uint32\+\_\+t Server\+Welcome\+Message\+::client\+Id}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{ServerWelcomeMessage_8hpp}{Server\+Welcome\+Message.\+hpp}}\item 
+server/src/\mbox{\hyperlink{ServerWelcomeMessage_8cpp}{Server\+Welcome\+Message.\+cpp}}\end{DoxyCompactItemize}

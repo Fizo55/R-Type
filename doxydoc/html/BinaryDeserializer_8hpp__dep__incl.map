@@ -1,0 +1,31 @@
+<map id="server/include/BinaryDeserializer.hpp" name="server/include/BinaryDeserializer.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="680,5,917,32"/>
+<area shape="rect" id="Node000002" href="$GameStateUpdateMessage_8hpp.html" title=" " alt="" coords="348,80,521,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="727,38,522,84,521,78,726,33"/>
+<area shape="rect" id="Node000005" href="$RTypeServer_8cpp.html" title=" " alt="" coords="5,261,189,288"/>
+<area shape="poly" id="edge15_Node000001_Node000005" title=" " alt="" coords="664,32,506,51,420,65,336,83,259,95,195,102,167,110,141,122,116,142,91,172,83,194,83,218,94,261,89,262,77,219,77,193,87,169,112,139,138,118,166,105,194,97,258,90,335,77,419,59,505,45,664,27"/>
+<area shape="rect" id="Node000007" href="$GameStateUpdateMessage_8cpp.html" title=" " alt="" coords="599,171,790,213"/>
+<area shape="poly" id="edge13_Node000001_Node000007" title=" " alt="" coords="702,38,630,57,603,68,586,82,580,92,579,101,586,121,609,148,640,168,637,172,606,152,581,124,573,101,575,90,582,78,600,64,628,52,700,33"/>
+<area shape="rect" id="Node000009" href="$AcknowledgmentMessage_8cpp.html" title=" " alt="" coords="596,80,779,123"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="770,43,718,82,714,77,767,39"/>
+<area shape="rect" id="Node000010" href="$BinaryDeserializer_8cpp.html" title=" " alt="" coords="803,88,1018,115"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="829,39,895,85,891,90,826,43"/>
+<area shape="rect" id="Node000011" href="$ClientHelloMessage_8cpp.html" title=" " alt="" coords="1042,88,1267,115"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="870,33,1099,85,1097,90,868,38"/>
+<area shape="rect" id="Node000012" href="$PlayerInputMessage_8cpp.html" title=" " alt="" coords="1291,88,1519,115"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="924,32,1280,77,1329,85,1328,90,1279,83,923,37"/>
+<area shape="rect" id="Node000013" href="$ServerWelcomeMessage_8cpp.html" title=" " alt="" coords="1543,80,1718,123"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="933,24,1209,43,1370,58,1531,77,1542,79,1542,84,1530,83,1370,63,1209,48,932,29"/>
+<area shape="rect" id="Node000003" href="$RTypeGameLogic_8hpp.html" title=" " alt="" coords="345,171,524,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="437,138,437,170,432,170,432,138"/>
+<area shape="rect" id="Node000004" href="$RTypeGameLogic_8cpp.html" title=" " alt="" coords="391,261,603,288"/>
+<area shape="poly" id="edge8_Node000002_Node000004" title=" " alt="" coords="499,129,521,147,538,170,543,195,537,221,524,244,511,262,506,259,520,241,532,219,538,195,533,172,517,150,495,133"/>
+<area shape="rect" id="Node000006" href="$server_2src_2main_8cpp.html" title=" " alt="" coords="225,261,361,288"/>
+<area shape="poly" id="edge9_Node000002_Node000006" title=" " alt="" coords="333,112,265,121,197,133,140,150,120,161,106,172,97,188,99,202,108,215,125,227,172,246,225,259,224,265,170,251,122,231,105,219,94,204,92,187,102,169,117,156,138,145,196,128,264,115,332,107"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="510,126,634,167,632,173,509,131"/>
+<area shape="rect" id="Node000008" href="$MessageFactory_8cpp.html" title=" " alt="" coords="116,179,321,205"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="371,132,250,181,248,176,368,127"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="462,224,489,259,485,262,458,227"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="333,220,151,263,150,258,332,215"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="386,223,316,263,314,258,384,219"/>
+</map>

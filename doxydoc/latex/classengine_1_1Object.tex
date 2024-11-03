@@ -1,0 +1,125 @@
+\doxysection{engine\+::Object Class Reference}
+\hypertarget{classengine_1_1Object}{}\label{classengine_1_1Object}\index{engine::Object@{engine::Object}}
+
+
+{\ttfamily \#include $<$engine\+Core.\+hpp$>$}
+
+
+
+Inheritance diagram for engine\+::Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classengine_1_1Object__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for engine\+::Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classengine_1_1Object__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classengine_1_1Object_a371adfc8c098302f3a607421bd2e5dcf}{Object}} ()
+\item 
+\mbox{\hyperlink{classengine_1_1Object_a13b24bec4fac8cbdd57e0ee50249323f}{Object}} (const \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1Object_a88ff10ef5071d930b1945c1baa7a2498}{build\+Entity}} (\mbox{\hyperlink{classengine_1_1EntityFactory}{Entity\+Factory}} \&)
+\item 
+const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classengine_1_1Entity}{Entity}} $>$ \& \mbox{\hyperlink{classengine_1_1Object_aafe8c830dcadc9bb22f3fa7b08d91cf2}{get\+Entity}} (void) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classengine_1_1ObjectRef}{engine\+::\+Object\+Ref}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classengine_1_1ObjectRef_a062fa0f918cdb918fb3ab50768c65743}{Object\+Ref}} ()
+\item 
+\mbox{\hyperlink{classengine_1_1ObjectRef_ac42c41e4fdcb430ea7be3c025f2d29bf}{Object\+Ref}} (const std\+::string \&)
+\item 
+const std\+::string \& \mbox{\hyperlink{classengine_1_1ObjectRef_a89daa91bdf24598670ce4a9b359d9b26}{get\+Name}} (void) const
+\item 
+void \mbox{\hyperlink{classengine_1_1ObjectRef_a56883e45596375429dbafeb45e6edca0}{set\+Name}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1ObjectRef_aa02d04435419597c455b36b972a12a58}{add\+Build\+Component}} (const std\+::string \&, const std\+::string \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1ObjectRef_a825f425dfab33a2b48135e5c79ba70de}{remove\+Build\+Component}} (const std\+::string \&)
+\item 
+const std\+::string \& \mbox{\hyperlink{classengine_1_1ObjectRef_a5cd01c6e025ba2892f256f8e5434e451}{get\+Build\+Component}} (const std\+::string \&) const
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classengine_1_1ObjectRef_af592af1dff678c7f4cc6dd2234d9d8ba}{get\+All\+Build\+Component}} (void) const
+\item 
+void \mbox{\hyperlink{classengine_1_1ObjectRef_aba3b6c8a8b46428d507b44782fc5f183}{add\+Build\+Parameter}} (const std\+::string \&, const std\+::vector$<$ std\+::any $>$ \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1ObjectRef_a531a5ad002507434ea227b3de1893348}{remove\+Build\+Parameter}} (const std\+::string \&)
+\item 
+const std\+::vector$<$ std\+::any $>$ \mbox{\hyperlink{classengine_1_1ObjectRef_a35fa7a676174a17c469a89b18ebf6138}{get\+Build\+Parameter}} (const std\+::string \&) const
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classengine_1_1ObjectRef_aad4b755448032a6690a22f21693efcbc}{get\+All\+Build\+Parameter}} (void) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classengine_1_1ObjectRef}{engine\+::\+Object\+Ref}}}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::any \mbox{\hyperlink{classengine_1_1ObjectRef_a7639411609d812c3e2681f34d9c7d388}{parameter\+Builder}} (const YAML\+::\+Node \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classengine_1_1Object_a371adfc8c098302f3a607421bd2e5dcf}\label{classengine_1_1Object_a371adfc8c098302f3a607421bd2e5dcf} 
+\index{engine::Object@{engine::Object}!Object@{Object}}
+\index{Object@{Object}!engine::Object@{engine::Object}}
+\doxysubsubsection{\texorpdfstring{Object()}{Object()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily engine\+::\+Object\+::\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1Object_a13b24bec4fac8cbdd57e0ee50249323f}\label{classengine_1_1Object_a13b24bec4fac8cbdd57e0ee50249323f} 
+\index{engine::Object@{engine::Object}!Object@{Object}}
+\index{Object@{Object}!engine::Object@{engine::Object}}
+\doxysubsubsection{\texorpdfstring{Object()}{Object()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily engine\+::\+Object\+::\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} \&}]{other }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classengine_1_1Object_a13b24bec4fac8cbdd57e0ee50249323f_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classengine_1_1Object_a88ff10ef5071d930b1945c1baa7a2498}\label{classengine_1_1Object_a88ff10ef5071d930b1945c1baa7a2498} 
+\index{engine::Object@{engine::Object}!buildEntity@{buildEntity}}
+\index{buildEntity@{buildEntity}!engine::Object@{engine::Object}}
+\doxysubsubsection{\texorpdfstring{buildEntity()}{buildEntity()}}
+{\footnotesize\ttfamily void engine\+::\+Object\+::build\+Entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classengine_1_1EntityFactory}{Entity\+Factory}} \&}]{factory }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1Object_a88ff10ef5071d930b1945c1baa7a2498_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1Object_a88ff10ef5071d930b1945c1baa7a2498_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1Object_aafe8c830dcadc9bb22f3fa7b08d91cf2}\label{classengine_1_1Object_aafe8c830dcadc9bb22f3fa7b08d91cf2} 
+\index{engine::Object@{engine::Object}!getEntity@{getEntity}}
+\index{getEntity@{getEntity}!engine::Object@{engine::Object}}
+\doxysubsubsection{\texorpdfstring{getEntity()}{getEntity()}}
+{\footnotesize\ttfamily const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classengine_1_1Entity}{engine\+::\+Entity}} $>$ \& engine\+::\+Object\+::get\+Entity (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{engineCore_8hpp}{engine\+Core.\+hpp}}\item 
+engine/core/\mbox{\hyperlink{core_2object_8cpp}{object.\+cpp}}\end{DoxyCompactItemize}

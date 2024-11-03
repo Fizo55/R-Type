@@ -1,0 +1,7 @@
+<map id="engine::Registry::register_component" name="engine::Registry::register_component">
+<area shape="rect" id="Node000001" title=" " alt="" coords="338,5,505,48"/>
+<area shape="rect" id="Node000002" href="$classengine_1_1EntityFactory.html#ad036ca1567685e824d1e644961285ebe" title=" " alt="" coords="145,5,290,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="323,29,290,29,290,24,323,24"/>
+<area shape="rect" id="Node000003" href="$classclient.html#a863869fb7bfb3ec62ca36dc3f461935d" title=" " alt="" coords="5,13,97,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="129,29,97,29,97,24,129,24"/>
+</map>

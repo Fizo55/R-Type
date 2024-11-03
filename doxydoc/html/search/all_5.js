@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['flags_0',['flags',['../classgrw_1_1videoMode.html#a615666be9da7f9129f3b91b9cfec3fdb',1,'grw::videoMode']]]
+  ['5_20chat_20message_0',['6.2.5 Chat Message',['..//home/floriang/Documents/projets/tek3/R-Type/network/README.md#autotoc_md43',1,'']]],
+  ['5_20data_20types_20and_20encoding_1',['5. Data Types and Encoding',['..//home/floriang/Documents/projets/tek3/R-Type/network/README.md#autotoc_md31',1,'']]]
 ];

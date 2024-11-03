@@ -1,0 +1,16 @@
+<map id="BinaryDeserializer::readUInt8" name="BinaryDeserializer::readUInt8">
+<area shape="rect" id="Node000001" title=" " alt="" coords="411,76,538,119"/>
+<area shape="rect" id="Node000002" href="$classPlayerInputMessage.html#a6adeb802eb5c6f703387b9e270d47bc7" title=" " alt="" coords="26,5,167,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="395,85,167,42,168,37,396,80"/>
+<area shape="rect" id="Node000003" href="$classBinaryDeserializer.html#a3e75e1fae49ccd1a25e29cbd36f53da7" title=" " alt="" coords="236,105,363,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="396,113,364,119,363,113,395,108"/>
+<area shape="poly" id="edge5_Node000003_Node000002" title=" " alt="" coords="251,99,186,62,160,51,162,46,189,58,254,94"/>
+<area shape="rect" id="Node000004" href="$classAcknowledgmentMessage.html#ac86e97b24f9202d2141c2eff5809e5dc" title=" " alt="" coords="9,72,184,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="220,116,184,110,185,105,221,111"/>
+<area shape="rect" id="Node000005" href="$classClientHelloMessage.html#ad42a1d6abe32615e30d160b6f78a744d" title=" " alt="" coords="27,139,166,181"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="221,142,167,151,166,146,220,137"/>
+<area shape="rect" id="Node000006" href="$classServerWelcomeMessage.html#a93c998a507b46a4a101a14db57580c32" title=" " alt="" coords="13,205,180,248"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="254,159,189,196,162,207,160,202,186,191,251,154"/>
+<area shape="rect" id="Node000007" href="$classGameStateUpdateMessage.html#a5eab350a24666c379c6eb6915d0be216" title=" " alt="" coords="5,272,188,315"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="279,163,241,214,216,240,189,262,170,274,167,269,186,258,213,236,237,210,275,160"/>
+</map>

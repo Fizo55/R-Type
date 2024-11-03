@@ -1,19 +1,24 @@
-\hypertarget{classgrw_1_1window}{}\doxysection{grw\+::window Class Reference}
-\label{classgrw_1_1window}\index{grw::window@{grw::window}}
+\doxysection{grw\+::window Class Reference}
+\hypertarget{classgrw_1_1window}{}\label{classgrw_1_1window}\index{grw::window@{grw::window}}
 
 
 {\ttfamily \#include $<$engine\+Graphic.\+hpp$>$}
 
 
 
-Collaboration diagram for grw\+::window\+:
-% FIG 0
-\doxysubsection*{Public Member Functions}
+Collaboration diagram for grw\+::window\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{classgrw_1_1window__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classgrw_1_1window_a7bdc3ff967d32bd8fceca555efb9c200}{window}} (const std\+::string \&=\char`\"{}New Window\char`\"{}, const \mbox{\hyperlink{classgrw_1_1videoMode}{video\+Mode}} \&=\mbox{\hyperlink{classgrw_1_1videoMode}{video\+Mode}}(\mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$(800, 600), \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$(0, 0), 32, 0))
+\mbox{\hyperlink{classgrw_1_1window_a7bdc3ff967d32bd8fceca555efb9c200}{window}} (const std\+::string \&="{}New Window"{}, const \mbox{\hyperlink{classgrw_1_1videoMode}{video\+Mode}} \&=\mbox{\hyperlink{classgrw_1_1videoMode}{video\+Mode}}(\mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$(800, 600), \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$(0, 0), 32, 0))
 \begin{DoxyCompactList}\small\item\em Create a new window. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgrw_1_1window_a52e1afbd53c8796522a180b144c375a0}{$\sim$window}} ()
+\mbox{\hyperlink{classgrw_1_1window_a52e1afbd53c8796522a180b144c375a0}{\texorpdfstring{$\sim$}{\string~}window}} ()
 \item 
 void \mbox{\hyperlink{classgrw_1_1window_ab598a582254aa708d07fd6c52771ec06}{blit}} (const \mbox{\hyperlink{classgrw_1_1texture}{texture}} \&, const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&, const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&)
 \item 
@@ -33,9 +38,9 @@ unsigned char \mbox{\hyperlink{classgrw_1_1window_a55bad0b1ce23db77895fd76c225d0
 \item 
 const \mbox{\hyperlink{classgrw_1_1event}{event}} \mbox{\hyperlink{classgrw_1_1window_ab2ea8db1dbf0b0b0ecc3b9911827cb6d}{get\+Event}} (unsigned long) const
 \item 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{texture}} $>$ \& \mbox{\hyperlink{classgrw_1_1window_ad47642288c8dc28e1aa5a2ae8cf2b770}{get\+Surface}} (void)
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{texture}} $>$ \& \mbox{\hyperlink{classgrw_1_1window_aebe86ede544814bcd38fa75e193cb576}{get\+Surface}} (void)
 \item 
-const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{texture}} $>$ \& \mbox{\hyperlink{classgrw_1_1window_adac162ac1404ce227cf286c19aa72753}{get\+Surface}} (void) const
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{texture}} $>$ \& \mbox{\hyperlink{classgrw_1_1window_a65c29bb68bb795565bbc9338177187df}{get\+Surface}} (void) const
 \item 
 \mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{classgrw_1_1window_a82b193fed64bb031decebc084b3218bd}{get\+Id}} (void) const
 \item 
@@ -44,11 +49,11 @@ unsigned char \mbox{\hyperlink{classgrw_1_1window_ad8417a9e5de65e07f7cc911e8c41f
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classgrw_1_1window_a7bdc3ff967d32bd8fceca555efb9c200}\label{classgrw_1_1window_a7bdc3ff967d32bd8fceca555efb9c200}} 
+\Hypertarget{classgrw_1_1window_a7bdc3ff967d32bd8fceca555efb9c200}\label{classgrw_1_1window_a7bdc3ff967d32bd8fceca555efb9c200} 
 \index{grw::window@{grw::window}!window@{window}}
 \index{window@{window}!grw::window@{grw::window}}
 \doxysubsubsection{\texorpdfstring{window()}{window()}}
-{\footnotesize\ttfamily window\+::window (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title = {\ttfamily \char`\"{}New~Window\char`\"{}},  }\item[{const \mbox{\hyperlink{classgrw_1_1videoMode}{video\+Mode}} \&}]{mode = {\ttfamily \mbox{\hyperlink{classgrw_1_1videoMode}{video\+Mode}}(\mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$\mbox{\hyperlink{classint}{int}}$>$(800,~600),~\mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$\mbox{\hyperlink{classint}{int}}$>$(0,~0),~32,~0)} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily window\+::window (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title = {\ttfamily "{}New~Window"{}},  }\item[{const \mbox{\hyperlink{classgrw_1_1videoMode}{video\+Mode}} \&}]{mode = {\ttfamily \mbox{\hyperlink{classgrw_1_1videoMode}{video\+Mode}}(\mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$\mbox{\hyperlink{classint}{int}}$>$(800,~600),~\mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$\mbox{\hyperlink{classint}{int}}$>$(0,~0),~32,~0)} }\end{DoxyParamCaption})}
 
 
 
@@ -61,44 +66,69 @@ Create a new window.
 {\em mode} & The video mode of the window \\
 \hline
 \end{DoxyParams}
-Here is the call graph for this function\+:
-% FIG 1
-\mbox{\Hypertarget{classgrw_1_1window_a52e1afbd53c8796522a180b144c375a0}\label{classgrw_1_1window_a52e1afbd53c8796522a180b144c375a0}} 
-\index{grw::window@{grw::window}!````~window@{$\sim$window}}
-\index{````~window@{$\sim$window}!grw::window@{grw::window}}
-\doxysubsubsection{\texorpdfstring{$\sim$window()}{~window()}}
-{\footnotesize\ttfamily window\+::$\sim$window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{classgrw_1_1window_a7bdc3ff967d32bd8fceca555efb9c200_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgrw_1_1window_a52e1afbd53c8796522a180b144c375a0}\label{classgrw_1_1window_a52e1afbd53c8796522a180b144c375a0} 
+\index{grw::window@{grw::window}!````~window@{\texorpdfstring{$\sim$}{\string~}window}}
+\index{````~window@{\texorpdfstring{$\sim$}{\string~}window}!grw::window@{grw::window}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}window()}{\string~window()}}
+{\footnotesize\ttfamily window\+::\texorpdfstring{$\sim$}{\string~}window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-% FIG 2
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{classgrw_1_1window_a52e1afbd53c8796522a180b144c375a0_cgraph}
+\end{center}
+\end{figure}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classgrw_1_1window_ab598a582254aa708d07fd6c52771ec06}\label{classgrw_1_1window_ab598a582254aa708d07fd6c52771ec06}} 
+\Hypertarget{classgrw_1_1window_ab598a582254aa708d07fd6c52771ec06}\label{classgrw_1_1window_ab598a582254aa708d07fd6c52771ec06} 
 \index{grw::window@{grw::window}!blit@{blit}}
 \index{blit@{blit}!grw::window@{grw::window}}
 \doxysubsubsection{\texorpdfstring{blit()}{blit()}}
 {\footnotesize\ttfamily void window\+::blit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgrw_1_1texture}{texture}} \&}]{other,  }\item[{const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&}]{position,  }\item[{const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&}]{size }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-% FIG 3
-\mbox{\Hypertarget{classgrw_1_1window_ab65ca772964e7d3f458fab326fd1aa40}\label{classgrw_1_1window_ab65ca772964e7d3f458fab326fd1aa40}} 
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{classgrw_1_1window_ab598a582254aa708d07fd6c52771ec06_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgrw_1_1window_ab65ca772964e7d3f458fab326fd1aa40}\label{classgrw_1_1window_ab65ca772964e7d3f458fab326fd1aa40} 
 \index{grw::window@{grw::window}!clear@{clear}}
 \index{clear@{clear}!grw::window@{grw::window}}
 \doxysubsubsection{\texorpdfstring{clear()}{clear()}}
 {\footnotesize\ttfamily void window\+::clear (\begin{DoxyParamCaption}\item[{unsigned \mbox{\hyperlink{classint}{int}}}]{color }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-% FIG 4
-Here is the caller graph for this function\+:
-% FIG 5
-\mbox{\Hypertarget{classgrw_1_1window_a35e8cd780bb68f7500d92ed7354663ba}\label{classgrw_1_1window_a35e8cd780bb68f7500d92ed7354663ba}} 
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{classgrw_1_1window_ab65ca772964e7d3f458fab326fd1aa40_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{classgrw_1_1window_ab65ca772964e7d3f458fab326fd1aa40_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgrw_1_1window_a35e8cd780bb68f7500d92ed7354663ba}\label{classgrw_1_1window_a35e8cd780bb68f7500d92ed7354663ba} 
 \index{grw::window@{grw::window}!clearEvents@{clearEvents}}
 \index{clearEvents@{clearEvents}!grw::window@{grw::window}}
 \doxysubsubsection{\texorpdfstring{clearEvents()}{clearEvents()}}
 {\footnotesize\ttfamily void window\+::clear\+Events (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classgrw_1_1window_a51ddde19e7e46b6d3150f87b69411eae}\label{classgrw_1_1window_a51ddde19e7e46b6d3150f87b69411eae}} 
+\Hypertarget{classgrw_1_1window_a51ddde19e7e46b6d3150f87b69411eae}\label{classgrw_1_1window_a51ddde19e7e46b6d3150f87b69411eae} 
 \index{grw::window@{grw::window}!close@{close}}
 \index{close@{close}!grw::window@{grw::window}}
 \doxysubsubsection{\texorpdfstring{close()}{close()}}
@@ -108,61 +138,91 @@ Here is the caller graph for this function\+:
 
 Close the window. 
 
-Here is the caller graph for this function\+:
-% FIG 6
-\mbox{\Hypertarget{classgrw_1_1window_a3af7e2b7947c6333bdf6ac3eb03d0331}\label{classgrw_1_1window_a3af7e2b7947c6333bdf6ac3eb03d0331}} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{classgrw_1_1window_a51ddde19e7e46b6d3150f87b69411eae_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgrw_1_1window_a3af7e2b7947c6333bdf6ac3eb03d0331}\label{classgrw_1_1window_a3af7e2b7947c6333bdf6ac3eb03d0331} 
 \index{grw::window@{grw::window}!draw@{draw}}
 \index{draw@{draw}!grw::window@{grw::window}}
 \doxysubsubsection{\texorpdfstring{draw()}{draw()}}
 {\footnotesize\ttfamily void window\+::draw (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-% FIG 7
-\mbox{\Hypertarget{classgrw_1_1window_ab2ea8db1dbf0b0b0ecc3b9911827cb6d}\label{classgrw_1_1window_ab2ea8db1dbf0b0b0ecc3b9911827cb6d}} 
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{classgrw_1_1window_a3af7e2b7947c6333bdf6ac3eb03d0331_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgrw_1_1window_ab2ea8db1dbf0b0b0ecc3b9911827cb6d}\label{classgrw_1_1window_ab2ea8db1dbf0b0b0ecc3b9911827cb6d} 
 \index{grw::window@{grw::window}!getEvent@{getEvent}}
 \index{getEvent@{getEvent}!grw::window@{grw::window}}
 \doxysubsubsection{\texorpdfstring{getEvent()}{getEvent()}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classgrw_1_1event}{event}} window\+::get\+Event (\begin{DoxyParamCaption}\item[{unsigned long}]{event\+Type }\end{DoxyParamCaption}) const}
 
-\mbox{\Hypertarget{classgrw_1_1window_a82b193fed64bb031decebc084b3218bd}\label{classgrw_1_1window_a82b193fed64bb031decebc084b3218bd}} 
+\Hypertarget{classgrw_1_1window_a82b193fed64bb031decebc084b3218bd}\label{classgrw_1_1window_a82b193fed64bb031decebc084b3218bd} 
 \index{grw::window@{grw::window}!getId@{getId}}
 \index{getId@{getId}!grw::window@{grw::window}}
 \doxysubsubsection{\texorpdfstring{getId()}{getId()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} window\+::get\+Id (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
 
-Here is the caller graph for this function\+:
-% FIG 8
-\mbox{\Hypertarget{classgrw_1_1window_ad47642288c8dc28e1aa5a2ae8cf2b770}\label{classgrw_1_1window_ad47642288c8dc28e1aa5a2ae8cf2b770}} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgrw_1_1window_a82b193fed64bb031decebc084b3218bd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgrw_1_1window_aebe86ede544814bcd38fa75e193cb576}\label{classgrw_1_1window_aebe86ede544814bcd38fa75e193cb576} 
 \index{grw::window@{grw::window}!getSurface@{getSurface}}
 \index{getSurface@{getSurface}!grw::window@{grw::window}}
 \doxysubsubsection{\texorpdfstring{getSurface()}{getSurface()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{texture}} $>$ \& window\+::get\+Surface (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{texture}} $>$ \& window\+::get\+Surface (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
-% FIG 9
-\mbox{\Hypertarget{classgrw_1_1window_adac162ac1404ce227cf286c19aa72753}\label{classgrw_1_1window_adac162ac1404ce227cf286c19aa72753}} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{classgrw_1_1window_aebe86ede544814bcd38fa75e193cb576_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgrw_1_1window_a65c29bb68bb795565bbc9338177187df}\label{classgrw_1_1window_a65c29bb68bb795565bbc9338177187df} 
 \index{grw::window@{grw::window}!getSurface@{getSurface}}
 \index{getSurface@{getSurface}!grw::window@{grw::window}}
 \doxysubsubsection{\texorpdfstring{getSurface()}{getSurface()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{texture}} $>$ \& window\+::get\+Surface (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{texture}} $>$ \& window\+::get\+Surface (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
 
-\mbox{\Hypertarget{classgrw_1_1window_a55bad0b1ce23db77895fd76c225d0680}\label{classgrw_1_1window_a55bad0b1ce23db77895fd76c225d0680}} 
+\Hypertarget{classgrw_1_1window_a55bad0b1ce23db77895fd76c225d0680}\label{classgrw_1_1window_a55bad0b1ce23db77895fd76c225d0680} 
 \index{grw::window@{grw::window}!hasEvent@{hasEvent}}
 \index{hasEvent@{hasEvent}!grw::window@{grw::window}}
 \doxysubsubsection{\texorpdfstring{hasEvent()}{hasEvent()}}
 {\footnotesize\ttfamily unsigned char window\+::has\+Event (\begin{DoxyParamCaption}\item[{unsigned long}]{event\+Type }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
-% FIG 10
-\mbox{\Hypertarget{classgrw_1_1window_ad8417a9e5de65e07f7cc911e8c41f782}\label{classgrw_1_1window_ad8417a9e5de65e07f7cc911e8c41f782}} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{classgrw_1_1window_a55bad0b1ce23db77895fd76c225d0680_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgrw_1_1window_ad8417a9e5de65e07f7cc911e8c41f782}\label{classgrw_1_1window_ad8417a9e5de65e07f7cc911e8c41f782} 
 \index{grw::window@{grw::window}!isClosed@{isClosed}}
 \index{isClosed@{isClosed}!grw::window@{grw::window}}
 \doxysubsubsection{\texorpdfstring{isClosed()}{isClosed()}}
 {\footnotesize\ttfamily unsigned char window\+::is\+Closed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
-% FIG 11
-\mbox{\Hypertarget{classgrw_1_1window_a14577db223a637059b4097267d3bab72}\label{classgrw_1_1window_a14577db223a637059b4097267d3bab72}} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgrw_1_1window_ad8417a9e5de65e07f7cc911e8c41f782_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgrw_1_1window_a14577db223a637059b4097267d3bab72}\label{classgrw_1_1window_a14577db223a637059b4097267d3bab72} 
 \index{grw::window@{grw::window}!registerEvent@{registerEvent}}
 \index{registerEvent@{registerEvent}!grw::window@{grw::window}}
 \doxysubsubsection{\texorpdfstring{registerEvent()}{registerEvent()}}
@@ -177,9 +237,14 @@ Register an event.
 {\em to\+Register} & The event to register \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:
-% FIG 12
-\mbox{\Hypertarget{classgrw_1_1window_a6078e11da8eb9c4ba4f9044b8694d87c}\label{classgrw_1_1window_a6078e11da8eb9c4ba4f9044b8694d87c}} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgrw_1_1window_a14577db223a637059b4097267d3bab72_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgrw_1_1window_a6078e11da8eb9c4ba4f9044b8694d87c}\label{classgrw_1_1window_a6078e11da8eb9c4ba4f9044b8694d87c} 
 \index{grw::window@{grw::window}!update@{update}}
 \index{update@{update}!grw::window@{grw::window}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
@@ -189,8 +254,13 @@ Here is the caller graph for this function\+:
 
 Update the window. 
 
-Here is the call graph for this function\+:
-% FIG 13
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{classgrw_1_1window_a6078e11da8eb9c4ba4f9044b8694d87c_cgraph}
+\end{center}
+\end{figure}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

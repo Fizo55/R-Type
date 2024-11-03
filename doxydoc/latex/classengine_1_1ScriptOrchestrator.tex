@@ -1,0 +1,114 @@
+\doxysection{engine\+::Script\+Orchestrator Class Reference}
+\hypertarget{classengine_1_1ScriptOrchestrator}{}\label{classengine_1_1ScriptOrchestrator}\index{engine::ScriptOrchestrator@{engine::ScriptOrchestrator}}
+
+
+{\ttfamily \#include $<$engine\+Scripting.\+hpp$>$}
+
+
+
+Collaboration diagram for engine\+::Script\+Orchestrator\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{classengine_1_1ScriptOrchestrator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classengine_1_1ScriptOrchestrator_afdc07f791289517d2a2a0e69d7e1d20e}{Script\+Orchestrator}} ()
+\item 
+\mbox{\hyperlink{classengine_1_1ScriptOrchestrator_a8d6b8f35566590dff961a41f75472f7f}{\texorpdfstring{$\sim$}{\string~}\+Script\+Orchestrator}} ()=default
+\item 
+void \mbox{\hyperlink{classengine_1_1ScriptOrchestrator_aa58217826001b525b30a0e8bde3ba7e7}{register\+Script}} (const std\+::string \&, const std\+::string \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1ScriptOrchestrator_a84bdeffe3f44d382b3cc74415e6e4276}{build\+Script}} (const std\+::string \&name, const std\+::vector$<$ \mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition}{engine\+::\+Script\+Global\+Definition}} $>$ \&extra\+Defs=std\+::vector$<$ \mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition}{engine\+::\+Script\+Global\+Definition}} $>$())
+\item 
+void \mbox{\hyperlink{classengine_1_1ScriptOrchestrator_a44fbf0147fce2884883aab39c61deec9}{register\+Global}} (const \mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition}{Script\+Global\+Definition}} \&script\+Def)
+\item 
+void \mbox{\hyperlink{classengine_1_1ScriptOrchestrator_ab7344d9ac5ac52bf08e644dcbfb1d9cd}{from\+Game\+Object}} (\mbox{\hyperlink{classengine_1_1Game}{Game}} \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1ScriptOrchestrator_a9a1af1ba050fb50e22487384c4243b04}{add\+Binding}} (std\+::function$<$ void(lua\+\_\+\+State \texorpdfstring{$\ast$}{*})$>$)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classengine_1_1ScriptOrchestrator_afdc07f791289517d2a2a0e69d7e1d20e}\label{classengine_1_1ScriptOrchestrator_afdc07f791289517d2a2a0e69d7e1d20e} 
+\index{engine::ScriptOrchestrator@{engine::ScriptOrchestrator}!ScriptOrchestrator@{ScriptOrchestrator}}
+\index{ScriptOrchestrator@{ScriptOrchestrator}!engine::ScriptOrchestrator@{engine::ScriptOrchestrator}}
+\doxysubsubsection{\texorpdfstring{ScriptOrchestrator()}{ScriptOrchestrator()}}
+{\footnotesize\ttfamily engine\+::\+Script\+Orchestrator\+::\+Script\+Orchestrator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1ScriptOrchestrator_a8d6b8f35566590dff961a41f75472f7f}\label{classengine_1_1ScriptOrchestrator_a8d6b8f35566590dff961a41f75472f7f} 
+\index{engine::ScriptOrchestrator@{engine::ScriptOrchestrator}!````~ScriptOrchestrator@{\texorpdfstring{$\sim$}{\string~}ScriptOrchestrator}}
+\index{````~ScriptOrchestrator@{\texorpdfstring{$\sim$}{\string~}ScriptOrchestrator}!engine::ScriptOrchestrator@{engine::ScriptOrchestrator}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ScriptOrchestrator()}{\string~ScriptOrchestrator()}}
+{\footnotesize\ttfamily engine\+::\+Script\+Orchestrator\+::\texorpdfstring{$\sim$}{\string~}\+Script\+Orchestrator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classengine_1_1ScriptOrchestrator_a9a1af1ba050fb50e22487384c4243b04}\label{classengine_1_1ScriptOrchestrator_a9a1af1ba050fb50e22487384c4243b04} 
+\index{engine::ScriptOrchestrator@{engine::ScriptOrchestrator}!addBinding@{addBinding}}
+\index{addBinding@{addBinding}!engine::ScriptOrchestrator@{engine::ScriptOrchestrator}}
+\doxysubsubsection{\texorpdfstring{addBinding()}{addBinding()}}
+{\footnotesize\ttfamily void engine\+::\+Script\+Orchestrator\+::add\+Binding (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(lua\+\_\+\+State \texorpdfstring{$\ast$}{*})$>$}]{binding }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1ScriptOrchestrator_a84bdeffe3f44d382b3cc74415e6e4276}\label{classengine_1_1ScriptOrchestrator_a84bdeffe3f44d382b3cc74415e6e4276} 
+\index{engine::ScriptOrchestrator@{engine::ScriptOrchestrator}!buildScript@{buildScript}}
+\index{buildScript@{buildScript}!engine::ScriptOrchestrator@{engine::ScriptOrchestrator}}
+\doxysubsubsection{\texorpdfstring{buildScript()}{buildScript()}}
+{\footnotesize\ttfamily void engine\+::\+Script\+Orchestrator\+::build\+Script (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition}{engine\+::\+Script\+Global\+Definition}} $>$ \&}]{extra\+Defs = {\ttfamily std\+:\+:vector$<$\mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition}{engine\+::\+Script\+Global\+Definition}}$>$()} }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1ScriptOrchestrator_ab7344d9ac5ac52bf08e644dcbfb1d9cd}\label{classengine_1_1ScriptOrchestrator_ab7344d9ac5ac52bf08e644dcbfb1d9cd} 
+\index{engine::ScriptOrchestrator@{engine::ScriptOrchestrator}!fromGameObject@{fromGameObject}}
+\index{fromGameObject@{fromGameObject}!engine::ScriptOrchestrator@{engine::ScriptOrchestrator}}
+\doxysubsubsection{\texorpdfstring{fromGameObject()}{fromGameObject()}}
+{\footnotesize\ttfamily void engine\+::\+Script\+Orchestrator\+::from\+Game\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classengine_1_1Game}{Game}} \&}]{game }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1ScriptOrchestrator_ab7344d9ac5ac52bf08e644dcbfb1d9cd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{classengine_1_1ScriptOrchestrator_ab7344d9ac5ac52bf08e644dcbfb1d9cd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1ScriptOrchestrator_a44fbf0147fce2884883aab39c61deec9}\label{classengine_1_1ScriptOrchestrator_a44fbf0147fce2884883aab39c61deec9} 
+\index{engine::ScriptOrchestrator@{engine::ScriptOrchestrator}!registerGlobal@{registerGlobal}}
+\index{registerGlobal@{registerGlobal}!engine::ScriptOrchestrator@{engine::ScriptOrchestrator}}
+\doxysubsubsection{\texorpdfstring{registerGlobal()}{registerGlobal()}}
+{\footnotesize\ttfamily void engine\+::\+Script\+Orchestrator\+::register\+Global (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition}{Script\+Global\+Definition}} \&}]{script\+Def }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{classengine_1_1ScriptOrchestrator_a44fbf0147fce2884883aab39c61deec9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1ScriptOrchestrator_aa58217826001b525b30a0e8bde3ba7e7}\label{classengine_1_1ScriptOrchestrator_aa58217826001b525b30a0e8bde3ba7e7} 
+\index{engine::ScriptOrchestrator@{engine::ScriptOrchestrator}!registerScript@{registerScript}}
+\index{registerScript@{registerScript}!engine::ScriptOrchestrator@{engine::ScriptOrchestrator}}
+\doxysubsubsection{\texorpdfstring{registerScript()}{registerScript()}}
+{\footnotesize\ttfamily void engine\+::\+Script\+Orchestrator\+::register\+Script (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{classengine_1_1ScriptOrchestrator_aa58217826001b525b30a0e8bde3ba7e7_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{engineScripting_8hpp}{engine\+Scripting.\+hpp}}\item 
+engine/scripting/\mbox{\hyperlink{ScriptOrchestrator_8cpp}{Script\+Orchestrator.\+cpp}}\end{DoxyCompactItemize}

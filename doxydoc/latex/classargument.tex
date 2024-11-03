@@ -1,0 +1,255 @@
+\doxysection{argument Class Reference}
+\hypertarget{classargument}{}\label{classargument}\index{argument@{argument}}
+
+
+{\ttfamily \#include $<$game\+Server.\+hpp$>$}
+
+
+
+Collaboration diagram for argument\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classargument__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56}{ARGUMENT\+\_\+\+TYPE}} \{ \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56a9241ea9cc5873a6fd9ceecc126c18c7c}{SINGLE}}
+, \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56ac1bb61bdcd63e14fa4ae1a138d9c74b5}{VALUE}}
+, \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56a2867b67f429be387327c92d469ef88fb}{EQUAL}}
+, \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56a66fbb50f75263eccd263986f26412054}{HELP}}
+ \}
+\item 
+enum \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581}{VALUE\+\_\+\+TYPE}} \{ \newline
+\mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581a6b56d9700dfb799d42d164c1ec92ad8a}{STRING}}
+, \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581aa7a6120b4e6f59d06d0d7e3a88471127}{CHAR}}
+, \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581a4d2a952834691b15e06d4f9a1577d116}{SHORT}}
+, \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581a2e7e65bd4b0b186203b6ba4eff08f02b}{INT}}
+, \newline
+\mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581abfc0e6af7fe8d26005f3d0ba21b5fa28}{LONG}}
+, \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581adce3bc00d6872dcb996700416f9bbd33}{FLOAT}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classargument_a564af43533fd4c9b9bf251adcae70407}{argument}} (const std\+::string \&="{}-\/-\/unknow"{}, \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56}{ARGUMENT\+\_\+\+TYPE}}=\mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56a9241ea9cc5873a6fd9ceecc126c18c7c}{SINGLE}}, \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581}{VALUE\+\_\+\+TYPE}}=\mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581a6b56d9700dfb799d42d164c1ec92ad8a}{STRING}}, std\+::any=std\+::any())
+\item 
+\mbox{\hyperlink{classargument_a255911ce0550dfd9052b9220e347a064}{\texorpdfstring{$\sim$}{\string~}argument}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::any \mbox{\hyperlink{classargument_a62ee402901c525a2a3dc8e2f9337826e}{base\+\_\+string\+\_\+builder}} (const std\+::string \&)
+\item 
+static std\+::any \mbox{\hyperlink{classargument_a84fcdd874461798e531d55c46504c27b}{base\+\_\+char\+\_\+builder}} (const std\+::string \&)
+\item 
+static std\+::any \mbox{\hyperlink{classargument_a6c638b602af8cedfb69d7b1345093b9d}{base\+\_\+short\+\_\+builder}} (const std\+::string \&)
+\item 
+static std\+::any \mbox{\hyperlink{classargument_a4eabc8132629b95824a8924cacee0d45}{base\+\_\+int\+\_\+builder}} (const std\+::string \&)
+\item 
+static std\+::any \mbox{\hyperlink{classargument_a266b9f37f1b959105d9cd409ba65a7c9}{base\+\_\+long\+\_\+builder}} (const std\+::string \&)
+\item 
+static std\+::any \mbox{\hyperlink{classargument_a65ef26b57845a63f02a8c8e56edd4d77}{base\+\_\+float\+\_\+builder}} (const std\+::string \&)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classargument_abb9c2f719cbff5c545af790f40f159f1}{name}}
+\item 
+\mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56}{ARGUMENT\+\_\+\+TYPE}} \mbox{\hyperlink{classargument_adefe99d75df7cf8b87bf764bf05404e5}{type}}
+\item 
+\mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581}{VALUE\+\_\+\+TYPE}} \mbox{\hyperlink{classargument_a7f5a7035af7a2752b6b6d02b34a8c539}{value\+Type}}
+\item 
+std\+::any \mbox{\hyperlink{classargument_a4fe2e8715f7dd756ca827f2f58b56192}{value}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classargument_ac2da9a41c370e7181986d127d7399d56}\label{classargument_ac2da9a41c370e7181986d127d7399d56} 
+\index{argument@{argument}!ARGUMENT\_TYPE@{ARGUMENT\_TYPE}}
+\index{ARGUMENT\_TYPE@{ARGUMENT\_TYPE}!argument@{argument}}
+\doxysubsubsection{\texorpdfstring{ARGUMENT\_TYPE}{ARGUMENT\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56}{argument\+::\+ARGUMENT\+\_\+\+TYPE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SINGLE@{SINGLE}!argument@{argument}}\index{argument@{argument}!SINGLE@{SINGLE}}}\Hypertarget{classargument_ac2da9a41c370e7181986d127d7399d56a9241ea9cc5873a6fd9ceecc126c18c7c}\label{classargument_ac2da9a41c370e7181986d127d7399d56a9241ea9cc5873a6fd9ceecc126c18c7c} 
+SINGLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VALUE@{VALUE}!argument@{argument}}\index{argument@{argument}!VALUE@{VALUE}}}\Hypertarget{classargument_ac2da9a41c370e7181986d127d7399d56ac1bb61bdcd63e14fa4ae1a138d9c74b5}\label{classargument_ac2da9a41c370e7181986d127d7399d56ac1bb61bdcd63e14fa4ae1a138d9c74b5} 
+VALUE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EQUAL@{EQUAL}!argument@{argument}}\index{argument@{argument}!EQUAL@{EQUAL}}}\Hypertarget{classargument_ac2da9a41c370e7181986d127d7399d56a2867b67f429be387327c92d469ef88fb}\label{classargument_ac2da9a41c370e7181986d127d7399d56a2867b67f429be387327c92d469ef88fb} 
+EQUAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HELP@{HELP}!argument@{argument}}\index{argument@{argument}!HELP@{HELP}}}\Hypertarget{classargument_ac2da9a41c370e7181986d127d7399d56a66fbb50f75263eccd263986f26412054}\label{classargument_ac2da9a41c370e7181986d127d7399d56a66fbb50f75263eccd263986f26412054} 
+HELP&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{classargument_a54a067869541fbfe7dfc1a77abdb3581}\label{classargument_a54a067869541fbfe7dfc1a77abdb3581} 
+\index{argument@{argument}!VALUE\_TYPE@{VALUE\_TYPE}}
+\index{VALUE\_TYPE@{VALUE\_TYPE}!argument@{argument}}
+\doxysubsubsection{\texorpdfstring{VALUE\_TYPE}{VALUE\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581}{argument\+::\+VALUE\+\_\+\+TYPE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STRING@{STRING}!argument@{argument}}\index{argument@{argument}!STRING@{STRING}}}\Hypertarget{classargument_a54a067869541fbfe7dfc1a77abdb3581a6b56d9700dfb799d42d164c1ec92ad8a}\label{classargument_a54a067869541fbfe7dfc1a77abdb3581a6b56d9700dfb799d42d164c1ec92ad8a} 
+STRING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CHAR@{CHAR}!argument@{argument}}\index{argument@{argument}!CHAR@{CHAR}}}\Hypertarget{classargument_a54a067869541fbfe7dfc1a77abdb3581aa7a6120b4e6f59d06d0d7e3a88471127}\label{classargument_a54a067869541fbfe7dfc1a77abdb3581aa7a6120b4e6f59d06d0d7e3a88471127} 
+CHAR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SHORT@{SHORT}!argument@{argument}}\index{argument@{argument}!SHORT@{SHORT}}}\Hypertarget{classargument_a54a067869541fbfe7dfc1a77abdb3581a4d2a952834691b15e06d4f9a1577d116}\label{classargument_a54a067869541fbfe7dfc1a77abdb3581a4d2a952834691b15e06d4f9a1577d116} 
+SHORT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INT@{INT}!argument@{argument}}\index{argument@{argument}!INT@{INT}}}\Hypertarget{classargument_a54a067869541fbfe7dfc1a77abdb3581a2e7e65bd4b0b186203b6ba4eff08f02b}\label{classargument_a54a067869541fbfe7dfc1a77abdb3581a2e7e65bd4b0b186203b6ba4eff08f02b} 
+INT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LONG@{LONG}!argument@{argument}}\index{argument@{argument}!LONG@{LONG}}}\Hypertarget{classargument_a54a067869541fbfe7dfc1a77abdb3581abfc0e6af7fe8d26005f3d0ba21b5fa28}\label{classargument_a54a067869541fbfe7dfc1a77abdb3581abfc0e6af7fe8d26005f3d0ba21b5fa28} 
+LONG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FLOAT@{FLOAT}!argument@{argument}}\index{argument@{argument}!FLOAT@{FLOAT}}}\Hypertarget{classargument_a54a067869541fbfe7dfc1a77abdb3581adce3bc00d6872dcb996700416f9bbd33}\label{classargument_a54a067869541fbfe7dfc1a77abdb3581adce3bc00d6872dcb996700416f9bbd33} 
+FLOAT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classargument_a564af43533fd4c9b9bf251adcae70407}\label{classargument_a564af43533fd4c9b9bf251adcae70407} 
+\index{argument@{argument}!argument@{argument}}
+\index{argument@{argument}!argument@{argument}}
+\doxysubsubsection{\texorpdfstring{argument()}{argument()}}
+{\footnotesize\ttfamily argument\+::argument (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name = {\ttfamily "{}-\/-\/unknow"{}},  }\item[{\mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56}{ARGUMENT\+\_\+\+TYPE}}}]{type = {\ttfamily \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56a9241ea9cc5873a6fd9ceecc126c18c7c}{SINGLE}}},  }\item[{\mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581}{VALUE\+\_\+\+TYPE}}}]{value\+Type = {\ttfamily \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581a6b56d9700dfb799d42d164c1ec92ad8a}{STRING}}},  }\item[{std\+::any}]{value = {\ttfamily std\+:\+:any()} }\end{DoxyParamCaption})}
+
+\Hypertarget{classargument_a255911ce0550dfd9052b9220e347a064}\label{classargument_a255911ce0550dfd9052b9220e347a064} 
+\index{argument@{argument}!````~argument@{\texorpdfstring{$\sim$}{\string~}argument}}
+\index{````~argument@{\texorpdfstring{$\sim$}{\string~}argument}!argument@{argument}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}argument()}{\string~argument()}}
+{\footnotesize\ttfamily argument\+::\texorpdfstring{$\sim$}{\string~}argument (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classargument_a84fcdd874461798e531d55c46504c27b}\label{classargument_a84fcdd874461798e531d55c46504c27b} 
+\index{argument@{argument}!base\_char\_builder@{base\_char\_builder}}
+\index{base\_char\_builder@{base\_char\_builder}!argument@{argument}}
+\doxysubsubsection{\texorpdfstring{base\_char\_builder()}{base\_char\_builder()}}
+{\footnotesize\ttfamily std\+::any argument\+::base\+\_\+char\+\_\+builder (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{classargument_a84fcdd874461798e531d55c46504c27b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classargument_a65ef26b57845a63f02a8c8e56edd4d77}\label{classargument_a65ef26b57845a63f02a8c8e56edd4d77} 
+\index{argument@{argument}!base\_float\_builder@{base\_float\_builder}}
+\index{base\_float\_builder@{base\_float\_builder}!argument@{argument}}
+\doxysubsubsection{\texorpdfstring{base\_float\_builder()}{base\_float\_builder()}}
+{\footnotesize\ttfamily std\+::any argument\+::base\+\_\+float\+\_\+builder (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{classargument_a65ef26b57845a63f02a8c8e56edd4d77_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classargument_a4eabc8132629b95824a8924cacee0d45}\label{classargument_a4eabc8132629b95824a8924cacee0d45} 
+\index{argument@{argument}!base\_int\_builder@{base\_int\_builder}}
+\index{base\_int\_builder@{base\_int\_builder}!argument@{argument}}
+\doxysubsubsection{\texorpdfstring{base\_int\_builder()}{base\_int\_builder()}}
+{\footnotesize\ttfamily std\+::any argument\+::base\+\_\+int\+\_\+builder (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{classargument_a4eabc8132629b95824a8924cacee0d45_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classargument_a266b9f37f1b959105d9cd409ba65a7c9}\label{classargument_a266b9f37f1b959105d9cd409ba65a7c9} 
+\index{argument@{argument}!base\_long\_builder@{base\_long\_builder}}
+\index{base\_long\_builder@{base\_long\_builder}!argument@{argument}}
+\doxysubsubsection{\texorpdfstring{base\_long\_builder()}{base\_long\_builder()}}
+{\footnotesize\ttfamily std\+::any argument\+::base\+\_\+long\+\_\+builder (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{classargument_a266b9f37f1b959105d9cd409ba65a7c9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classargument_a6c638b602af8cedfb69d7b1345093b9d}\label{classargument_a6c638b602af8cedfb69d7b1345093b9d} 
+\index{argument@{argument}!base\_short\_builder@{base\_short\_builder}}
+\index{base\_short\_builder@{base\_short\_builder}!argument@{argument}}
+\doxysubsubsection{\texorpdfstring{base\_short\_builder()}{base\_short\_builder()}}
+{\footnotesize\ttfamily std\+::any argument\+::base\+\_\+short\+\_\+builder (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{classargument_a6c638b602af8cedfb69d7b1345093b9d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classargument_a62ee402901c525a2a3dc8e2f9337826e}\label{classargument_a62ee402901c525a2a3dc8e2f9337826e} 
+\index{argument@{argument}!base\_string\_builder@{base\_string\_builder}}
+\index{base\_string\_builder@{base\_string\_builder}!argument@{argument}}
+\doxysubsubsection{\texorpdfstring{base\_string\_builder()}{base\_string\_builder()}}
+{\footnotesize\ttfamily std\+::any argument\+::base\+\_\+string\+\_\+builder (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{classargument_a62ee402901c525a2a3dc8e2f9337826e_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classargument_abb9c2f719cbff5c545af790f40f159f1}\label{classargument_abb9c2f719cbff5c545af790f40f159f1} 
+\index{argument@{argument}!name@{name}}
+\index{name@{name}!argument@{argument}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily std\+::string argument\+::name}
+
+\Hypertarget{classargument_adefe99d75df7cf8b87bf764bf05404e5}\label{classargument_adefe99d75df7cf8b87bf764bf05404e5} 
+\index{argument@{argument}!type@{type}}
+\index{type@{type}!argument@{argument}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56}{ARGUMENT\+\_\+\+TYPE}} argument\+::type}
+
+\Hypertarget{classargument_a4fe2e8715f7dd756ca827f2f58b56192}\label{classargument_a4fe2e8715f7dd756ca827f2f58b56192} 
+\index{argument@{argument}!value@{value}}
+\index{value@{value}!argument@{argument}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily std\+::any argument\+::value}
+
+\Hypertarget{classargument_a7f5a7035af7a2752b6b6d02b34a8c539}\label{classargument_a7f5a7035af7a2752b6b6d02b34a8c539} 
+\index{argument@{argument}!valueType@{valueType}}
+\index{valueType@{valueType}!argument@{argument}}
+\doxysubsubsection{\texorpdfstring{valueType}{valueType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581}{VALUE\+\_\+\+TYPE}} argument\+::value\+Type}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{gameServer_8hpp}{game\+Server.\+hpp}}\item 
+server/src/\mbox{\hyperlink{ArgumentParser_8cpp}{Argument\+Parser.\+cpp}}\end{DoxyCompactItemize}

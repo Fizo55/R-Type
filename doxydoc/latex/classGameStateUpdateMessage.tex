@@ -1,0 +1,133 @@
+\doxysection{Game\+State\+Update\+Message Class Reference}
+\hypertarget{classGameStateUpdateMessage}{}\label{classGameStateUpdateMessage}\index{GameStateUpdateMessage@{GameStateUpdateMessage}}
+
+
+{\ttfamily \#include $<$Game\+State\+Update\+Message.\+hpp$>$}
+
+
+
+Inheritance diagram for Game\+State\+Update\+Message\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{classGameStateUpdateMessage__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Game\+State\+Update\+Message\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGameStateUpdateMessage__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGameStateUpdateMessage_a8724475a2ab443e2c3ba17925b11fc14}{Game\+State\+Update\+Message}} ()
+\item 
+void \mbox{\hyperlink{classGameStateUpdateMessage_a0dbf190af9cca153afa9982b57aed2f2}{serialize}} (std\+::vector$<$ uint8\+\_\+t $>$ \&out\+Buffer, uint16\+\_\+t sequence\+Id, uint8\+\_\+t flags) const override
+\item 
+void \mbox{\hyperlink{classGameStateUpdateMessage_a5eab350a24666c379c6eb6915d0be216}{deserialize}} (const std\+::vector$<$ uint8\+\_\+t $>$ \&in\+Data) override
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classGameStateUpdateMessage_a42916a4ac61a98ee499ff9a732f5bf11}{get\+Sequence\+Id}} () const
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classGameStateUpdateMessage_a1f96e7b218bf4d3026d3e1a906e4c1d9}{get\+Flags}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classMessageBase}{Message\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMessageBase_a851e7d355497b91ab2c2cd7e3b353603}{Message\+Base}} (uint32\+\_\+t type)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMessageBase_ad1213b92c1f9764ae9bf58ba386a313f}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classIMessage}{IMessage}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classIMessage_ab02076630dc982a6d2ecb5af9459907c}{\texorpdfstring{$\sim$}{\string~}\+IMessage}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structEntityState}{Entity\+State}} $>$ \mbox{\hyperlink{classGameStateUpdateMessage_af7590a05045f0b55905656b382e3f5ce}{entity\+States}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classMessageBase}{Message\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMessageBase_ac0f51f26d0c8139a224ed6d19d262c59}{type\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGameStateUpdateMessage_a8724475a2ab443e2c3ba17925b11fc14}\label{classGameStateUpdateMessage_a8724475a2ab443e2c3ba17925b11fc14} 
+\index{GameStateUpdateMessage@{GameStateUpdateMessage}!GameStateUpdateMessage@{GameStateUpdateMessage}}
+\index{GameStateUpdateMessage@{GameStateUpdateMessage}!GameStateUpdateMessage@{GameStateUpdateMessage}}
+\doxysubsubsection{\texorpdfstring{GameStateUpdateMessage()}{GameStateUpdateMessage()}}
+{\footnotesize\ttfamily Game\+State\+Update\+Message\+::\+Game\+State\+Update\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGameStateUpdateMessage_a5eab350a24666c379c6eb6915d0be216}\label{classGameStateUpdateMessage_a5eab350a24666c379c6eb6915d0be216} 
+\index{GameStateUpdateMessage@{GameStateUpdateMessage}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!GameStateUpdateMessage@{GameStateUpdateMessage}}
+\doxysubsubsection{\texorpdfstring{deserialize()}{deserialize()}}
+{\footnotesize\ttfamily void Game\+State\+Update\+Message\+::deserialize (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint8\+\_\+t $>$ \&}]{in\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classMessageBase_a2198714282a75b8b1187bbd5078913cf}{Message\+Base}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGameStateUpdateMessage_a5eab350a24666c379c6eb6915d0be216_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classGameStateUpdateMessage_a1f96e7b218bf4d3026d3e1a906e4c1d9}\label{classGameStateUpdateMessage_a1f96e7b218bf4d3026d3e1a906e4c1d9} 
+\index{GameStateUpdateMessage@{GameStateUpdateMessage}!getFlags@{getFlags}}
+\index{getFlags@{getFlags}!GameStateUpdateMessage@{GameStateUpdateMessage}}
+\doxysubsubsection{\texorpdfstring{getFlags()}{getFlags()}}
+{\footnotesize\ttfamily uint8\+\_\+t Game\+State\+Update\+Message\+::get\+Flags (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classGameStateUpdateMessage_a42916a4ac61a98ee499ff9a732f5bf11}\label{classGameStateUpdateMessage_a42916a4ac61a98ee499ff9a732f5bf11} 
+\index{GameStateUpdateMessage@{GameStateUpdateMessage}!getSequenceId@{getSequenceId}}
+\index{getSequenceId@{getSequenceId}!GameStateUpdateMessage@{GameStateUpdateMessage}}
+\doxysubsubsection{\texorpdfstring{getSequenceId()}{getSequenceId()}}
+{\footnotesize\ttfamily uint16\+\_\+t Game\+State\+Update\+Message\+::get\+Sequence\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classGameStateUpdateMessage_a0dbf190af9cca153afa9982b57aed2f2}\label{classGameStateUpdateMessage_a0dbf190af9cca153afa9982b57aed2f2} 
+\index{GameStateUpdateMessage@{GameStateUpdateMessage}!serialize@{serialize}}
+\index{serialize@{serialize}!GameStateUpdateMessage@{GameStateUpdateMessage}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily void Game\+State\+Update\+Message\+::serialize (\begin{DoxyParamCaption}\item[{std\+::vector$<$ uint8\+\_\+t $>$ \&}]{out\+Buffer,  }\item[{uint16\+\_\+t}]{sequence\+Id,  }\item[{uint8\+\_\+t}]{flags }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classMessageBase_a0ef34665add7ae2315dbf340e02a311d}{Message\+Base}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGameStateUpdateMessage_a0dbf190af9cca153afa9982b57aed2f2_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classGameStateUpdateMessage_af7590a05045f0b55905656b382e3f5ce}\label{classGameStateUpdateMessage_af7590a05045f0b55905656b382e3f5ce} 
+\index{GameStateUpdateMessage@{GameStateUpdateMessage}!entityStates@{entityStates}}
+\index{entityStates@{entityStates}!GameStateUpdateMessage@{GameStateUpdateMessage}}
+\doxysubsubsection{\texorpdfstring{entityStates}{entityStates}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structEntityState}{Entity\+State}}$>$ Game\+State\+Update\+Message\+::entity\+States}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{GameStateUpdateMessage_8hpp}{Game\+State\+Update\+Message.\+hpp}}\item 
+server/src/\mbox{\hyperlink{GameStateUpdateMessage_8cpp}{Game\+State\+Update\+Message.\+cpp}}\end{DoxyCompactItemize}

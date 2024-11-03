@@ -1,0 +1,29 @@
+\doxysection{Client\+Hello\+Message.\+hpp}
+\hypertarget{ClientHelloMessage_8hpp_source}{}\label{ClientHelloMessage_8hpp_source}\index{server/include/ClientHelloMessage.hpp@{server/include/ClientHelloMessage.hpp}}
+\mbox{\hyperlink{ClientHelloMessage_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MessageBase_8hpp}{MessageBase.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classClientHelloMessage}{ClientHelloMessage}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classMessageBase}{MessageBase}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{classClientHelloMessage_a583a7241ade05ace16879ce18b71a73f}{ClientHelloMessage}}();}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ std::string\ \mbox{\hyperlink{classClientHelloMessage_a84cacd9d1465303fa87eac9a1ce775af}{clientName}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClientHelloMessage_afaf6dbe254e924a88b6a625089330af4}{serialize}}(std::vector<uint8\_t>\&\ outBuffer,\ uint16\_t\ sequenceId,\ uint8\_t\ flags)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClientHelloMessage_ad42a1d6abe32615e30d160b6f78a744d}{deserialize}}(\textcolor{keyword}{const}\ std::vector<uint8\_t>\&\ inBuffer)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{classClientHelloMessage_a1666340369dd6197f6a1c5ef811b55c9}{getSequenceId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classClientHelloMessage_a3e694ce0fa888460f5aa1eaf79763f05}{getFlags}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ uint16\_t\ sequenceId\_;}
+\DoxyCodeLine{00022\ \ \ \ \ uint8\_t\ flags\_;}
+\DoxyCodeLine{00023\ \};}
+
+\end{DoxyCode}

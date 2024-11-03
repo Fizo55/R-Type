@@ -1,0 +1,130 @@
+\doxysection{ISerializer Class Reference}
+\hypertarget{classISerializer}{}\label{classISerializer}\index{ISerializer@{ISerializer}}
+
+
+{\ttfamily \#include $<$ISerializer.\+hpp$>$}
+
+
+
+Inheritance diagram for ISerializer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{classISerializer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for ISerializer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{classISerializer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classISerializer_a491c386760e2368efadfcb82127161b2}{\texorpdfstring{$\sim$}{\string~}\+ISerializer}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classISerializer_a8ced44f93c7a6737ae25fb8a1d4d6ff8}{write\+UInt16}} (uint16\+\_\+t value)=0
+\item 
+virtual void \mbox{\hyperlink{classISerializer_a31bcf181ae713f5f197174f6e5ceb8d2}{write\+UInt32}} (uint32\+\_\+t value)=0
+\item 
+virtual void \mbox{\hyperlink{classISerializer_a560569aeaaf7924d0be0fa3da24d6f6e}{write\+UInt8}} (uint8\+\_\+t value)=0
+\item 
+virtual void \mbox{\hyperlink{classISerializer_a6fa6ef91c2557569f1c5245fd7d5afa3}{write\+Float}} (float value)=0
+\item 
+virtual void \mbox{\hyperlink{classISerializer_a9ec8e2404bc29545b8db1c4d53163edf}{write\+String}} (const std\+::string \&value)=0
+\item 
+virtual void \mbox{\hyperlink{classISerializer_a434a114c03c764e87536085ecdfcfde2}{write\+Bytes}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, size\+\_\+t length)=0
+\item 
+virtual void \mbox{\hyperlink{classISerializer_abb5be5fe237a4f6b4b40fd41d49c35cc}{write\+Bytes}} (const std\+::vector$<$ uint8\+\_\+t $>$ \&data)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classISerializer_a491c386760e2368efadfcb82127161b2}\label{classISerializer_a491c386760e2368efadfcb82127161b2} 
+\index{ISerializer@{ISerializer}!````~ISerializer@{\texorpdfstring{$\sim$}{\string~}ISerializer}}
+\index{````~ISerializer@{\texorpdfstring{$\sim$}{\string~}ISerializer}!ISerializer@{ISerializer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ISerializer()}{\string~ISerializer()}}
+{\footnotesize\ttfamily virtual ISerializer\+::\texorpdfstring{$\sim$}{\string~}\+ISerializer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classISerializer_abb5be5fe237a4f6b4b40fd41d49c35cc}\label{classISerializer_abb5be5fe237a4f6b4b40fd41d49c35cc} 
+\index{ISerializer@{ISerializer}!writeBytes@{writeBytes}}
+\index{writeBytes@{writeBytes}!ISerializer@{ISerializer}}
+\doxysubsubsection{\texorpdfstring{writeBytes()}{writeBytes()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ISerializer\+::write\+Bytes (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint8\+\_\+t $>$ \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBinarySerializer_afefb7ac3d7853c705cbf7551452de122}{Binary\+Serializer}}.
+
+\Hypertarget{classISerializer_a434a114c03c764e87536085ecdfcfde2}\label{classISerializer_a434a114c03c764e87536085ecdfcfde2} 
+\index{ISerializer@{ISerializer}!writeBytes@{writeBytes}}
+\index{writeBytes@{writeBytes}!ISerializer@{ISerializer}}
+\doxysubsubsection{\texorpdfstring{writeBytes()}{writeBytes()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ISerializer\+::write\+Bytes (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBinarySerializer_a7d2f8b86f752a126239a71e8e0edeca4}{Binary\+Serializer}}.
+
+\Hypertarget{classISerializer_a6fa6ef91c2557569f1c5245fd7d5afa3}\label{classISerializer_a6fa6ef91c2557569f1c5245fd7d5afa3} 
+\index{ISerializer@{ISerializer}!writeFloat@{writeFloat}}
+\index{writeFloat@{writeFloat}!ISerializer@{ISerializer}}
+\doxysubsubsection{\texorpdfstring{writeFloat()}{writeFloat()}}
+{\footnotesize\ttfamily virtual void ISerializer\+::write\+Float (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBinarySerializer_af649a20b349584e60a902fedc26d40f0}{Binary\+Serializer}}.
+
+\Hypertarget{classISerializer_a9ec8e2404bc29545b8db1c4d53163edf}\label{classISerializer_a9ec8e2404bc29545b8db1c4d53163edf} 
+\index{ISerializer@{ISerializer}!writeString@{writeString}}
+\index{writeString@{writeString}!ISerializer@{ISerializer}}
+\doxysubsubsection{\texorpdfstring{writeString()}{writeString()}}
+{\footnotesize\ttfamily virtual void ISerializer\+::write\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBinarySerializer_a8698d1f3cc4d1646d793521ba40c93e2}{Binary\+Serializer}}.
+
+\Hypertarget{classISerializer_a8ced44f93c7a6737ae25fb8a1d4d6ff8}\label{classISerializer_a8ced44f93c7a6737ae25fb8a1d4d6ff8} 
+\index{ISerializer@{ISerializer}!writeUInt16@{writeUInt16}}
+\index{writeUInt16@{writeUInt16}!ISerializer@{ISerializer}}
+\doxysubsubsection{\texorpdfstring{writeUInt16()}{writeUInt16()}}
+{\footnotesize\ttfamily virtual void ISerializer\+::write\+UInt16 (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBinarySerializer_aba7e97ac1ab2fc126174a8e87dd632a1}{Binary\+Serializer}}.
+
+\Hypertarget{classISerializer_a31bcf181ae713f5f197174f6e5ceb8d2}\label{classISerializer_a31bcf181ae713f5f197174f6e5ceb8d2} 
+\index{ISerializer@{ISerializer}!writeUInt32@{writeUInt32}}
+\index{writeUInt32@{writeUInt32}!ISerializer@{ISerializer}}
+\doxysubsubsection{\texorpdfstring{writeUInt32()}{writeUInt32()}}
+{\footnotesize\ttfamily virtual void ISerializer\+::write\+UInt32 (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBinarySerializer_aa0ff808667c02df67c6b5b06599730e2}{Binary\+Serializer}}.
+
+\Hypertarget{classISerializer_a560569aeaaf7924d0be0fa3da24d6f6e}\label{classISerializer_a560569aeaaf7924d0be0fa3da24d6f6e} 
+\index{ISerializer@{ISerializer}!writeUInt8@{writeUInt8}}
+\index{writeUInt8@{writeUInt8}!ISerializer@{ISerializer}}
+\doxysubsubsection{\texorpdfstring{writeUInt8()}{writeUInt8()}}
+{\footnotesize\ttfamily virtual void ISerializer\+::write\+UInt8 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBinarySerializer_a40e45793601c5e7494c4507584a2af96}{Binary\+Serializer}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{ISerializer_8hpp}{ISerializer.\+hpp}}\end{DoxyCompactItemize}

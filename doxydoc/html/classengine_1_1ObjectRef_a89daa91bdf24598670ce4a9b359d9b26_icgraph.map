@@ -1,0 +1,11 @@
+<map id="engine::ObjectRef::getName" name="engine::ObjectRef::getName">
+<area shape="rect" id="Node000001" title=" " alt="" coords="250,73,384,116"/>
+<area shape="rect" id="Node000002" href="$classengine_1_1Game.html#ab3c575192ecfde3540b3bd9d243f20a7" title=" " alt="" coords="5,5,202,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,69,201,47,163,35,165,30,203,41,258,64"/>
+<area shape="rect" id="Node000003" href="$classengine_1_1Object.html#a13b24bec4fac8cbdd57e0ee50249323f" title=" " alt="" coords="28,56,179,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="234,88,179,81,180,76,235,82"/>
+<area shape="rect" id="Node000004" href="$core_2object_8cpp.html#ac68b46b8157c4e3c1984fd1f1b8e9117" title=" " alt="" coords="61,107,146,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="235,107,146,118,146,112,234,102"/>
+<area shape="rect" id="Node000005" href="$core_2object_8cpp.html#ac897aa2b78b10554084c689c0df8463a" title=" " alt="" coords="61,157,146,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="258,125,203,148,147,164,146,159,201,143,256,120"/>
+</map>

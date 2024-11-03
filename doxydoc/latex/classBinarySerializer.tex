@@ -1,0 +1,207 @@
+\doxysection{Binary\+Serializer Class Reference}
+\hypertarget{classBinarySerializer}{}\label{classBinarySerializer}\index{BinarySerializer@{BinarySerializer}}
+
+
+{\ttfamily \#include $<$Binary\+Serializer.\+hpp$>$}
+
+
+
+Inheritance diagram for Binary\+Serializer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{classBinarySerializer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Binary\+Serializer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{classBinarySerializer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBinarySerializer_a4b12260d37e0cbd7cc6a7242ecc0f9a6}{Binary\+Serializer}} (std\+::vector$<$ uint8\+\_\+t $>$ \&buffer)
+\item 
+void \mbox{\hyperlink{classBinarySerializer_aba7e97ac1ab2fc126174a8e87dd632a1}{write\+UInt16}} (uint16\+\_\+t value)
+\item 
+void \mbox{\hyperlink{classBinarySerializer_aa0ff808667c02df67c6b5b06599730e2}{write\+UInt32}} (uint32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{classBinarySerializer_a40e45793601c5e7494c4507584a2af96}{write\+UInt8}} (uint8\+\_\+t value)
+\item 
+void \mbox{\hyperlink{classBinarySerializer_af649a20b349584e60a902fedc26d40f0}{write\+Float}} (float value)
+\item 
+void \mbox{\hyperlink{classBinarySerializer_a8698d1f3cc4d1646d793521ba40c93e2}{write\+String}} (const std\+::string \&value)
+\item 
+void \mbox{\hyperlink{classBinarySerializer_afefb7ac3d7853c705cbf7551452de122}{write\+Bytes}} (const std\+::vector$<$ uint8\+\_\+t $>$ \&data)
+\item 
+void \mbox{\hyperlink{classBinarySerializer_a7d2f8b86f752a126239a71e8e0edeca4}{write\+Bytes}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, size\+\_\+t length)
+\item 
+void \mbox{\hyperlink{classBinarySerializer_a4f28206492273f0d8e090c4211dc953c}{write\+Header}} (uint16\+\_\+t length, uint16\+\_\+t sequence\+Id, uint8\+\_\+t message\+Type, uint8\+\_\+t flags)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classISerializer}{ISerializer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classISerializer_a491c386760e2368efadfcb82127161b2}{\texorpdfstring{$\sim$}{\string~}\+ISerializer}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classBinarySerializer_a4b12260d37e0cbd7cc6a7242ecc0f9a6}\label{classBinarySerializer_a4b12260d37e0cbd7cc6a7242ecc0f9a6} 
+\index{BinarySerializer@{BinarySerializer}!BinarySerializer@{BinarySerializer}}
+\index{BinarySerializer@{BinarySerializer}!BinarySerializer@{BinarySerializer}}
+\doxysubsubsection{\texorpdfstring{BinarySerializer()}{BinarySerializer()}}
+{\footnotesize\ttfamily Binary\+Serializer\+::\+Binary\+Serializer (\begin{DoxyParamCaption}\item[{std\+::vector$<$ uint8\+\_\+t $>$ \&}]{buffer }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBinarySerializer_afefb7ac3d7853c705cbf7551452de122}\label{classBinarySerializer_afefb7ac3d7853c705cbf7551452de122} 
+\index{BinarySerializer@{BinarySerializer}!writeBytes@{writeBytes}}
+\index{writeBytes@{writeBytes}!BinarySerializer@{BinarySerializer}}
+\doxysubsubsection{\texorpdfstring{writeBytes()}{writeBytes()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Binary\+Serializer\+::write\+Bytes (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint8\+\_\+t $>$ \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classISerializer_abb5be5fe237a4f6b4b40fd41d49c35cc}{ISerializer}}.
+
+\Hypertarget{classBinarySerializer_a7d2f8b86f752a126239a71e8e0edeca4}\label{classBinarySerializer_a7d2f8b86f752a126239a71e8e0edeca4} 
+\index{BinarySerializer@{BinarySerializer}!writeBytes@{writeBytes}}
+\index{writeBytes@{writeBytes}!BinarySerializer@{BinarySerializer}}
+\doxysubsubsection{\texorpdfstring{writeBytes()}{writeBytes()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Binary\+Serializer\+::write\+Bytes (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classISerializer_a434a114c03c764e87536085ecdfcfde2}{ISerializer}}.
+
+\Hypertarget{classBinarySerializer_af649a20b349584e60a902fedc26d40f0}\label{classBinarySerializer_af649a20b349584e60a902fedc26d40f0} 
+\index{BinarySerializer@{BinarySerializer}!writeFloat@{writeFloat}}
+\index{writeFloat@{writeFloat}!BinarySerializer@{BinarySerializer}}
+\doxysubsubsection{\texorpdfstring{writeFloat()}{writeFloat()}}
+{\footnotesize\ttfamily void Binary\+Serializer\+::write\+Float (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classISerializer_a6fa6ef91c2557569f1c5245fd7d5afa3}{ISerializer}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinarySerializer_af649a20b349584e60a902fedc26d40f0_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBinarySerializer_a4f28206492273f0d8e090c4211dc953c}\label{classBinarySerializer_a4f28206492273f0d8e090c4211dc953c} 
+\index{BinarySerializer@{BinarySerializer}!writeHeader@{writeHeader}}
+\index{writeHeader@{writeHeader}!BinarySerializer@{BinarySerializer}}
+\doxysubsubsection{\texorpdfstring{writeHeader()}{writeHeader()}}
+{\footnotesize\ttfamily void Binary\+Serializer\+::write\+Header (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{length,  }\item[{uint16\+\_\+t}]{sequence\+Id,  }\item[{uint8\+\_\+t}]{message\+Type,  }\item[{uint8\+\_\+t}]{flags }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinarySerializer_a4f28206492273f0d8e090c4211dc953c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBinarySerializer_a8698d1f3cc4d1646d793521ba40c93e2}\label{classBinarySerializer_a8698d1f3cc4d1646d793521ba40c93e2} 
+\index{BinarySerializer@{BinarySerializer}!writeString@{writeString}}
+\index{writeString@{writeString}!BinarySerializer@{BinarySerializer}}
+\doxysubsubsection{\texorpdfstring{writeString()}{writeString()}}
+{\footnotesize\ttfamily void Binary\+Serializer\+::write\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classISerializer_a9ec8e2404bc29545b8db1c4d53163edf}{ISerializer}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinarySerializer_a8698d1f3cc4d1646d793521ba40c93e2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinarySerializer_a8698d1f3cc4d1646d793521ba40c93e2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBinarySerializer_aba7e97ac1ab2fc126174a8e87dd632a1}\label{classBinarySerializer_aba7e97ac1ab2fc126174a8e87dd632a1} 
+\index{BinarySerializer@{BinarySerializer}!writeUInt16@{writeUInt16}}
+\index{writeUInt16@{writeUInt16}!BinarySerializer@{BinarySerializer}}
+\doxysubsubsection{\texorpdfstring{writeUInt16()}{writeUInt16()}}
+{\footnotesize\ttfamily void Binary\+Serializer\+::write\+UInt16 (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classISerializer_a8ced44f93c7a6737ae25fb8a1d4d6ff8}{ISerializer}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinarySerializer_aba7e97ac1ab2fc126174a8e87dd632a1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinarySerializer_aba7e97ac1ab2fc126174a8e87dd632a1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBinarySerializer_aa0ff808667c02df67c6b5b06599730e2}\label{classBinarySerializer_aa0ff808667c02df67c6b5b06599730e2} 
+\index{BinarySerializer@{BinarySerializer}!writeUInt32@{writeUInt32}}
+\index{writeUInt32@{writeUInt32}!BinarySerializer@{BinarySerializer}}
+\doxysubsubsection{\texorpdfstring{writeUInt32()}{writeUInt32()}}
+{\footnotesize\ttfamily void Binary\+Serializer\+::write\+UInt32 (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classISerializer_a31bcf181ae713f5f197174f6e5ceb8d2}{ISerializer}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinarySerializer_aa0ff808667c02df67c6b5b06599730e2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinarySerializer_aa0ff808667c02df67c6b5b06599730e2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBinarySerializer_a40e45793601c5e7494c4507584a2af96}\label{classBinarySerializer_a40e45793601c5e7494c4507584a2af96} 
+\index{BinarySerializer@{BinarySerializer}!writeUInt8@{writeUInt8}}
+\index{writeUInt8@{writeUInt8}!BinarySerializer@{BinarySerializer}}
+\doxysubsubsection{\texorpdfstring{writeUInt8()}{writeUInt8()}}
+{\footnotesize\ttfamily void Binary\+Serializer\+::write\+UInt8 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classISerializer_a560569aeaaf7924d0be0fa3da24d6f6e}{ISerializer}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinarySerializer_a40e45793601c5e7494c4507584a2af96_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{BinarySerializer_8hpp}{Binary\+Serializer.\+hpp}}\item 
+server/src/\mbox{\hyperlink{BinarySerializer_8cpp}{Binary\+Serializer.\+cpp}}\end{DoxyCompactItemize}

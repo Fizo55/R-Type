@@ -1,34 +1,118 @@
-\hypertarget{classengine_1_1Scene}{}\doxysection{engine\+::Scene Class Reference}
-\label{classengine_1_1Scene}\index{engine::Scene@{engine::Scene}}
+\doxysection{engine\+::Scene Class Reference}
+\hypertarget{classengine_1_1Scene}{}\label{classengine_1_1Scene}\index{engine::Scene@{engine::Scene}}
 
 
 {\ttfamily \#include $<$engine\+Core.\+hpp$>$}
 
 
 
-Collaboration diagram for engine\+::Scene\+:
-% FIG 0
-\doxysubsection*{Public Member Functions}
+Collaboration diagram for engine\+::Scene\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=152pt]{classengine_1_1Scene__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classengine_1_1Scene_af9a03c6a66bc5b1591519e42abd22269}{Scene}} ()
 \item 
 \mbox{\hyperlink{classengine_1_1Scene_a8f246aa18041c0cf6c5e408d733ef59f}{Scene}} (const std\+::string \&)
+\item 
+const std\+::string \& \mbox{\hyperlink{classengine_1_1Scene_abd3ff0a5a64a1946ddff604da160d317}{get\+Name}} (void) const
+\item 
+void \mbox{\hyperlink{classengine_1_1Scene_af7034c62e72b7534e80c7167d3bcfcec}{set\+Name}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1Scene_a8eadb133dd02d40eac10fbecd89a28a1}{add\+Hud}} (const std\+::string \&, const \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1Scene_abbc2c41273b5606cce34643db9d4947b}{add\+Object}} (const std\+::string \&, const \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} \&)
+\item 
+const std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} $>$ $>$ \& \mbox{\hyperlink{classengine_1_1Scene_af0785f4feee1330f0f7c161d74fc68e5}{get\+Huds}} (void) const
+\item 
+const std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} $>$ $>$ \& \mbox{\hyperlink{classengine_1_1Scene_ab2d7e8eecb60e4d8038741f69058b70a}{get\+Objects}} (void) const
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classengine_1_1Scene_af9a03c6a66bc5b1591519e42abd22269}\label{classengine_1_1Scene_af9a03c6a66bc5b1591519e42abd22269}} 
+\Hypertarget{classengine_1_1Scene_af9a03c6a66bc5b1591519e42abd22269}\label{classengine_1_1Scene_af9a03c6a66bc5b1591519e42abd22269} 
 \index{engine::Scene@{engine::Scene}!Scene@{Scene}}
 \index{Scene@{Scene}!engine::Scene@{engine::Scene}}
 \doxysubsubsection{\texorpdfstring{Scene()}{Scene()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily engine\+::\+Scene\+::\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classengine_1_1Scene_a8f246aa18041c0cf6c5e408d733ef59f}\label{classengine_1_1Scene_a8f246aa18041c0cf6c5e408d733ef59f}} 
+\Hypertarget{classengine_1_1Scene_a8f246aa18041c0cf6c5e408d733ef59f}\label{classengine_1_1Scene_a8f246aa18041c0cf6c5e408d733ef59f} 
 \index{engine::Scene@{engine::Scene}!Scene@{Scene}}
 \index{Scene@{Scene}!engine::Scene@{engine::Scene}}
 \doxysubsubsection{\texorpdfstring{Scene()}{Scene()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily engine\+::\+Scene\+::\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{scene\+Config }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{classengine_1_1Scene_a8f246aa18041c0cf6c5e408d733ef59f_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classengine_1_1Scene_a8eadb133dd02d40eac10fbecd89a28a1}\label{classengine_1_1Scene_a8eadb133dd02d40eac10fbecd89a28a1} 
+\index{engine::Scene@{engine::Scene}!addHud@{addHud}}
+\index{addHud@{addHud}!engine::Scene@{engine::Scene}}
+\doxysubsubsection{\texorpdfstring{addHud()}{addHud()}}
+{\footnotesize\ttfamily void engine\+::\+Scene\+::add\+Hud (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} \&}]{ref }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1Scene_abbc2c41273b5606cce34643db9d4947b}\label{classengine_1_1Scene_abbc2c41273b5606cce34643db9d4947b} 
+\index{engine::Scene@{engine::Scene}!addObject@{addObject}}
+\index{addObject@{addObject}!engine::Scene@{engine::Scene}}
+\doxysubsubsection{\texorpdfstring{addObject()}{addObject()}}
+{\footnotesize\ttfamily void engine\+::\+Scene\+::add\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} \&}]{ref }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1Scene_af0785f4feee1330f0f7c161d74fc68e5}\label{classengine_1_1Scene_af0785f4feee1330f0f7c161d74fc68e5} 
+\index{engine::Scene@{engine::Scene}!getHuds@{getHuds}}
+\index{getHuds@{getHuds}!engine::Scene@{engine::Scene}}
+\doxysubsubsection{\texorpdfstring{getHuds()}{getHuds()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{classengine_1_1ObjectRef}{engine\+::\+Object\+Ref}} $>$ $>$ \& engine\+::\+Scene\+::get\+Huds (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1Scene_af0785f4feee1330f0f7c161d74fc68e5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1Scene_abd3ff0a5a64a1946ddff604da160d317}\label{classengine_1_1Scene_abd3ff0a5a64a1946ddff604da160d317} 
+\index{engine::Scene@{engine::Scene}!getName@{getName}}
+\index{getName@{getName}!engine::Scene@{engine::Scene}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const std\+::string \& engine\+::\+Scene\+::get\+Name (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1Scene_abd3ff0a5a64a1946ddff604da160d317_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1Scene_ab2d7e8eecb60e4d8038741f69058b70a}\label{classengine_1_1Scene_ab2d7e8eecb60e4d8038741f69058b70a} 
+\index{engine::Scene@{engine::Scene}!getObjects@{getObjects}}
+\index{getObjects@{getObjects}!engine::Scene@{engine::Scene}}
+\doxysubsubsection{\texorpdfstring{getObjects()}{getObjects()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{classengine_1_1ObjectRef}{engine\+::\+Object\+Ref}} $>$ $>$ \& engine\+::\+Scene\+::get\+Objects (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1Scene_ab2d7e8eecb60e4d8038741f69058b70a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1Scene_af7034c62e72b7534e80c7167d3bcfcec}\label{classengine_1_1Scene_af7034c62e72b7534e80c7167d3bcfcec} 
+\index{engine::Scene@{engine::Scene}!setName@{setName}}
+\index{setName@{setName}!engine::Scene@{engine::Scene}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void engine\+::\+Scene\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
 
 
 

@@ -1,0 +1,92 @@
+\doxysection{engine\+::Script\+Environment Class Reference}
+\hypertarget{classengine_1_1ScriptEnvironment}{}\label{classengine_1_1ScriptEnvironment}\index{engine::ScriptEnvironment@{engine::ScriptEnvironment}}
+
+
+{\ttfamily \#include $<$engine\+Scripting.\+hpp$>$}
+
+
+
+Collaboration diagram for engine\+::Script\+Environment\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{classengine_1_1ScriptEnvironment__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classengine_1_1ScriptEnvironment_aef4850bd76ba9c337c0b2ea1f5acd6c1}{Script\+Environment}} ()
+\item 
+\mbox{\hyperlink{classengine_1_1ScriptEnvironment_a02febdf421d6c6bfe99e567fff1de809}{\texorpdfstring{$\sim$}{\string~}\+Script\+Environment}} ()
+\item 
+void \mbox{\hyperlink{classengine_1_1ScriptEnvironment_aee3c62277400c4d0d67d878405519b76}{build\+Core\+Library}} ()
+\item 
+void \mbox{\hyperlink{classengine_1_1ScriptEnvironment_a6a6458ff870b08898a70ce048a4792a4}{load\+Script}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1ScriptEnvironment_a62aaeb3bcc17b5f85fdbc665d1a2fdbc}{register\+Global\+Object}} (const \mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition}{Script\+Global\+Definition}} \&script\+Def)
+\item 
+lua\+\_\+\+State \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classengine_1_1ScriptEnvironment_a0b9dedd97b1463b7e7527ef289a388e2}{get\+Ctx}} (void) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classengine_1_1ScriptEnvironment_aef4850bd76ba9c337c0b2ea1f5acd6c1}\label{classengine_1_1ScriptEnvironment_aef4850bd76ba9c337c0b2ea1f5acd6c1} 
+\index{engine::ScriptEnvironment@{engine::ScriptEnvironment}!ScriptEnvironment@{ScriptEnvironment}}
+\index{ScriptEnvironment@{ScriptEnvironment}!engine::ScriptEnvironment@{engine::ScriptEnvironment}}
+\doxysubsubsection{\texorpdfstring{ScriptEnvironment()}{ScriptEnvironment()}}
+{\footnotesize\ttfamily engine\+::\+Script\+Environment\+::\+Script\+Environment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1ScriptEnvironment_a02febdf421d6c6bfe99e567fff1de809}\label{classengine_1_1ScriptEnvironment_a02febdf421d6c6bfe99e567fff1de809} 
+\index{engine::ScriptEnvironment@{engine::ScriptEnvironment}!````~ScriptEnvironment@{\texorpdfstring{$\sim$}{\string~}ScriptEnvironment}}
+\index{````~ScriptEnvironment@{\texorpdfstring{$\sim$}{\string~}ScriptEnvironment}!engine::ScriptEnvironment@{engine::ScriptEnvironment}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ScriptEnvironment()}{\string~ScriptEnvironment()}}
+{\footnotesize\ttfamily engine\+::\+Script\+Environment\+::\texorpdfstring{$\sim$}{\string~}\+Script\+Environment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classengine_1_1ScriptEnvironment_aee3c62277400c4d0d67d878405519b76}\label{classengine_1_1ScriptEnvironment_aee3c62277400c4d0d67d878405519b76} 
+\index{engine::ScriptEnvironment@{engine::ScriptEnvironment}!buildCoreLibrary@{buildCoreLibrary}}
+\index{buildCoreLibrary@{buildCoreLibrary}!engine::ScriptEnvironment@{engine::ScriptEnvironment}}
+\doxysubsubsection{\texorpdfstring{buildCoreLibrary()}{buildCoreLibrary()}}
+{\footnotesize\ttfamily void engine\+::\+Script\+Environment\+::build\+Core\+Library (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{classengine_1_1ScriptEnvironment_aee3c62277400c4d0d67d878405519b76_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1ScriptEnvironment_a0b9dedd97b1463b7e7527ef289a388e2}\label{classengine_1_1ScriptEnvironment_a0b9dedd97b1463b7e7527ef289a388e2} 
+\index{engine::ScriptEnvironment@{engine::ScriptEnvironment}!getCtx@{getCtx}}
+\index{getCtx@{getCtx}!engine::ScriptEnvironment@{engine::ScriptEnvironment}}
+\doxysubsubsection{\texorpdfstring{getCtx()}{getCtx()}}
+{\footnotesize\ttfamily lua\+\_\+\+State \texorpdfstring{$\ast$}{*} engine\+::\+Script\+Environment\+::get\+Ctx (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classengine_1_1ScriptEnvironment_a6a6458ff870b08898a70ce048a4792a4}\label{classengine_1_1ScriptEnvironment_a6a6458ff870b08898a70ce048a4792a4} 
+\index{engine::ScriptEnvironment@{engine::ScriptEnvironment}!loadScript@{loadScript}}
+\index{loadScript@{loadScript}!engine::ScriptEnvironment@{engine::ScriptEnvironment}}
+\doxysubsubsection{\texorpdfstring{loadScript()}{loadScript()}}
+{\footnotesize\ttfamily void engine\+::\+Script\+Environment\+::load\+Script (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1ScriptEnvironment_a62aaeb3bcc17b5f85fdbc665d1a2fdbc}\label{classengine_1_1ScriptEnvironment_a62aaeb3bcc17b5f85fdbc665d1a2fdbc} 
+\index{engine::ScriptEnvironment@{engine::ScriptEnvironment}!registerGlobalObject@{registerGlobalObject}}
+\index{registerGlobalObject@{registerGlobalObject}!engine::ScriptEnvironment@{engine::ScriptEnvironment}}
+\doxysubsubsection{\texorpdfstring{registerGlobalObject()}{registerGlobalObject()}}
+{\footnotesize\ttfamily void engine\+::\+Script\+Environment\+::register\+Global\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition}{Script\+Global\+Definition}} \&}]{script\+Def }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1ScriptEnvironment_a62aaeb3bcc17b5f85fdbc665d1a2fdbc_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{engineScripting_8hpp}{engine\+Scripting.\+hpp}}\item 
+engine/scripting/\mbox{\hyperlink{ScriptEnvironment_8cpp}{Script\+Environment.\+cpp}}\end{DoxyCompactItemize}

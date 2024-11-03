@@ -1,0 +1,69 @@
+\doxysection{server/include/\+RType\+Game\+Logic.hpp File Reference}
+\hypertarget{RTypeGameLogic_8hpp}{}\label{RTypeGameLogic_8hpp}\index{server/include/RTypeGameLogic.hpp@{server/include/RTypeGameLogic.hpp}}
+{\ttfamily \#include "{}IGame\+Logic.\+hpp"{}}\newline
+{\ttfamily \#include "{}INetwork.\+hpp"{}}\newline
+{\ttfamily \#include "{}ILogger.\+hpp"{}}\newline
+{\ttfamily \#include "{}Message\+Base.\+hpp"{}}\newline
+{\ttfamily \#include "{}Player\+Input\+Message.\+hpp"{}}\newline
+{\ttfamily \#include "{}Game\+State\+Update\+Message.\+hpp"{}}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+Include dependency graph for RType\+Game\+Logic.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{RTypeGameLogic_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{RTypeGameLogic_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structVector2}{Vector2}}
+\item 
+struct \mbox{\hyperlink{structEntity}{Entity}}
+\item 
+struct \mbox{\hyperlink{structPlayer}{Player}}
+\item 
+class \mbox{\hyperlink{classRTypeGameLogic}{RType\+Game\+Logic}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42}{Entity\+Type}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42a636da1d35e805b00eae0fcd8333f9234}{Player}} = 0x01
+, \mbox{\hyperlink{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42a8c6d21187fb58b7a079d70030686b33e}{Enemy}} = 0x02
+, \mbox{\hyperlink{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42aae7968d26b598ce434958b0825b7a4ac}{Projectile}} = 0x03
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42}\label{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42} 
+\index{RTypeGameLogic.hpp@{RTypeGameLogic.hpp}!EntityType@{EntityType}}
+\index{EntityType@{EntityType}!RTypeGameLogic.hpp@{RTypeGameLogic.hpp}}
+\doxysubsubsection{\texorpdfstring{EntityType}{EntityType}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42}{Entity\+Type}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Player@{Player}!RTypeGameLogic.hpp@{RTypeGameLogic.hpp}}\index{RTypeGameLogic.hpp@{RTypeGameLogic.hpp}!Player@{Player}}}\Hypertarget{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42a636da1d35e805b00eae0fcd8333f9234}\label{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42a636da1d35e805b00eae0fcd8333f9234} 
+Player&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Enemy@{Enemy}!RTypeGameLogic.hpp@{RTypeGameLogic.hpp}}\index{RTypeGameLogic.hpp@{RTypeGameLogic.hpp}!Enemy@{Enemy}}}\Hypertarget{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42a8c6d21187fb58b7a079d70030686b33e}\label{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42a8c6d21187fb58b7a079d70030686b33e} 
+Enemy&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Projectile@{Projectile}!RTypeGameLogic.hpp@{RTypeGameLogic.hpp}}\index{RTypeGameLogic.hpp@{RTypeGameLogic.hpp}!Projectile@{Projectile}}}\Hypertarget{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42aae7968d26b598ce434958b0825b7a4ac}\label{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42aae7968d26b598ce434958b0825b7a4ac} 
+Projectile&\\
+\hline
+
+\end{DoxyEnumFields}

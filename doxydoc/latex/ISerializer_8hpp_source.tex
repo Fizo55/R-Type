@@ -1,0 +1,27 @@
+\doxysection{ISerializer.\+hpp}
+\hypertarget{ISerializer_8hpp_source}{}\label{ISerializer_8hpp_source}\index{server/include/ISerializer.hpp@{server/include/ISerializer.hpp}}
+\mbox{\hyperlink{ISerializer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ISERIALIZER\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ISERIALIZER\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classISerializer}{ISerializer}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classISerializer_a491c386760e2368efadfcb82127161b2}{\string~ISerializer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classISerializer_a8ced44f93c7a6737ae25fb8a1d4d6ff8}{writeUInt16}}(uint16\_t\ value)\ =\ 0;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classISerializer_a31bcf181ae713f5f197174f6e5ceb8d2}{writeUInt32}}(uint32\_t\ value)\ =\ 0;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classISerializer_a560569aeaaf7924d0be0fa3da24d6f6e}{writeUInt8}}(uint8\_t\ value)\ =\ 0;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classISerializer_a6fa6ef91c2557569f1c5245fd7d5afa3}{writeFloat}}(\textcolor{keywordtype}{float}\ value)\ =\ 0;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classISerializer_a9ec8e2404bc29545b8db1c4d53163edf}{writeString}}(\textcolor{keyword}{const}\ std::string\&\ value)\ =\ 0;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classISerializer_a434a114c03c764e87536085ecdfcfde2}{writeBytes}}(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{size\_t}\ length)\ =\ 0;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classISerializer_abb5be5fe237a4f6b4b40fd41d49c35cc}{writeBytes}}(\textcolor{keyword}{const}\ std::vector<uint8\_t>\&\ data)\ =\ 0;}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

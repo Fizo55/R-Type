@@ -1,22 +1,59 @@
-\hypertarget{classengine_1_1Game}{}\doxysection{engine\+::Game Class Reference}
-\label{classengine_1_1Game}\index{engine::Game@{engine::Game}}
+\doxysection{engine\+::Game Class Reference}
+\hypertarget{classengine_1_1Game}{}\label{classengine_1_1Game}\index{engine::Game@{engine::Game}}
 
 
 {\ttfamily \#include $<$engine\+Core.\+hpp$>$}
 
 
 
-Collaboration diagram for engine\+::Game\+:
-% FIG 0
-\doxysubsection*{Public Member Functions}
+Collaboration diagram for engine\+::Game\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{classengine_1_1Game__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classengine_1_1Game_af8afdfbe63c381b656aff9b6ee799b2d}{Game}} ()
+\item 
+const \mbox{\hyperlink{classengine_1_1Scene}{Scene}} \& \mbox{\hyperlink{classengine_1_1Game_a49a3e1f559b4097b12f32b73d3fc484a}{get\+Scene}} (const std\+::string \&) const
+\item 
+const \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} \& \mbox{\hyperlink{classengine_1_1Game_a17786a0cf33f67bd9a789f7fc3a36839}{get\+Object}} (const std\+::string \&) const
+\item 
+void \mbox{\hyperlink{classengine_1_1Game_aaef218cdadb0bafbabca952e624bd696}{register\+Scene}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1Game_a938634154039f71c238d0d6a6e3ed4fa}{register\+Scene}} (const \mbox{\hyperlink{classengine_1_1Scene}{Scene}} \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1Game_ad8addcb642df0d4e1ab6bbaaf1d4e0fa}{register\+Object}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1Game_a8b3f08b2eab73c996c3e6c3ef2583a7f}{register\+Object}} (const \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1Game_a075b4fd8f625584e35083b1fc955f5e0}{unregister\+Scene}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1Game_a590740d4c168e0a490890c686e6e213f}{unregister\+Object}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1Game_aa65d82e206c30f20128c395ba816ff99}{load\+Object}} (const \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1Game_ad334454111c7ed347898d921ab1b17ca}{load\+Scene}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1Game_ab1a7d1e6190e73cadcd17e4ebcfcd163}{unload\+Scene}} (void)
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{classengine_1_1Object}{Object}} $>$ \& \mbox{\hyperlink{classengine_1_1Game_a6170a2675d1d2ab562fbe172ad4ec759}{get\+Loaded\+Objects}} (void)
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{classengine_1_1Object}{Object}} $>$ \& \mbox{\hyperlink{classengine_1_1Game_a4565fa9db818556931083582e78b385c}{get\+Loaded\+Huds}} (void)
+\item 
+void \mbox{\hyperlink{classengine_1_1Game_a6453d7e08fb10300ea0eeee02613637d}{add\+Factory}} (\mbox{\hyperlink{classengine_1_1EntityFactory}{Entity\+Factory}} \texorpdfstring{$\ast$}{*})
+\item 
+\mbox{\hyperlink{classengine_1_1EntityFactory}{engine\+::\+Entity\+Factory}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classengine_1_1Game_af712e0e882ffc8e1169121f8fdcba72b}{get\+Factory}} (void)
+\item 
+\mbox{\hyperlink{classengine_1_1Object}{Object}} \mbox{\hyperlink{classengine_1_1Game_ab3c575192ecfde3540b3bd9d243f20a7}{build\+Object\+Ref}} (const \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} \&, const std\+::string \&)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classengine_1_1Game_af8afdfbe63c381b656aff9b6ee799b2d}\label{classengine_1_1Game_af8afdfbe63c381b656aff9b6ee799b2d}} 
+\Hypertarget{classengine_1_1Game_af8afdfbe63c381b656aff9b6ee799b2d}\label{classengine_1_1Game_af8afdfbe63c381b656aff9b6ee799b2d} 
 \index{engine::Game@{engine::Game}!Game@{Game}}
 \index{Game@{Game}!engine::Game@{engine::Game}}
 \doxysubsubsection{\texorpdfstring{Game()}{Game()}}
@@ -24,7 +61,183 @@ Collaboration diagram for engine\+::Game\+:
 
 
 
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classengine_1_1Game_a6453d7e08fb10300ea0eeee02613637d}\label{classengine_1_1Game_a6453d7e08fb10300ea0eeee02613637d} 
+\index{engine::Game@{engine::Game}!addFactory@{addFactory}}
+\index{addFactory@{addFactory}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{addFactory()}{addFactory()}}
+{\footnotesize\ttfamily void engine\+::\+Game\+::add\+Factory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classengine_1_1EntityFactory}{Entity\+Factory}} \texorpdfstring{$\ast$}{*}}]{factory }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{classengine_1_1Game_a6453d7e08fb10300ea0eeee02613637d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1Game_ab3c575192ecfde3540b3bd9d243f20a7}\label{classengine_1_1Game_ab3c575192ecfde3540b3bd9d243f20a7} 
+\index{engine::Game@{engine::Game}!buildObjectRef@{buildObjectRef}}
+\index{buildObjectRef@{buildObjectRef}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{buildObjectRef()}{buildObjectRef()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classengine_1_1Object}{engine\+::\+Object}} engine\+::\+Game\+::build\+Object\+Ref (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} \&}]{obj,  }\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1Game_ab3c575192ecfde3540b3bd9d243f20a7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1Game_af712e0e882ffc8e1169121f8fdcba72b}\label{classengine_1_1Game_af712e0e882ffc8e1169121f8fdcba72b} 
+\index{engine::Game@{engine::Game}!getFactory@{getFactory}}
+\index{getFactory@{getFactory}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{getFactory()}{getFactory()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classengine_1_1EntityFactory}{engine\+::\+Entity\+Factory}} \texorpdfstring{$\ast$}{*} engine\+::\+Game\+::get\+Factory (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1Game_af712e0e882ffc8e1169121f8fdcba72b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1Game_a4565fa9db818556931083582e78b385c}\label{classengine_1_1Game_a4565fa9db818556931083582e78b385c} 
+\index{engine::Game@{engine::Game}!getLoadedHuds@{getLoadedHuds}}
+\index{getLoadedHuds@{getLoadedHuds}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{getLoadedHuds()}{getLoadedHuds()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{classengine_1_1Object}{engine\+::\+Object}} $>$ \& engine\+::\+Game\+::get\+Loaded\+Huds (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1Game_a4565fa9db818556931083582e78b385c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1Game_a6170a2675d1d2ab562fbe172ad4ec759}\label{classengine_1_1Game_a6170a2675d1d2ab562fbe172ad4ec759} 
+\index{engine::Game@{engine::Game}!getLoadedObjects@{getLoadedObjects}}
+\index{getLoadedObjects@{getLoadedObjects}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{getLoadedObjects()}{getLoadedObjects()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{classengine_1_1Object}{engine\+::\+Object}} $>$ \& engine\+::\+Game\+::get\+Loaded\+Objects (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1Game_a6170a2675d1d2ab562fbe172ad4ec759_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1Game_a17786a0cf33f67bd9a789f7fc3a36839}\label{classengine_1_1Game_a17786a0cf33f67bd9a789f7fc3a36839} 
+\index{engine::Game@{engine::Game}!getObject@{getObject}}
+\index{getObject@{getObject}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{getObject()}{getObject()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classengine_1_1ObjectRef}{engine\+::\+Object\+Ref}} \& engine\+::\+Game\+::get\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classengine_1_1Game_a49a3e1f559b4097b12f32b73d3fc484a}\label{classengine_1_1Game_a49a3e1f559b4097b12f32b73d3fc484a} 
+\index{engine::Game@{engine::Game}!getScene@{getScene}}
+\index{getScene@{getScene}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{getScene()}{getScene()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classengine_1_1Scene}{engine\+::\+Scene}} \& engine\+::\+Game\+::get\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classengine_1_1Game_aa65d82e206c30f20128c395ba816ff99}\label{classengine_1_1Game_aa65d82e206c30f20128c395ba816ff99} 
+\index{engine::Game@{engine::Game}!loadObject@{loadObject}}
+\index{loadObject@{loadObject}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{loadObject()}{loadObject()}}
+{\footnotesize\ttfamily void engine\+::\+Game\+::load\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} \&}]{objref }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1Game_ad334454111c7ed347898d921ab1b17ca}\label{classengine_1_1Game_ad334454111c7ed347898d921ab1b17ca} 
+\index{engine::Game@{engine::Game}!loadScene@{loadScene}}
+\index{loadScene@{loadScene}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{loadScene()}{loadScene()}}
+{\footnotesize\ttfamily void engine\+::\+Game\+::load\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{scene\+Name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1Game_ad334454111c7ed347898d921ab1b17ca_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=313pt]{classengine_1_1Game_ad334454111c7ed347898d921ab1b17ca_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1Game_a8b3f08b2eab73c996c3e6c3ef2583a7f}\label{classengine_1_1Game_a8b3f08b2eab73c996c3e6c3ef2583a7f} 
+\index{engine::Game@{engine::Game}!registerObject@{registerObject}}
+\index{registerObject@{registerObject}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{registerObject()}{registerObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void engine\+::\+Game\+::register\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classengine_1_1ObjectRef}{Object\+Ref}} \&}]{object }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1Game_ad8addcb642df0d4e1ab6bbaaf1d4e0fa}\label{classengine_1_1Game_ad8addcb642df0d4e1ab6bbaaf1d4e0fa} 
+\index{engine::Game@{engine::Game}!registerObject@{registerObject}}
+\index{registerObject@{registerObject}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{registerObject()}{registerObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void engine\+::\+Game\+::register\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classengine_1_1Game_ad8addcb642df0d4e1ab6bbaaf1d4e0fa_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1Game_a938634154039f71c238d0d6a6e3ed4fa}\label{classengine_1_1Game_a938634154039f71c238d0d6a6e3ed4fa} 
+\index{engine::Game@{engine::Game}!registerScene@{registerScene}}
+\index{registerScene@{registerScene}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{registerScene()}{registerScene()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void engine\+::\+Game\+::register\+Scene (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classengine_1_1Scene}{Scene}} \&}]{scene }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1Game_a938634154039f71c238d0d6a6e3ed4fa_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1Game_aaef218cdadb0bafbabca952e624bd696}\label{classengine_1_1Game_aaef218cdadb0bafbabca952e624bd696} 
+\index{engine::Game@{engine::Game}!registerScene@{registerScene}}
+\index{registerScene@{registerScene}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{registerScene()}{registerScene()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void engine\+::\+Game\+::register\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1Game_aaef218cdadb0bafbabca952e624bd696_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{classengine_1_1Game_aaef218cdadb0bafbabca952e624bd696_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1Game_ab1a7d1e6190e73cadcd17e4ebcfcd163}\label{classengine_1_1Game_ab1a7d1e6190e73cadcd17e4ebcfcd163} 
+\index{engine::Game@{engine::Game}!unloadScene@{unloadScene}}
+\index{unloadScene@{unloadScene}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{unloadScene()}{unloadScene()}}
+{\footnotesize\ttfamily void engine\+::\+Game\+::unload\+Scene (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1Game_a590740d4c168e0a490890c686e6e213f}\label{classengine_1_1Game_a590740d4c168e0a490890c686e6e213f} 
+\index{engine::Game@{engine::Game}!unregisterObject@{unregisterObject}}
+\index{unregisterObject@{unregisterObject}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{unregisterObject()}{unregisterObject()}}
+{\footnotesize\ttfamily void engine\+::\+Game\+::unregister\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1Game_a075b4fd8f625584e35083b1fc955f5e0}\label{classengine_1_1Game_a075b4fd8f625584e35083b1fc955f5e0} 
+\index{engine::Game@{engine::Game}!unregisterScene@{unregisterScene}}
+\index{unregisterScene@{unregisterScene}!engine::Game@{engine::Game}}
+\doxysubsubsection{\texorpdfstring{unregisterScene()}{unregisterScene()}}
+{\footnotesize\ttfamily void engine\+::\+Game\+::unregister\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 include/\mbox{\hyperlink{engineCore_8hpp}{engine\+Core.\+hpp}}\item 
-engine/core/\mbox{\hyperlink{game_8cpp}{game.\+cpp}}\end{DoxyCompactItemize}
+engine/core/\mbox{\hyperlink{core_2game_8cpp}{game.\+cpp}}\end{DoxyCompactItemize}

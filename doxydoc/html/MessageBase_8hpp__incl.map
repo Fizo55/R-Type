@@ -1,0 +1,9 @@
+<map id="server/include/MessageBase.hpp" name="server/include/MessageBase.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,220,32"/>
+<area shape="rect" id="Node000002" href="$IMessage_8hpp.html" title=" " alt="" coords="61,80,164,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,33,115,64,110,64,110,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="43,155,100,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,109,88,143,83,140,103,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="124,155,184,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="122,106,142,140,137,143,117,109"/>
+</map>

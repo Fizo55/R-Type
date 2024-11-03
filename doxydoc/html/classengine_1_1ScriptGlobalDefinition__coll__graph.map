@@ -1,0 +1,11 @@
+<map id="engine::ScriptGlobalDefinition" name="engine::ScriptGlobalDefinition">
+<area shape="rect" id="Node000001" title=" " alt="" coords="142,353,327,444"/>
+<area shape="rect" id="Node000002" href="$classengine_1_1IScriptTypeDefinitor.html" title=" " alt="" coords="5,140,179,273"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,272,194,338,189,342,139,275"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="203,172,274,241"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="240,241,239,297,238,336,233,336,233,297,235,241"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="180,5,297,91"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="241,105,241,172,236,172,236,105"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="303,172,348,241"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="324,242,316,285,298,330,292,341,287,339,294,328,310,283,319,240"/>
+</map>

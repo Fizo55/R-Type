@@ -1,0 +1,238 @@
+\chapter{modules}
+\hypertarget{md_modules}{}\label{md_modules}\index{modules@{modules}}
+\doxysection*{Game Library Integration Technical Documentation}
+
+For this project of R-\/type, our program works thanks to diferrent modules\+: Network, Graphics, Clock, Game Core, and Components. This doccument will explan how to make these modules for them to work with our programm. {\bfseries{Table of Contents}} \begin{DoxyVerb}Network Interface (INetwork)
+Graphics Interface (engine::displayManager)
+Clock Module (clock)
+Game Core (Game)
+Component Interface (IComponent)
+\end{DoxyVerb}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Network Interface}}
+\end{DoxyEnumerate}
+
+The INetwork class defines a networking interface for communication between the players and the server. It should be able to send message, as well as encode them, decode and decode and receive message from the other composant. \doxysubsection*{Interface Definition}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ ++}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }INetwork\ \{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{virtual}\ \string~INetwork()\ \{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ start()\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ stop()\ =\ 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ send(\textcolor{keyword}{const}\ std::vector<uint8\_t>\&\ data,\ \textcolor{keyword}{const}\ std::string\&\ address,\ uint16\_t\ port)\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setReceiveHandler(std::function<\textcolor{keywordtype}{void}(\textcolor{keyword}{const}\ std::vector<uint8\_t>\&\ data,\ \textcolor{keyword}{const}\ std::string\&\ address,\ uint16\_t\ port)>\ handler)\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setClientConnectedHandler(std::function<\textcolor{keywordtype}{void}(\textcolor{keyword}{const}\ std::string\&\ address,\ uint16\_t\ port)>\ handler)\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setClientDisconnectedHandler(std::function<\textcolor{keywordtype}{void}(\textcolor{keyword}{const}\ std::string\&\ address,\ uint16\_t\ port)>\ handler)\ =\ 0;}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection*{Function Descriptions}
+
+\begin{DoxyVerb}start(): Initializes and starts the network service.
+stop(): Shuts down the network service and disconnects all clients.
+send(): Transmits data to a specified address and port.
+setReceiveHandler(): Sets a callback function for handling incoming data.
+setClientConnectedHandler(): Sets a callback function for managing newly connected clients.
+setClientDisconnectedHandler(): Sets a callback function for managing client disconnections.
+\end{DoxyVerb}
+ \doxysubsection*{Notes for Implementation}
+
+\begin{DoxyVerb}The network library should handle connection management autonomously after starting.
+Callback handlers should be invoked asynchronously to prevent blocking the game loop.
+\end{DoxyVerb}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Graphics Interface}}
+\end{DoxyEnumerate}
+
+The \doxylink{classengine_1_1displayManager}{engine\+::display\+Manager} class provides an interface for graphical management, including asset handling, window management, and rendering. It could be linked to any type of graphic library, 2D or 3D. It will just generate the display and receive the player events, but not do anything with those. \doxysubsection*{Interface Definition}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ ++}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceengine}{engine}}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{class\ }displayManager\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1displayManager_a9ab798d65e7298345526b268338c13bb}{displayManager}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1displayManager_ab94911798f48efa65920b73c0f89e9a5}{registerAsset}}(\textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1displayManager_ab94911798f48efa65920b73c0f89e9a5}{registerAsset}}(\textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::shared\_ptr<grw::texture>\ \&);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1displayManager_a3fb474eec30d353d63468ca0fd81471e}{addWindow}}(\mbox{\hyperlink{classgrw_1_1window}{grw::window}}\ *);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classengine_1_1displayManager_ae23b0da7511b9cde5a0e5a97d12f3707}{event}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1displayManager_ace16a635c6b05f1f1bf34a616758ec6a}{update}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1displayManager_a77c0ce13568977ebcf3e07e1e6896474}{draw}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1displayManager_a996987b3171891ff0ae725fb11db0815}{clear}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classengine_1_1displayManager_aead1299fa5592d1d93b92977bc55d4de}{createWindow}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1displayManager_a6ef5010454ea263b8d0a6298e0ea6ba0}{useEntity}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structEntity}{Entity}}\ \&,\ Registry\ \&,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgrw_1_1windowHandler}{grw::windowHandler}}\ \_winHandler;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::map<unsigned\ int,\ std::vector<grw::sprite>>\ \_rendering;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ std::shared\_ptr<grw::texture>>\ \_textures;}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection*{Function Descriptions}
+
+\begin{DoxyVerb}registerAsset(): Loads assets either from a file path or as a texture object.
+addWindow(): Adds a new window to the rendering system.
+event(): Handles and processes window events.
+update(): Updates the display, managing any animations or transformations.
+draw(): Renders all current frames to the window.
+clear(): Clears the display before the next rendering cycle.
+createWindow(): Creates and registers a new window; returns an ID.
+useEntity(): Links entities to the display, utilizing the Entity and Registry structures.
+\end{DoxyVerb}
+ \doxysubsection*{Notes for Implementation}
+
+\begin{DoxyVerb}The displayManager should support multiple windows and scenes for a flexible game environment.
+Implementations should handle frame management and synchronization to avoid visual glitches.
+Texture and sprite management should be memory-efficient.
+\end{DoxyVerb}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Clock Module}}
+\end{DoxyEnumerate}
+
+The clock class provides a simple timing mechanism to manage game updates and frame timing. It will be implemented directly with the graphic module but also used by the program itself. The graphic will use it to be frame friendly and not have display lags, however, the game algorythm will work at the same speed even with diferrent frame settings. \doxysubsection*{Interface Definition}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ ++}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }clock\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ clock();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ tick(\textcolor{keywordtype}{int}\ =\ -\/1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \_oldTime;}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection*{Function Descriptions}
+
+\begin{DoxyVerb}tick(): Calculates and returns the elapsed time since the last call. If a parameter is provided, it sets the tick rate or time interval.
+\end{DoxyVerb}
+ \doxysubsection*{Notes for Implementation}
+
+\begin{DoxyVerb}Implementations should ensure accurate timing for frame rate consistency.
+tick() should be lightweight to minimize performance overhead during game updates.
+\end{DoxyVerb}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Game Core}}
+\end{DoxyEnumerate}
+
+The Game class serves as the primary game management core, handling scenes, objects, and game entities. Our version uses lua scripts and yaml scenes to handle everything, but it could be implemented directly in the game code if you want. \doxysubsection*{Interface Definition}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ ++}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }Game\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Game();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Scene\ \&getScene(\textcolor{keyword}{const}\ std::string\ \&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ ObjectRef\ \&getObject(\textcolor{keyword}{const}\ std::string\ \&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ registerScene(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ registerScene(\textcolor{keyword}{const}\ Scene\ \&);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ registerObject(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ registerObject(\textcolor{keyword}{const}\ ObjectRef\ \&);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ unregisterScene(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ unregisterObject(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ loadObject(\textcolor{keyword}{const}\ ObjectRef\ \&);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ loadScene(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ unloadScene(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Object>\ \&getLoadedObjects(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Object>\ \&getLoadedHuds(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ addFactory(EntityFactory\ *);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1EntityFactory}{engine::EntityFactory}}\ *getFactory(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Object\ buildObjectRef(\textcolor{keyword}{const}\ ObjectRef\ \&,\ \textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::map<std::string,\ ObjectRef>\ \_objects;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::map<std::string,\ Scene>\ \_scenes;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::vector<Object>\ \_loadedGameObjects;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::vector<Object>\ \_loadedGameHuds;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ EntityFactory\ *\_factory;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::string\ \_loadedScene;}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection*{Function Descriptions}
+
+\begin{DoxyVerb}registerScene() and registerObject(): Registers a scene or object by name or reference.
+unregisterScene() and unregisterObject(): Unregisters a scene or object.
+loadObject(): Loads an object into the game.
+loadScene() and unloadScene(): Loads or unloads a specific scene.
+getLoadedObjects() and getLoadedHuds(): Returns lists of currently loaded game objects or HUD elements.
+addFactory(): Adds a factory instance for creating entities.
+\end{DoxyVerb}
+ \doxysubsection*{Notes for Implementation}
+
+\begin{DoxyVerb}Efficient memory management is critical, especially for large scenes and objects.
+\end{DoxyVerb}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Component Interface}}
+\end{DoxyEnumerate}
+
+The IComponent class represents individual game components, which can be used to assemble complex entities. Some examples can be size, position or sprite. It makes passing informations between the diferrent modules easier. \doxysubsection*{Interface Definition}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ ++}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }IComponent\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IComponent()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~IComponent()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection*{Notes for implementation}
+
+\begin{DoxyVerb}Each component should have a name identifier for easy retrieval and management.
+\end{DoxyVerb}
+ \doxysubsection*{Conclusion}
+
+Following these specifications ensures compatibility with our R-\/type game system. Libraries implementing these interfaces should provide robust, efficient, and flexible functionality, allowing for seamless integration into our game engine. Make sure to adhere to the interface definitions and implement required functionalities precisely as described. 

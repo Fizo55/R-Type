@@ -1,0 +1,43 @@
+\doxysection{Message\+Dispatcher Class Reference}
+\hypertarget{classMessageDispatcher}{}\label{classMessageDispatcher}\index{MessageDispatcher@{MessageDispatcher}}
+
+
+{\ttfamily \#include $<$Message\+Dispatcher.\+hpp$>$}
+
+
+
+Collaboration diagram for Message\+Dispatcher\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classMessageDispatcher__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMessageDispatcher_a06f8e4b0b138c02089dc4443f5df7d2f}{register\+Handler}} (uint32\+\_\+t message\+Type, std\+::function$<$ void(const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIMessage}{IMessage}} $>$ \&, const std\+::string \&, uint16\+\_\+t)$>$ handler)
+\item 
+void \mbox{\hyperlink{classMessageDispatcher_a6e7cf1037ef918f3e6d5a571119ba277}{dispatch\+Message}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIMessage}{IMessage}} $>$ \&message, const std\+::string \&address, uint16\+\_\+t port)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMessageDispatcher_a6e7cf1037ef918f3e6d5a571119ba277}\label{classMessageDispatcher_a6e7cf1037ef918f3e6d5a571119ba277} 
+\index{MessageDispatcher@{MessageDispatcher}!dispatchMessage@{dispatchMessage}}
+\index{dispatchMessage@{dispatchMessage}!MessageDispatcher@{MessageDispatcher}}
+\doxysubsubsection{\texorpdfstring{dispatchMessage()}{dispatchMessage()}}
+{\footnotesize\ttfamily void Message\+Dispatcher\+::dispatch\+Message (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIMessage}{IMessage}} $>$ \&}]{message,  }\item[{const std\+::string \&}]{address,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
+
+\Hypertarget{classMessageDispatcher_a06f8e4b0b138c02089dc4443f5df7d2f}\label{classMessageDispatcher_a06f8e4b0b138c02089dc4443f5df7d2f} 
+\index{MessageDispatcher@{MessageDispatcher}!registerHandler@{registerHandler}}
+\index{registerHandler@{registerHandler}!MessageDispatcher@{MessageDispatcher}}
+\doxysubsubsection{\texorpdfstring{registerHandler()}{registerHandler()}}
+{\footnotesize\ttfamily void Message\+Dispatcher\+::register\+Handler (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{message\+Type,  }\item[{std\+::function$<$ void(const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIMessage}{IMessage}} $>$ \&, const std\+::string \&, uint16\+\_\+t)$>$}]{handler }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{MessageDispatcher_8hpp}{Message\+Dispatcher.\+hpp}}\item 
+server/src/\mbox{\hyperlink{MessageDispatcher_8cpp}{Message\+Dispatcher.\+cpp}}\end{DoxyCompactItemize}

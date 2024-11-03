@@ -1,0 +1,16 @@
+<map id="server/include/MessageFactory.hpp" name="server/include/MessageFactory.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="105,5,332,32"/>
+<area shape="rect" id="Node000002" href="$IMessage_8hpp.html" title=" " alt="" coords="5,80,109,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,35,100,76,98,71,189,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="112,155,173,181"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="209,34,191,55,174,81,161,111,151,141,146,139,156,110,169,79,187,52,205,31"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="184,80,253,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="221,33,221,64,216,64,216,33"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="277,80,387,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="240,30,300,69,298,74,237,35"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="410,80,488,107"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="259,30,396,73,395,78,258,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="28,155,86,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="60,107,60,139,54,139,54,107"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="74,105,118,143,115,147,70,109"/>
+</map>

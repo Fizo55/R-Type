@@ -1,0 +1,21 @@
+<map id="PlayerInputMessage::serialize" name="PlayerInputMessage::serialize">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,65,146,108"/>
+<area shape="rect" id="Node000002" href="$namespaceEndianness.html#ac0e46cd1f4ee0a50c7fd517ad6899a9c" title=" " alt="" coords="429,7,614,49"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,62,152,46,193,33,249,24,306,19,413,18,413,23,306,24,250,29,194,39,154,51,118,67"/>
+<area shape="rect" id="Node000005" href="$classBinarySerializer.html#aba7e97ac1ab2fc126174a8e87dd632a1" title=" " alt="" coords="194,48,381,75"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="146,76,178,72,179,77,146,81"/>
+<area shape="rect" id="Node000006" href="$classBinarySerializer.html#aa0ff808667c02df67c6b5b06599730e2" title=" " alt="" coords="194,99,381,125"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="146,92,179,96,178,102,146,98"/>
+<area shape="rect" id="Node000009" href="$classBinarySerializer.html#a40e45793601c5e7494c4507584a2af96" title=" " alt="" coords="197,149,378,176"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="124,106,195,135,217,142,215,147,193,140,122,111"/>
+<area shape="rect" id="Node000003" href="$namespaceEndianness.html#aa1760cd4396acf65407ec2fb13da530f" title=" " alt="" coords="662,56,838,83"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="615,42,658,50,657,55,614,47"/>
+<area shape="rect" id="Node000004" href="$namespaceEndianness.html#ac7a53c6467ecf5369bca6509544cf547" title=" " alt="" coords="667,5,833,32"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="615,22,651,20,651,25,615,27"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="381,45,413,41,414,46,382,51"/>
+<area shape="rect" id="Node000007" href="$namespaceEndianness.html#a15671f63b5f2c131895139907b4cd001" title=" " alt="" coords="429,91,614,133"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="382,109,414,109,414,115,382,115"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="614,92,660,83,661,89,615,97"/>
+<area shape="rect" id="Node000008" href="$namespaceEndianness.html#acbec439e5b66d4e9d0f379fbb096d45f" title=" " alt="" coords="667,107,833,133"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="615,113,651,114,651,119,615,118"/>
+</map>

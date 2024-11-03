@@ -1,0 +1,82 @@
+\doxysection{IMessage Class Reference}
+\hypertarget{classIMessage}{}\label{classIMessage}\index{IMessage@{IMessage}}
+
+
+{\ttfamily \#include $<$IMessage.\+hpp$>$}
+
+
+
+Inheritance diagram for IMessage\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classIMessage__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for IMessage\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=152pt]{classIMessage__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classIMessage_ab02076630dc982a6d2ecb5af9459907c}{\texorpdfstring{$\sim$}{\string~}\+IMessage}} ()=default
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classIMessage_a7fe3be9a36348ee1752a2e8e0a7ae2b1}{get\+Type}} () const =0
+\item 
+virtual void \mbox{\hyperlink{classIMessage_aed6cb6e6af939cfacc93fbc90a6d59ae}{serialize}} (std\+::vector$<$ uint8\+\_\+t $>$ \&out\+Buffer, uint16\+\_\+t sequence\+Id, uint8\+\_\+t flags) const =0
+\item 
+virtual void \mbox{\hyperlink{classIMessage_aab78705d5b6b1ce82d1ff6a11381037f}{deserialize}} (const std\+::vector$<$ uint8\+\_\+t $>$ \&in\+Data)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classIMessage_ab02076630dc982a6d2ecb5af9459907c}\label{classIMessage_ab02076630dc982a6d2ecb5af9459907c} 
+\index{IMessage@{IMessage}!````~IMessage@{\texorpdfstring{$\sim$}{\string~}IMessage}}
+\index{````~IMessage@{\texorpdfstring{$\sim$}{\string~}IMessage}!IMessage@{IMessage}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IMessage()}{\string~IMessage()}}
+{\footnotesize\ttfamily virtual IMessage\+::\texorpdfstring{$\sim$}{\string~}\+IMessage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classIMessage_aab78705d5b6b1ce82d1ff6a11381037f}\label{classIMessage_aab78705d5b6b1ce82d1ff6a11381037f} 
+\index{IMessage@{IMessage}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!IMessage@{IMessage}}
+\doxysubsubsection{\texorpdfstring{deserialize()}{deserialize()}}
+{\footnotesize\ttfamily virtual void IMessage\+::deserialize (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint8\+\_\+t $>$ \&}]{in\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classAcknowledgmentMessage_ac86e97b24f9202d2141c2eff5809e5dc}{Acknowledgment\+Message}}, \mbox{\hyperlink{classClientHelloMessage_ad42a1d6abe32615e30d160b6f78a744d}{Client\+Hello\+Message}}, \mbox{\hyperlink{classPlayerInputMessage_a6adeb802eb5c6f703387b9e270d47bc7}{Player\+Input\+Message}}, \mbox{\hyperlink{classServerWelcomeMessage_a93c998a507b46a4a101a14db57580c32}{Server\+Welcome\+Message}}, \mbox{\hyperlink{classGameStateUpdateMessage_a5eab350a24666c379c6eb6915d0be216}{Game\+State\+Update\+Message}}, and \mbox{\hyperlink{classMessageBase_a2198714282a75b8b1187bbd5078913cf}{Message\+Base}}.
+
+\Hypertarget{classIMessage_a7fe3be9a36348ee1752a2e8e0a7ae2b1}\label{classIMessage_a7fe3be9a36348ee1752a2e8e0a7ae2b1} 
+\index{IMessage@{IMessage}!getType@{getType}}
+\index{getType@{getType}!IMessage@{IMessage}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily virtual uint32\+\_\+t IMessage\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classMessageBase_ad1213b92c1f9764ae9bf58ba386a313f}{Message\+Base}}.
+
+\Hypertarget{classIMessage_aed6cb6e6af939cfacc93fbc90a6d59ae}\label{classIMessage_aed6cb6e6af939cfacc93fbc90a6d59ae} 
+\index{IMessage@{IMessage}!serialize@{serialize}}
+\index{serialize@{serialize}!IMessage@{IMessage}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily virtual void IMessage\+::serialize (\begin{DoxyParamCaption}\item[{std\+::vector$<$ uint8\+\_\+t $>$ \&}]{out\+Buffer,  }\item[{uint16\+\_\+t}]{sequence\+Id,  }\item[{uint8\+\_\+t}]{flags }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classAcknowledgmentMessage_af0a1df51549ad8d27204bf40065363a8}{Acknowledgment\+Message}}, \mbox{\hyperlink{classClientHelloMessage_afaf6dbe254e924a88b6a625089330af4}{Client\+Hello\+Message}}, \mbox{\hyperlink{classGameStateUpdateMessage_a0dbf190af9cca153afa9982b57aed2f2}{Game\+State\+Update\+Message}}, \mbox{\hyperlink{classPlayerInputMessage_af92761c2d86e9e6791be673d5d945227}{Player\+Input\+Message}}, \mbox{\hyperlink{classServerWelcomeMessage_a4c9e5bc4eb340bd86ffd86e3f0d53aa7}{Server\+Welcome\+Message}}, and \mbox{\hyperlink{classMessageBase_a0ef34665add7ae2315dbf340e02a311d}{Message\+Base}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{IMessage_8hpp}{IMessage.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,130 @@
+\doxysection{IDeserializer Class Reference}
+\hypertarget{classIDeserializer}{}\label{classIDeserializer}\index{IDeserializer@{IDeserializer}}
+
+
+{\ttfamily \#include $<$IDeserializer.\+hpp$>$}
+
+
+
+Inheritance diagram for IDeserializer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classIDeserializer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for IDeserializer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classIDeserializer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classIDeserializer_a4c15add4ddb4d7de5ff835f594c7cf00}{\texorpdfstring{$\sim$}{\string~}\+IDeserializer}} ()=default
+\item 
+virtual uint16\+\_\+t \mbox{\hyperlink{classIDeserializer_a18e6db72a9caaff54df41ce7fb8907f9}{read\+UInt16}} ()=0
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classIDeserializer_a0f4fa3b16cca5e7ae3ecb41dba6587da}{read\+UInt32}} ()=0
+\item 
+virtual uint8\+\_\+t \mbox{\hyperlink{classIDeserializer_ac8cec380287bab32923d4124e0b00de6}{read\+UInt8}} ()=0
+\item 
+virtual float \mbox{\hyperlink{classIDeserializer_af2164fa8e1cc240e6f2b4bd36243c03d}{read\+Float}} ()=0
+\item 
+virtual std\+::string \mbox{\hyperlink{classIDeserializer_a324d7f021995e0b4c88225b98fc2db9e}{read\+String}} ()=0
+\item 
+virtual std\+::vector$<$ uint8\+\_\+t $>$ \mbox{\hyperlink{classIDeserializer_aad629411b05ada7d6862a12f95ff1ac6}{read\+Bytes}} (size\+\_\+t length)=0
+\item 
+virtual void \mbox{\hyperlink{classIDeserializer_ab5008e008ffe156be3118d3613287a09}{read\+Header}} (uint16\+\_\+t \&length, uint16\+\_\+t \&sequence\+Id, uint8\+\_\+t \&message\+Type, uint8\+\_\+t \&flags)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classIDeserializer_a4c15add4ddb4d7de5ff835f594c7cf00}\label{classIDeserializer_a4c15add4ddb4d7de5ff835f594c7cf00} 
+\index{IDeserializer@{IDeserializer}!````~IDeserializer@{\texorpdfstring{$\sim$}{\string~}IDeserializer}}
+\index{````~IDeserializer@{\texorpdfstring{$\sim$}{\string~}IDeserializer}!IDeserializer@{IDeserializer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IDeserializer()}{\string~IDeserializer()}}
+{\footnotesize\ttfamily virtual IDeserializer\+::\texorpdfstring{$\sim$}{\string~}\+IDeserializer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classIDeserializer_aad629411b05ada7d6862a12f95ff1ac6}\label{classIDeserializer_aad629411b05ada7d6862a12f95ff1ac6} 
+\index{IDeserializer@{IDeserializer}!readBytes@{readBytes}}
+\index{readBytes@{readBytes}!IDeserializer@{IDeserializer}}
+\doxysubsubsection{\texorpdfstring{readBytes()}{readBytes()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ uint8\+\_\+t $>$ IDeserializer\+::read\+Bytes (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBinaryDeserializer_aa80e1027b52c47d3dba0cb49e348ddfe}{Binary\+Deserializer}}.
+
+\Hypertarget{classIDeserializer_af2164fa8e1cc240e6f2b4bd36243c03d}\label{classIDeserializer_af2164fa8e1cc240e6f2b4bd36243c03d} 
+\index{IDeserializer@{IDeserializer}!readFloat@{readFloat}}
+\index{readFloat@{readFloat}!IDeserializer@{IDeserializer}}
+\doxysubsubsection{\texorpdfstring{readFloat()}{readFloat()}}
+{\footnotesize\ttfamily virtual float IDeserializer\+::read\+Float (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBinaryDeserializer_a6587c6927ce6c179514d5b300c13a7d8}{Binary\+Deserializer}}.
+
+\Hypertarget{classIDeserializer_ab5008e008ffe156be3118d3613287a09}\label{classIDeserializer_ab5008e008ffe156be3118d3613287a09} 
+\index{IDeserializer@{IDeserializer}!readHeader@{readHeader}}
+\index{readHeader@{readHeader}!IDeserializer@{IDeserializer}}
+\doxysubsubsection{\texorpdfstring{readHeader()}{readHeader()}}
+{\footnotesize\ttfamily virtual void IDeserializer\+::read\+Header (\begin{DoxyParamCaption}\item[{uint16\+\_\+t \&}]{length,  }\item[{uint16\+\_\+t \&}]{sequence\+Id,  }\item[{uint8\+\_\+t \&}]{message\+Type,  }\item[{uint8\+\_\+t \&}]{flags }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBinaryDeserializer_a3e75e1fae49ccd1a25e29cbd36f53da7}{Binary\+Deserializer}}.
+
+\Hypertarget{classIDeserializer_a324d7f021995e0b4c88225b98fc2db9e}\label{classIDeserializer_a324d7f021995e0b4c88225b98fc2db9e} 
+\index{IDeserializer@{IDeserializer}!readString@{readString}}
+\index{readString@{readString}!IDeserializer@{IDeserializer}}
+\doxysubsubsection{\texorpdfstring{readString()}{readString()}}
+{\footnotesize\ttfamily virtual std\+::string IDeserializer\+::read\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBinaryDeserializer_adf27ef0f22e245cdbb1157272058356d}{Binary\+Deserializer}}.
+
+\Hypertarget{classIDeserializer_a18e6db72a9caaff54df41ce7fb8907f9}\label{classIDeserializer_a18e6db72a9caaff54df41ce7fb8907f9} 
+\index{IDeserializer@{IDeserializer}!readUInt16@{readUInt16}}
+\index{readUInt16@{readUInt16}!IDeserializer@{IDeserializer}}
+\doxysubsubsection{\texorpdfstring{readUInt16()}{readUInt16()}}
+{\footnotesize\ttfamily virtual uint16\+\_\+t IDeserializer\+::read\+UInt16 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBinaryDeserializer_abbdfcd27c21ff2ee90fdab28a80077df}{Binary\+Deserializer}}.
+
+\Hypertarget{classIDeserializer_a0f4fa3b16cca5e7ae3ecb41dba6587da}\label{classIDeserializer_a0f4fa3b16cca5e7ae3ecb41dba6587da} 
+\index{IDeserializer@{IDeserializer}!readUInt32@{readUInt32}}
+\index{readUInt32@{readUInt32}!IDeserializer@{IDeserializer}}
+\doxysubsubsection{\texorpdfstring{readUInt32()}{readUInt32()}}
+{\footnotesize\ttfamily virtual uint32\+\_\+t IDeserializer\+::read\+UInt32 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBinaryDeserializer_aea63bb944224d576179e484b2c5f9127}{Binary\+Deserializer}}.
+
+\Hypertarget{classIDeserializer_ac8cec380287bab32923d4124e0b00de6}\label{classIDeserializer_ac8cec380287bab32923d4124e0b00de6} 
+\index{IDeserializer@{IDeserializer}!readUInt8@{readUInt8}}
+\index{readUInt8@{readUInt8}!IDeserializer@{IDeserializer}}
+\doxysubsubsection{\texorpdfstring{readUInt8()}{readUInt8()}}
+{\footnotesize\ttfamily virtual uint8\+\_\+t IDeserializer\+::read\+UInt8 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBinaryDeserializer_af64d3c4bbb3ebc23b4bb528889af3242}{Binary\+Deserializer}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{IDeserializer_8hpp}{IDeserializer.\+hpp}}\end{DoxyCompactItemize}

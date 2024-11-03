@@ -1,0 +1,70 @@
+\doxysection{ITask\+Scheduler Class Reference}
+\hypertarget{classITaskScheduler}{}\label{classITaskScheduler}\index{ITaskScheduler@{ITaskScheduler}}
+
+
+{\ttfamily \#include $<$ITask\+Scheduler.\+hpp$>$}
+
+
+
+Inheritance diagram for ITask\+Scheduler\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classITaskScheduler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for ITask\+Scheduler\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=177pt]{classITaskScheduler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classITaskScheduler_aad60042fc381aebfe61e79736b94390e}{\texorpdfstring{$\sim$}{\string~}\+ITask\+Scheduler}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classITaskScheduler_ae481279e9124098215439bf02e9ccd8b}{schedule\+Task}} (const std\+::function$<$ void()$>$ \&task)=0
+\item 
+virtual void \mbox{\hyperlink{classITaskScheduler_a7879db31175fb5912ea7c9a36eaf0f9e}{run}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classITaskScheduler_aad60042fc381aebfe61e79736b94390e}\label{classITaskScheduler_aad60042fc381aebfe61e79736b94390e} 
+\index{ITaskScheduler@{ITaskScheduler}!````~ITaskScheduler@{\texorpdfstring{$\sim$}{\string~}ITaskScheduler}}
+\index{````~ITaskScheduler@{\texorpdfstring{$\sim$}{\string~}ITaskScheduler}!ITaskScheduler@{ITaskScheduler}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ITaskScheduler()}{\string~ITaskScheduler()}}
+{\footnotesize\ttfamily virtual ITask\+Scheduler\+::\texorpdfstring{$\sim$}{\string~}\+ITask\+Scheduler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classITaskScheduler_a7879db31175fb5912ea7c9a36eaf0f9e}\label{classITaskScheduler_a7879db31175fb5912ea7c9a36eaf0f9e} 
+\index{ITaskScheduler@{ITaskScheduler}!run@{run}}
+\index{run@{run}!ITaskScheduler@{ITaskScheduler}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily virtual void ITask\+Scheduler\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classThreadPoolScheduler_a0fd3ee721fdddffa68d7f4cd2a1211ca}{Thread\+Pool\+Scheduler}}.
+
+\Hypertarget{classITaskScheduler_ae481279e9124098215439bf02e9ccd8b}\label{classITaskScheduler_ae481279e9124098215439bf02e9ccd8b} 
+\index{ITaskScheduler@{ITaskScheduler}!scheduleTask@{scheduleTask}}
+\index{scheduleTask@{scheduleTask}!ITaskScheduler@{ITaskScheduler}}
+\doxysubsubsection{\texorpdfstring{scheduleTask()}{scheduleTask()}}
+{\footnotesize\ttfamily virtual void ITask\+Scheduler\+::schedule\+Task (\begin{DoxyParamCaption}\item[{const std\+::function$<$ void()$>$ \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classThreadPoolScheduler_a13401aa80308a327644de7e0b167d8c2}{Thread\+Pool\+Scheduler}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{ITaskScheduler_8hpp}{ITask\+Scheduler.\+hpp}}\end{DoxyCompactItemize}

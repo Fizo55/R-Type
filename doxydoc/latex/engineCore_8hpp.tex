@@ -1,5 +1,5 @@
-\hypertarget{engineCore_8hpp}{}\doxysection{include/engine\+Core.hpp File Reference}
-\label{engineCore_8hpp}\index{include/engineCore.hpp@{include/engineCore.hpp}}
+\doxysection{include/engine\+Core.hpp File Reference}
+\hypertarget{engineCore_8hpp}{}\label{engineCore_8hpp}\index{include/engineCore.hpp@{include/engineCore.hpp}}
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$map$>$}\newline
 {\ttfamily \#include $<$memory$>$}\newline
@@ -9,12 +9,25 @@
 {\ttfamily \#include $<$typeindex$>$}\newline
 {\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
 {\ttfamily \#include $<$optional$>$}\newline
-{\ttfamily \#include \char`\"{}engine\+Core.\+tpp\char`\"{}}\newline
-Include dependency graph for engine\+Core.\+hpp\+:
-% FIG 0
-This graph shows which files directly or indirectly include this file\+:
-% FIG 1
-\doxysubsection*{Classes}
+{\ttfamily \#include $<$any$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$yaml-\/cpp/yaml.\+h$>$}\newline
+{\ttfamily \#include "{}engine\+Core.\+tpp"{}}\newline
+Include dependency graph for engine\+Core.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{engineCore_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{engineCore_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classengine_1_1Entity}{engine\+::\+Entity}}
@@ -27,12 +40,58 @@ class \mbox{\hyperlink{classengine_1_1Registry}{engine\+::\+Registry}}
 \item 
 class \mbox{\hyperlink{structengine_1_1ComponentPool}{engine\+::\+Component\+Pool$<$ Component $>$}}
 \item 
+class \mbox{\hyperlink{classengine_1_1ComponentBuildRoute}{engine\+::\+Component\+Build\+Route}}
+\item 
+class \mbox{\hyperlink{classengine_1_1EntityBuildData}{engine\+::\+Entity\+Build\+Data}}
+\item 
+class \mbox{\hyperlink{classengine_1_1EntityFactory}{engine\+::\+Entity\+Factory}}
+\item 
+class \mbox{\hyperlink{classengine_1_1ObjectRef}{engine\+::\+Object\+Ref}}
+\item 
+class \mbox{\hyperlink{classengine_1_1Object}{engine\+::\+Object}}
+\item 
 class \mbox{\hyperlink{classengine_1_1Scene}{engine\+::\+Scene}}
 \item 
 class \mbox{\hyperlink{classengine_1_1Game}{engine\+::\+Game}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Namespaces}
+\doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceengine}{engine}}
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{engineCore_8hpp_ac897aa2b78b10554084c689c0df8463a}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{classengine_1_1ObjectRef}{engine\+::\+Object\+Ref}} const \&obj)
+\item 
+std\+::ostream \& \mbox{\hyperlink{engineCore_8hpp_ac68b46b8157c4e3c1984fd1f1b8e9117}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{classengine_1_1Object}{engine\+::\+Object}} const \&obj)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{engineCore_8hpp_ac68b46b8157c4e3c1984fd1f1b8e9117}\label{engineCore_8hpp_ac68b46b8157c4e3c1984fd1f1b8e9117} 
+\index{engineCore.hpp@{engineCore.hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!engineCore.hpp@{engineCore.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\mbox{\hyperlink{classengine_1_1Object}{engine\+::\+Object}} const \&}]{obj }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{engineCore_8hpp_ac68b46b8157c4e3c1984fd1f1b8e9117_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{engineCore_8hpp_ac897aa2b78b10554084c689c0df8463a}\label{engineCore_8hpp_ac897aa2b78b10554084c689c0df8463a} 
+\index{engineCore.hpp@{engineCore.hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!engineCore.hpp@{engineCore.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\mbox{\hyperlink{classengine_1_1ObjectRef}{engine\+::\+Object\+Ref}} const \&}]{obj }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{engineCore_8hpp_ac897aa2b78b10554084c689c0df8463a_cgraph}
+\end{center}
+\end{figure}

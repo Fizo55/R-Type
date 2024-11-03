@@ -1,0 +1,75 @@
+\doxysection{engine\+Components.\+hpp}
+\hypertarget{engineComponents_8hpp_source}{}\label{engineComponents_8hpp_source}\index{include/engineComponents.hpp@{include/engineComponents.hpp}}
+\mbox{\hyperlink{engineComponents_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ENGINE\_COMPONENTS\_HPP\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\ \ \ \ \#define\ ENGINE\_COMPONENTS\_HPP\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ <any>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{engineCore_8hpp}{engineCore.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{engineMath_8hpp}{engineMath.hpp}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceengine__components}{engine\_components}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine__components_1_1IComponent}{IComponent}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine__components_1_1IComponent_abca19bc959766eb7ce82a8cb06a6197e}{IComponent}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classengine__components_1_1IComponent_a3543cae1c6c9f3a9a8762d032d1b39bd}{\string~IComponent}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classengine__components_1_1IComponent_a87f41cf6cb114aa4f77df41221443770}{name}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine__components_1_1Position}{Position}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classengine__components_1_1IComponent}{IComponent}}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine__components_1_1Position_a7b643824774f9eaada28c08d7f54b9ba}{Position}}(\textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine__components_1_1Position_af937eb16c46e6e15cfda65619bb358f7}{\string~Position}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classengine__components_1_1Position_a368e001ffca21403a92310d769552ad2}{buildComponent}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{engine::Entity}}\ \&,\ \textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::vector<std::any>\ \&,\ \mbox{\hyperlink{classengine_1_1Registry}{engine::Registry}}\ \&);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine__math_1_1vector2}{engine\_math::vector2<int>}}\ \mbox{\hyperlink{classengine__components_1_1Position_ab72f320621a4908c49925f4f33eb152d}{coordinates}};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine__components_1_1Size}{Size}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classengine__components_1_1IComponent}{IComponent}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine__components_1_1Size_a8f88f3c90f0ed57ebf75ca4188bbd31c}{Size}}(\textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine__components_1_1Size_aad7f80de14a5904623c40085c2bbdc4d}{\string~Size}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classengine__components_1_1Size_aba39d2e0585d7fc040df26a73a6c9a0c}{buildComponent}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{engine::Entity}}\ \&,\ \textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::vector<std::any>\ \&,\ \mbox{\hyperlink{classengine_1_1Registry}{engine::Registry}}\ \&);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine__math_1_1vector2}{engine\_math::vector2<int>}}\ \mbox{\hyperlink{classengine__components_1_1Size_a820cbf8cad0df7723226d3e910cdef0a}{coordinates}};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine__components_1_1Sprite}{Sprite}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classengine__components_1_1IComponent}{IComponent}}\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine__components_1_1Sprite_aad0890e308a5c08c35118a9e4bfd184d}{Sprite}}(\textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine__components_1_1Sprite_a5ce85b7eb503d75f3af565c0f194dbb0}{\string~Sprite}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classengine__components_1_1Sprite_af2d465000f3bdfd7d8d22eaf3cd25a44}{buildComponent}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{engine::Entity}}\ \&,\ \textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::vector<std::any>\ \&,\ \mbox{\hyperlink{classengine_1_1Registry}{engine::Registry}}\ \&);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classengine__components_1_1Sprite_a12e01012ab7a25b4bec6088b65c3b144}{sprite}};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine__components_1_1Script}{Script}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classengine__components_1_1IComponent}{IComponent}}\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine__components_1_1Script_a813cb3f6257e31150bb0303a70c0292b}{Script}}(\textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine__components_1_1Script_a5abaa4283fba9233b871d9f20fdcf5d3}{\string~Script}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classengine__components_1_1Script_abc11dad9bdc95a4c7d411aba986b9aba}{buildComponent}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{engine::Entity}}\ \&,\ \textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::vector<std::any>\ \&,\ \mbox{\hyperlink{classengine_1_1Registry}{engine::Registry}}\ \&);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classengine__components_1_1Script_ad3704422c399a2a1449cbed5ac2e5071}{script}};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine__components_1_1Volatile}{Volatile}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classengine__components_1_1IComponent}{IComponent}}\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine__components_1_1Volatile_accd35a022e0085f6a0ec37a1ec03c22a}{Volatile}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine__components_1_1Volatile_a3b294bb62c12532000b41378db377ec5}{\string~Volatile}}();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classengine__components_1_1Volatile_a1a623341d85529831a1533dc8d19f084}{buildComponent}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{engine::Entity}}\ \&,\ \textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::vector<std::any>\ \&,\ \mbox{\hyperlink{classengine_1_1Registry}{engine::Registry}}\ \&);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00067\ \ \ \ \ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ENGINE\_COMPONENTS\_HPP\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

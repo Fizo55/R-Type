@@ -1,0 +1,214 @@
+\doxysection{Binary\+Deserializer Class Reference}
+\hypertarget{classBinaryDeserializer}{}\label{classBinaryDeserializer}\index{BinaryDeserializer@{BinaryDeserializer}}
+
+
+{\ttfamily \#include $<$Binary\+Deserializer.\+hpp$>$}
+
+
+
+Inheritance diagram for Binary\+Deserializer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classBinaryDeserializer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Binary\+Deserializer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classBinaryDeserializer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBinaryDeserializer_a52594a9b7a9020d85fb4596946ca4d40}{Binary\+Deserializer}} (const std\+::vector$<$ uint8\+\_\+t $>$ \&buffer)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classBinaryDeserializer_abbdfcd27c21ff2ee90fdab28a80077df}{read\+UInt16}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classBinaryDeserializer_aea63bb944224d576179e484b2c5f9127}{read\+UInt32}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classBinaryDeserializer_af64d3c4bbb3ebc23b4bb528889af3242}{read\+UInt8}} ()
+\item 
+float \mbox{\hyperlink{classBinaryDeserializer_a6587c6927ce6c179514d5b300c13a7d8}{read\+Float}} ()
+\item 
+std\+::string \mbox{\hyperlink{classBinaryDeserializer_adf27ef0f22e245cdbb1157272058356d}{read\+String}} ()
+\item 
+std\+::vector$<$ uint8\+\_\+t $>$ \mbox{\hyperlink{classBinaryDeserializer_aa80e1027b52c47d3dba0cb49e348ddfe}{read\+Bytes}} (size\+\_\+t length)
+\item 
+void \mbox{\hyperlink{classBinaryDeserializer_acba401203e1e6aeb43a551a02920c46d}{read\+Bytes}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}destination, size\+\_\+t length)
+\item 
+void \mbox{\hyperlink{classBinaryDeserializer_a3e75e1fae49ccd1a25e29cbd36f53da7}{read\+Header}} (uint16\+\_\+t \&length, uint16\+\_\+t \&sequence\+Id, uint8\+\_\+t \&message\+Type, uint8\+\_\+t \&flags)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classIDeserializer}{IDeserializer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classIDeserializer_a4c15add4ddb4d7de5ff835f594c7cf00}{\texorpdfstring{$\sim$}{\string~}\+IDeserializer}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classBinaryDeserializer_a52594a9b7a9020d85fb4596946ca4d40}\label{classBinaryDeserializer_a52594a9b7a9020d85fb4596946ca4d40} 
+\index{BinaryDeserializer@{BinaryDeserializer}!BinaryDeserializer@{BinaryDeserializer}}
+\index{BinaryDeserializer@{BinaryDeserializer}!BinaryDeserializer@{BinaryDeserializer}}
+\doxysubsubsection{\texorpdfstring{BinaryDeserializer()}{BinaryDeserializer()}}
+{\footnotesize\ttfamily Binary\+Deserializer\+::\+Binary\+Deserializer (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint8\+\_\+t $>$ \&}]{buffer }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBinaryDeserializer_aa80e1027b52c47d3dba0cb49e348ddfe}\label{classBinaryDeserializer_aa80e1027b52c47d3dba0cb49e348ddfe} 
+\index{BinaryDeserializer@{BinaryDeserializer}!readBytes@{readBytes}}
+\index{readBytes@{readBytes}!BinaryDeserializer@{BinaryDeserializer}}
+\doxysubsubsection{\texorpdfstring{readBytes()}{readBytes()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ uint8\+\_\+t $>$ Binary\+Deserializer\+::read\+Bytes (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIDeserializer_aad629411b05ada7d6862a12f95ff1ac6}{IDeserializer}}.
+
+\Hypertarget{classBinaryDeserializer_acba401203e1e6aeb43a551a02920c46d}\label{classBinaryDeserializer_acba401203e1e6aeb43a551a02920c46d} 
+\index{BinaryDeserializer@{BinaryDeserializer}!readBytes@{readBytes}}
+\index{readBytes@{readBytes}!BinaryDeserializer@{BinaryDeserializer}}
+\doxysubsubsection{\texorpdfstring{readBytes()}{readBytes()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Binary\+Deserializer\+::read\+Bytes (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{destination,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+\Hypertarget{classBinaryDeserializer_a6587c6927ce6c179514d5b300c13a7d8}\label{classBinaryDeserializer_a6587c6927ce6c179514d5b300c13a7d8} 
+\index{BinaryDeserializer@{BinaryDeserializer}!readFloat@{readFloat}}
+\index{readFloat@{readFloat}!BinaryDeserializer@{BinaryDeserializer}}
+\doxysubsubsection{\texorpdfstring{readFloat()}{readFloat()}}
+{\footnotesize\ttfamily float Binary\+Deserializer\+::read\+Float (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIDeserializer_af2164fa8e1cc240e6f2b4bd36243c03d}{IDeserializer}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinaryDeserializer_a6587c6927ce6c179514d5b300c13a7d8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBinaryDeserializer_a3e75e1fae49ccd1a25e29cbd36f53da7}\label{classBinaryDeserializer_a3e75e1fae49ccd1a25e29cbd36f53da7} 
+\index{BinaryDeserializer@{BinaryDeserializer}!readHeader@{readHeader}}
+\index{readHeader@{readHeader}!BinaryDeserializer@{BinaryDeserializer}}
+\doxysubsubsection{\texorpdfstring{readHeader()}{readHeader()}}
+{\footnotesize\ttfamily void Binary\+Deserializer\+::read\+Header (\begin{DoxyParamCaption}\item[{uint16\+\_\+t \&}]{length,  }\item[{uint16\+\_\+t \&}]{sequence\+Id,  }\item[{uint8\+\_\+t \&}]{message\+Type,  }\item[{uint8\+\_\+t \&}]{flags }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIDeserializer_ab5008e008ffe156be3118d3613287a09}{IDeserializer}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinaryDeserializer_a3e75e1fae49ccd1a25e29cbd36f53da7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classBinaryDeserializer_a3e75e1fae49ccd1a25e29cbd36f53da7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBinaryDeserializer_adf27ef0f22e245cdbb1157272058356d}\label{classBinaryDeserializer_adf27ef0f22e245cdbb1157272058356d} 
+\index{BinaryDeserializer@{BinaryDeserializer}!readString@{readString}}
+\index{readString@{readString}!BinaryDeserializer@{BinaryDeserializer}}
+\doxysubsubsection{\texorpdfstring{readString()}{readString()}}
+{\footnotesize\ttfamily std\+::string Binary\+Deserializer\+::read\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIDeserializer_a324d7f021995e0b4c88225b98fc2db9e}{IDeserializer}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinaryDeserializer_adf27ef0f22e245cdbb1157272058356d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{classBinaryDeserializer_adf27ef0f22e245cdbb1157272058356d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBinaryDeserializer_abbdfcd27c21ff2ee90fdab28a80077df}\label{classBinaryDeserializer_abbdfcd27c21ff2ee90fdab28a80077df} 
+\index{BinaryDeserializer@{BinaryDeserializer}!readUInt16@{readUInt16}}
+\index{readUInt16@{readUInt16}!BinaryDeserializer@{BinaryDeserializer}}
+\doxysubsubsection{\texorpdfstring{readUInt16()}{readUInt16()}}
+{\footnotesize\ttfamily uint16\+\_\+t Binary\+Deserializer\+::read\+UInt16 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIDeserializer_a18e6db72a9caaff54df41ce7fb8907f9}{IDeserializer}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinaryDeserializer_abbdfcd27c21ff2ee90fdab28a80077df_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinaryDeserializer_abbdfcd27c21ff2ee90fdab28a80077df_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBinaryDeserializer_aea63bb944224d576179e484b2c5f9127}\label{classBinaryDeserializer_aea63bb944224d576179e484b2c5f9127} 
+\index{BinaryDeserializer@{BinaryDeserializer}!readUInt32@{readUInt32}}
+\index{readUInt32@{readUInt32}!BinaryDeserializer@{BinaryDeserializer}}
+\doxysubsubsection{\texorpdfstring{readUInt32()}{readUInt32()}}
+{\footnotesize\ttfamily uint32\+\_\+t Binary\+Deserializer\+::read\+UInt32 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIDeserializer_a0f4fa3b16cca5e7ae3ecb41dba6587da}{IDeserializer}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinaryDeserializer_aea63bb944224d576179e484b2c5f9127_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinaryDeserializer_aea63bb944224d576179e484b2c5f9127_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBinaryDeserializer_af64d3c4bbb3ebc23b4bb528889af3242}\label{classBinaryDeserializer_af64d3c4bbb3ebc23b4bb528889af3242} 
+\index{BinaryDeserializer@{BinaryDeserializer}!readUInt8@{readUInt8}}
+\index{readUInt8@{readUInt8}!BinaryDeserializer@{BinaryDeserializer}}
+\doxysubsubsection{\texorpdfstring{readUInt8()}{readUInt8()}}
+{\footnotesize\ttfamily uint8\+\_\+t Binary\+Deserializer\+::read\+UInt8 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIDeserializer_ac8cec380287bab32923d4124e0b00de6}{IDeserializer}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBinaryDeserializer_af64d3c4bbb3ebc23b4bb528889af3242_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{BinaryDeserializer_8hpp}{Binary\+Deserializer.\+hpp}}\item 
+server/src/\mbox{\hyperlink{BinaryDeserializer_8cpp}{Binary\+Deserializer.\+cpp}}\end{DoxyCompactItemize}

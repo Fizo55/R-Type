@@ -1,23 +1,28 @@
-\hypertarget{classgrw_1_1texture}{}\doxysection{grw\+::texture Class Reference}
-\label{classgrw_1_1texture}\index{grw::texture@{grw::texture}}
+\doxysection{grw\+::texture Class Reference}
+\hypertarget{classgrw_1_1texture}{}\label{classgrw_1_1texture}\index{grw::texture@{grw::texture}}
 
 
 {\ttfamily \#include $<$engine\+Graphic.\+hpp$>$}
 
 
 
-Collaboration diagram for grw\+::texture\+:
-% FIG 0
-\doxysubsection*{Public Member Functions}
+Collaboration diagram for grw\+::texture\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classgrw_1_1texture__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classgrw_1_1texture_aefc6d1fe6042c2fee6049d889fe5eaad}{texture}} (const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&=\mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$(256, 256), unsigned \mbox{\hyperlink{classint}{int}}=32, const \mbox{\hyperlink{classgrw_1_1mask}{mask}} \&=\mbox{\hyperlink{classgrw_1_1mask}{mask}}())
 \begin{DoxyCompactList}\small\item\em Create a new texture. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgrw_1_1texture_a973b1d70fbd292e5f10c7e595b4ffe79}{texture}} (SDL\+\_\+\+Surface $\ast$surface)
+\mbox{\hyperlink{classgrw_1_1texture_a973b1d70fbd292e5f10c7e595b4ffe79}{texture}} (SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}surface)
 \begin{DoxyCompactList}\small\item\em Create a new texture from a SDL\+\_\+\+Surface. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgrw_1_1texture_abf14c179460c983efbb736bf0f698bf5}{texture}} (const std\+::string \&file\+Path)
 \begin{DoxyCompactList}\small\item\em Create a new texture from a file. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgrw_1_1texture_a5b4f688537fcc04427d7aaf2a35996bd}{$\sim$texture}} ()
+\mbox{\hyperlink{classgrw_1_1texture_a5b4f688537fcc04427d7aaf2a35996bd}{\texorpdfstring{$\sim$}{\string~}texture}} ()
 \item 
 void \mbox{\hyperlink{classgrw_1_1texture_a4fa68c80fc7d8849cd40c439b208b51c}{blit}} (const \mbox{\hyperlink{classgrw_1_1texture}{texture}} \&, const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&, const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&)
 \begin{DoxyCompactList}\small\item\em Blit a texture on another texture. \end{DoxyCompactList}\item 
@@ -29,14 +34,16 @@ void \mbox{\hyperlink{classgrw_1_1texture_ac0b5f72def0c3330f3fbf29aa848cce7}{opt
 \item 
 void \mbox{\hyperlink{classgrw_1_1texture_a8bf1d223b880e5c0b02fa2a6302cf23d}{set\+Mask}} (const \mbox{\hyperlink{classgrw_1_1mask}{mask}} \&)
 \item 
-SDL\+\_\+\+Surface $\ast$ \mbox{\hyperlink{classgrw_1_1texture_a9dd1ce134bf5188f90c0f96a350f39b3}{get\+Surface}} (void) const
+SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgrw_1_1texture_a9dd1ce134bf5188f90c0f96a350f39b3}{get\+Surface}} (void) const
 \item 
 const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \& \mbox{\hyperlink{classgrw_1_1texture_a2b6d8bd00b3ffe068dd45917782b5a2d}{get\+Size}} (void) const
+\item 
+const \mbox{\hyperlink{classgrw_1_1mask}{mask}} \& \mbox{\hyperlink{classgrw_1_1texture_ad9cc6cf92470628c320f168a3be42e20}{get\+Mask}} (void) const
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classgrw_1_1texture_aefc6d1fe6042c2fee6049d889fe5eaad}\label{classgrw_1_1texture_aefc6d1fe6042c2fee6049d889fe5eaad}} 
+\Hypertarget{classgrw_1_1texture_aefc6d1fe6042c2fee6049d889fe5eaad}\label{classgrw_1_1texture_aefc6d1fe6042c2fee6049d889fe5eaad} 
 \index{grw::texture@{grw::texture}!texture@{texture}}
 \index{texture@{texture}!grw::texture@{grw::texture}}
 \doxysubsubsection{\texorpdfstring{texture()}{texture()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
@@ -55,11 +62,11 @@ Create a new texture.
 {\em texture\+Mask} & The mask of the texture \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classgrw_1_1texture_a973b1d70fbd292e5f10c7e595b4ffe79}\label{classgrw_1_1texture_a973b1d70fbd292e5f10c7e595b4ffe79}} 
+\Hypertarget{classgrw_1_1texture_a973b1d70fbd292e5f10c7e595b4ffe79}\label{classgrw_1_1texture_a973b1d70fbd292e5f10c7e595b4ffe79} 
 \index{grw::texture@{grw::texture}!texture@{texture}}
 \index{texture@{texture}!grw::texture@{grw::texture}}
 \doxysubsubsection{\texorpdfstring{texture()}{texture()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily texture\+::texture (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Surface $\ast$}]{surface }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily texture\+::texture (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}}]{surface }\end{DoxyParamCaption})}
 
 
 
@@ -70,7 +77,7 @@ Create a new texture from a SDL\+\_\+\+Surface.
 {\em surface} & The SDL\+\_\+\+Surface to create the texture from \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classgrw_1_1texture_abf14c179460c983efbb736bf0f698bf5}\label{classgrw_1_1texture_abf14c179460c983efbb736bf0f698bf5}} 
+\Hypertarget{classgrw_1_1texture_abf14c179460c983efbb736bf0f698bf5}\label{classgrw_1_1texture_abf14c179460c983efbb736bf0f698bf5} 
 \index{grw::texture@{grw::texture}!texture@{texture}}
 \index{texture@{texture}!grw::texture@{grw::texture}}
 \doxysubsubsection{\texorpdfstring{texture()}{texture()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
@@ -85,16 +92,16 @@ Create a new texture from a file.
 {\em file\+Path} & The path to the file \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classgrw_1_1texture_a5b4f688537fcc04427d7aaf2a35996bd}\label{classgrw_1_1texture_a5b4f688537fcc04427d7aaf2a35996bd}} 
-\index{grw::texture@{grw::texture}!````~texture@{$\sim$texture}}
-\index{````~texture@{$\sim$texture}!grw::texture@{grw::texture}}
-\doxysubsubsection{\texorpdfstring{$\sim$texture()}{~texture()}}
-{\footnotesize\ttfamily texture\+::$\sim$texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\Hypertarget{classgrw_1_1texture_a5b4f688537fcc04427d7aaf2a35996bd}\label{classgrw_1_1texture_a5b4f688537fcc04427d7aaf2a35996bd} 
+\index{grw::texture@{grw::texture}!````~texture@{\texorpdfstring{$\sim$}{\string~}texture}}
+\index{````~texture@{\texorpdfstring{$\sim$}{\string~}texture}!grw::texture@{grw::texture}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}texture()}{\string~texture()}}
+{\footnotesize\ttfamily texture\+::\texorpdfstring{$\sim$}{\string~}texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classgrw_1_1texture_a4fa68c80fc7d8849cd40c439b208b51c}\label{classgrw_1_1texture_a4fa68c80fc7d8849cd40c439b208b51c}} 
+\Hypertarget{classgrw_1_1texture_a4fa68c80fc7d8849cd40c439b208b51c}\label{classgrw_1_1texture_a4fa68c80fc7d8849cd40c439b208b51c} 
 \index{grw::texture@{grw::texture}!blit@{blit}}
 \index{blit@{blit}!grw::texture@{grw::texture}}
 \doxysubsubsection{\texorpdfstring{blit()}{blit()}}
@@ -113,9 +120,14 @@ Blit a texture on another texture.
 {\em size} & The size of the texture to blit \\
 \hline
 \end{DoxyParams}
-Here is the call graph for this function\+:
-% FIG 1
-\mbox{\Hypertarget{classgrw_1_1texture_a6d6c5b197e512b9d612bc435143a2fa0}\label{classgrw_1_1texture_a6d6c5b197e512b9d612bc435143a2fa0}} 
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{classgrw_1_1texture_a4fa68c80fc7d8849cd40c439b208b51c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgrw_1_1texture_a6d6c5b197e512b9d612bc435143a2fa0}\label{classgrw_1_1texture_a6d6c5b197e512b9d612bc435143a2fa0} 
 \index{grw::texture@{grw::texture}!clear@{clear}}
 \index{clear@{clear}!grw::texture@{grw::texture}}
 \doxysubsubsection{\texorpdfstring{clear()}{clear()}}
@@ -130,7 +142,7 @@ Clear the texture with a color.
 {\em color} & The color to clear the texture with \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classgrw_1_1texture_aba0a4948c5911dc0cacbbd762e4cc83c}\label{classgrw_1_1texture_aba0a4948c5911dc0cacbbd762e4cc83c}} 
+\Hypertarget{classgrw_1_1texture_aba0a4948c5911dc0cacbbd762e4cc83c}\label{classgrw_1_1texture_aba0a4948c5911dc0cacbbd762e4cc83c} 
 \index{grw::texture@{grw::texture}!draw\_rect@{draw\_rect}}
 \index{draw\_rect@{draw\_rect}!grw::texture@{grw::texture}}
 \doxysubsubsection{\texorpdfstring{draw\_rect()}{draw\_rect()}}
@@ -149,31 +161,52 @@ Draw a rectangle on the texture.
 {\em color} & The color of the rectangle \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classgrw_1_1texture_a2b6d8bd00b3ffe068dd45917782b5a2d}\label{classgrw_1_1texture_a2b6d8bd00b3ffe068dd45917782b5a2d}} 
+\Hypertarget{classgrw_1_1texture_ad9cc6cf92470628c320f168a3be42e20}\label{classgrw_1_1texture_ad9cc6cf92470628c320f168a3be42e20} 
+\index{grw::texture@{grw::texture}!getMask@{getMask}}
+\index{getMask@{getMask}!grw::texture@{grw::texture}}
+\doxysubsubsection{\texorpdfstring{getMask()}{getMask()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classgrw_1_1mask}{mask}} \& texture\+::get\+Mask (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classgrw_1_1texture_a2b6d8bd00b3ffe068dd45917782b5a2d}\label{classgrw_1_1texture_a2b6d8bd00b3ffe068dd45917782b5a2d} 
 \index{grw::texture@{grw::texture}!getSize@{getSize}}
 \index{getSize@{getSize}!grw::texture@{grw::texture}}
 \doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \& texture\+::get\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
 
-Here is the caller graph for this function\+:
-% FIG 2
-\mbox{\Hypertarget{classgrw_1_1texture_a9dd1ce134bf5188f90c0f96a350f39b3}\label{classgrw_1_1texture_a9dd1ce134bf5188f90c0f96a350f39b3}} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{classgrw_1_1texture_a2b6d8bd00b3ffe068dd45917782b5a2d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgrw_1_1texture_a9dd1ce134bf5188f90c0f96a350f39b3}\label{classgrw_1_1texture_a9dd1ce134bf5188f90c0f96a350f39b3} 
 \index{grw::texture@{grw::texture}!getSurface@{getSurface}}
 \index{getSurface@{getSurface}!grw::texture@{grw::texture}}
 \doxysubsubsection{\texorpdfstring{getSurface()}{getSurface()}}
-{\footnotesize\ttfamily SDL\+\_\+\+Surface $\ast$ texture\+::get\+Surface (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*} texture\+::get\+Surface (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
 
-Here is the caller graph for this function\+:
-% FIG 3
-\mbox{\Hypertarget{classgrw_1_1texture_ac0b5f72def0c3330f3fbf29aa848cce7}\label{classgrw_1_1texture_ac0b5f72def0c3330f3fbf29aa848cce7}} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classgrw_1_1texture_a9dd1ce134bf5188f90c0f96a350f39b3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgrw_1_1texture_ac0b5f72def0c3330f3fbf29aa848cce7}\label{classgrw_1_1texture_ac0b5f72def0c3330f3fbf29aa848cce7} 
 \index{grw::texture@{grw::texture}!optimize@{optimize}}
 \index{optimize@{optimize}!grw::texture@{grw::texture}}
 \doxysubsubsection{\texorpdfstring{optimize()}{optimize()}}
 {\footnotesize\ttfamily void texture\+::optimize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgrw_1_1texture}{texture}} \&}]{other }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-% FIG 4
-\mbox{\Hypertarget{classgrw_1_1texture_a8bf1d223b880e5c0b02fa2a6302cf23d}\label{classgrw_1_1texture_a8bf1d223b880e5c0b02fa2a6302cf23d}} 
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classgrw_1_1texture_ac0b5f72def0c3330f3fbf29aa848cce7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgrw_1_1texture_a8bf1d223b880e5c0b02fa2a6302cf23d}\label{classgrw_1_1texture_a8bf1d223b880e5c0b02fa2a6302cf23d} 
 \index{grw::texture@{grw::texture}!setMask@{setMask}}
 \index{setMask@{setMask}!grw::texture@{grw::texture}}
 \doxysubsubsection{\texorpdfstring{setMask()}{setMask()}}

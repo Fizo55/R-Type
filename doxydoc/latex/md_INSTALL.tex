@@ -1,0 +1,100 @@
+\chapter{Installation Guide}
+\hypertarget{md_INSTALL}{}\label{md_INSTALL}\index{Installation Guide@{Installation Guide}}
+\label{md_INSTALL_autotoc_md0}%
+\Hypertarget{md_INSTALL_autotoc_md0}%
+ This guide will walk you through the steps needed to configure, build, and run the project on both Linux and Windows systems. Please follow the appropriate instructions for your operating system.\hypertarget{md_INSTALL_autotoc_md1}{}\doxysection{\texorpdfstring{Linux}{Linux}}\label{md_INSTALL_autotoc_md1}
+\hypertarget{md_INSTALL_autotoc_md2}{}\doxysubsection{\texorpdfstring{Prerequisites\+:}{Prerequisites\+:}}\label{md_INSTALL_autotoc_md2}
+
+\begin{DoxyItemize}
+\item {\bfseries{CMake}} version 3.\+27 or above
+\item {\bfseries{Ninja}} build system
+\item {\bfseries{Git}}
+\item {\bfseries{automake}}
+\item {\bfseries{libtool}}
+\item {\bfseries{pkg-\/config}}
+\end{DoxyItemize}\hypertarget{md_INSTALL_autotoc_md3}{}\doxysubsection{\texorpdfstring{Steps\+:}{Steps\+:}}\label{md_INSTALL_autotoc_md3}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Clone the repository\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ -\/-\/recursive\ https://github.com/Fizo55/R-\/Type.git}
+\DoxyCodeLine{cd\ R-\/Type}
+
+\end{DoxyCode}
+
+\item {\bfseries{Set up vcpkg\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./vcpkg/bootstrap-\/vcpkg.sh}
+\DoxyCodeLine{./vcpkg/vcpkg\ install}
+
+\end{DoxyCode}
+
+\item {\bfseries{Run CMake to configure the project\+: Use Ninja as the generator\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ -\/B\ build\ "{}-\/DCMAKE\_TOOLCHAIN\_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake"{}\ -\/G\ Ninja}
+
+\end{DoxyCode}
+
+\item {\bfseries{Build the project\+: Once the configuration is done, you can start the build process\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ninja\ -\/C\ build}
+
+\end{DoxyCode}
+
+\item {\bfseries{Run the executable\+: After building, run the generated executable\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./<executable\_name>}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}\hypertarget{md_INSTALL_autotoc_md4}{}\doxysection{\texorpdfstring{Windows}{Windows}}\label{md_INSTALL_autotoc_md4}
+\hypertarget{md_INSTALL_autotoc_md5}{}\doxysubsection{\texorpdfstring{Prerequisites\+:}{Prerequisites\+:}}\label{md_INSTALL_autotoc_md5}
+
+\begin{DoxyItemize}
+\item {\bfseries{Visual Studio 2022}} (Ensure C++ build tools are installed)
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+CMake\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} version 3.\+27 or above
+\item {\bfseries{Git}}
+\item {\bfseries{vcpkg}} for package management
+\end{DoxyItemize}\hypertarget{md_INSTALL_autotoc_md6}{}\doxysubsection{\texorpdfstring{Steps\+:}{Steps\+:}}\label{md_INSTALL_autotoc_md6}
+
+\begin{DoxyEnumerate}
+\item Enable Long Path Support in Git\+: Git might encounter long path issues on Windows. To fix this, run the following command to enable long path support in Git\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ config\ -\/-\/system\ core.longpaths\ true}
+
+\end{DoxyCode}
+
+\item Enable Long Path Support in Windows\+: Open file\+\_\+path.\+reg as administrator then restart the computer. (Optional step if the above step haven\textquotesingle{}t solved the long path issue)
+\item Clone the repository\+: Open a terminal (Power\+Shell or Git Bash) and clone the repository\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ -\/-\/recursive\ https://github.com/Fizo55/R-\/Type.git}
+\DoxyCodeLine{cd\ R-\/Type}
+
+\end{DoxyCode}
+
+\item Set up vcpkg\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{.\(\backslash\)vcpkg\(\backslash\)bootstrap-\/vcpkg.bat}
+\DoxyCodeLine{.\(\backslash\)vcpkg\(\backslash\)vcpkg.exe\ install}
+
+\end{DoxyCode}
+
+\item Run CMake to configure the project\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ -\/B\ build\ "{}-\/DCMAKE\_TOOLCHAIN\_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake"{}}
+
+\end{DoxyCode}
+
+\item Open the project in Visual Studio\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{msbuild\ /p:Configuration=Release\ server.sln}
+
+\end{DoxyCode}
+
+\item Run the executable\+: After building, you can run the executable from the build folder\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./build/<executable\_name>.exe}
+
+\end{DoxyCode}
+ 
+\end{DoxyEnumerate}

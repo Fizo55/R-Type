@@ -1,0 +1,19 @@
+<map id="Endianness::networkToHostUint16" name="Endianness::networkToHostUint16">
+<area shape="rect" id="Node000001" title=" " alt="" coords="586,72,772,115"/>
+<area shape="rect" id="Node000002" href="$classBinaryDeserializer.html#abbdfcd27c21ff2ee90fdab28a80077df" title=" " alt="" coords="411,72,538,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="571,96,538,96,538,91,571,91"/>
+<area shape="rect" id="Node000003" href="$classAcknowledgmentMessage.html#ac86e97b24f9202d2141c2eff5809e5dc" title=" " alt="" coords="9,5,184,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="395,82,184,45,185,39,396,77"/>
+<area shape="rect" id="Node000004" href="$classGameStateUpdateMessage.html#a5eab350a24666c379c6eb6915d0be216" title=" " alt="" coords="5,72,188,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="395,96,188,96,188,91,395,91"/>
+<area shape="rect" id="Node000005" href="$classBinaryDeserializer.html#a3e75e1fae49ccd1a25e29cbd36f53da7" title=" " alt="" coords="236,135,363,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="400,123,362,137,360,132,398,118"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="265,126,229,93,186,62,164,51,167,46,189,58,232,89,269,122"/>
+<area shape="poly" id="edge9_Node000005_Node000004" title=" " alt="" coords="220,134,167,118,169,113,222,129"/>
+<area shape="rect" id="Node000006" href="$classClientHelloMessage.html#ad42a1d6abe32615e30d160b6f78a744d" title=" " alt="" coords="27,139,166,181"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="220,160,166,161,166,156,220,155"/>
+<area shape="rect" id="Node000007" href="$classPlayerInputMessage.html#a6adeb802eb5c6f703387b9e270d47bc7" title=" " alt="" coords="26,205,167,248"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="222,186,161,207,159,202,220,181"/>
+<area shape="rect" id="Node000008" href="$classServerWelcomeMessage.html#a93c998a507b46a4a101a14db57580c32" title=" " alt="" coords="13,272,180,315"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="272,191,234,228,189,262,167,274,165,269,186,258,231,224,268,187"/>
+</map>

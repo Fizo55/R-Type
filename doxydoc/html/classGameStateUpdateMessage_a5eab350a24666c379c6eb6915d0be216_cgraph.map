@@ -1,0 +1,16 @@
+<map id="GameStateUpdateMessage::deserialize" name="GameStateUpdateMessage::deserialize">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,52,188,95"/>
+<area shape="rect" id="Node000002" href="$classBinaryDeserializer.html#a3e75e1fae49ccd1a25e29cbd36f53da7" title=" " alt="" coords="236,81,363,124"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,84,221,89,220,94,188,89"/>
+<area shape="rect" id="Node000003" href="$classBinaryDeserializer.html#abbdfcd27c21ff2ee90fdab28a80077df" title=" " alt="" coords="411,23,538,65"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="188,64,395,47,396,53,188,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="363,79,396,68,397,73,364,84"/>
+<area shape="rect" id="Node000007" href="$classBinaryDeserializer.html#af64d3c4bbb3ebc23b4bb528889af3242" title=" " alt="" coords="411,89,538,132"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="364,103,396,104,396,110,363,108"/>
+<area shape="rect" id="Node000004" href="$namespaceEndianness.html#a9cda4b157961f6a544626b094041746a" title=" " alt="" coords="586,23,772,65"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="539,41,570,41,570,47,539,47"/>
+<area shape="rect" id="Node000005" href="$namespaceEndianness.html#aa1760cd4396acf65407ec2fb13da530f" title=" " alt="" coords="820,5,995,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="772,31,804,27,804,33,772,36"/>
+<area shape="rect" id="Node000006" href="$namespaceEndianness.html#ac7a53c6467ecf5369bca6509544cf547" title=" " alt="" coords="824,56,991,83"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="772,52,809,56,808,61,772,57"/>
+</map>

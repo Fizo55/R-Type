@@ -1,69 +1,58 @@
-\hypertarget{classengine_1_1Entity}{}\doxysection{engine\+::Entity Class Reference}
-\label{classengine_1_1Entity}\index{engine::Entity@{engine::Entity}}
+\doxysection{engine\+::Entity Class Reference}
+\hypertarget{classengine_1_1Entity}{}\label{classengine_1_1Entity}\index{engine::Entity@{engine::Entity}}
 
 
 {\ttfamily \#include $<$engine\+Core.\+hpp$>$}
 
 
 
-Collaboration diagram for engine\+::Entity\+:
-% FIG 0
-\doxysubsection*{Public Member Functions}
+Collaboration diagram for engine\+::Entity\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{classengine_1_1Entity__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classengine_1_1Entity_a98c96c52632eaa0c8ac3fb8067252962}{Entity}} (const \mbox{\hyperlink{classengine_1_1Entity}{Entity}} \&)=delete
+\mbox{\hyperlink{classengine_1_1Entity_a9b2c2688843e655fe8e4d8c561b36ee9}{Entity}} (std\+::size\+\_\+t id)
 \item 
-\mbox{\hyperlink{classengine_1_1Entity}{Entity}} \& \mbox{\hyperlink{classengine_1_1Entity_ac5f38f47e3fb6710304b34a6d73aa205}{operator=}} (const \mbox{\hyperlink{classengine_1_1Entity}{Entity}} \&)=delete
+\mbox{\hyperlink{classengine_1_1Entity_a3bad6d2f78b9927b87518fce827dab30}{operator std\+::size\+\_\+t}} () const
 \item 
-\mbox{\hyperlink{classengine_1_1Entity_ace2940faf79a0f41d9734606b6545176}{Entity}} (std\+::size\+\_\+t id)
+void \mbox{\hyperlink{classengine_1_1Entity_ada87c06aab805ed526d265f52ef7ac59}{attach\+\_\+system}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classengine_1_1EcsSystem}{Ecs\+System}} $>$ system)
 \item 
-\mbox{\hyperlink{classengine_1_1Entity_a9a03b473de3894eeab81ca2a2edbd24b}{operator std\+::size\+\_\+t}} () const
-\item 
-void \mbox{\hyperlink{classengine_1_1Entity_a1ff474b28e4f5bcfe52ed76df06cbf18}{attach\+\_\+system}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classengine_1_1EcsSystem}{Ecs\+System}} $>$ system)
-\item 
-void \mbox{\hyperlink{classengine_1_1Entity_a3bc18413a90a13039d5709046a0c0ea4}{update\+\_\+systems}} (\mbox{\hyperlink{classengine_1_1Registry}{Registry}} \&registry, float delta\+\_\+time)
+void \mbox{\hyperlink{classengine_1_1Entity_a1828f0c1c1a24dbff5099f1bc9e78e22}{update\+\_\+systems}} (\mbox{\hyperlink{classengine_1_1Registry}{Registry}} \&registry, float delta\+\_\+time)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classengine_1_1Entity_a98c96c52632eaa0c8ac3fb8067252962}\label{classengine_1_1Entity_a98c96c52632eaa0c8ac3fb8067252962}} 
+\Hypertarget{classengine_1_1Entity_a9b2c2688843e655fe8e4d8c561b36ee9}\label{classengine_1_1Entity_a9b2c2688843e655fe8e4d8c561b36ee9} 
 \index{engine::Entity@{engine::Entity}!Entity@{Entity}}
 \index{Entity@{Entity}!engine::Entity@{engine::Entity}}
-\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily engine\+::\+Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classengine_1_1Entity}{Entity}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
-
-\mbox{\Hypertarget{classengine_1_1Entity_ace2940faf79a0f41d9734606b6545176}\label{classengine_1_1Entity_ace2940faf79a0f41d9734606b6545176}} 
-\index{engine::Entity@{engine::Entity}!Entity@{Entity}}
-\index{Entity@{Entity}!engine::Entity@{engine::Entity}}
-\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily engine\+::\+Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}}
+{\footnotesize\ttfamily Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classengine_1_1Entity_a1ff474b28e4f5bcfe52ed76df06cbf18}\label{classengine_1_1Entity_a1ff474b28e4f5bcfe52ed76df06cbf18}} 
+\Hypertarget{classengine_1_1Entity_ada87c06aab805ed526d265f52ef7ac59}\label{classengine_1_1Entity_ada87c06aab805ed526d265f52ef7ac59} 
 \index{engine::Entity@{engine::Entity}!attach\_system@{attach\_system}}
 \index{attach\_system@{attach\_system}!engine::Entity@{engine::Entity}}
 \doxysubsubsection{\texorpdfstring{attach\_system()}{attach\_system()}}
-{\footnotesize\ttfamily void engine\+::\+Entity\+::attach\+\_\+system (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classengine_1_1EcsSystem}{Ecs\+System}} $>$}]{system }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Entity\+::attach\+\_\+system (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classengine_1_1EcsSystem}{Ecs\+System}} $>$}]{system }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classengine_1_1Entity_a9a03b473de3894eeab81ca2a2edbd24b}\label{classengine_1_1Entity_a9a03b473de3894eeab81ca2a2edbd24b}} 
+\Hypertarget{classengine_1_1Entity_a3bad6d2f78b9927b87518fce827dab30}\label{classengine_1_1Entity_a3bad6d2f78b9927b87518fce827dab30} 
 \index{engine::Entity@{engine::Entity}!operator std::size\_t@{operator std::size\_t}}
 \index{operator std::size\_t@{operator std::size\_t}!engine::Entity@{engine::Entity}}
 \doxysubsubsection{\texorpdfstring{operator std::size\_t()}{operator std::size\_t()}}
-{\footnotesize\ttfamily engine\+::\+Entity\+::operator std\+::size\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [explicit]}}
+{\footnotesize\ttfamily Entity\+::operator std\+::size\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [explicit]}}
 
-\mbox{\Hypertarget{classengine_1_1Entity_ac5f38f47e3fb6710304b34a6d73aa205}\label{classengine_1_1Entity_ac5f38f47e3fb6710304b34a6d73aa205}} 
-\index{engine::Entity@{engine::Entity}!operator=@{operator=}}
-\index{operator=@{operator=}!engine::Entity@{engine::Entity}}
-\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classengine_1_1Entity}{Entity}} \& engine\+::\+Entity\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classengine_1_1Entity}{Entity}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
-
-\mbox{\Hypertarget{classengine_1_1Entity_a3bc18413a90a13039d5709046a0c0ea4}\label{classengine_1_1Entity_a3bc18413a90a13039d5709046a0c0ea4}} 
+\Hypertarget{classengine_1_1Entity_a1828f0c1c1a24dbff5099f1bc9e78e22}\label{classengine_1_1Entity_a1828f0c1c1a24dbff5099f1bc9e78e22} 
 \index{engine::Entity@{engine::Entity}!update\_systems@{update\_systems}}
 \index{update\_systems@{update\_systems}!engine::Entity@{engine::Entity}}
 \doxysubsubsection{\texorpdfstring{update\_systems()}{update\_systems()}}
-{\footnotesize\ttfamily void engine\+::\+Entity\+::update\+\_\+systems (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classengine_1_1Registry}{engine\+::\+Registry}} \&}]{registry,  }\item[{float}]{delta\+\_\+time }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Entity\+::update\+\_\+systems (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classengine_1_1Registry}{engine\+::\+Registry}} \&}]{registry,  }\item[{float}]{delta\+\_\+time }\end{DoxyParamCaption})}
 
 
 

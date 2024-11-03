@@ -1,0 +1,120 @@
+\doxysection{IGame\+Logic Class Reference}
+\hypertarget{classIGameLogic}{}\label{classIGameLogic}\index{IGameLogic@{IGameLogic}}
+
+
+{\ttfamily \#include $<$IGame\+Logic.\+hpp$>$}
+
+
+
+Inheritance diagram for IGame\+Logic\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classIGameLogic__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for IGame\+Logic\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classIGameLogic__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classIGameLogic_a41db77cd0a48165a30cf44c82ed54c42}{\texorpdfstring{$\sim$}{\string~}\+IGame\+Logic}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classIGameLogic_ae438c25529bc5db4bbad9b07f2fb8c7f}{initialize}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classIGameLogic_aa20811a3bfb066cede8e5b16a2f06da8}{update}} (float delta\+Time)=0
+\item 
+virtual void \mbox{\hyperlink{classIGameLogic_a74dd1b306c4d1357f8b4be71e2c94b56}{handle\+Message}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMessageBase}{Message\+Base}} $>$ \&message, const std\+::string \&address, uint16\+\_\+t port)=0
+\item 
+virtual void \mbox{\hyperlink{classIGameLogic_ae38437b79c5917cad88c578e27ccbf9c}{on\+Client\+Connected}} (const std\+::string \&address, uint16\+\_\+t port)=0
+\item 
+virtual void \mbox{\hyperlink{classIGameLogic_ac4565075a081738b58786bba4799d5e0}{on\+Client\+Disconnected}} (const std\+::string \&address, uint16\+\_\+t port)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classIGameLogic_a41db77cd0a48165a30cf44c82ed54c42}\label{classIGameLogic_a41db77cd0a48165a30cf44c82ed54c42} 
+\index{IGameLogic@{IGameLogic}!````~IGameLogic@{\texorpdfstring{$\sim$}{\string~}IGameLogic}}
+\index{````~IGameLogic@{\texorpdfstring{$\sim$}{\string~}IGameLogic}!IGameLogic@{IGameLogic}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IGameLogic()}{\string~IGameLogic()}}
+{\footnotesize\ttfamily virtual IGame\+Logic\+::\texorpdfstring{$\sim$}{\string~}\+IGame\+Logic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classIGameLogic_a74dd1b306c4d1357f8b4be71e2c94b56}\label{classIGameLogic_a74dd1b306c4d1357f8b4be71e2c94b56} 
+\index{IGameLogic@{IGameLogic}!handleMessage@{handleMessage}}
+\index{handleMessage@{handleMessage}!IGameLogic@{IGameLogic}}
+\doxysubsubsection{\texorpdfstring{handleMessage()}{handleMessage()}}
+{\footnotesize\ttfamily virtual void IGame\+Logic\+::handle\+Message (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMessageBase}{Message\+Base}} $>$ \&}]{message,  }\item[{const std\+::string \&}]{address,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classRTypeGameLogic_a2d1271e5a89d4af6f939958b1012922d}{RType\+Game\+Logic}}.
+
+\Hypertarget{classIGameLogic_ae438c25529bc5db4bbad9b07f2fb8c7f}\label{classIGameLogic_ae438c25529bc5db4bbad9b07f2fb8c7f} 
+\index{IGameLogic@{IGameLogic}!initialize@{initialize}}
+\index{initialize@{initialize}!IGameLogic@{IGameLogic}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily virtual void IGame\+Logic\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classRTypeGameLogic_aff86b76df3ee5b97ef0a35840c3cf1bf}{RType\+Game\+Logic}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classIGameLogic_ae438c25529bc5db4bbad9b07f2fb8c7f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classIGameLogic_ae38437b79c5917cad88c578e27ccbf9c}\label{classIGameLogic_ae38437b79c5917cad88c578e27ccbf9c} 
+\index{IGameLogic@{IGameLogic}!onClientConnected@{onClientConnected}}
+\index{onClientConnected@{onClientConnected}!IGameLogic@{IGameLogic}}
+\doxysubsubsection{\texorpdfstring{onClientConnected()}{onClientConnected()}}
+{\footnotesize\ttfamily virtual void IGame\+Logic\+::on\+Client\+Connected (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{address,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classRTypeGameLogic_a6609082054cdde168a7f80af36e3f4b7}{RType\+Game\+Logic}}.
+
+\Hypertarget{classIGameLogic_ac4565075a081738b58786bba4799d5e0}\label{classIGameLogic_ac4565075a081738b58786bba4799d5e0} 
+\index{IGameLogic@{IGameLogic}!onClientDisconnected@{onClientDisconnected}}
+\index{onClientDisconnected@{onClientDisconnected}!IGameLogic@{IGameLogic}}
+\doxysubsubsection{\texorpdfstring{onClientDisconnected()}{onClientDisconnected()}}
+{\footnotesize\ttfamily virtual void IGame\+Logic\+::on\+Client\+Disconnected (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{address,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classRTypeGameLogic_a84343ca5aa249e2f0c240ddc16b6c8a2}{RType\+Game\+Logic}}.
+
+\Hypertarget{classIGameLogic_aa20811a3bfb066cede8e5b16a2f06da8}\label{classIGameLogic_aa20811a3bfb066cede8e5b16a2f06da8} 
+\index{IGameLogic@{IGameLogic}!update@{update}}
+\index{update@{update}!IGameLogic@{IGameLogic}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void IGame\+Logic\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classRTypeGameLogic_a08526f44ea57b92c8aecde90dd194d83}{RType\+Game\+Logic}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classIGameLogic_aa20811a3bfb066cede8e5b16a2f06da8_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{IGameLogic_8hpp}{IGame\+Logic.\+hpp}}\end{DoxyCompactItemize}

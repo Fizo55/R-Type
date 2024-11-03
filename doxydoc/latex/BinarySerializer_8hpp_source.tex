@@ -1,0 +1,31 @@
+\doxysection{Binary\+Serializer.\+hpp}
+\hypertarget{BinarySerializer_8hpp_source}{}\label{BinarySerializer_8hpp_source}\index{server/include/BinarySerializer.hpp@{server/include/BinarySerializer.hpp}}
+\mbox{\hyperlink{BinarySerializer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BINARYSERIALIZER\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BINARYSERIALIZER\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ISerializer_8hpp}{ISerializer.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBinarySerializer}{BinarySerializer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classISerializer}{ISerializer}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{classBinarySerializer_a4b12260d37e0cbd7cc6a7242ecc0f9a6}{BinarySerializer}}(std::vector<uint8\_t>\&\ buffer);}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBinarySerializer_aba7e97ac1ab2fc126174a8e87dd632a1}{writeUInt16}}(uint16\_t\ value);}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBinarySerializer_aa0ff808667c02df67c6b5b06599730e2}{writeUInt32}}(uint32\_t\ value);}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBinarySerializer_a40e45793601c5e7494c4507584a2af96}{writeUInt8}}(uint8\_t\ value);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBinarySerializer_af649a20b349584e60a902fedc26d40f0}{writeFloat}}(\textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBinarySerializer_a8698d1f3cc4d1646d793521ba40c93e2}{writeString}}(\textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBinarySerializer_afefb7ac3d7853c705cbf7551452de122}{writeBytes}}(\textcolor{keyword}{const}\ std::vector<uint8\_t>\&\ data);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBinarySerializer_afefb7ac3d7853c705cbf7551452de122}{writeBytes}}(\textcolor{keyword}{const}\ uint8\_t\ *data,\ \textcolor{keywordtype}{size\_t}\ length);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBinarySerializer_a4f28206492273f0d8e090c4211dc953c}{writeHeader}}(uint16\_t\ length,\ uint16\_t\ sequenceId,\ uint8\_t\ messageType,\ uint8\_t\ flags);}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ std::vector<uint8\_t>\&\ buffer\_;}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,20 @@
+<map id="server/src/MessageDispatcher.cpp" name="server/src/MessageDispatcher.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="169,5,393,32"/>
+<area shape="rect" id="Node000002" href="$MessageDispatcher_8hpp.html" title=" " alt="" coords="200,80,362,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="284,33,284,64,278,64,278,33"/>
+<area shape="rect" id="Node000003" href="$IMessage_8hpp.html" title=" " alt="" coords="5,155,109,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="243,110,111,152,110,147,241,105"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="112,229,173,256"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="245,110,207,128,174,156,158,185,149,214,144,213,153,183,170,153,204,124,242,105"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="184,155,261,181"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="273,109,244,144,240,141,269,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="285,155,395,181"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="293,106,322,141,318,144,289,109"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="419,155,487,181"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="312,105,410,146,408,151,310,110"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="512,155,565,181"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="330,105,498,151,496,157,328,110"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="28,229,86,256"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="60,182,60,214,54,214,54,182"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="74,180,118,217,115,221,70,184"/>
+</map>

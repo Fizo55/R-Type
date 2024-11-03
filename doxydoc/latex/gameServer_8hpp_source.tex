@@ -1,0 +1,98 @@
+\doxysection{game\+Server.\+hpp}
+\hypertarget{gameServer_8hpp_source}{}\label{gameServer_8hpp_source}\index{include/gameServer.hpp@{include/gameServer.hpp}}
+\mbox{\hyperlink{gameServer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GAME\_SERVER\_HPP\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\ \ \ \ \#define\ GAME\_SERVER\_HPP\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ <iostream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ <map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <any>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#include\ <tuple>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \#include\ <functional>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classargument}{argument}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56}{ARGUMENT\_TYPE}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56a9241ea9cc5873a6fd9ceecc126c18c7c}{SINGLE}},}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56ac1bb61bdcd63e14fa4ae1a138d9c74b5}{VALUE}},}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56a2867b67f429be387327c92d469ef88fb}{EQUAL}},}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56a66fbb50f75263eccd263986f26412054}{HELP}}}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581}{VALUE\_TYPE}}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581a6b56d9700dfb799d42d164c1ec92ad8a}{STRING}},}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581aa7a6120b4e6f59d06d0d7e3a88471127}{CHAR}},}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581a4d2a952834691b15e06d4f9a1577d116}{SHORT}},}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581a2e7e65bd4b0b186203b6ba4eff08f02b}{INT}},}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581abfc0e6af7fe8d26005f3d0ba21b5fa28}{LONG}},}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581adce3bc00d6872dcb996700416f9bbd33}{FLOAT}}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargument_a564af43533fd4c9b9bf251adcae70407}{argument}}(\textcolor{keyword}{const}\ std::string\ \&\ =\ \textcolor{stringliteral}{"{}-\/-\/unknow"{}},\ ARGUMENT\_TYPE\ =\ \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56a9241ea9cc5873a6fd9ceecc126c18c7c}{SINGLE}},\ VALUE\_TYPE\ =\ \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581a6b56d9700dfb799d42d164c1ec92ad8a}{STRING}},\ std::any\ =\ std::any());}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargument_a255911ce0550dfd9052b9220e347a064}{\string~argument}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classargument_abb9c2f719cbff5c545af790f40f159f1}{name}};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargument_ac2da9a41c370e7181986d127d7399d56}{ARGUMENT\_TYPE}}\ \mbox{\hyperlink{classargument_adefe99d75df7cf8b87bf764bf05404e5}{type}};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581}{VALUE\_TYPE}}\ \mbox{\hyperlink{classargument_a7f5a7035af7a2752b6b6d02b34a8c539}{valueType}};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ std::any\ \mbox{\hyperlink{classargument_a4fe2e8715f7dd756ca827f2f58b56192}{value}};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::any\ \mbox{\hyperlink{classargument_a62ee402901c525a2a3dc8e2f9337826e}{base\_string\_builder}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::any\ \mbox{\hyperlink{classargument_a84fcdd874461798e531d55c46504c27b}{base\_char\_builder}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::any\ \mbox{\hyperlink{classargument_a6c638b602af8cedfb69d7b1345093b9d}{base\_short\_builder}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::any\ \mbox{\hyperlink{classargument_a4eabc8132629b95824a8924cacee0d45}{base\_int\_builder}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::any\ \mbox{\hyperlink{classargument_a266b9f37f1b959105d9cd409ba65a7c9}{base\_long\_builder}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::any\ \mbox{\hyperlink{classargument_a65ef26b57845a63f02a8c8e56edd4d77}{base\_float\_builder}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classargumentTypeFactory}{argumentTypeFactory}}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargumentTypeFactory_a5d6b6e7936e034c1cbec040a51f330e7}{argumentTypeFactory}}();}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargumentTypeFactory_a69f4388215adc8905737fcf4c787782c}{\string~argumentTypeFactory}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classargumentTypeFactory_a621f59b409a4dc5d09ce97cc655ec5bb}{registerBuildRoute}}(\mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581}{argument::VALUE\_TYPE}},\ \textcolor{keyword}{const}\ std::function<std::any\ (\textcolor{keyword}{const}\ std::string\ \&)>\ \&);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ std::any\ \mbox{\hyperlink{classargumentTypeFactory_a327785a35d08ffc300912e7d0da33719}{build}}(\mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581}{argument::VALUE\_TYPE}},\ \textcolor{keyword}{const}\ std::string\ \&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ std::map<\mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581}{argument::VALUE\_TYPE}},\ std::function<std::any\ (\textcolor{keyword}{const}\ std::string\ \&)>>\ \_buildRoutes;}
+\DoxyCodeLine{00059\ \ \ \ \ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classargumentParser}{argumentParser}}\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargumentParser_acb0cc4ffa2007a8eda4200ba6b221880}{argumentParser}}(std::size\_t,\ std::size\_t);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargumentParser_ab11f2926a91491ac3d781d69d3e75414}{\string~argumentParser}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classargumentParser_aaa63034dff6f9865743f943ef1f825d6}{attachFactory}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classargumentTypeFactory}{argumentTypeFactory}}\ \&);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classargumentParser_ada530990b0a1789167b627a702aa834b}{registerArg}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classargument}{argument}}\ \&);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classargumentParser_ab8a1eb6ac7d65d5b16484a11083cb5e7}{registerUnamedArg}}(\mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581}{argument::VALUE\_TYPE}});}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classargumentParser_a72deeff8934fd65bdf0b2d5b75b5b439}{parseArgs}}(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{char}\ **);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classargument}{argument}}\ \&\mbox{\hyperlink{classargumentParser_ade9c7255cf9301d9fcc080984cc59606}{getArg}}(\textcolor{keyword}{const}\ std::string\ \&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classargumentParser_a4ab7b0e6673c7b37862dc5c17a879607}{hasArg}}(\textcolor{keyword}{const}\ std::string\ \&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::any>\ \&\mbox{\hyperlink{classargumentParser_aff50fe9780ae1566bca1486c7bb4c61e}{getUnnamedArgs}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::any>\ \_args;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<argument::VALUE\_TYPE>\ \_argsType;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<argument>\ \_lookingFor;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ \_minArgs;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ \_maxArgs;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ argument>\ \_builts;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classargumentTypeFactory}{argumentTypeFactory}}\ \_factory;}
+\DoxyCodeLine{00090\ \ \ \ \ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GAME\_SERVER\_HPP\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

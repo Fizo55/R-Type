@@ -1,0 +1,36 @@
+\doxysection{Thread\+Pool\+Scheduler.\+hpp}
+\hypertarget{ThreadPoolScheduler_8hpp_source}{}\label{ThreadPoolScheduler_8hpp_source}\index{server/include/ThreadPoolScheduler.hpp@{server/include/ThreadPoolScheduler.hpp}}
+\mbox{\hyperlink{ThreadPoolScheduler_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ THREADPOOLSCHEDULER\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ THREADPOOLSCHEDULER\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ITaskScheduler_8hpp}{ITaskScheduler.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <condition\_variable>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classThreadPoolScheduler}{ThreadPoolScheduler}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classITaskScheduler}{ITaskScheduler}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classThreadPoolScheduler_a82ef1b5d48ed1ea5b524566b40ec395f}{ThreadPoolScheduler}}(\textcolor{keywordtype}{size\_t}\ threadCount);}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classThreadPoolScheduler_ab54f589d1816d8616caff686a374d93b}{\string~ThreadPoolScheduler}}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classThreadPoolScheduler_a13401aa80308a327644de7e0b167d8c2}{scheduleTask}}(\textcolor{keyword}{const}\ std::function<\textcolor{keywordtype}{void}()>\&\ task)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classThreadPoolScheduler_a0fd3ee721fdddffa68d7f4cd2a1211ca}{run}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ workerThread();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ std::vector<std::thread>\ threads\_;}
+\DoxyCodeLine{00024\ \ \ \ \ std::queue<std::function<void()>>\ tasks\_;}
+\DoxyCodeLine{00025\ \ \ \ \ std::mutex\ tasksMutex\_;}
+\DoxyCodeLine{00026\ \ \ \ \ std::condition\_variable\ condition\_;}
+\DoxyCodeLine{00027\ \ \ \ \ std::atomic<bool>\ stop\_;}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

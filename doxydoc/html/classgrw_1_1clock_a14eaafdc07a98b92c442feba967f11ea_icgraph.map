@@ -1,4 +1,9 @@
 <map id="grw::clock::tick" name="grw::clock::tick">
-<area shape="rect" id="node1" title="Get the time since the last call to this function." alt="" coords="108,5,227,31"/>
-<area shape="rect" id="node2" href="$main_07graph_08_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,60,31"/>
+<area shape="rect" id="Node000001" title="Get the time since the last call to this function." alt="" coords="263,31,373,57"/>
+<area shape="rect" id="Node000002" href="$main_07graph_08_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="134,5,184,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="247,35,183,25,184,20,248,30"/>
+<area shape="rect" id="Node000003" href="$classclient.html#aab89391e22d361f823f79b062433bd46" title=" " alt="" coords="103,56,215,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="248,58,216,63,215,58,247,53"/>
+<area shape="rect" id="Node000004" href="$client_2main_8cpp.html#a0c99d968a34e803d378692bde2e3f18f" title=" " alt="" coords="5,56,55,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,72,55,72,55,67,87,67"/>
 </map>

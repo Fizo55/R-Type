@@ -1,0 +1,23 @@
+<map id="server/src/BinarySerializer.cpp" name="server/src/BinarySerializer.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="192,5,392,32"/>
+<area shape="rect" id="Node000002" href="$BinarySerializer_8hpp.html" title=" " alt="" coords="101,80,238,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,35,205,74,203,69,269,30"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="307,229,365,256"/>
+<area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="365,30,406,48,423,62,438,79,447,98,447,119,441,139,431,158,400,194,368,222,364,218,397,190,426,155,436,137,442,118,441,99,434,81,420,65,403,53,363,35"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="262,80,322,107"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="295,33,295,64,289,64,289,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="346,80,424,107"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="310,30,359,68,356,73,306,35"/>
+<area shape="rect" id="Node000009" href="$Endianness_8hpp.html" title=" " alt="" coords="5,155,120,181"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="193,32,137,50,112,64,90,82,80,95,73,109,66,140,61,139,68,108,76,92,86,78,109,59,135,45,191,27"/>
+<area shape="rect" id="Node000003" href="$ISerializer_8hpp.html" title=" " alt="" coords="194,155,299,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="184,105,224,142,220,146,181,109"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="127,229,187,256"/>
+<area shape="poly" id="edge7_Node000002_Node000004" title=" " alt="" coords="171,107,162,214,157,214,165,107"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="229,105,273,123,294,136,313,153,329,182,336,213,331,215,324,184,308,156,291,141,271,128,227,110"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="233,184,186,221,183,217,229,180"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="220,229,273,256"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="249,182,249,214,244,214,244,182"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="264,180,310,217,307,221,260,184"/>
+<area shape="poly" id="edge12_Node000009_Node000004" title=" " alt="" coords="81,180,130,218,127,222,77,184"/>
+</map>

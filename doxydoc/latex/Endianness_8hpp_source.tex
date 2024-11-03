@@ -1,0 +1,54 @@
+\doxysection{Endianness.\+hpp}
+\hypertarget{Endianness_8hpp_source}{}\label{Endianness_8hpp_source}\index{server/include/Endianness.hpp@{server/include/Endianness.hpp}}
+\mbox{\hyperlink{Endianness_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceEndianness}{Endianness}}\ \{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceEndianness_aa1760cd4396acf65407ec2fb13da530f}{isLittleEndian}}()\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ uint16\_t\ number\ =\ 0x1;}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *(\textcolor{keyword}{reinterpret\_cast<}uint8\_t*\textcolor{keyword}{>}(\&number))\ ==\ 0x1;}
+\DoxyCodeLine{00008\ \ \ \ \ \}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{inline}\ uint16\_t\ \mbox{\hyperlink{namespaceEndianness_ac7a53c6467ecf5369bca6509544cf547}{swapUint16}}(uint16\_t\ value)\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (value\ <<\ 8)\ |\ (value\ >>\ 8);}
+\DoxyCodeLine{00012\ \ \ \ \ \}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{inline}\ uint32\_t\ \mbox{\hyperlink{namespaceEndianness_acbec439e5b66d4e9d0f379fbb096d45f}{swapUint32}}(uint32\_t\ value)\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \ ((value\ <<\ 24)\ \&\ 0xFF000000)\ |}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((value\ <<\ 8)\ \ \&\ 0x00FF0000)\ |}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((value\ >>\ 8)\ \ \&\ 0x0000FF00)\ |}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((value\ >>\ 24)\ \&\ 0x000000FF);}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{inline}\ uint16\_t\ \mbox{\hyperlink{namespaceEndianness_ac0e46cd1f4ee0a50c7fd517ad6899a9c}{hostToNetworkUint16}}(uint16\_t\ value)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceEndianness_aa1760cd4396acf65407ec2fb13da530f}{isLittleEndian}}())}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceEndianness_ac7a53c6467ecf5369bca6509544cf547}{swapUint16}}(value);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{inline}\ uint16\_t\ \mbox{\hyperlink{namespaceEndianness_a9cda4b157961f6a544626b094041746a}{networkToHostUint16}}(uint16\_t\ value)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceEndianness_aa1760cd4396acf65407ec2fb13da530f}{isLittleEndian}}())}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceEndianness_ac7a53c6467ecf5369bca6509544cf547}{swapUint16}}(value);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{inline}\ uint32\_t\ \mbox{\hyperlink{namespaceEndianness_a15671f63b5f2c131895139907b4cd001}{hostToNetworkUint32}}(uint32\_t\ value)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceEndianness_aa1760cd4396acf65407ec2fb13da530f}{isLittleEndian}}())}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceEndianness_acbec439e5b66d4e9d0f379fbb096d45f}{swapUint32}}(value);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{inline}\ uint32\_t\ \mbox{\hyperlink{namespaceEndianness_a283b4f4f581b34e626cdac1517629e3c}{networkToHostUint32}}(uint32\_t\ value)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceEndianness_aa1760cd4396acf65407ec2fb13da530f}{isLittleEndian}}())}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceEndianness_acbec439e5b66d4e9d0f379fbb096d45f}{swapUint32}}(value);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}

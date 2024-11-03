@@ -1,7 +1,12 @@
 <map id="grw::windowHandler::eventWindows" name="grw::windowHandler::eventWindows">
-<area shape="rect" id="node1" title="Handle the events of the windows." alt="" coords="5,99,160,139"/>
-<area shape="rect" id="node2" href="$classgrw_1_1windowHandler.html#a502db37fbe0d034baf5a2ddb68ace078" title="Build an event from a SDL_Event." alt="" coords="229,5,384,45"/>
-<area shape="rect" id="node3" href="$classgrw_1_1windowHandler.html#a7a6d7836962f7eb2099ec0cb6a946f6e" title=" " alt="" coords="229,69,384,109"/>
-<area shape="rect" id="node4" href="$classgrw_1_1windowHandler.html#a30e79879e5fa282623f55633897671ea" title=" " alt="" coords="453,99,608,139"/>
-<area shape="rect" id="node5" href="$classgrw_1_1window.html#a14577db223a637059b4097267d3bab72" title="Register an event." alt="" coords="208,185,405,210"/>
+<area shape="rect" id="Node000001" title="Handle the events of the windows." alt="" coords="5,101,145,144"/>
+<area shape="rect" id="Node000002" href="$classgrw_1_1windowHandler.html#a502db37fbe0d034baf5a2ddb68ace078" title="Build an event from a SDL_Event." alt="" coords="213,5,352,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,98,192,58,205,52,207,57,194,62,115,103"/>
+<area shape="rect" id="Node000003" href="$classgrw_1_1windowHandler.html#a7a6d7836962f7eb2099ec0cb6a946f6e" title=" " alt="" coords="213,72,352,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="145,110,197,103,198,108,145,115"/>
+<area shape="rect" id="Node000004" href="$classgrw_1_1windowHandler.html#a30e79879e5fa282623f55633897671ea" title=" " alt="" coords="420,101,559,144"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="145,123,193,124,372,124,404,123,404,129,372,129,193,129,145,128"/>
+<area shape="rect" id="Node000005" href="$classgrw_1_1window.html#a14577db223a637059b4097267d3bab72" title="Register an event." alt="" coords="193,189,372,216"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="129,142,194,168,228,181,226,186,192,173,127,147"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="353,101,405,108,404,113,352,106"/>
 </map>

@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['isallwindowclosed_0',['isAllWindowClosed',['../classgrw_1_1windowHandler.html#a907ab3be2e3be1c8007da3836cba4aa9',1,'grw::windowHandler']]],
-  ['isclosed_1',['isClosed',['../classgrw_1_1window.html#ad8417a9e5de65e07f7cc911e8c41f782',1,'grw::window']]],
-  ['iswindowclosed_2',['isWindowClosed',['../classgrw_1_1windowHandler.html#a57d039161a119379a1d89d25913f524f',1,'grw::windowHandler']]]
+  ['handlemessage_0',['handleMessage',['../classIGameLogic.html#a74dd1b306c4d1357f8b4be71e2c94b56',1,'IGameLogic::handleMessage()'],['../classRTypeGameLogic.html#a2d1271e5a89d4af6f939958b1012922d',1,'RTypeGameLogic::handleMessage()']]],
+  ['hasarg_1',['hasArg',['../classargumentParser.html#a4ab7b0e6673c7b37862dc5c17a879607',1,'argumentParser']]],
+  ['hasevent_2',['hasEvent',['../classgrw_1_1window.html#a55bad0b1ce23db77895fd76c225d0680',1,'grw::window']]],
+  ['haswindow_3',['hasWindow',['../classgrw_1_1windowHandler.html#a30e79879e5fa282623f55633897671ea',1,'grw::windowHandler']]],
+  ['hosttonetworkuint16_4',['hostToNetworkUint16',['../namespaceEndianness.html#ac0e46cd1f4ee0a50c7fd517ad6899a9c',1,'Endianness']]],
+  ['hosttonetworkuint32_5',['hostToNetworkUint32',['../namespaceEndianness.html#a15671f63b5f2c131895139907b4cd001',1,'Endianness']]]
 ];

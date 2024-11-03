@@ -1,0 +1,11 @@
+<map id="BinaryDeserializer::readFloat" name="BinaryDeserializer::readFloat">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,133,65"/>
+<area shape="rect" id="Node000002" href="$classBinaryDeserializer.html#aea63bb944224d576179e484b2c5f9127" title=" " alt="" coords="181,23,308,65"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,41,165,41,165,47,133,47"/>
+<area shape="rect" id="Node000003" href="$namespaceEndianness.html#a283b4f4f581b34e626cdac1517629e3c" title=" " alt="" coords="356,23,541,65"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="308,41,340,41,340,47,308,47"/>
+<area shape="rect" id="Node000004" href="$namespaceEndianness.html#aa1760cd4396acf65407ec2fb13da530f" title=" " alt="" coords="589,5,765,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="541,31,573,27,574,33,542,36"/>
+<area shape="rect" id="Node000005" href="$namespaceEndianness.html#acbec439e5b66d4e9d0f379fbb096d45f" title=" " alt="" coords="594,56,760,83"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="542,52,579,56,578,61,541,57"/>
+</map>
