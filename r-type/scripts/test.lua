@@ -3,8 +3,6 @@ function move_player()
 end
 
 
-print("Pos: ", valuex, " ", valuey, ". That was the poses")
-
 local angle = 10
 local radius = 10
 function update()
@@ -16,3 +14,4 @@ function update()
     angle = angle + 0.1
     print("update function")
 end
+

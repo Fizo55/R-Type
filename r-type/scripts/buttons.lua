@@ -1,7 +1,7 @@
 posx = self:get_pos("x")
 posy = self:get_pos("y")
 isLevel = false
-function level1()
+function update()
 
     if posx < 200 then
         posx = posx + 1

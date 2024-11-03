@@ -8,3 +8,6 @@ while iterator < 500 do
     posy = posy + 1
     self:move(posx, posy)
 end
+
+function update()
+end

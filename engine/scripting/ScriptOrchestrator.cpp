@@ -8,6 +8,9 @@ engine::ScriptOrchestrator::ScriptOrchestrator()
 
 void engine::ScriptOrchestrator::fromGameObject(Game &game)
 {
+    for (const auto &temp : this->_scripts)
+        temp->stopUsing();
+
     this->_scripts.clear();
 
     for (const auto &obj : game.getLoadedObjects()) {
@@ -43,8 +46,8 @@ void engine::ScriptOrchestrator::fromGameObject(Game &game)
 
 void engine::ScriptOrchestrator::callFunctionAll(const std::string &name)
 {
-    for (auto it = this->_scripts.begin(); it != this->_scripts.end(); ++it) {
-        it->second->callFunction(name);
+    for (auto it : this->_scripts) {
+        it->callFunction(name);
     }
 }
 
@@ -73,7 +76,7 @@ void engine::ScriptOrchestrator::buildScript(const std::string &name, const std:
 
     newScript->loadScript(this->_registeredScripts[name]);
 
-    this->_scripts[name] = newScript;
+    this->_scripts.push_back(newScript);
 }
 
 void engine::ScriptOrchestrator::addBinding(std::function<void(lua_State *)> binding)

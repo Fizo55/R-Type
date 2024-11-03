@@ -61,13 +61,12 @@
 
                 void callFunction(const std::string &);
 
-                void registerGlobalObject(const ScriptGlobalDefinition &scriptDef)
-                {
-                    scriptDef.type->magicSet(lua_newuserdata(this->_ctx, scriptDef.type->magicSize()), scriptDef.data);
-                    luaL_setmetatable(this->_ctx, scriptDef.luaTable.c_str());
-                    lua_setglobal(this->_ctx, scriptDef.name.c_str());
-                }
+                void registerGlobalObject(const ScriptGlobalDefinition &);
                 lua_State *getCtx(void) const;
+
+                void stopUsing(void);
+
+                bool doStopUsing;
             private:
                 lua_State *_ctx;
         };
@@ -91,7 +90,7 @@
                 void callFunctionAll(const std::string &name);
 
             private:
-                std::map<std::string, std::shared_ptr<ScriptEnvironment>> _scripts;
+                std::vector<std::shared_ptr<ScriptEnvironment>> _scripts;
                 std::map<std::string, std::string> _registeredScripts;
                 std::vector<ScriptGlobalDefinition> _luaGlobals;
                 std::vector<std::function<void(lua_State *)>> _bindings;

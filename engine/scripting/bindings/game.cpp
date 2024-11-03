@@ -18,14 +18,10 @@ static int change_scene(lua_State *ctx)
     std::string sceneName = luaL_checkstring(ctx, 2);
     engine::Game *mygame = (*reinterpret_cast<engine::Game**>(luaL_checkudata(ctx, 1, "game")));
     auto gIndex = lua_getglobal(ctx, "orchestrator");
-    std::cout << "global" << std::endl;
     engine::ScriptOrchestrator *tempOrchestrator = *reinterpret_cast<engine::ScriptOrchestrator**>(lua_touserdata(ctx, 3));
-    std::cout << "tempo" << std::endl;
     mygame->loadScene(sceneName);
-    std::cout << "loadsc" << std::endl;
 
     tempOrchestrator->fromGameObject(*mygame);
-    std::cout << "from gameobj" << std::endl;
     lua_pop(ctx, 3);
 
     return 0;
