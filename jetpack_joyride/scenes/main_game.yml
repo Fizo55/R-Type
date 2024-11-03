@@ -1,0 +1,59 @@
+name: main_game
+objects:
+  - name: bg1
+    id: bg
+    values:
+      coords:
+        - 0
+        - 0
+      sprite:
+        - "sprite_bg"
+      size:
+        - 2304
+        - 1080
+      main_script:
+        - "bg_script"
+  - name: bg2
+    id: bg
+    values:
+      coords:
+        - 2304
+        - 0
+      sprite:
+        - "sprite_bg"
+      size:
+        - 2304
+        - 1080
+      main_script:
+        - "bg_script"
+
+  - name: player1
+    id: player
+    values:
+      coords:
+        - 100
+        - 110
+      sprite:
+        - "sprite_player"
+      size:
+        - 90
+        - 108
+      main_script:
+        - "main_player"
+
+  - name: coin1
+    id: coin
+    values:
+      coords:
+        - 900
+        - 400
+      sprite:
+        - "sprite_coin"
+      size:
+        - 13
+        - 13
+      main_script:
+        - "coin_script"
+
+huds:
+

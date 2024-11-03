@@ -5,7 +5,7 @@
 using namespace grw;
 
 clock::clock()
-    : _oldTime(SDL_GetTicks64())
+    : _oldTime(SDL_GetTicks64()), _lastDT(0)
 {
 
 }
@@ -21,7 +21,8 @@ unsigned long clock::tick(int fps) {
 
     if (fps == -1) {
         this->_oldTime = SDL_GetTicks64();
-        return (delta);
+        this->_lastDT = (delta);
+        return (this->_lastDT);
     }
 
     executionTime = 1000.0 / fps;
@@ -30,5 +31,10 @@ unsigned long clock::tick(int fps) {
     if (sleepTime > 0.5)
         SDL_Delay((unsigned long)std::round(sleepTime));
     this->_oldTime = SDL_GetTicks64();
-    return (sleepTime > 0.0 ? delta + sleepTime : delta);
+    this->_lastDT = (sleepTime > 0.0 ? delta + sleepTime : delta);
+    return (this->_lastDT);
+}
+
+unsigned long clock::lastDT(void) {
+    return (this->_lastDT);
 }

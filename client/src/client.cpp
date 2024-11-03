@@ -73,13 +73,46 @@ client::~client()
 
 }
 
-void client::event(void)
+void client::event(bool &isFlying)
 {
     this->_running = !this->_displayManager.event();
+
+    if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::NO_EVENT)) {
+    }
+    if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_RELEASED)) {
+        std::cout << "released" << std::endl;
+        isFlying = false;
+    }
+    if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::UP)) {
+        std::cout << "up" << std::endl;
+        isFlying = true;
+    }
+        if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::DOWN)) {
+        std::cout << "down" << std::endl;
+    }
+        if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::LEFT)) {
+        std::cout << "left" << std::endl;
+    }
+        if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::RIGHT)) {
+        std::cout << "right" << std::endl;
+    }
+        if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::SPACE)) {
+        std::cout << "space" << std::endl;
+        isFlying = true;
+    }
+    if (isFlying) {
+        this->_orchestrator.callFunctionAll("move_up");
+    } else {
+        this->_orchestrator.callFunctionAll("move_down");
+    }
 }
 
 void client::update(void)
 {
+    this->_orchestrator.callFunctionAll("move_background");
+    this->_orchestrator.callFunctionAll("nothing");
+
+
     this->_displayManager.update();
 }
 
@@ -100,10 +133,11 @@ void client::draw(void)
 
 void client::mainloop(void)
 {
+    bool isFlying = false;
     this->_running = true;
 
     while (this->_running) {
-        this->event();
+        this->event(isFlying);
         this->update();
         this->draw();
         this->_clock.tick(60);

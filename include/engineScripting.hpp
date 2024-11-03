@@ -59,13 +59,14 @@
 
                 void loadScript(const std::string &);
 
-                void registerGlobalObject(const ScriptGlobalDefinition &scriptDef)
-                {
-                    scriptDef.type->magicSet(lua_newuserdata(this->_ctx, scriptDef.type->magicSize()), scriptDef.data);
-                    luaL_setmetatable(this->_ctx, scriptDef.luaTable.c_str());
-                    lua_setglobal(this->_ctx, scriptDef.name.c_str());
-                }
+                void callFunction(const std::string &);
+
+                void registerGlobalObject(const ScriptGlobalDefinition &);
                 lua_State *getCtx(void) const;
+
+                void stopUsing(void);
+
+                bool doStopUsing;
             private:
                 lua_State *_ctx;
         };
@@ -76,6 +77,7 @@
                 ~ScriptOrchestrator() = default;
 
                 void registerScript(const std::string &, const std::string &);
+
                 void buildScript(const std::string &name, const std::vector<engine::ScriptGlobalDefinition> &extraDefs = std::vector<engine::ScriptGlobalDefinition>());
 
                 void registerGlobal(const ScriptGlobalDefinition &scriptDef)
@@ -85,9 +87,10 @@
 
                 void fromGameObject(Game &);
                 void addBinding(std::function<void(lua_State *)>);
+                void callFunctionAll(const std::string &name);
 
             private:
-                std::map<std::string, std::shared_ptr<ScriptEnvironment>> _scripts;
+                std::vector<std::shared_ptr<ScriptEnvironment>> _scripts;
                 std::map<std::string, std::string> _registeredScripts;
                 std::vector<ScriptGlobalDefinition> _luaGlobals;
                 std::vector<std::function<void(lua_State *)>> _bindings;
@@ -96,5 +99,6 @@
 
     void game_register(lua_State *ctx);
     void object_register(lua_State *ctx);
+    void orchestrator_register(lua_State *ctx);
 
 #endif /* !ENGINE_SCRIPTING_HPP_ */
