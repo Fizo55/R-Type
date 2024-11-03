@@ -1,0 +1,86 @@
+\doxysection{Thread\+Pool\+Scheduler Class Reference}
+\hypertarget{classThreadPoolScheduler}{}\label{classThreadPoolScheduler}\index{ThreadPoolScheduler@{ThreadPoolScheduler}}
+
+
+{\ttfamily \#include $<$Thread\+Pool\+Scheduler.\+hpp$>$}
+
+
+
+Inheritance diagram for Thread\+Pool\+Scheduler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classThreadPoolScheduler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Thread\+Pool\+Scheduler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classThreadPoolScheduler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classThreadPoolScheduler_a82ef1b5d48ed1ea5b524566b40ec395f}{Thread\+Pool\+Scheduler}} (size\+\_\+t thread\+Count)
+\item 
+\mbox{\hyperlink{classThreadPoolScheduler_ab54f589d1816d8616caff686a374d93b}{\texorpdfstring{$\sim$}{\string~}\+Thread\+Pool\+Scheduler}} ()
+\item 
+void \mbox{\hyperlink{classThreadPoolScheduler_a13401aa80308a327644de7e0b167d8c2}{schedule\+Task}} (const std\+::function$<$ void()$>$ \&task) override
+\item 
+void \mbox{\hyperlink{classThreadPoolScheduler_a0fd3ee721fdddffa68d7f4cd2a1211ca}{run}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classITaskScheduler}{ITask\+Scheduler}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classITaskScheduler_aad60042fc381aebfe61e79736b94390e}{\texorpdfstring{$\sim$}{\string~}\+ITask\+Scheduler}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classThreadPoolScheduler_a82ef1b5d48ed1ea5b524566b40ec395f}\label{classThreadPoolScheduler_a82ef1b5d48ed1ea5b524566b40ec395f} 
+\index{ThreadPoolScheduler@{ThreadPoolScheduler}!ThreadPoolScheduler@{ThreadPoolScheduler}}
+\index{ThreadPoolScheduler@{ThreadPoolScheduler}!ThreadPoolScheduler@{ThreadPoolScheduler}}
+\doxysubsubsection{\texorpdfstring{ThreadPoolScheduler()}{ThreadPoolScheduler()}}
+{\footnotesize\ttfamily Thread\+Pool\+Scheduler\+::\+Thread\+Pool\+Scheduler (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{thread\+Count }\end{DoxyParamCaption})}
+
+\Hypertarget{classThreadPoolScheduler_ab54f589d1816d8616caff686a374d93b}\label{classThreadPoolScheduler_ab54f589d1816d8616caff686a374d93b} 
+\index{ThreadPoolScheduler@{ThreadPoolScheduler}!````~ThreadPoolScheduler@{\texorpdfstring{$\sim$}{\string~}ThreadPoolScheduler}}
+\index{````~ThreadPoolScheduler@{\texorpdfstring{$\sim$}{\string~}ThreadPoolScheduler}!ThreadPoolScheduler@{ThreadPoolScheduler}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ThreadPoolScheduler()}{\string~ThreadPoolScheduler()}}
+{\footnotesize\ttfamily Thread\+Pool\+Scheduler\+::\texorpdfstring{$\sim$}{\string~}\+Thread\+Pool\+Scheduler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classThreadPoolScheduler_a0fd3ee721fdddffa68d7f4cd2a1211ca}\label{classThreadPoolScheduler_a0fd3ee721fdddffa68d7f4cd2a1211ca} 
+\index{ThreadPoolScheduler@{ThreadPoolScheduler}!run@{run}}
+\index{run@{run}!ThreadPoolScheduler@{ThreadPoolScheduler}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Thread\+Pool\+Scheduler\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classITaskScheduler_a7879db31175fb5912ea7c9a36eaf0f9e}{ITask\+Scheduler}}.
+
+\Hypertarget{classThreadPoolScheduler_a13401aa80308a327644de7e0b167d8c2}\label{classThreadPoolScheduler_a13401aa80308a327644de7e0b167d8c2} 
+\index{ThreadPoolScheduler@{ThreadPoolScheduler}!scheduleTask@{scheduleTask}}
+\index{scheduleTask@{scheduleTask}!ThreadPoolScheduler@{ThreadPoolScheduler}}
+\doxysubsubsection{\texorpdfstring{scheduleTask()}{scheduleTask()}}
+{\footnotesize\ttfamily void Thread\+Pool\+Scheduler\+::schedule\+Task (\begin{DoxyParamCaption}\item[{const std\+::function$<$ void()$>$ \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classITaskScheduler_ae481279e9124098215439bf02e9ccd8b}{ITask\+Scheduler}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{ThreadPoolScheduler_8hpp}{Thread\+Pool\+Scheduler.\+hpp}}\item 
+server/src/\mbox{\hyperlink{ThreadPoolScheduler_8cpp}{Thread\+Pool\+Scheduler.\+cpp}}\end{DoxyCompactItemize}

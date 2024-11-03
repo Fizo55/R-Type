@@ -1,0 +1,47 @@
+\doxysection{Game\+State\+Update\+Message.\+hpp}
+\hypertarget{GameStateUpdateMessage_8hpp_source}{}\label{GameStateUpdateMessage_8hpp_source}\index{server/include/GameStateUpdateMessage.hpp@{server/include/GameStateUpdateMessage.hpp}}
+\mbox{\hyperlink{GameStateUpdateMessage_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GAMESTATEUPDATEMESSAGE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GAMESTATEUPDATEMESSAGE\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MessageBase_8hpp}{MessageBase.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BinarySerializer_8hpp}{BinarySerializer.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BinaryDeserializer_8hpp}{BinaryDeserializer.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MessageTypes_8hpp}{MessageTypes.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ TODO\ :\ Remove\ that\ (ECS\ ?)}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structEntityState}{EntityState}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ int32\_t\ \mbox{\hyperlink{structEntityState_ac33abb14496471123d8137303692e087}{entityId}};}
+\DoxyCodeLine{00013\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structEntityState_ac428d5b7423e01e384c85679dd1784fd}{entityType}};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structEntityState_ab92a2207b2f4fff15c7ec7cdd24387bd}{positionX}};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structEntityState_ab9259b879a1e8a87dbfa282ad69a60d0}{positionY}};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structEntityState_ad882194b213a639d678b432429f416f3}{velocityX}};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structEntityState_a4efd50e8dd0c09d361472e157ecb7f0b}{velocityY}};}
+\DoxyCodeLine{00018\ \ \ \ \ std::vector<uint8\_t>\ \mbox{\hyperlink{structEntityState_ab058d1f0e5cb76f6e280ec6cf9628741}{additionalData}};}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGameStateUpdateMessage}{GameStateUpdateMessage}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classMessageBase}{MessageBase}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classGameStateUpdateMessage_a8724475a2ab443e2c3ba17925b11fc14}{GameStateUpdateMessage}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameStateUpdateMessage_a0dbf190af9cca153afa9982b57aed2f2}{serialize}}(std::vector<uint8\_t>\&\ outBuffer,\ uint16\_t\ sequenceId,\ uint8\_t\ flags)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameStateUpdateMessage_a5eab350a24666c379c6eb6915d0be216}{deserialize}}(\textcolor{keyword}{const}\ std::vector<uint8\_t>\&\ inData)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{classGameStateUpdateMessage_a42916a4ac61a98ee499ff9a732f5bf11}{getSequenceId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classGameStateUpdateMessage_a1f96e7b218bf4d3026d3e1a906e4c1d9}{getFlags}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ std::vector<EntityState>\ \mbox{\hyperlink{classGameStateUpdateMessage_af7590a05045f0b55905656b382e3f5ce}{entityStates}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ uint16\_t\ sequenceId\_;}
+\DoxyCodeLine{00035\ \ \ \ \ uint8\_t\ flags\_;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ serializeEntityState(\textcolor{keyword}{const}\ \mbox{\hyperlink{structEntityState}{EntityState}}\&\ state,\ \mbox{\hyperlink{classBinarySerializer}{BinarySerializer}}\&\ serializer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{structEntityState}{EntityState}}\ deserializeEntityState(\mbox{\hyperlink{classBinaryDeserializer}{BinaryDeserializer}}\&\ deserializer);}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

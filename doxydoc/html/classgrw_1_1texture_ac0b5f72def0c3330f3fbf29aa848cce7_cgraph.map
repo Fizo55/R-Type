@@ -1,4 +1,5 @@
 <map id="grw::texture::optimize" name="grw::texture::optimize">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,171,31"/>
-<area shape="rect" id="node2" href="$classgrw_1_1texture.html#a9dd1ce134bf5188f90c0f96a350f39b3" title=" " alt="" coords="219,5,397,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,153,32"/>
+<area shape="rect" id="Node000002" href="$classgrw_1_1texture.html#a9dd1ce134bf5188f90c0f96a350f39b3" title=" " alt="" coords="201,5,362,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,16,185,16,185,21,153,21"/>
 </map>

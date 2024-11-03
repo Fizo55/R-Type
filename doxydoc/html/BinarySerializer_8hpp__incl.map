@@ -1,0 +1,13 @@
+<map id="server/include/BinarySerializer.hpp" name="server/include/BinarySerializer.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="10,5,232,32"/>
+<area shape="rect" id="Node000002" href="$ISerializer_8hpp.html" title=" " alt="" coords="69,80,173,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,33,124,64,118,64,118,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,66,181"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="104,35,80,55,59,81,47,110,41,140,36,138,42,109,55,79,77,51,101,31"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="176,155,234,181"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="141,31,165,51,187,79,199,109,205,138,200,139,194,110,183,81,161,55,138,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,109,63,147,60,143,104,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="94,155,148,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="124,107,124,139,118,139,118,107"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="137,105,181,142,177,146,134,109"/>
+</map>

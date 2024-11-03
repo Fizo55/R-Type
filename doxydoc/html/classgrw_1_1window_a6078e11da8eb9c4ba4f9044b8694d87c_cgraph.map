@@ -1,6 +1,9 @@
 <map id="grw::window::update" name="grw::window::update">
-<area shape="rect" id="node1" title="Update the window." alt="" coords="5,63,160,88"/>
-<area shape="rect" id="node2" href="$classgrw_1_1window.html#a51ddde19e7e46b6d3150f87b69411eae" title="Close the window." alt="" coords="221,5,365,31"/>
-<area shape="rect" id="node3" href="$classengine__math_1_1bitFlag.html#a925a951adbe550ce7ac4f13caad07a10" title=" " alt="" coords="213,55,373,95"/>
-<area shape="rect" id="node4" href="$classgrw_1_1window.html#a55bad0b1ce23db77895fd76c225d0680" title=" " alt="" coords="208,120,379,145"/>
+<area shape="rect" id="Node000001" title="Update the window." alt="" coords="5,64,147,91"/>
+<area shape="rect" id="Node000002" href="$classgrw_1_1window.html#a51ddde19e7e46b6d3150f87b69411eae" title="Close the window." alt="" coords="207,5,340,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,61,211,34,212,39,124,66"/>
+<area shape="rect" id="Node000003" href="$classengine__math_1_1bitFlag.html#a925a951adbe550ce7ac4f13caad07a10" title=" " alt="" coords="202,56,345,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="147,75,187,75,187,80,147,80"/>
+<area shape="rect" id="Node000004" href="$classgrw_1_1window.html#a55bad0b1ce23db77895fd76c225d0680" title=" " alt="" coords="195,123,352,149"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="124,89,212,115,211,120,123,94"/>
 </map>

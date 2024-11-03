@@ -1,0 +1,28 @@
+\doxysection{Acknowledgment\+Message.\+hpp}
+\hypertarget{AcknowledgmentMessage_8hpp_source}{}\label{AcknowledgmentMessage_8hpp_source}\index{server/include/AcknowledgmentMessage.hpp@{server/include/AcknowledgmentMessage.hpp}}
+\mbox{\hyperlink{AcknowledgmentMessage_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MessageBase_8hpp}{MessageBase.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAcknowledgmentMessage}{AcknowledgmentMessage}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classMessageBase}{MessageBase}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{classAcknowledgmentMessage_a55ec9067d4b5600f728aae6ac9a6756f}{AcknowledgmentMessage}}();}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{classAcknowledgmentMessage_ade3ec770653dcfe0f4e20da8f3a9679c}{acknowledgedSequenceId}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAcknowledgmentMessage_af0a1df51549ad8d27204bf40065363a8}{serialize}}(std::vector<uint8\_t>\&\ outBuffer,\ uint16\_t\ sequenceId,\ uint8\_t\ flags)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAcknowledgmentMessage_ac86e97b24f9202d2141c2eff5809e5dc}{deserialize}}(\textcolor{keyword}{const}\ std::vector<uint8\_t>\&\ inBuffer)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{classAcknowledgmentMessage_a2f62bb5617e0564c457d988f7383b798}{getSequenceId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classAcknowledgmentMessage_aef8b207d7797f3cebdbb8abc8e36ada0}{getFlags}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ uint16\_t\ sequenceId\_;}
+\DoxyCodeLine{00021\ \ \ \ \ uint8\_t\ flags\_;}
+\DoxyCodeLine{00022\ \};}
+
+\end{DoxyCode}

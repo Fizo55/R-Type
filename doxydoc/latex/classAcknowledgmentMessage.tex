@@ -1,0 +1,137 @@
+\doxysection{Acknowledgment\+Message Class Reference}
+\hypertarget{classAcknowledgmentMessage}{}\label{classAcknowledgmentMessage}\index{AcknowledgmentMessage@{AcknowledgmentMessage}}
+
+
+{\ttfamily \#include $<$Acknowledgment\+Message.\+hpp$>$}
+
+
+
+Inheritance diagram for Acknowledgment\+Message\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{classAcknowledgmentMessage__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Acknowledgment\+Message\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAcknowledgmentMessage__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAcknowledgmentMessage_a55ec9067d4b5600f728aae6ac9a6756f}{Acknowledgment\+Message}} ()
+\item 
+void \mbox{\hyperlink{classAcknowledgmentMessage_af0a1df51549ad8d27204bf40065363a8}{serialize}} (std\+::vector$<$ uint8\+\_\+t $>$ \&out\+Buffer, uint16\+\_\+t sequence\+Id, uint8\+\_\+t flags) const override
+\item 
+void \mbox{\hyperlink{classAcknowledgmentMessage_ac86e97b24f9202d2141c2eff5809e5dc}{deserialize}} (const std\+::vector$<$ uint8\+\_\+t $>$ \&in\+Buffer) override
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classAcknowledgmentMessage_a2f62bb5617e0564c457d988f7383b798}{get\+Sequence\+Id}} () const
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classAcknowledgmentMessage_aef8b207d7797f3cebdbb8abc8e36ada0}{get\+Flags}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classMessageBase}{Message\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMessageBase_a851e7d355497b91ab2c2cd7e3b353603}{Message\+Base}} (uint32\+\_\+t type)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMessageBase_ad1213b92c1f9764ae9bf58ba386a313f}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classIMessage}{IMessage}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classIMessage_ab02076630dc982a6d2ecb5af9459907c}{\texorpdfstring{$\sim$}{\string~}\+IMessage}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classAcknowledgmentMessage_ade3ec770653dcfe0f4e20da8f3a9679c}{acknowledged\+Sequence\+Id}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classMessageBase}{Message\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMessageBase_ac0f51f26d0c8139a224ed6d19d262c59}{type\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classAcknowledgmentMessage_a55ec9067d4b5600f728aae6ac9a6756f}\label{classAcknowledgmentMessage_a55ec9067d4b5600f728aae6ac9a6756f} 
+\index{AcknowledgmentMessage@{AcknowledgmentMessage}!AcknowledgmentMessage@{AcknowledgmentMessage}}
+\index{AcknowledgmentMessage@{AcknowledgmentMessage}!AcknowledgmentMessage@{AcknowledgmentMessage}}
+\doxysubsubsection{\texorpdfstring{AcknowledgmentMessage()}{AcknowledgmentMessage()}}
+{\footnotesize\ttfamily Acknowledgment\+Message\+::\+Acknowledgment\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAcknowledgmentMessage_ac86e97b24f9202d2141c2eff5809e5dc}\label{classAcknowledgmentMessage_ac86e97b24f9202d2141c2eff5809e5dc} 
+\index{AcknowledgmentMessage@{AcknowledgmentMessage}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!AcknowledgmentMessage@{AcknowledgmentMessage}}
+\doxysubsubsection{\texorpdfstring{deserialize()}{deserialize()}}
+{\footnotesize\ttfamily void Acknowledgment\+Message\+::deserialize (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint8\+\_\+t $>$ \&}]{in\+Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classMessageBase_a2198714282a75b8b1187bbd5078913cf}{Message\+Base}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAcknowledgmentMessage_ac86e97b24f9202d2141c2eff5809e5dc_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classAcknowledgmentMessage_aef8b207d7797f3cebdbb8abc8e36ada0}\label{classAcknowledgmentMessage_aef8b207d7797f3cebdbb8abc8e36ada0} 
+\index{AcknowledgmentMessage@{AcknowledgmentMessage}!getFlags@{getFlags}}
+\index{getFlags@{getFlags}!AcknowledgmentMessage@{AcknowledgmentMessage}}
+\doxysubsubsection{\texorpdfstring{getFlags()}{getFlags()}}
+{\footnotesize\ttfamily uint8\+\_\+t Acknowledgment\+Message\+::get\+Flags (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classAcknowledgmentMessage_a2f62bb5617e0564c457d988f7383b798}\label{classAcknowledgmentMessage_a2f62bb5617e0564c457d988f7383b798} 
+\index{AcknowledgmentMessage@{AcknowledgmentMessage}!getSequenceId@{getSequenceId}}
+\index{getSequenceId@{getSequenceId}!AcknowledgmentMessage@{AcknowledgmentMessage}}
+\doxysubsubsection{\texorpdfstring{getSequenceId()}{getSequenceId()}}
+{\footnotesize\ttfamily uint16\+\_\+t Acknowledgment\+Message\+::get\+Sequence\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classAcknowledgmentMessage_af0a1df51549ad8d27204bf40065363a8}\label{classAcknowledgmentMessage_af0a1df51549ad8d27204bf40065363a8} 
+\index{AcknowledgmentMessage@{AcknowledgmentMessage}!serialize@{serialize}}
+\index{serialize@{serialize}!AcknowledgmentMessage@{AcknowledgmentMessage}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily void Acknowledgment\+Message\+::serialize (\begin{DoxyParamCaption}\item[{std\+::vector$<$ uint8\+\_\+t $>$ \&}]{out\+Buffer,  }\item[{uint16\+\_\+t}]{sequence\+Id,  }\item[{uint8\+\_\+t}]{flags }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classMessageBase_a0ef34665add7ae2315dbf340e02a311d}{Message\+Base}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAcknowledgmentMessage_af0a1df51549ad8d27204bf40065363a8_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classAcknowledgmentMessage_ade3ec770653dcfe0f4e20da8f3a9679c}\label{classAcknowledgmentMessage_ade3ec770653dcfe0f4e20da8f3a9679c} 
+\index{AcknowledgmentMessage@{AcknowledgmentMessage}!acknowledgedSequenceId@{acknowledgedSequenceId}}
+\index{acknowledgedSequenceId@{acknowledgedSequenceId}!AcknowledgmentMessage@{AcknowledgmentMessage}}
+\doxysubsubsection{\texorpdfstring{acknowledgedSequenceId}{acknowledgedSequenceId}}
+{\footnotesize\ttfamily uint16\+\_\+t Acknowledgment\+Message\+::acknowledged\+Sequence\+Id}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{AcknowledgmentMessage_8hpp}{Acknowledgment\+Message.\+hpp}}\item 
+server/src/\mbox{\hyperlink{AcknowledgmentMessage_8cpp}{Acknowledgment\+Message.\+cpp}}\end{DoxyCompactItemize}

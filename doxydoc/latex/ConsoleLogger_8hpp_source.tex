@@ -1,0 +1,23 @@
+\doxysection{Console\+Logger.\+hpp}
+\hypertarget{ConsoleLogger_8hpp_source}{}\label{ConsoleLogger_8hpp_source}\index{server/include/ConsoleLogger.hpp@{server/include/ConsoleLogger.hpp}}
+\mbox{\hyperlink{ConsoleLogger_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CONSOLELOGGER\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CONSOLELOGGER\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ILogger_8hpp}{ILogger.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classConsoleLogger}{ConsoleLogger}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classILogger}{ILogger}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a8f2db1e72eeace7703a01f778316dcc5}{logInfo}}(\textcolor{keyword}{const}\ std::string\&\ message)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_a3e0f5bc6875eec0c2e3bf98c25f983ba}{logWarning}}(\textcolor{keyword}{const}\ std::string\&\ message)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConsoleLogger_aaca24ca346047a0177d67b97d9cd03a7}{logError}}(\textcolor{keyword}{const}\ std::string\&\ message)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ std::mutex\ logMutex\_;}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,106 @@
+\doxysection{engine\+Scripting.\+hpp}
+\hypertarget{engineScripting_8hpp_source}{}\label{engineScripting_8hpp_source}\index{include/engineScripting.hpp@{include/engineScripting.hpp}}
+\mbox{\hyperlink{engineScripting_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ENGINE\_SCRIPTING\_HPP\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\ \ \ \ \#define\ ENGINE\_SCRIPTING\_HPP\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00005\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#include\ <lua.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#include\ <lualib.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#include\ <lauxlib.h>}}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \#endif\ }\textcolor{comment}{//\_\_cplusplus}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \#include\ <iostream>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\ \ \ \ \#include\ <variant>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{engineCore_8hpp}{engineCore.hpp}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceengine}{engine}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1IScriptTypeDefinitor}{IScriptTypeDefinitor}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1IScriptTypeDefinitor_ae4a913c1b517d5641df75a2d6367a4ab}{IScriptTypeDefinitor}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1IScriptTypeDefinitor_a69a63db8d9278f46da4af8c6994972a7}{\string~IScriptTypeDefinitor}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1IScriptTypeDefinitor_ab7ba3edb20664ecff7e7910196e4bb4e}{magicSet}}(\textcolor{keywordtype}{void}\ *,\ \textcolor{keywordtype}{void}\ *)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::size\_t\ \mbox{\hyperlink{classengine_1_1IScriptTypeDefinitor_a7c4b10ed370228a06f9a7d2bab5b8716}{magicSize}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1ScriptTypeDefinitor}{ScriptTypeDefinitor}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classengine_1_1IScriptTypeDefinitor}{IScriptTypeDefinitor}}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1ScriptTypeDefinitor_a42ca6ce989b3608230443034b1d2ba46}{ScriptTypeDefinitor}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1ScriptTypeDefinitor_acf5b52eefa17c2cfa14470fc1aef5f28}{\string~ScriptTypeDefinitor}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ScriptTypeDefinitor_af75517355145b2f65d58a85d40cbcb6a}{magicSet}}(\textcolor{keywordtype}{void}\ *data,\ \textcolor{keywordtype}{void}\ *other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{reinterpret\_cast<}T**\textcolor{keyword}{>}(data)\ =\ (T*)other;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ \mbox{\hyperlink{classengine_1_1ScriptTypeDefinitor_a7a18a0e509afa355408ba4ac0c76167a}{magicSize}}(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{sizeof}(T*));}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition}{ScriptGlobalDefinition}}\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition_a12dc58460cb79051b7fe737497c02beb}{ScriptGlobalDefinition}}(\mbox{\hyperlink{classengine_1_1IScriptTypeDefinitor}{IScriptTypeDefinitor}}\ *,\ \textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keywordtype}{void}\ *);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition_a05a423ea54687aaaa3c95652e493c200}{\string~ScriptGlobalDefinition}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1IScriptTypeDefinitor}{IScriptTypeDefinitor}}\ *\mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition_a080d297cceb13cd619af82602c663621}{type}};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition_a029aeef66b6c2b1eb7e2adb7638f9446}{name}};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition_a0b8e305e958477f8229c53828519bd60}{luaTable}};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition_acecc3be38bb90cbb5c9660a18675f32e}{data}};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1ScriptEnvironment}{ScriptEnvironment}}\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1ScriptEnvironment_aef4850bd76ba9c337c0b2ea1f5acd6c1}{ScriptEnvironment}}();}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1ScriptEnvironment_a02febdf421d6c6bfe99e567fff1de809}{\string~ScriptEnvironment}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ScriptEnvironment_aee3c62277400c4d0d67d878405519b76}{buildCoreLibrary}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ScriptEnvironment_a6a6458ff870b08898a70ce048a4792a4}{loadScript}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ScriptEnvironment_a62aaeb3bcc17b5f85fdbc665d1a2fdbc}{registerGlobalObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition}{ScriptGlobalDefinition}}\ \&scriptDef)}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scriptDef.\mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition_a080d297cceb13cd619af82602c663621}{type}}-\/>\mbox{\hyperlink{classengine_1_1IScriptTypeDefinitor_ab7ba3edb20664ecff7e7910196e4bb4e}{magicSet}}(lua\_newuserdata(this-\/>\_ctx,\ scriptDef.\mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition_a080d297cceb13cd619af82602c663621}{type}}-\/>\mbox{\hyperlink{classengine_1_1IScriptTypeDefinitor_a7c4b10ed370228a06f9a7d2bab5b8716}{magicSize}}()),\ scriptDef.\mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition_acecc3be38bb90cbb5c9660a18675f32e}{data}});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ luaL\_setmetatable(this-\/>\_ctx,\ scriptDef.\mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition_a0b8e305e958477f8229c53828519bd60}{luaTable}}.c\_str());}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lua\_setglobal(this-\/>\_ctx,\ scriptDef.\mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition_a029aeef66b6c2b1eb7e2adb7638f9446}{name}}.c\_str());}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lua\_State\ *\mbox{\hyperlink{classengine_1_1ScriptEnvironment_a0b9dedd97b1463b7e7527ef289a388e2}{getCtx}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lua\_State\ *\_ctx;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1ScriptOrchestrator}{ScriptOrchestrator}}\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1ScriptOrchestrator_afdc07f791289517d2a2a0e69d7e1d20e}{ScriptOrchestrator}}();}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1ScriptOrchestrator_a8d6b8f35566590dff961a41f75472f7f}{\string~ScriptOrchestrator}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ScriptOrchestrator_aa58217826001b525b30a0e8bde3ba7e7}{registerScript}}(\textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ScriptOrchestrator_a84bdeffe3f44d382b3cc74415e6e4276}{buildScript}}(\textcolor{keyword}{const}\ std::string\ \&name,\ \textcolor{keyword}{const}\ std::vector<engine::ScriptGlobalDefinition>\ \&extraDefs\ =\ std::vector<engine::ScriptGlobalDefinition>());}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ScriptOrchestrator_a44fbf0147fce2884883aab39c61deec9}{registerGlobal}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1ScriptGlobalDefinition}{ScriptGlobalDefinition}}\ \&scriptDef)}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\_luaGlobals.push\_back(scriptDef);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ScriptOrchestrator_ab7344d9ac5ac52bf08e644dcbfb1d9cd}{fromGameObject}}(\mbox{\hyperlink{classengine_1_1Game}{Game}}\ \&);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ScriptOrchestrator_a9a1af1ba050fb50e22487384c4243b04}{addBinding}}(std::function<\textcolor{keywordtype}{void}(lua\_State\ *)>);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ std::shared\_ptr<ScriptEnvironment>>\ \_scripts;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ std::string>\ \_registeredScripts;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<ScriptGlobalDefinition>\ \_luaGlobals;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::function<void(lua\_State\ *)>>\ \_bindings;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00095\ \ \ \ \ \};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{engineScripting_8hpp_acd946b8f56683990970e826970b113ab}{game\_register}}(lua\_State\ *ctx);}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{engineScripting_8hpp_afa3e9abb9f4891eb0ab58d1eca15a761}{object\_register}}(lua\_State\ *ctx);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !ENGINE\_SCRIPTING\_HPP\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,9 @@
+<map id="engine::Scene::Scene" name="engine::Scene::Scene">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,155,107"/>
+<area shape="rect" id="Node000002" href="$classengine_1_1ObjectRef.html#aba3b6c8a8b46428d507b44782fc5f183" title=" " alt="" coords="203,5,337,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,77,192,51,193,56,121,82"/>
+<area shape="rect" id="Node000003" href="$classengine_1_1ObjectRef.html#a7639411609d812c3e2681f34d9c7d388" title=" " alt="" coords="203,72,337,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,91,187,91,187,96,155,96"/>
+<area shape="rect" id="Node000004" href="$classengine_1_1ObjectRef.html#a56883e45596375429dbafeb45e6edca0" title=" " alt="" coords="203,139,337,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="121,105,193,130,192,135,120,110"/>
+</map>

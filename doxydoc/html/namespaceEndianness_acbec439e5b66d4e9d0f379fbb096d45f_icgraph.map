@@ -1,0 +1,33 @@
+<map id="Endianness::swapUint32" name="Endianness::swapUint32">
+<area shape="rect" id="Node000001" title=" " alt="" coords="933,253,1099,280"/>
+<area shape="rect" id="Node000002" href="$namespaceEndianness.html#a15671f63b5f2c131895139907b4cd001" title=" " alt="" coords="699,157,885,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="964,250,847,203,849,198,966,245"/>
+<area shape="rect" id="Node000010" href="$namespaceEndianness.html#a283b4f4f581b34e626cdac1517629e3c" title=" " alt="" coords="699,279,885,321"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="918,284,885,289,885,284,917,279"/>
+<area shape="rect" id="Node000003" href="$classBinarySerializer.html#aa0ff808667c02df67c6b5b06599730e2" title=" " alt="" coords="464,139,651,165"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="684,169,651,165,652,160,684,164"/>
+<area shape="rect" id="Node000004" href="$classPlayerInputMessage.html#af92761c2d86e9e6791be673d5d945227" title=" " alt="" coords="255,5,395,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="524,131,474,97,415,62,390,51,392,46,417,58,477,92,527,127"/>
+<area shape="rect" id="Node000005" href="$classServerWelcomeMessage.html#a4c9e5bc4eb340bd86ffd86e3f0d53aa7" title=" " alt="" coords="242,72,408,115"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="487,137,408,117,409,112,488,132"/>
+<area shape="rect" id="Node000007" href="$classBinarySerializer.html#af649a20b349584e60a902fedc26d40f0" title=" " alt="" coords="236,139,414,165"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="448,155,414,155,414,149,448,149"/>
+<area shape="rect" id="Node000008" href="$classBinarySerializer.html#a8698d1f3cc4d1646d793521ba40c93e2" title=" " alt="" coords="234,189,416,216"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="479,172,390,191,389,186,478,167"/>
+<area shape="rect" id="Node000006" href="$classRTypeGameLogic.html#a6609082054cdde168a7f80af36e3f4b7" title=" " alt="" coords="5,72,186,115"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="226,96,186,96,186,91,226,91"/>
+<area shape="rect" id="Node000009" href="$classClientHelloMessage.html#afaf6dbe254e924a88b6a625089330af4" title=" " alt="" coords="26,181,165,224"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="218,205,165,205,165,200,218,200"/>
+<area shape="rect" id="Node000011" href="$classBinaryDeserializer.html#aea63bb944224d576179e484b2c5f9127" title=" " alt="" coords="494,307,621,349"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="685,315,622,323,621,318,684,310"/>
+<area shape="rect" id="Node000012" href="$classPlayerInputMessage.html#a6adeb802eb5c6f703387b9e270d47bc7" title=" " alt="" coords="255,240,395,283"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="478,308,395,284,396,279,480,303"/>
+<area shape="rect" id="Node000013" href="$classServerWelcomeMessage.html#a93c998a507b46a4a101a14db57580c32" title=" " alt="" coords="242,307,408,349"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="478,331,408,331,408,325,478,325"/>
+<area shape="rect" id="Node000014" href="$classBinaryDeserializer.html#a6587c6927ce6c179514d5b300c13a7d8" title=" " alt="" coords="261,373,389,416"/>
+<area shape="poly" id="edge13_Node000011_Node000014" title=" " alt="" coords="480,353,390,379,388,374,478,348"/>
+<area shape="rect" id="Node000015" href="$classBinaryDeserializer.html#adf27ef0f22e245cdbb1157272058356d" title=" " alt="" coords="261,440,389,483"/>
+<area shape="poly" id="edge14_Node000011_Node000015" title=" " alt="" coords="520,361,472,396,417,430,390,443,388,438,415,426,469,392,517,357"/>
+<area shape="rect" id="Node000016" href="$classClientHelloMessage.html#ad42a1d6abe32615e30d160b6f78a744d" title=" " alt="" coords="26,440,165,483"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="246,464,165,464,165,459,246,459"/>
+</map>

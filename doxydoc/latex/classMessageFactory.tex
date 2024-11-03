@@ -1,0 +1,69 @@
+\doxysection{Message\+Factory Class Reference}
+\hypertarget{classMessageFactory}{}\label{classMessageFactory}\index{MessageFactory@{MessageFactory}}
+
+
+{\ttfamily \#include $<$Message\+Factory.\+hpp$>$}
+
+
+
+Collaboration diagram for Message\+Factory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{classMessageFactory__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMessageFactory_a3c30b95efecc28fad8a2bd6d83e121a5}{static}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIMessage}{IMessage}} $>$ \mbox{\hyperlink{classMessageFactory_afceb108ca2cd2288d2adb121db078218}{create\+Message}} (uint32\+\_\+t \mbox{\hyperlink{classMessageFactory_a3c30b95efecc28fad8a2bd6d83e121a5}{message\+Type}})
+\item 
+{\footnotesize template$<$typename T $>$ }\\static void \mbox{\hyperlink{classMessageFactory_a3c30b95efecc28fad8a2bd6d83e121a5}{register\+Message\+Type}} (uint32\+\_\+t message\+Type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMessageFactory_afceb108ca2cd2288d2adb121db078218}\label{classMessageFactory_afceb108ca2cd2288d2adb121db078218} 
+\index{MessageFactory@{MessageFactory}!createMessage@{createMessage}}
+\index{createMessage@{createMessage}!MessageFactory@{MessageFactory}}
+\doxysubsubsection{\texorpdfstring{createMessage()}{createMessage()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIMessage}{IMessage}} $>$ Message\+Factory\+::create\+Message (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{message\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMessageFactory_afceb108ca2cd2288d2adb121db078218_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classMessageFactory_a3c30b95efecc28fad8a2bd6d83e121a5}\label{classMessageFactory_a3c30b95efecc28fad8a2bd6d83e121a5} 
+\index{MessageFactory@{MessageFactory}!registerMessageType@{registerMessageType}}
+\index{registerMessageType@{registerMessageType}!MessageFactory@{MessageFactory}}
+\doxysubsubsection{\texorpdfstring{registerMessageType()}{registerMessageType()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template void Message\+Factory\+::register\+Message\+Type$<$ \mbox{\hyperlink{classServerWelcomeMessage}{Server\+Welcome\+Message}} $>$ (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{message\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classMessageFactory_a3c30b95efecc28fad8a2bd6d83e121a5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMessageFactory_a3c30b95efecc28fad8a2bd6d83e121a5_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{MessageFactory_8hpp}{Message\+Factory.\+hpp}}\item 
+server/src/\mbox{\hyperlink{MessageFactory_8cpp}{Message\+Factory.\+cpp}}\end{DoxyCompactItemize}

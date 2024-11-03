@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['window_0',['window',['../classgrw_1_1window.html',1,'grw']]],
-  ['windowhandler_1',['windowHandler',['../classgrw_1_1windowHandler.html',1,'grw']]]
+  ['registry_0',['Registry',['../classengine_1_1Registry.html',1,'engine']]],
+  ['rtypegamelogic_1',['RTypeGameLogic',['../classRTypeGameLogic.html',1,'']]],
+  ['rtypeserver_2',['RTypeServer',['../classRTypeServer.html',1,'']]]
 ];

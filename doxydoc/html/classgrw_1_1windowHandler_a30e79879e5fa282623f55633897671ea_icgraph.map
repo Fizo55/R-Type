@@ -1,8 +1,14 @@
 <map id="grw::windowHandler::hasWindow" name="grw::windowHandler::hasWindow">
-<area shape="rect" id="node1" title=" " alt="" coords="513,92,668,132"/>
-<area shape="rect" id="node2" href="$classgrw_1_1windowHandler.html#a7f17fda1889655e42eb682620cf80588" title=" " alt="" coords="311,5,465,45"/>
-<area shape="rect" id="node3" href="$classgrw_1_1windowHandler.html#afc90b3e20cc19bcc16276c6b43e9f09e" title="Handle the events of the windows." alt="" coords="108,92,263,132"/>
-<area shape="rect" id="node5" href="$classgrw_1_1windowHandler.html#a7a6d7836962f7eb2099ec0cb6a946f6e" title=" " alt="" coords="311,120,465,160"/>
-<area shape="rect" id="node6" href="$classgrw_1_1windowHandler.html#a57d039161a119379a1d89d25913f524f" title=" " alt="" coords="311,184,465,224"/>
-<area shape="rect" id="node4" href="$main_07graph_08_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,99,60,125"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="477,93,617,136"/>
+<area shape="rect" id="Node000002" href="$classgrw_1_1windowHandler.html#a7f17fda1889655e42eb682620cf80588" title=" " alt="" coords="290,5,429,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="485,89,405,51,408,46,487,84"/>
+<area shape="rect" id="Node000003" href="$classgrw_1_1windowHandler.html#afc90b3e20cc19bcc16276c6b43e9f09e" title="Handle the events of the windows." alt="" coords="103,93,242,136"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="462,114,429,113,290,113,243,115,242,109,290,108,429,108,462,109"/>
+<area shape="rect" id="Node000005" href="$classgrw_1_1windowHandler.html#a7a6d7836962f7eb2099ec0cb6a946f6e" title=" " alt="" coords="290,123,429,165"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="462,131,430,136,429,130,461,125"/>
+<area shape="rect" id="Node000006" href="$classgrw_1_1windowHandler.html#a57d039161a119379a1d89d25913f524f" title=" " alt="" coords="290,189,429,232"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="494,146,431,180,408,191,406,186,428,175,492,141"/>
+<area shape="rect" id="Node000004" href="$main_07graph_08_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,101,55,128"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,117,55,117,55,112,87,112"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="274,133,242,128,243,123,275,128"/>
 </map>

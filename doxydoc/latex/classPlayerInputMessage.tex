@@ -1,0 +1,145 @@
+\doxysection{Player\+Input\+Message Class Reference}
+\hypertarget{classPlayerInputMessage}{}\label{classPlayerInputMessage}\index{PlayerInputMessage@{PlayerInputMessage}}
+
+
+{\ttfamily \#include $<$Player\+Input\+Message.\+hpp$>$}
+
+
+
+Inheritance diagram for Player\+Input\+Message\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classPlayerInputMessage__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Player\+Input\+Message\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{classPlayerInputMessage__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayerInputMessage_a91591d88dece554de47f5b3dc01a40d0}{Player\+Input\+Message}} ()
+\item 
+void \mbox{\hyperlink{classPlayerInputMessage_af92761c2d86e9e6791be673d5d945227}{serialize}} (std\+::vector$<$ uint8\+\_\+t $>$ \&out\+Buffer, uint16\+\_\+t sequence\+Id, uint8\+\_\+t flags) const override
+\item 
+void \mbox{\hyperlink{classPlayerInputMessage_a6adeb802eb5c6f703387b9e270d47bc7}{deserialize}} (const std\+::vector$<$ uint8\+\_\+t $>$ \&in\+Buffer) override
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classPlayerInputMessage_a2b9d7a7f208441a3f81e66ee6d431b05}{get\+Sequence\+Id}} () const
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classPlayerInputMessage_a757b2c27db00c8a693b6173bdef73fb4}{get\+Flags}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classMessageBase}{Message\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMessageBase_a851e7d355497b91ab2c2cd7e3b353603}{Message\+Base}} (uint32\+\_\+t type)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMessageBase_ad1213b92c1f9764ae9bf58ba386a313f}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classIMessage}{IMessage}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classIMessage_ab02076630dc982a6d2ecb5af9459907c}{\texorpdfstring{$\sim$}{\string~}\+IMessage}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classPlayerInputMessage_afb5eab48df17bc4d565bd609d2d5c604}{input\+Flags}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classPlayerInputMessage_abb1a5af02c5dc85ea8d712b794dc4ba7}{timestamp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classMessageBase}{Message\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMessageBase_ac0f51f26d0c8139a224ed6d19d262c59}{type\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classPlayerInputMessage_a91591d88dece554de47f5b3dc01a40d0}\label{classPlayerInputMessage_a91591d88dece554de47f5b3dc01a40d0} 
+\index{PlayerInputMessage@{PlayerInputMessage}!PlayerInputMessage@{PlayerInputMessage}}
+\index{PlayerInputMessage@{PlayerInputMessage}!PlayerInputMessage@{PlayerInputMessage}}
+\doxysubsubsection{\texorpdfstring{PlayerInputMessage()}{PlayerInputMessage()}}
+{\footnotesize\ttfamily Player\+Input\+Message\+::\+Player\+Input\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPlayerInputMessage_a6adeb802eb5c6f703387b9e270d47bc7}\label{classPlayerInputMessage_a6adeb802eb5c6f703387b9e270d47bc7} 
+\index{PlayerInputMessage@{PlayerInputMessage}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!PlayerInputMessage@{PlayerInputMessage}}
+\doxysubsubsection{\texorpdfstring{deserialize()}{deserialize()}}
+{\footnotesize\ttfamily void Player\+Input\+Message\+::deserialize (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint8\+\_\+t $>$ \&}]{in\+Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classMessageBase_a2198714282a75b8b1187bbd5078913cf}{Message\+Base}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPlayerInputMessage_a6adeb802eb5c6f703387b9e270d47bc7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classPlayerInputMessage_a757b2c27db00c8a693b6173bdef73fb4}\label{classPlayerInputMessage_a757b2c27db00c8a693b6173bdef73fb4} 
+\index{PlayerInputMessage@{PlayerInputMessage}!getFlags@{getFlags}}
+\index{getFlags@{getFlags}!PlayerInputMessage@{PlayerInputMessage}}
+\doxysubsubsection{\texorpdfstring{getFlags()}{getFlags()}}
+{\footnotesize\ttfamily uint8\+\_\+t Player\+Input\+Message\+::get\+Flags (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classPlayerInputMessage_a2b9d7a7f208441a3f81e66ee6d431b05}\label{classPlayerInputMessage_a2b9d7a7f208441a3f81e66ee6d431b05} 
+\index{PlayerInputMessage@{PlayerInputMessage}!getSequenceId@{getSequenceId}}
+\index{getSequenceId@{getSequenceId}!PlayerInputMessage@{PlayerInputMessage}}
+\doxysubsubsection{\texorpdfstring{getSequenceId()}{getSequenceId()}}
+{\footnotesize\ttfamily uint16\+\_\+t Player\+Input\+Message\+::get\+Sequence\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classPlayerInputMessage_af92761c2d86e9e6791be673d5d945227}\label{classPlayerInputMessage_af92761c2d86e9e6791be673d5d945227} 
+\index{PlayerInputMessage@{PlayerInputMessage}!serialize@{serialize}}
+\index{serialize@{serialize}!PlayerInputMessage@{PlayerInputMessage}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily void Player\+Input\+Message\+::serialize (\begin{DoxyParamCaption}\item[{std\+::vector$<$ uint8\+\_\+t $>$ \&}]{out\+Buffer,  }\item[{uint16\+\_\+t}]{sequence\+Id,  }\item[{uint8\+\_\+t}]{flags }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classMessageBase_a0ef34665add7ae2315dbf340e02a311d}{Message\+Base}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPlayerInputMessage_af92761c2d86e9e6791be673d5d945227_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classPlayerInputMessage_afb5eab48df17bc4d565bd609d2d5c604}\label{classPlayerInputMessage_afb5eab48df17bc4d565bd609d2d5c604} 
+\index{PlayerInputMessage@{PlayerInputMessage}!inputFlags@{inputFlags}}
+\index{inputFlags@{inputFlags}!PlayerInputMessage@{PlayerInputMessage}}
+\doxysubsubsection{\texorpdfstring{inputFlags}{inputFlags}}
+{\footnotesize\ttfamily uint8\+\_\+t Player\+Input\+Message\+::input\+Flags}
+
+\Hypertarget{classPlayerInputMessage_abb1a5af02c5dc85ea8d712b794dc4ba7}\label{classPlayerInputMessage_abb1a5af02c5dc85ea8d712b794dc4ba7} 
+\index{PlayerInputMessage@{PlayerInputMessage}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!PlayerInputMessage@{PlayerInputMessage}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily uint32\+\_\+t Player\+Input\+Message\+::timestamp}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{PlayerInputMessage_8hpp}{Player\+Input\+Message.\+hpp}}\item 
+server/src/\mbox{\hyperlink{PlayerInputMessage_8cpp}{Player\+Input\+Message.\+cpp}}\end{DoxyCompactItemize}

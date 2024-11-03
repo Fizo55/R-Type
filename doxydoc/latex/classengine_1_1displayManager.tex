@@ -1,0 +1,191 @@
+\doxysection{engine\+::display\+Manager Class Reference}
+\hypertarget{classengine_1_1displayManager}{}\label{classengine_1_1displayManager}\index{engine::displayManager@{engine::displayManager}}
+
+
+{\ttfamily \#include $<$engine\+Graphic.\+hpp$>$}
+
+
+
+Collaboration diagram for engine\+::display\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{classengine_1_1displayManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classengine_1_1displayManager_a9ab798d65e7298345526b268338c13bb}{display\+Manager}} ()
+\item 
+void \mbox{\hyperlink{classengine_1_1displayManager_ab94911798f48efa65920b73c0f89e9a5}{register\+Asset}} (const std\+::string \&, const std\+::string \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1displayManager_ace7615c9e35242c6cc1bbf4a42275b27}{register\+Asset}} (const std\+::string \&, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{grw\+::texture}} $>$ \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1displayManager_a3fb474eec30d353d63468ca0fd81471e}{add\+Window}} (\mbox{\hyperlink{classgrw_1_1window}{grw\+::window}} \texorpdfstring{$\ast$}{*})
+\item 
+bool \mbox{\hyperlink{classengine_1_1displayManager_ae23b0da7511b9cde5a0e5a97d12f3707}{event}} (void)
+\item 
+void \mbox{\hyperlink{classengine_1_1displayManager_ace16a635c6b05f1f1bf34a616758ec6a}{update}} (void)
+\item 
+void \mbox{\hyperlink{classengine_1_1displayManager_a77c0ce13568977ebcf3e07e1e6896474}{draw}} (void)
+\item 
+void \mbox{\hyperlink{classengine_1_1displayManager_a996987b3171891ff0ae725fb11db0815}{clear}} (void)
+\item 
+unsigned \mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{classengine_1_1displayManager_aead1299fa5592d1d93b92977bc55d4de}{create\+Window}} (void)
+\item 
+void \mbox{\hyperlink{classengine_1_1displayManager_a6ef5010454ea263b8d0a6298e0ea6ba0}{use\+Entity}} (const \mbox{\hyperlink{classengine_1_1Entity}{Entity}} \&, \mbox{\hyperlink{classengine_1_1Registry}{Registry}} \&, unsigned \mbox{\hyperlink{classint}{int}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classengine_1_1displayManager_a9ab798d65e7298345526b268338c13bb}\label{classengine_1_1displayManager_a9ab798d65e7298345526b268338c13bb} 
+\index{engine::displayManager@{engine::displayManager}!displayManager@{displayManager}}
+\index{displayManager@{displayManager}!engine::displayManager@{engine::displayManager}}
+\doxysubsubsection{\texorpdfstring{displayManager()}{displayManager()}}
+{\footnotesize\ttfamily engine\+::display\+Manager\+::display\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classengine_1_1displayManager_a3fb474eec30d353d63468ca0fd81471e}\label{classengine_1_1displayManager_a3fb474eec30d353d63468ca0fd81471e} 
+\index{engine::displayManager@{engine::displayManager}!addWindow@{addWindow}}
+\index{addWindow@{addWindow}!engine::displayManager@{engine::displayManager}}
+\doxysubsubsection{\texorpdfstring{addWindow()}{addWindow()}}
+{\footnotesize\ttfamily void engine\+::display\+Manager\+::add\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgrw_1_1window}{grw\+::window}} \texorpdfstring{$\ast$}{*}}]{window }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{classengine_1_1displayManager_a3fb474eec30d353d63468ca0fd81471e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1displayManager_a996987b3171891ff0ae725fb11db0815}\label{classengine_1_1displayManager_a996987b3171891ff0ae725fb11db0815} 
+\index{engine::displayManager@{engine::displayManager}!clear@{clear}}
+\index{clear@{clear}!engine::displayManager@{engine::displayManager}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void engine\+::display\+Manager\+::clear (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1displayManager_a996987b3171891ff0ae725fb11db0815_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1displayManager_aead1299fa5592d1d93b92977bc55d4de}\label{classengine_1_1displayManager_aead1299fa5592d1d93b92977bc55d4de} 
+\index{engine::displayManager@{engine::displayManager}!createWindow@{createWindow}}
+\index{createWindow@{createWindow}!engine::displayManager@{engine::displayManager}}
+\doxysubsubsection{\texorpdfstring{createWindow()}{createWindow()}}
+{\footnotesize\ttfamily unsigned \mbox{\hyperlink{classint}{int}} engine\+::display\+Manager\+::create\+Window (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{classengine_1_1displayManager_aead1299fa5592d1d93b92977bc55d4de_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{classengine_1_1displayManager_aead1299fa5592d1d93b92977bc55d4de_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1displayManager_a77c0ce13568977ebcf3e07e1e6896474}\label{classengine_1_1displayManager_a77c0ce13568977ebcf3e07e1e6896474} 
+\index{engine::displayManager@{engine::displayManager}!draw@{draw}}
+\index{draw@{draw}!engine::displayManager@{engine::displayManager}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void engine\+::display\+Manager\+::draw (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1displayManager_a77c0ce13568977ebcf3e07e1e6896474_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1displayManager_ae23b0da7511b9cde5a0e5a97d12f3707}\label{classengine_1_1displayManager_ae23b0da7511b9cde5a0e5a97d12f3707} 
+\index{engine::displayManager@{engine::displayManager}!event@{event}}
+\index{event@{event}!engine::displayManager@{engine::displayManager}}
+\doxysubsubsection{\texorpdfstring{event()}{event()}}
+{\footnotesize\ttfamily bool engine\+::display\+Manager\+::event (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1displayManager_ae23b0da7511b9cde5a0e5a97d12f3707_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1displayManager_ace7615c9e35242c6cc1bbf4a42275b27}\label{classengine_1_1displayManager_ace7615c9e35242c6cc1bbf4a42275b27} 
+\index{engine::displayManager@{engine::displayManager}!registerAsset@{registerAsset}}
+\index{registerAsset@{registerAsset}!engine::displayManager@{engine::displayManager}}
+\doxysubsubsection{\texorpdfstring{registerAsset()}{registerAsset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void engine\+::display\+Manager\+::register\+Asset (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{grw\+::texture}} $>$ \&}]{texture }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1displayManager_ab94911798f48efa65920b73c0f89e9a5}\label{classengine_1_1displayManager_ab94911798f48efa65920b73c0f89e9a5} 
+\index{engine::displayManager@{engine::displayManager}!registerAsset@{registerAsset}}
+\index{registerAsset@{registerAsset}!engine::displayManager@{engine::displayManager}}
+\doxysubsubsection{\texorpdfstring{registerAsset()}{registerAsset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void engine\+::display\+Manager\+::register\+Asset (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{classengine_1_1displayManager_ab94911798f48efa65920b73c0f89e9a5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1displayManager_ace16a635c6b05f1f1bf34a616758ec6a}\label{classengine_1_1displayManager_ace16a635c6b05f1f1bf34a616758ec6a} 
+\index{engine::displayManager@{engine::displayManager}!update@{update}}
+\index{update@{update}!engine::displayManager@{engine::displayManager}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void engine\+::display\+Manager\+::update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1displayManager_ace16a635c6b05f1f1bf34a616758ec6a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1displayManager_a6ef5010454ea263b8d0a6298e0ea6ba0}\label{classengine_1_1displayManager_a6ef5010454ea263b8d0a6298e0ea6ba0} 
+\index{engine::displayManager@{engine::displayManager}!useEntity@{useEntity}}
+\index{useEntity@{useEntity}!engine::displayManager@{engine::displayManager}}
+\doxysubsubsection{\texorpdfstring{useEntity()}{useEntity()}}
+{\footnotesize\ttfamily void engine\+::display\+Manager\+::use\+Entity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classengine_1_1Entity}{Entity}} \&}]{entity,  }\item[{\mbox{\hyperlink{classengine_1_1Registry}{engine\+::\+Registry}} \&}]{registry,  }\item[{unsigned \mbox{\hyperlink{classint}{int}}}]{window\+Id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classengine_1_1displayManager_a6ef5010454ea263b8d0a6298e0ea6ba0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1displayManager_a6ef5010454ea263b8d0a6298e0ea6ba0_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{engineGraphic_8hpp}{engine\+Graphic.\+hpp}}\item 
+engine/graphic/\mbox{\hyperlink{displayManager_8cpp}{display\+Manager.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,15 @@
+<map id="Endianness::networkToHostUint32" name="Endianness::networkToHostUint32">
+<area shape="rect" id="Node000001" title=" " alt="" coords="581,105,767,148"/>
+<area shape="rect" id="Node000002" href="$classBinaryDeserializer.html#aea63bb944224d576179e484b2c5f9127" title=" " alt="" coords="406,105,533,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="566,129,533,129,533,124,566,124"/>
+<area shape="rect" id="Node000003" href="$classPlayerInputMessage.html#a6adeb802eb5c6f703387b9e270d47bc7" title=" " alt="" coords="205,5,345,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="421,99,357,62,332,51,334,46,359,58,424,94"/>
+<area shape="rect" id="Node000004" href="$classServerWelcomeMessage.html#a93c998a507b46a4a101a14db57580c32" title=" " alt="" coords="192,72,358,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="390,116,358,110,359,105,391,111"/>
+<area shape="rect" id="Node000005" href="$classBinaryDeserializer.html#a6587c6927ce6c179514d5b300c13a7d8" title=" " alt="" coords="211,139,339,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="391,143,339,152,338,147,390,138"/>
+<area shape="rect" id="Node000006" href="$classBinaryDeserializer.html#adf27ef0f22e245cdbb1157272058356d" title=" " alt="" coords="211,205,339,248"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="424,159,359,196,334,207,332,202,357,191,421,154"/>
+<area shape="rect" id="Node000007" href="$classClientHelloMessage.html#ad42a1d6abe32615e30d160b6f78a744d" title=" " alt="" coords="5,205,144,248"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="196,229,144,229,144,224,196,224"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classengine__components_1_1IComponent.html" title=" " alt="" coords="5,131,151,173"/>
+<area shape="rect" id="Node000001" href="$classengine__components_1_1Position.html" title=" " alt="" coords="212,5,357,48"/>
+<area shape="poly" id="edge4_Node000000_Node000001" title=" " alt="" coords="113,118,152,87,197,58,221,46,223,51,200,62,155,92,116,123"/>
+<area shape="rect" id="Node000002" href="$classengine__components_1_1Script.html" title=" " alt="" coords="212,72,357,115"/>
+<area shape="poly" id="edge5_Node000000_Node000002" title=" " alt="" coords="165,125,210,111,212,117,166,130"/>
+<area shape="rect" id="Node000003" href="$classengine__components_1_1Size.html" title=" " alt="" coords="199,139,370,165"/>
+<area shape="poly" id="edge6_Node000000_Node000003" title=" " alt="" coords="166,149,198,149,198,155,166,155"/>
+<area shape="rect" id="Node000004" href="$classengine__components_1_1Sprite.html" title=" " alt="" coords="212,189,357,232"/>
+<area shape="poly" id="edge7_Node000000_Node000004" title=" " alt="" coords="166,174,212,187,210,193,165,179"/>
+<area shape="rect" id="Node000005" href="$classengine__components_1_1Volatile.html" title=" " alt="" coords="212,256,357,299"/>
+<area shape="poly" id="edge8_Node000000_Node000005" title=" " alt="" coords="116,181,155,212,200,242,223,253,221,258,197,246,152,217,113,186"/>
+</map>

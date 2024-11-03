@@ -1,0 +1,28 @@
+\doxysection{Server\+Welcome\+Message.\+hpp}
+\hypertarget{ServerWelcomeMessage_8hpp_source}{}\label{ServerWelcomeMessage_8hpp_source}\index{server/include/ServerWelcomeMessage.hpp@{server/include/ServerWelcomeMessage.hpp}}
+\mbox{\hyperlink{ServerWelcomeMessage_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MessageBase_8hpp}{MessageBase.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classServerWelcomeMessage}{ServerWelcomeMessage}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classMessageBase}{MessageBase}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{classServerWelcomeMessage_a780530da03b8a95c56588c5219b3ab9a}{ServerWelcomeMessage}}();}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classServerWelcomeMessage_a4d1fae0bf78d4b3e547fced290bec4e6}{clientId}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServerWelcomeMessage_a4c9e5bc4eb340bd86ffd86e3f0d53aa7}{serialize}}(std::vector<uint8\_t>\&\ outBuffer,\ uint16\_t\ sequenceId,\ uint8\_t\ flags)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServerWelcomeMessage_a93c998a507b46a4a101a14db57580c32}{deserialize}}(\textcolor{keyword}{const}\ std::vector<uint8\_t>\&\ inBuffer)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{classServerWelcomeMessage_a61185c9d503011fe6ab96f583c26948d}{getSequenceId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classServerWelcomeMessage_a2c9e28fbb5b2246078c4be86e98a0377}{getFlags}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ uint16\_t\ sequenceId\_;}
+\DoxyCodeLine{00021\ \ \ \ \ uint8\_t\ flags\_;}
+\DoxyCodeLine{00022\ \};}
+
+\end{DoxyCode}

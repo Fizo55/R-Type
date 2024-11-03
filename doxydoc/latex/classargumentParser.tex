@@ -1,0 +1,151 @@
+\doxysection{argument\+Parser Class Reference}
+\hypertarget{classargumentParser}{}\label{classargumentParser}\index{argumentParser@{argumentParser}}
+
+
+{\ttfamily \#include $<$game\+Server.\+hpp$>$}
+
+
+
+Collaboration diagram for argument\+Parser\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{classargumentParser__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classargumentParser_acb0cc4ffa2007a8eda4200ba6b221880}{argument\+Parser}} (std\+::size\+\_\+t, std\+::size\+\_\+t)
+\item 
+\mbox{\hyperlink{classargumentParser_ab11f2926a91491ac3d781d69d3e75414}{\texorpdfstring{$\sim$}{\string~}argument\+Parser}} ()=default
+\item 
+void \mbox{\hyperlink{classargumentParser_aaa63034dff6f9865743f943ef1f825d6}{attach\+Factory}} (const \mbox{\hyperlink{classargumentTypeFactory}{argument\+Type\+Factory}} \&)
+\item 
+void \mbox{\hyperlink{classargumentParser_ada530990b0a1789167b627a702aa834b}{register\+Arg}} (const \mbox{\hyperlink{classargument}{argument}} \&)
+\item 
+void \mbox{\hyperlink{classargumentParser_ab8a1eb6ac7d65d5b16484a11083cb5e7}{register\+Unamed\+Arg}} (\mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581}{argument\+::\+VALUE\+\_\+\+TYPE}})
+\item 
+void \mbox{\hyperlink{classargumentParser_a72deeff8934fd65bdf0b2d5b75b5b439}{parse\+Args}} (\mbox{\hyperlink{classint}{int}}, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*})
+\item 
+const \mbox{\hyperlink{classargument}{argument}} \& \mbox{\hyperlink{classargumentParser_ade9c7255cf9301d9fcc080984cc59606}{get\+Arg}} (const std\+::string \&) const
+\item 
+bool \mbox{\hyperlink{classargumentParser_a4ab7b0e6673c7b37862dc5c17a879607}{has\+Arg}} (const std\+::string \&) const
+\item 
+const std\+::vector$<$ std\+::any $>$ \& \mbox{\hyperlink{classargumentParser_aff50fe9780ae1566bca1486c7bb4c61e}{get\+Unnamed\+Args}} (void) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classargumentParser_acb0cc4ffa2007a8eda4200ba6b221880}\label{classargumentParser_acb0cc4ffa2007a8eda4200ba6b221880} 
+\index{argumentParser@{argumentParser}!argumentParser@{argumentParser}}
+\index{argumentParser@{argumentParser}!argumentParser@{argumentParser}}
+\doxysubsubsection{\texorpdfstring{argumentParser()}{argumentParser()}}
+{\footnotesize\ttfamily argument\+Parser\+::argument\+Parser (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{min\+Args,  }\item[{std\+::size\+\_\+t}]{max\+Args }\end{DoxyParamCaption})}
+
+\Hypertarget{classargumentParser_ab11f2926a91491ac3d781d69d3e75414}\label{classargumentParser_ab11f2926a91491ac3d781d69d3e75414} 
+\index{argumentParser@{argumentParser}!````~argumentParser@{\texorpdfstring{$\sim$}{\string~}argumentParser}}
+\index{````~argumentParser@{\texorpdfstring{$\sim$}{\string~}argumentParser}!argumentParser@{argumentParser}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}argumentParser()}{\string~argumentParser()}}
+{\footnotesize\ttfamily argument\+Parser\+::\texorpdfstring{$\sim$}{\string~}argument\+Parser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classargumentParser_aaa63034dff6f9865743f943ef1f825d6}\label{classargumentParser_aaa63034dff6f9865743f943ef1f825d6} 
+\index{argumentParser@{argumentParser}!attachFactory@{attachFactory}}
+\index{attachFactory@{attachFactory}!argumentParser@{argumentParser}}
+\doxysubsubsection{\texorpdfstring{attachFactory()}{attachFactory()}}
+{\footnotesize\ttfamily void argument\+Parser\+::attach\+Factory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classargumentTypeFactory}{argument\+Type\+Factory}} \&}]{factory }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{classargumentParser_aaa63034dff6f9865743f943ef1f825d6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classargumentParser_ade9c7255cf9301d9fcc080984cc59606}\label{classargumentParser_ade9c7255cf9301d9fcc080984cc59606} 
+\index{argumentParser@{argumentParser}!getArg@{getArg}}
+\index{getArg@{getArg}!argumentParser@{argumentParser}}
+\doxysubsubsection{\texorpdfstring{getArg()}{getArg()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classargument}{argument}} \& argument\+Parser\+::get\+Arg (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{classargumentParser_ade9c7255cf9301d9fcc080984cc59606_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classargumentParser_aff50fe9780ae1566bca1486c7bb4c61e}\label{classargumentParser_aff50fe9780ae1566bca1486c7bb4c61e} 
+\index{argumentParser@{argumentParser}!getUnnamedArgs@{getUnnamedArgs}}
+\index{getUnnamedArgs@{getUnnamedArgs}!argumentParser@{argumentParser}}
+\doxysubsubsection{\texorpdfstring{getUnnamedArgs()}{getUnnamedArgs()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::any $>$ \& argument\+Parser\+::get\+Unnamed\+Args (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classargumentParser_a4ab7b0e6673c7b37862dc5c17a879607}\label{classargumentParser_a4ab7b0e6673c7b37862dc5c17a879607} 
+\index{argumentParser@{argumentParser}!hasArg@{hasArg}}
+\index{hasArg@{hasArg}!argumentParser@{argumentParser}}
+\doxysubsubsection{\texorpdfstring{hasArg()}{hasArg()}}
+{\footnotesize\ttfamily bool argument\+Parser\+::has\+Arg (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{classargumentParser_a4ab7b0e6673c7b37862dc5c17a879607_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classargumentParser_a72deeff8934fd65bdf0b2d5b75b5b439}\label{classargumentParser_a72deeff8934fd65bdf0b2d5b75b5b439} 
+\index{argumentParser@{argumentParser}!parseArgs@{parseArgs}}
+\index{parseArgs@{parseArgs}!argumentParser@{argumentParser}}
+\doxysubsubsection{\texorpdfstring{parseArgs()}{parseArgs()}}
+{\footnotesize\ttfamily void argument\+Parser\+::parse\+Args (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classint}{int}}}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classargumentParser_a72deeff8934fd65bdf0b2d5b75b5b439_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{classargumentParser_a72deeff8934fd65bdf0b2d5b75b5b439_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classargumentParser_ada530990b0a1789167b627a702aa834b}\label{classargumentParser_ada530990b0a1789167b627a702aa834b} 
+\index{argumentParser@{argumentParser}!registerArg@{registerArg}}
+\index{registerArg@{registerArg}!argumentParser@{argumentParser}}
+\doxysubsubsection{\texorpdfstring{registerArg()}{registerArg()}}
+{\footnotesize\ttfamily void argument\+Parser\+::register\+Arg (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classargument}{argument}} \&}]{arg }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{classargumentParser_ada530990b0a1789167b627a702aa834b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classargumentParser_ab8a1eb6ac7d65d5b16484a11083cb5e7}\label{classargumentParser_ab8a1eb6ac7d65d5b16484a11083cb5e7} 
+\index{argumentParser@{argumentParser}!registerUnamedArg@{registerUnamedArg}}
+\index{registerUnamedArg@{registerUnamedArg}!argumentParser@{argumentParser}}
+\doxysubsubsection{\texorpdfstring{registerUnamedArg()}{registerUnamedArg()}}
+{\footnotesize\ttfamily void argument\+Parser\+::register\+Unamed\+Arg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classargument_a54a067869541fbfe7dfc1a77abdb3581}{argument\+::\+VALUE\+\_\+\+TYPE}}}]{args\+Type }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{gameServer_8hpp}{game\+Server.\+hpp}}\item 
+server/src/\mbox{\hyperlink{ArgumentParser_8cpp}{Argument\+Parser.\+cpp}}\end{DoxyCompactItemize}

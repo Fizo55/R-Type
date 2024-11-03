@@ -1,0 +1,220 @@
+\doxysection{engine\+::Object\+Ref Class Reference}
+\hypertarget{classengine_1_1ObjectRef}{}\label{classengine_1_1ObjectRef}\index{engine::ObjectRef@{engine::ObjectRef}}
+
+
+{\ttfamily \#include $<$engine\+Core.\+hpp$>$}
+
+
+
+Inheritance diagram for engine\+::Object\+Ref\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classengine_1_1ObjectRef__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for engine\+::Object\+Ref\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classengine_1_1ObjectRef__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classengine_1_1ObjectRef_a062fa0f918cdb918fb3ab50768c65743}{Object\+Ref}} ()
+\item 
+\mbox{\hyperlink{classengine_1_1ObjectRef_ac42c41e4fdcb430ea7be3c025f2d29bf}{Object\+Ref}} (const std\+::string \&)
+\item 
+const std\+::string \& \mbox{\hyperlink{classengine_1_1ObjectRef_a89daa91bdf24598670ce4a9b359d9b26}{get\+Name}} (void) const
+\item 
+void \mbox{\hyperlink{classengine_1_1ObjectRef_a56883e45596375429dbafeb45e6edca0}{set\+Name}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1ObjectRef_aa02d04435419597c455b36b972a12a58}{add\+Build\+Component}} (const std\+::string \&, const std\+::string \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1ObjectRef_a825f425dfab33a2b48135e5c79ba70de}{remove\+Build\+Component}} (const std\+::string \&)
+\item 
+const std\+::string \& \mbox{\hyperlink{classengine_1_1ObjectRef_a5cd01c6e025ba2892f256f8e5434e451}{get\+Build\+Component}} (const std\+::string \&) const
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classengine_1_1ObjectRef_af592af1dff678c7f4cc6dd2234d9d8ba}{get\+All\+Build\+Component}} (void) const
+\item 
+void \mbox{\hyperlink{classengine_1_1ObjectRef_aba3b6c8a8b46428d507b44782fc5f183}{add\+Build\+Parameter}} (const std\+::string \&, const std\+::vector$<$ std\+::any $>$ \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1ObjectRef_a531a5ad002507434ea227b3de1893348}{remove\+Build\+Parameter}} (const std\+::string \&)
+\item 
+const std\+::vector$<$ std\+::any $>$ \mbox{\hyperlink{classengine_1_1ObjectRef_a35fa7a676174a17c469a89b18ebf6138}{get\+Build\+Parameter}} (const std\+::string \&) const
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classengine_1_1ObjectRef_aad4b755448032a6690a22f21693efcbc}{get\+All\+Build\+Parameter}} (void) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::any \mbox{\hyperlink{classengine_1_1ObjectRef_a7639411609d812c3e2681f34d9c7d388}{parameter\+Builder}} (const YAML\+::\+Node \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classengine_1_1ObjectRef_a062fa0f918cdb918fb3ab50768c65743}\label{classengine_1_1ObjectRef_a062fa0f918cdb918fb3ab50768c65743} 
+\index{engine::ObjectRef@{engine::ObjectRef}!ObjectRef@{ObjectRef}}
+\index{ObjectRef@{ObjectRef}!engine::ObjectRef@{engine::ObjectRef}}
+\doxysubsubsection{\texorpdfstring{ObjectRef()}{ObjectRef()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily engine\+::\+Object\+Ref\+::\+Object\+Ref (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1ObjectRef_ac42c41e4fdcb430ea7be3c025f2d29bf}\label{classengine_1_1ObjectRef_ac42c41e4fdcb430ea7be3c025f2d29bf} 
+\index{engine::ObjectRef@{engine::ObjectRef}!ObjectRef@{ObjectRef}}
+\index{ObjectRef@{ObjectRef}!engine::ObjectRef@{engine::ObjectRef}}
+\doxysubsubsection{\texorpdfstring{ObjectRef()}{ObjectRef()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily engine\+::\+Object\+Ref\+::\+Object\+Ref (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classengine_1_1ObjectRef_aa02d04435419597c455b36b972a12a58}\label{classengine_1_1ObjectRef_aa02d04435419597c455b36b972a12a58} 
+\index{engine::ObjectRef@{engine::ObjectRef}!addBuildComponent@{addBuildComponent}}
+\index{addBuildComponent@{addBuildComponent}!engine::ObjectRef@{engine::ObjectRef}}
+\doxysubsubsection{\texorpdfstring{addBuildComponent()}{addBuildComponent()}}
+{\footnotesize\ttfamily void engine\+::\+Object\+Ref\+::add\+Build\+Component (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1ObjectRef_aa02d04435419597c455b36b972a12a58_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1ObjectRef_aba3b6c8a8b46428d507b44782fc5f183}\label{classengine_1_1ObjectRef_aba3b6c8a8b46428d507b44782fc5f183} 
+\index{engine::ObjectRef@{engine::ObjectRef}!addBuildParameter@{addBuildParameter}}
+\index{addBuildParameter@{addBuildParameter}!engine::ObjectRef@{engine::ObjectRef}}
+\doxysubsubsection{\texorpdfstring{addBuildParameter()}{addBuildParameter()}}
+{\footnotesize\ttfamily void engine\+::\+Object\+Ref\+::add\+Build\+Parameter (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::vector$<$ std\+::any $>$ \&}]{values }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1ObjectRef_aba3b6c8a8b46428d507b44782fc5f183_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1ObjectRef_af592af1dff678c7f4cc6dd2234d9d8ba}\label{classengine_1_1ObjectRef_af592af1dff678c7f4cc6dd2234d9d8ba} 
+\index{engine::ObjectRef@{engine::ObjectRef}!getAllBuildComponent@{getAllBuildComponent}}
+\index{getAllBuildComponent@{getAllBuildComponent}!engine::ObjectRef@{engine::ObjectRef}}
+\doxysubsubsection{\texorpdfstring{getAllBuildComponent()}{getAllBuildComponent()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ engine\+::\+Object\+Ref\+::get\+All\+Build\+Component (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1ObjectRef_af592af1dff678c7f4cc6dd2234d9d8ba_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1ObjectRef_aad4b755448032a6690a22f21693efcbc}\label{classengine_1_1ObjectRef_aad4b755448032a6690a22f21693efcbc} 
+\index{engine::ObjectRef@{engine::ObjectRef}!getAllBuildParameter@{getAllBuildParameter}}
+\index{getAllBuildParameter@{getAllBuildParameter}!engine::ObjectRef@{engine::ObjectRef}}
+\doxysubsubsection{\texorpdfstring{getAllBuildParameter()}{getAllBuildParameter()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ engine\+::\+Object\+Ref\+::get\+All\+Build\+Parameter (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1ObjectRef_aad4b755448032a6690a22f21693efcbc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1ObjectRef_a5cd01c6e025ba2892f256f8e5434e451}\label{classengine_1_1ObjectRef_a5cd01c6e025ba2892f256f8e5434e451} 
+\index{engine::ObjectRef@{engine::ObjectRef}!getBuildComponent@{getBuildComponent}}
+\index{getBuildComponent@{getBuildComponent}!engine::ObjectRef@{engine::ObjectRef}}
+\doxysubsubsection{\texorpdfstring{getBuildComponent()}{getBuildComponent()}}
+{\footnotesize\ttfamily const std\+::string \& engine\+::\+Object\+Ref\+::get\+Build\+Component (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1ObjectRef_a5cd01c6e025ba2892f256f8e5434e451_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1ObjectRef_a35fa7a676174a17c469a89b18ebf6138}\label{classengine_1_1ObjectRef_a35fa7a676174a17c469a89b18ebf6138} 
+\index{engine::ObjectRef@{engine::ObjectRef}!getBuildParameter@{getBuildParameter}}
+\index{getBuildParameter@{getBuildParameter}!engine::ObjectRef@{engine::ObjectRef}}
+\doxysubsubsection{\texorpdfstring{getBuildParameter()}{getBuildParameter()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::any $>$ engine\+::\+Object\+Ref\+::get\+Build\+Parameter (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1ObjectRef_a35fa7a676174a17c469a89b18ebf6138_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1ObjectRef_a89daa91bdf24598670ce4a9b359d9b26}\label{classengine_1_1ObjectRef_a89daa91bdf24598670ce4a9b359d9b26} 
+\index{engine::ObjectRef@{engine::ObjectRef}!getName@{getName}}
+\index{getName@{getName}!engine::ObjectRef@{engine::ObjectRef}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const std\+::string \& engine\+::\+Object\+Ref\+::get\+Name (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1ObjectRef_a89daa91bdf24598670ce4a9b359d9b26_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1ObjectRef_a7639411609d812c3e2681f34d9c7d388}\label{classengine_1_1ObjectRef_a7639411609d812c3e2681f34d9c7d388} 
+\index{engine::ObjectRef@{engine::ObjectRef}!parameterBuilder@{parameterBuilder}}
+\index{parameterBuilder@{parameterBuilder}!engine::ObjectRef@{engine::ObjectRef}}
+\doxysubsubsection{\texorpdfstring{parameterBuilder()}{parameterBuilder()}}
+{\footnotesize\ttfamily std\+::any engine\+::\+Object\+Ref\+::parameter\+Builder (\begin{DoxyParamCaption}\item[{const YAML\+::\+Node \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{classengine_1_1ObjectRef_a7639411609d812c3e2681f34d9c7d388_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1ObjectRef_a825f425dfab33a2b48135e5c79ba70de}\label{classengine_1_1ObjectRef_a825f425dfab33a2b48135e5c79ba70de} 
+\index{engine::ObjectRef@{engine::ObjectRef}!removeBuildComponent@{removeBuildComponent}}
+\index{removeBuildComponent@{removeBuildComponent}!engine::ObjectRef@{engine::ObjectRef}}
+\doxysubsubsection{\texorpdfstring{removeBuildComponent()}{removeBuildComponent()}}
+{\footnotesize\ttfamily void engine\+::\+Object\+Ref\+::remove\+Build\+Component (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1ObjectRef_a531a5ad002507434ea227b3de1893348}\label{classengine_1_1ObjectRef_a531a5ad002507434ea227b3de1893348} 
+\index{engine::ObjectRef@{engine::ObjectRef}!removeBuildParameter@{removeBuildParameter}}
+\index{removeBuildParameter@{removeBuildParameter}!engine::ObjectRef@{engine::ObjectRef}}
+\doxysubsubsection{\texorpdfstring{removeBuildParameter()}{removeBuildParameter()}}
+{\footnotesize\ttfamily void engine\+::\+Object\+Ref\+::remove\+Build\+Parameter (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1ObjectRef_a56883e45596375429dbafeb45e6edca0}\label{classengine_1_1ObjectRef_a56883e45596375429dbafeb45e6edca0} 
+\index{engine::ObjectRef@{engine::ObjectRef}!setName@{setName}}
+\index{setName@{setName}!engine::ObjectRef@{engine::ObjectRef}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void engine\+::\+Object\+Ref\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1ObjectRef_a56883e45596375429dbafeb45e6edca0_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{engineCore_8hpp}{engine\+Core.\+hpp}}\item 
+engine/core/\mbox{\hyperlink{core_2object_8cpp}{object.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,26 @@
+\doxysection{IGame\+Logic.\+hpp}
+\hypertarget{IGameLogic_8hpp_source}{}\label{IGameLogic_8hpp_source}\index{server/include/IGameLogic.hpp@{server/include/IGameLogic.hpp}}
+\mbox{\hyperlink{IGameLogic_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ IGAMELOGIC\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ IGAMELOGIC\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MessageBase_8hpp}{MessageBase.hpp}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classIGameLogic}{IGameLogic}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classIGameLogic_a41db77cd0a48165a30cf44c82ed54c42}{\string~IGameLogic}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIGameLogic_ae438c25529bc5db4bbad9b07f2fb8c7f}{initialize}}()\ =\ 0;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIGameLogic_aa20811a3bfb066cede8e5b16a2f06da8}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ =\ 0;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIGameLogic_a74dd1b306c4d1357f8b4be71e2c94b56}{handleMessage}}(\textcolor{keyword}{const}\ std::shared\_ptr<MessageBase>\&\ message,\ \textcolor{keyword}{const}\ std::string\&\ address,\ uint16\_t\ port)\ =\ 0;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIGameLogic_ae38437b79c5917cad88c578e27ccbf9c}{onClientConnected}}(\textcolor{keyword}{const}\ std::string\&\ address,\ uint16\_t\ port)\ =\ 0;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIGameLogic_ac4565075a081738b58786bba4799d5e0}{onClientDisconnected}}(\textcolor{keyword}{const}\ std::string\&\ address,\ uint16\_t\ port)\ =\ 0;}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

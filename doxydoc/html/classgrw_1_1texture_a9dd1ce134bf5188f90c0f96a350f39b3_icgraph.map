@@ -1,5 +1,7 @@
 <map id="grw::texture::getSurface" name="grw::texture::getSurface">
-<area shape="rect" id="node1" title=" " alt="" coords="219,31,397,56"/>
-<area shape="rect" id="node2" href="$classgrw_1_1texture.html#a4fa68c80fc7d8849cd40c439b208b51c" title="Blit a texture on another texture." alt="" coords="23,5,153,31"/>
-<area shape="rect" id="node3" href="$classgrw_1_1texture.html#ac0b5f72def0c3330f3fbf29aa848cce7" title=" " alt="" coords="5,55,171,80"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="201,31,362,57"/>
+<area shape="rect" id="Node000002" href="$classgrw_1_1texture.html#a4fa68c80fc7d8849cd40c439b208b51c" title="Blit a texture on another texture." alt="" coords="21,5,137,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,35,136,28,137,23,186,29"/>
+<area shape="rect" id="Node000003" href="$classgrw_1_1texture.html#ac0b5f72def0c3330f3fbf29aa848cce7" title=" " alt="" coords="5,56,153,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,59,153,63,153,57,185,53"/>
 </map>

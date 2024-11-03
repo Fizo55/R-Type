@@ -1,0 +1,15 @@
+<map id="MessageBase" name="MessageBase">
+<area shape="rect" id="Node000001" title=" " alt="" coords="425,187,540,320"/>
+<area shape="rect" id="Node000003" href="$classAcknowledgmentMessage.html" title=" " alt="" coords="5,379,189,533"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="412,279,311,317,255,342,203,370,186,381,183,377,200,366,253,337,309,312,411,274"/>
+<area shape="rect" id="Node000004" href="$classClientHelloMessage.html" title=" " alt="" coords="214,379,362,533"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="417,326,364,381,360,377,413,322"/>
+<area shape="rect" id="Node000005" href="$classGameStateUpdateMessage.html" title=" " alt="" coords="387,379,579,533"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="485,335,485,379,480,379,480,335"/>
+<area shape="rect" id="Node000006" href="$classPlayerInputMessage.html" title=" " alt="" coords="603,368,754,544"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="552,322,605,376,602,380,548,326"/>
+<area shape="rect" id="Node000007" href="$classServerWelcomeMessage.html" title=" " alt="" coords="779,379,955,533"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="555,273,658,311,714,337,768,366,785,377,782,381,765,370,712,341,656,316,553,278"/>
+<area shape="rect" id="Node000002" href="$classIMessage.html" title=" " alt="" coords="435,5,531,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="485,153,485,187,480,187,480,153"/>
+</map>

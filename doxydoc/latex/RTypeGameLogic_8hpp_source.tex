@@ -1,0 +1,81 @@
+\doxysection{RType\+Game\+Logic.\+hpp}
+\hypertarget{RTypeGameLogic_8hpp_source}{}\label{RTypeGameLogic_8hpp_source}\index{server/include/RTypeGameLogic.hpp@{server/include/RTypeGameLogic.hpp}}
+\mbox{\hyperlink{RTypeGameLogic_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{IGameLogic_8hpp}{IGameLogic.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}INetwork.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ILogger_8hpp}{ILogger.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MessageBase_8hpp}{MessageBase.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{PlayerInputMessage_8hpp}{PlayerInputMessage.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{GameStateUpdateMessage_8hpp}{GameStateUpdateMessage.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ TODO\ :\ ECS\ ?}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42}{EntityType}}\ :\ uint8\_t\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{structPlayer}{Player}}\ =\ 0x01,}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42a8c6d21187fb58b7a079d70030686b33e}{Enemy}}\ =\ 0x02,}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42aae7968d26b598ce434958b0825b7a4ac}{Projectile}}\ =\ 0x03,}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structVector2}{Vector2}}\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structVector2_a046bb8d17a876acc49415128dc0502f2}{x}};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structVector2_a0e07bad05f01ed811b909a2eef97f9e2}{y}};}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ TODO\ :\ ECS\ ?}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structEntity}{Entity}}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structEntity_acc08af95e32ae999517fa26b01840a54}{id}};}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{RTypeGameLogic_8hpp_abe8d6dde4121d7d9f1dbed0221c4be42}{EntityType}}\ \mbox{\hyperlink{structEntity_a4bc4656e671f86ebd33eaa78d1855ea9}{type}};}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{structVector2}{Vector2}}\ \mbox{\hyperlink{structEntity_a4fe3db4c435fed0d3da762a4f979a44b}{position}};}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{structVector2}{Vector2}}\ \mbox{\hyperlink{structEntity_ae102e1a88dc751b504a45ee1863b132e}{velocity}};}
+\DoxyCodeLine{00033\ \ \ \ \ std::vector<uint8\_t>\ \mbox{\hyperlink{structEntity_adabd6224d5587e84ada6c79497f7439d}{additionalData}};}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPlayer}{Player}}\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structPlayer_a2dec0527e1402d6834c8d540f59b02ee}{clientId}};}
+\DoxyCodeLine{00038\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structPlayer_a2350511fd7f4fcede4ee0c033090f288}{entityId}};}
+\DoxyCodeLine{00039\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structPlayer_a62b19192a7aa9b28aff693b5b6b6b370}{inputFlags}};}
+\DoxyCodeLine{00040\ \ \ \ \ std::string\ \mbox{\hyperlink{structPlayer_a0baac3ed1d67acea5c8e00db8af95cfa}{address}};}
+\DoxyCodeLine{00041\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structPlayer_a9df126d58bbf94aa7ae3825da93e0aad}{port}};}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTypeGameLogic}{RTypeGameLogic}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIGameLogic}{IGameLogic}}\ \{}
+\DoxyCodeLine{00045\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classRTypeGameLogic_af496e0796d30821d7d97452f5c40aa8c}{RTypeGameLogic}}(std::shared\_ptr<INetwork>\ network,\ std::shared\_ptr<ILogger>\ logger);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRTypeGameLogic_aff86b76df3ee5b97ef0a35840c3cf1bf}{initialize}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRTypeGameLogic_a08526f44ea57b92c8aecde90dd194d83}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRTypeGameLogic_a2d1271e5a89d4af6f939958b1012922d}{handleMessage}}(\textcolor{keyword}{const}\ std::shared\_ptr<MessageBase>\&\ message,\ \textcolor{keyword}{const}\ std::string\&\ address,\ uint16\_t\ port)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRTypeGameLogic_a6609082054cdde168a7f80af36e3f4b7}{onClientConnected}}(\textcolor{keyword}{const}\ std::string\&\ address,\ uint16\_t\ port)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRTypeGameLogic_a84343ca5aa249e2f0c240ddc16b6c8a2}{onClientDisconnected}}(\textcolor{keyword}{const}\ std::string\&\ address,\ uint16\_t\ port)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ handlePlayerInput(\textcolor{keyword}{const}\ std::shared\_ptr<PlayerInputMessage>\&\ message,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structPlayer}{Player}}\&\ player);}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ sendGameStateUpdate();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ uint32\_t\ generateEntityId();}
+\DoxyCodeLine{00059\ \ \ \ \ uint32\_t\ generateClientId();}
+\DoxyCodeLine{00060\ \ \ \ \ std::string\ getClientKey(\textcolor{keyword}{const}\ std::string\&\ address,\ uint16\_t\ port);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ std::shared\_ptr<INetwork>\ network\_;}
+\DoxyCodeLine{00063\ \ \ \ \ std::shared\_ptr<ILogger>\ logger\_;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ std::unordered\_map<uint32\_t,\ Entity>\ entities\_;}
+\DoxyCodeLine{00066\ \ \ \ \ std::unordered\_map<std::string,\ Player>\ players\_;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ std::unordered\_map<std::string,\ uint16\_t>\ clientSequenceIds\_;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ uint32\_t\ nextEntityId\_;}
+\DoxyCodeLine{00071\ \ \ \ \ uint32\_t\ nextClientId\_;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{float}\ timeAccumulator\_;}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ updateInterval\_;}
+\DoxyCodeLine{00075\ \};}
+
+\end{DoxyCode}

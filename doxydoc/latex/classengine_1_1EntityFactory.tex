@@ -1,0 +1,136 @@
+\doxysection{engine\+::Entity\+Factory Class Reference}
+\hypertarget{classengine_1_1EntityFactory}{}\label{classengine_1_1EntityFactory}\index{engine::EntityFactory@{engine::EntityFactory}}
+
+
+{\ttfamily \#include $<$engine\+Core.\+hpp$>$}
+
+
+
+Collaboration diagram for engine\+::Entity\+Factory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classengine_1_1EntityFactory__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classengine_1_1EntityFactory_a11537e87934a60a0765d46150422e91f}{Entity\+Factory}} ()
+\item 
+\mbox{\hyperlink{classengine_1_1EntityFactory_a8e05c90212ae6400e3048467d3f0fc89}{\texorpdfstring{$\sim$}{\string~}\+Entity\+Factory}} ()=default
+\item 
+{\footnotesize template$<$typename Component $>$ }\\void \mbox{\hyperlink{classengine_1_1EntityFactory_ad036ca1567685e824d1e644961285ebe}{register\+Component}} ()
+\item 
+void \mbox{\hyperlink{classengine_1_1EntityFactory_ad50d013ec2e01290b0ebd275cb2ad55b}{register\+Build\+Component\+Route}} (const \mbox{\hyperlink{classengine_1_1ComponentBuildRoute}{Component\+Build\+Route}} \&)
+\item 
+void \mbox{\hyperlink{classengine_1_1EntityFactory_a341d9e498501b17607502ddbaaa31d88}{build\+Component}} (const \mbox{\hyperlink{classengine_1_1Entity}{Entity}} \&, const \mbox{\hyperlink{classengine_1_1EntityBuildData}{Entity\+Build\+Data}} \&)
+\item 
+\mbox{\hyperlink{classengine_1_1Entity}{Entity}} \mbox{\hyperlink{classengine_1_1EntityFactory_a38cc842c8971aa14857f92ebf6fc2238}{create\+Entity\+Component\+Ready}} (const std\+::vector$<$ \mbox{\hyperlink{classengine_1_1EntityBuildData}{Entity\+Build\+Data}} $>$ \&)
+\item 
+\mbox{\hyperlink{classengine_1_1Entity}{Entity}} \mbox{\hyperlink{classengine_1_1EntityFactory_a1cb81cb4366ab92627b4e48f5a1b1944}{create\+Entity}} (void)
+\item 
+\mbox{\hyperlink{classengine_1_1Registry}{Registry}} \& \mbox{\hyperlink{classengine_1_1EntityFactory_af7635367361833dc0b090e6876f1cb88}{get\+Registry}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classengine_1_1EntityFactory_a11537e87934a60a0765d46150422e91f}\label{classengine_1_1EntityFactory_a11537e87934a60a0765d46150422e91f} 
+\index{engine::EntityFactory@{engine::EntityFactory}!EntityFactory@{EntityFactory}}
+\index{EntityFactory@{EntityFactory}!engine::EntityFactory@{engine::EntityFactory}}
+\doxysubsubsection{\texorpdfstring{EntityFactory()}{EntityFactory()}}
+{\footnotesize\ttfamily engine\+::\+Entity\+Factory\+::\+Entity\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1EntityFactory_a8e05c90212ae6400e3048467d3f0fc89}\label{classengine_1_1EntityFactory_a8e05c90212ae6400e3048467d3f0fc89} 
+\index{engine::EntityFactory@{engine::EntityFactory}!````~EntityFactory@{\texorpdfstring{$\sim$}{\string~}EntityFactory}}
+\index{````~EntityFactory@{\texorpdfstring{$\sim$}{\string~}EntityFactory}!engine::EntityFactory@{engine::EntityFactory}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}EntityFactory()}{\string~EntityFactory()}}
+{\footnotesize\ttfamily engine\+::\+Entity\+Factory\+::\texorpdfstring{$\sim$}{\string~}\+Entity\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classengine_1_1EntityFactory_a341d9e498501b17607502ddbaaa31d88}\label{classengine_1_1EntityFactory_a341d9e498501b17607502ddbaaa31d88} 
+\index{engine::EntityFactory@{engine::EntityFactory}!buildComponent@{buildComponent}}
+\index{buildComponent@{buildComponent}!engine::EntityFactory@{engine::EntityFactory}}
+\doxysubsubsection{\texorpdfstring{buildComponent()}{buildComponent()}}
+{\footnotesize\ttfamily void engine\+::\+Entity\+Factory\+::build\+Component (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classengine_1_1Entity}{Entity}} \&}]{entity,  }\item[{const \mbox{\hyperlink{classengine_1_1EntityBuildData}{Entity\+Build\+Data}} \&}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1EntityFactory_a1cb81cb4366ab92627b4e48f5a1b1944}\label{classengine_1_1EntityFactory_a1cb81cb4366ab92627b4e48f5a1b1944} 
+\index{engine::EntityFactory@{engine::EntityFactory}!createEntity@{createEntity}}
+\index{createEntity@{createEntity}!engine::EntityFactory@{engine::EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createEntity()}{createEntity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classengine_1_1Entity}{engine\+::\+Entity}} engine\+::\+Entity\+Factory\+::create\+Entity (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classengine_1_1EntityFactory_a38cc842c8971aa14857f92ebf6fc2238}\label{classengine_1_1EntityFactory_a38cc842c8971aa14857f92ebf6fc2238} 
+\index{engine::EntityFactory@{engine::EntityFactory}!createEntityComponentReady@{createEntityComponentReady}}
+\index{createEntityComponentReady@{createEntityComponentReady}!engine::EntityFactory@{engine::EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createEntityComponentReady()}{createEntityComponentReady()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classengine_1_1Entity}{engine\+::\+Entity}} engine\+::\+Entity\+Factory\+::create\+Entity\+Component\+Ready (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classengine_1_1EntityBuildData}{Entity\+Build\+Data}} $>$ \&}]{data }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1EntityFactory_a38cc842c8971aa14857f92ebf6fc2238_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1EntityFactory_af7635367361833dc0b090e6876f1cb88}\label{classengine_1_1EntityFactory_af7635367361833dc0b090e6876f1cb88} 
+\index{engine::EntityFactory@{engine::EntityFactory}!getRegistry@{getRegistry}}
+\index{getRegistry@{getRegistry}!engine::EntityFactory@{engine::EntityFactory}}
+\doxysubsubsection{\texorpdfstring{getRegistry()}{getRegistry()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classengine_1_1Registry}{engine\+::\+Registry}} \& engine\+::\+Entity\+Factory\+::get\+Registry (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1EntityFactory_af7635367361833dc0b090e6876f1cb88_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1EntityFactory_ad50d013ec2e01290b0ebd275cb2ad55b}\label{classengine_1_1EntityFactory_ad50d013ec2e01290b0ebd275cb2ad55b} 
+\index{engine::EntityFactory@{engine::EntityFactory}!registerBuildComponentRoute@{registerBuildComponentRoute}}
+\index{registerBuildComponentRoute@{registerBuildComponentRoute}!engine::EntityFactory@{engine::EntityFactory}}
+\doxysubsubsection{\texorpdfstring{registerBuildComponentRoute()}{registerBuildComponentRoute()}}
+{\footnotesize\ttfamily void engine\+::\+Entity\+Factory\+::register\+Build\+Component\+Route (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classengine_1_1ComponentBuildRoute}{Component\+Build\+Route}} \&}]{route }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{classengine_1_1EntityFactory_ad50d013ec2e01290b0ebd275cb2ad55b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classengine_1_1EntityFactory_ad036ca1567685e824d1e644961285ebe}\label{classengine_1_1EntityFactory_ad036ca1567685e824d1e644961285ebe} 
+\index{engine::EntityFactory@{engine::EntityFactory}!registerComponent@{registerComponent}}
+\index{registerComponent@{registerComponent}!engine::EntityFactory@{engine::EntityFactory}}
+\doxysubsubsection{\texorpdfstring{registerComponent()}{registerComponent()}}
+{\footnotesize\ttfamily template$<$typename Component $>$ \\
+void engine\+::\+Entity\+Factory\+::register\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classengine_1_1EntityFactory_ad036ca1567685e824d1e644961285ebe_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{classengine_1_1EntityFactory_ad036ca1567685e824d1e644961285ebe_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{engineCore_8hpp}{engine\+Core.\+hpp}}\item 
+engine/core/\mbox{\hyperlink{entity_8cpp}{entity.\+cpp}}\end{DoxyCompactItemize}

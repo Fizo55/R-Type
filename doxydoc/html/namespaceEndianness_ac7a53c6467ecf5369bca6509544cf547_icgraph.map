@@ -1,0 +1,44 @@
+<map id="Endianness::swapUint16" name="Endianness::swapUint16">
+<area shape="rect" id="Node000001" title=" " alt="" coords="943,293,1109,320"/>
+<area shape="rect" id="Node000002" href="$namespaceEndianness.html#ac0e46cd1f4ee0a50c7fd517ad6899a9c" title=" " alt="" coords="709,193,895,236"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="976,289,855,239,857,234,978,284"/>
+<area shape="rect" id="Node000011" href="$namespaceEndianness.html#a9cda4b157961f6a544626b094041746a" title=" " alt="" coords="709,319,895,361"/>
+<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="928,324,895,329,895,324,927,319"/>
+<area shape="rect" id="Node000003" href="$classAcknowledgmentMessage.html#af0a1df51549ad8d27204bf40065363a8" title=" " alt="" coords="244,256,418,299"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="694,237,662,243,419,272,418,266,661,237,694,232"/>
+<area shape="rect" id="Node000004" href="$classClientHelloMessage.html#afaf6dbe254e924a88b6a625089330af4" title=" " alt="" coords="262,323,400,365"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="737,245,662,272,523,308,401,334,400,329,522,303,661,267,735,240"/>
+<area shape="rect" id="Node000005" href="$classGameStateUpdateMessage.html#a0dbf190af9cca153afa9982b57aed2f2" title=" " alt="" coords="240,5,422,48"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="760,186,714,154,660,124,600,99,538,78,422,47,423,42,539,73,602,94,662,119,717,149,763,182"/>
+<area shape="rect" id="Node000006" href="$classPlayerInputMessage.html#af92761c2d86e9e6791be673d5d945227" title=" " alt="" coords="261,72,401,115"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="735,190,661,164,523,130,401,107,402,102,524,125,662,159,737,185"/>
+<area shape="rect" id="Node000007" href="$classServerWelcomeMessage.html#a4c9e5bc4eb340bd86ffd86e3f0d53aa7" title=" " alt="" coords="248,139,414,181"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="693,197,661,192,531,177,414,168,415,163,532,172,662,187,694,192"/>
+<area shape="rect" id="Node000009" href="$classBinarySerializer.html#aba7e97ac1ab2fc126174a8e87dd632a1" title=" " alt="" coords="474,201,661,228"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="694,217,662,217,662,212,694,212"/>
+<area shape="rect" id="Node000008" href="$classRTypeGameLogic.html#a6609082054cdde168a7f80af36e3f4b7" title=" " alt="" coords="6,139,187,181"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="232,163,187,163,187,157,232,157"/>
+<area shape="poly" id="edge9_Node000009_Node000003" title=" " alt="" coords="500,235,415,258,414,253,499,230"/>
+<area shape="poly" id="edge10_Node000009_Node000004" title=" " alt="" coords="539,240,488,277,427,313,401,325,399,320,425,308,485,272,536,236"/>
+<area shape="poly" id="edge11_Node000009_Node000005" title=" " alt="" coords="547,190,496,126,462,92,425,62,404,51,406,46,427,58,466,88,500,123,551,187"/>
+<area shape="poly" id="edge12_Node000009_Node000006" title=" " alt="" coords="533,194,483,162,425,129,398,118,401,113,427,124,486,157,536,190"/>
+<area shape="poly" id="edge13_Node000009_Node000007" title=" " alt="" coords="491,200,414,182,415,177,492,195"/>
+<area shape="rect" id="Node000010" href="$classBinarySerializer.html#a4f28206492273f0d8e090c4211dc953c" title=" " alt="" coords="236,205,426,232"/>
+<area shape="poly" id="edge14_Node000009_Node000010" title=" " alt="" coords="459,219,427,220,426,214,458,214"/>
+<area shape="rect" id="Node000012" href="$classBinaryDeserializer.html#abbdfcd27c21ff2ee90fdab28a80077df" title=" " alt="" coords="504,407,631,449"/>
+<area shape="poly" id="edge16_Node000011_Node000012" title=" " alt="" coords="730,370,627,409,626,404,728,365"/>
+<area shape="rect" id="Node000013" href="$classAcknowledgmentMessage.html#ac86e97b24f9202d2141c2eff5809e5dc" title=" " alt="" coords="9,365,184,408"/>
+<area shape="poly" id="edge17_Node000012_Node000013" title=" " alt="" coords="488,424,184,397,184,392,489,418"/>
+<area shape="rect" id="Node000014" href="$classGameStateUpdateMessage.html#a5eab350a24666c379c6eb6915d0be216" title=" " alt="" coords="5,432,188,475"/>
+<area shape="poly" id="edge18_Node000012_Node000014" title=" " alt="" coords="489,435,188,451,188,446,489,430"/>
+<area shape="rect" id="Node000015" href="$classBinaryDeserializer.html#a3e75e1fae49ccd1a25e29cbd36f53da7" title=" " alt="" coords="267,495,395,537"/>
+<area shape="poly" id="edge19_Node000012_Node000015" title=" " alt="" coords="494,458,391,497,389,492,493,453"/>
+<area shape="poly" id="edge20_Node000015_Node000013" title=" " alt="" coords="288,487,240,454,186,422,161,411,164,406,189,418,243,450,291,483"/>
+<area shape="poly" id="edge24_Node000015_Node000014" title=" " alt="" coords="251,498,178,478,180,473,253,492"/>
+<area shape="rect" id="Node000016" href="$classClientHelloMessage.html#ad42a1d6abe32615e30d160b6f78a744d" title=" " alt="" coords="27,499,166,541"/>
+<area shape="poly" id="edge21_Node000015_Node000016" title=" " alt="" coords="252,520,166,521,166,516,252,515"/>
+<area shape="rect" id="Node000017" href="$classPlayerInputMessage.html#a6adeb802eb5c6f703387b9e270d47bc7" title=" " alt="" coords="26,565,167,608"/>
+<area shape="poly" id="edge22_Node000015_Node000017" title=" " alt="" coords="253,542,168,568,166,563,252,537"/>
+<area shape="rect" id="Node000018" href="$classServerWelcomeMessage.html#a93c998a507b46a4a101a14db57580c32" title=" " alt="" coords="13,632,180,675"/>
+<area shape="poly" id="edge23_Node000015_Node000018" title=" " alt="" coords="294,550,246,587,189,622,165,634,162,629,186,618,242,582,291,545"/>
+</map>

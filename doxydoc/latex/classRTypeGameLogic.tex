@@ -1,0 +1,146 @@
+\doxysection{RType\+Game\+Logic Class Reference}
+\hypertarget{classRTypeGameLogic}{}\label{classRTypeGameLogic}\index{RTypeGameLogic@{RTypeGameLogic}}
+
+
+{\ttfamily \#include $<$RType\+Game\+Logic.\+hpp$>$}
+
+
+
+Inheritance diagram for RType\+Game\+Logic\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classRTypeGameLogic__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for RType\+Game\+Logic\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classRTypeGameLogic__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRTypeGameLogic_af496e0796d30821d7d97452f5c40aa8c}{RType\+Game\+Logic}} (std\+::shared\+\_\+ptr$<$ INetwork $>$ network, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classILogger}{ILogger}} $>$ logger)
+\item 
+void \mbox{\hyperlink{classRTypeGameLogic_aff86b76df3ee5b97ef0a35840c3cf1bf}{initialize}} () override
+\item 
+void \mbox{\hyperlink{classRTypeGameLogic_a08526f44ea57b92c8aecde90dd194d83}{update}} (float delta\+Time) override
+\item 
+void \mbox{\hyperlink{classRTypeGameLogic_a2d1271e5a89d4af6f939958b1012922d}{handle\+Message}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMessageBase}{Message\+Base}} $>$ \&message, const std\+::string \&address, uint16\+\_\+t port) override
+\item 
+void \mbox{\hyperlink{classRTypeGameLogic_a6609082054cdde168a7f80af36e3f4b7}{on\+Client\+Connected}} (const std\+::string \&address, uint16\+\_\+t port) override
+\item 
+void \mbox{\hyperlink{classRTypeGameLogic_a84343ca5aa249e2f0c240ddc16b6c8a2}{on\+Client\+Disconnected}} (const std\+::string \&address, uint16\+\_\+t port) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classIGameLogic}{IGame\+Logic}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classIGameLogic_a41db77cd0a48165a30cf44c82ed54c42}{\texorpdfstring{$\sim$}{\string~}\+IGame\+Logic}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classRTypeGameLogic_af496e0796d30821d7d97452f5c40aa8c}\label{classRTypeGameLogic_af496e0796d30821d7d97452f5c40aa8c} 
+\index{RTypeGameLogic@{RTypeGameLogic}!RTypeGameLogic@{RTypeGameLogic}}
+\index{RTypeGameLogic@{RTypeGameLogic}!RTypeGameLogic@{RTypeGameLogic}}
+\doxysubsubsection{\texorpdfstring{RTypeGameLogic()}{RTypeGameLogic()}}
+{\footnotesize\ttfamily RType\+Game\+Logic\+::\+RType\+Game\+Logic (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ INetwork $>$}]{network,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classILogger}{ILogger}} $>$}]{logger }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRTypeGameLogic_a2d1271e5a89d4af6f939958b1012922d}\label{classRTypeGameLogic_a2d1271e5a89d4af6f939958b1012922d} 
+\index{RTypeGameLogic@{RTypeGameLogic}!handleMessage@{handleMessage}}
+\index{handleMessage@{handleMessage}!RTypeGameLogic@{RTypeGameLogic}}
+\doxysubsubsection{\texorpdfstring{handleMessage()}{handleMessage()}}
+{\footnotesize\ttfamily void RType\+Game\+Logic\+::handle\+Message (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMessageBase}{Message\+Base}} $>$ \&}]{message,  }\item[{const std\+::string \&}]{address,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIGameLogic_a74dd1b306c4d1357f8b4be71e2c94b56}{IGame\+Logic}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRTypeGameLogic_a2d1271e5a89d4af6f939958b1012922d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classRTypeGameLogic_aff86b76df3ee5b97ef0a35840c3cf1bf}\label{classRTypeGameLogic_aff86b76df3ee5b97ef0a35840c3cf1bf} 
+\index{RTypeGameLogic@{RTypeGameLogic}!initialize@{initialize}}
+\index{initialize@{initialize}!RTypeGameLogic@{RTypeGameLogic}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void RType\+Game\+Logic\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIGameLogic_ae438c25529bc5db4bbad9b07f2fb8c7f}{IGame\+Logic}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{classRTypeGameLogic_aff86b76df3ee5b97ef0a35840c3cf1bf_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classRTypeGameLogic_a6609082054cdde168a7f80af36e3f4b7}\label{classRTypeGameLogic_a6609082054cdde168a7f80af36e3f4b7} 
+\index{RTypeGameLogic@{RTypeGameLogic}!onClientConnected@{onClientConnected}}
+\index{onClientConnected@{onClientConnected}!RTypeGameLogic@{RTypeGameLogic}}
+\doxysubsubsection{\texorpdfstring{onClientConnected()}{onClientConnected()}}
+{\footnotesize\ttfamily void RType\+Game\+Logic\+::on\+Client\+Connected (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{address,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIGameLogic_ae38437b79c5917cad88c578e27ccbf9c}{IGame\+Logic}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRTypeGameLogic_a6609082054cdde168a7f80af36e3f4b7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classRTypeGameLogic_a84343ca5aa249e2f0c240ddc16b6c8a2}\label{classRTypeGameLogic_a84343ca5aa249e2f0c240ddc16b6c8a2} 
+\index{RTypeGameLogic@{RTypeGameLogic}!onClientDisconnected@{onClientDisconnected}}
+\index{onClientDisconnected@{onClientDisconnected}!RTypeGameLogic@{RTypeGameLogic}}
+\doxysubsubsection{\texorpdfstring{onClientDisconnected()}{onClientDisconnected()}}
+{\footnotesize\ttfamily void RType\+Game\+Logic\+::on\+Client\+Disconnected (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{address,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIGameLogic_ac4565075a081738b58786bba4799d5e0}{IGame\+Logic}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRTypeGameLogic_a84343ca5aa249e2f0c240ddc16b6c8a2_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classRTypeGameLogic_a08526f44ea57b92c8aecde90dd194d83}\label{classRTypeGameLogic_a08526f44ea57b92c8aecde90dd194d83} 
+\index{RTypeGameLogic@{RTypeGameLogic}!update@{update}}
+\index{update@{update}!RTypeGameLogic@{RTypeGameLogic}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void RType\+Game\+Logic\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIGameLogic_aa20811a3bfb066cede8e5b16a2f06da8}{IGame\+Logic}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{RTypeGameLogic_8hpp}{RType\+Game\+Logic.\+hpp}}\item 
+server/src/\mbox{\hyperlink{RTypeGameLogic_8cpp}{RType\+Game\+Logic.\+cpp}}\end{DoxyCompactItemize}

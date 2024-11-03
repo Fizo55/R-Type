@@ -1,0 +1,11 @@
+<map id="engine::EntityBuildData" name="engine::EntityBuildData">
+<area shape="rect" id="Node000001" title=" " alt="" coords="55,304,204,395"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="29,155,99,224"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,223,97,279,101,288,96,290,93,281,72,225"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,5,123,91"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="67,106,67,155,61,155,61,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="123,155,269,224"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,225,157,290,152,288,180,223"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="179,13,213,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="199,83,199,138,193,138,193,83"/>
+</map>

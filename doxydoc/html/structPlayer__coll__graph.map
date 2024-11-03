@@ -1,0 +1,13 @@
+<map id="Player" name="Player">
+<area shape="rect" id="Node000001" title=" " alt="" coords="146,289,195,359"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,140,64,209"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="38,209,44,237,57,264,73,279,91,292,131,310,129,315,89,297,70,283,53,267,39,239,33,210"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="94,140,146,209"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="118,209,118,237,124,264,137,288,133,290,119,266,113,237,113,209"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="187,140,258,209"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="215,210,196,266,193,275,188,273,191,264,210,208"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="164,5,281,91"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="225,106,225,140,220,140,220,106"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="283,140,341,209"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="304,210,290,239,270,267,242,291,212,308,209,304,239,286,266,264,285,237,299,208"/>
+</map>

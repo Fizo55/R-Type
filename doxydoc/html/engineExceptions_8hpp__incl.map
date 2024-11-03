@@ -1,4 +1,5 @@
 <map id="include/engineExceptions.hpp" name="include/engineExceptions.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,221,31"/>
-<area shape="rect" id="node2" title=" " alt="" coords="73,79,153,104"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,200,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="67,80,138,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,33,105,64,100,64,100,33"/>
 </map>

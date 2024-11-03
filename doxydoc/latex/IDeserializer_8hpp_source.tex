@@ -1,0 +1,27 @@
+\doxysection{IDeserializer.\+hpp}
+\hypertarget{IDeserializer_8hpp_source}{}\label{IDeserializer_8hpp_source}\index{server/include/IDeserializer.hpp@{server/include/IDeserializer.hpp}}
+\mbox{\hyperlink{IDeserializer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ IDESERIALIZER\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ IDESERIALIZER\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classIDeserializer}{IDeserializer}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classIDeserializer_a4c15add4ddb4d7de5ff835f594c7cf00}{\string~IDeserializer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{virtual}\ uint16\_t\ \mbox{\hyperlink{classIDeserializer_a18e6db72a9caaff54df41ce7fb8907f9}{readUInt16}}()\ =\ 0;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\_t\ \mbox{\hyperlink{classIDeserializer_a0f4fa3b16cca5e7ae3ecb41dba6587da}{readUInt32}}()\ =\ 0;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ uint8\_t\ \mbox{\hyperlink{classIDeserializer_ac8cec380287bab32923d4124e0b00de6}{readUInt8}}()\ =\ 0;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classIDeserializer_af2164fa8e1cc240e6f2b4bd36243c03d}{readFloat}}()\ =\ 0;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classIDeserializer_a324d7f021995e0b4c88225b98fc2db9e}{readString}}()\ =\ 0;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<uint8\_t>\ \mbox{\hyperlink{classIDeserializer_aad629411b05ada7d6862a12f95ff1ac6}{readBytes}}(\textcolor{keywordtype}{size\_t}\ length)\ =\ 0;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIDeserializer_ab5008e008ffe156be3118d3613287a09}{readHeader}}(uint16\_t\&\ length,\ uint16\_t\&\ sequenceId,\ uint8\_t\&\ messageType,\ uint8\_t\&\ flags)\ =\ 0;}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

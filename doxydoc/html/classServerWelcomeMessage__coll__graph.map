@@ -1,0 +1,10 @@
+<map id="ServerWelcomeMessage" name="ServerWelcomeMessage">
+<area shape="rect" id="Node000001" title=" " alt="" coords="27,385,203,540"/>
+<area shape="rect" id="Node000002" href="$classMessageBase.html" title=" " alt="" coords="5,203,120,336"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,350,97,385,91,386,82,351"/>
+<area shape="rect" id="Node000003" href="$classIMessage.html" title=" " alt="" coords="13,5,109,139"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="65,153,65,203,60,203,59,153"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="136,37,195,107"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="164,107,135,336,130,369,125,368,129,336,159,106"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="145,108,109,164,96,189,92,186,104,161,141,105"/>
+</map>

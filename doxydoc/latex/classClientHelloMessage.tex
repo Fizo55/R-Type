@@ -1,0 +1,137 @@
+\doxysection{Client\+Hello\+Message Class Reference}
+\hypertarget{classClientHelloMessage}{}\label{classClientHelloMessage}\index{ClientHelloMessage@{ClientHelloMessage}}
+
+
+{\ttfamily \#include $<$Client\+Hello\+Message.\+hpp$>$}
+
+
+
+Inheritance diagram for Client\+Hello\+Message\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{classClientHelloMessage__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Client\+Hello\+Message\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{classClientHelloMessage__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classClientHelloMessage_a583a7241ade05ace16879ce18b71a73f}{Client\+Hello\+Message}} ()
+\item 
+void \mbox{\hyperlink{classClientHelloMessage_afaf6dbe254e924a88b6a625089330af4}{serialize}} (std\+::vector$<$ uint8\+\_\+t $>$ \&out\+Buffer, uint16\+\_\+t sequence\+Id, uint8\+\_\+t flags) const override
+\item 
+void \mbox{\hyperlink{classClientHelloMessage_ad42a1d6abe32615e30d160b6f78a744d}{deserialize}} (const std\+::vector$<$ uint8\+\_\+t $>$ \&in\+Buffer) override
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classClientHelloMessage_a1666340369dd6197f6a1c5ef811b55c9}{get\+Sequence\+Id}} () const
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classClientHelloMessage_a3e694ce0fa888460f5aa1eaf79763f05}{get\+Flags}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classMessageBase}{Message\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMessageBase_a851e7d355497b91ab2c2cd7e3b353603}{Message\+Base}} (uint32\+\_\+t type)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMessageBase_ad1213b92c1f9764ae9bf58ba386a313f}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classIMessage}{IMessage}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classIMessage_ab02076630dc982a6d2ecb5af9459907c}{\texorpdfstring{$\sim$}{\string~}\+IMessage}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classClientHelloMessage_a84cacd9d1465303fa87eac9a1ce775af}{client\+Name}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classMessageBase}{Message\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMessageBase_ac0f51f26d0c8139a224ed6d19d262c59}{type\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classClientHelloMessage_a583a7241ade05ace16879ce18b71a73f}\label{classClientHelloMessage_a583a7241ade05ace16879ce18b71a73f} 
+\index{ClientHelloMessage@{ClientHelloMessage}!ClientHelloMessage@{ClientHelloMessage}}
+\index{ClientHelloMessage@{ClientHelloMessage}!ClientHelloMessage@{ClientHelloMessage}}
+\doxysubsubsection{\texorpdfstring{ClientHelloMessage()}{ClientHelloMessage()}}
+{\footnotesize\ttfamily Client\+Hello\+Message\+::\+Client\+Hello\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classClientHelloMessage_ad42a1d6abe32615e30d160b6f78a744d}\label{classClientHelloMessage_ad42a1d6abe32615e30d160b6f78a744d} 
+\index{ClientHelloMessage@{ClientHelloMessage}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!ClientHelloMessage@{ClientHelloMessage}}
+\doxysubsubsection{\texorpdfstring{deserialize()}{deserialize()}}
+{\footnotesize\ttfamily void Client\+Hello\+Message\+::deserialize (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint8\+\_\+t $>$ \&}]{in\+Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classMessageBase_a2198714282a75b8b1187bbd5078913cf}{Message\+Base}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classClientHelloMessage_ad42a1d6abe32615e30d160b6f78a744d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classClientHelloMessage_a3e694ce0fa888460f5aa1eaf79763f05}\label{classClientHelloMessage_a3e694ce0fa888460f5aa1eaf79763f05} 
+\index{ClientHelloMessage@{ClientHelloMessage}!getFlags@{getFlags}}
+\index{getFlags@{getFlags}!ClientHelloMessage@{ClientHelloMessage}}
+\doxysubsubsection{\texorpdfstring{getFlags()}{getFlags()}}
+{\footnotesize\ttfamily uint8\+\_\+t Client\+Hello\+Message\+::get\+Flags (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classClientHelloMessage_a1666340369dd6197f6a1c5ef811b55c9}\label{classClientHelloMessage_a1666340369dd6197f6a1c5ef811b55c9} 
+\index{ClientHelloMessage@{ClientHelloMessage}!getSequenceId@{getSequenceId}}
+\index{getSequenceId@{getSequenceId}!ClientHelloMessage@{ClientHelloMessage}}
+\doxysubsubsection{\texorpdfstring{getSequenceId()}{getSequenceId()}}
+{\footnotesize\ttfamily uint16\+\_\+t Client\+Hello\+Message\+::get\+Sequence\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classClientHelloMessage_afaf6dbe254e924a88b6a625089330af4}\label{classClientHelloMessage_afaf6dbe254e924a88b6a625089330af4} 
+\index{ClientHelloMessage@{ClientHelloMessage}!serialize@{serialize}}
+\index{serialize@{serialize}!ClientHelloMessage@{ClientHelloMessage}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily void Client\+Hello\+Message\+::serialize (\begin{DoxyParamCaption}\item[{std\+::vector$<$ uint8\+\_\+t $>$ \&}]{out\+Buffer,  }\item[{uint16\+\_\+t}]{sequence\+Id,  }\item[{uint8\+\_\+t}]{flags }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classMessageBase_a0ef34665add7ae2315dbf340e02a311d}{Message\+Base}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classClientHelloMessage_afaf6dbe254e924a88b6a625089330af4_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classClientHelloMessage_a84cacd9d1465303fa87eac9a1ce775af}\label{classClientHelloMessage_a84cacd9d1465303fa87eac9a1ce775af} 
+\index{ClientHelloMessage@{ClientHelloMessage}!clientName@{clientName}}
+\index{clientName@{clientName}!ClientHelloMessage@{ClientHelloMessage}}
+\doxysubsubsection{\texorpdfstring{clientName}{clientName}}
+{\footnotesize\ttfamily std\+::string Client\+Hello\+Message\+::client\+Name}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/include/\mbox{\hyperlink{ClientHelloMessage_8hpp}{Client\+Hello\+Message.\+hpp}}\item 
+server/src/\mbox{\hyperlink{ClientHelloMessage_8cpp}{Client\+Hello\+Message.\+cpp}}\end{DoxyCompactItemize}

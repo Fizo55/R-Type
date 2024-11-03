@@ -1,0 +1,95 @@
+\doxysection{grw\+::sprite Class Reference}
+\hypertarget{classgrw_1_1sprite}{}\label{classgrw_1_1sprite}\index{grw::sprite@{grw::sprite}}
+
+
+{\ttfamily \#include $<$engine\+Graphic.\+hpp$>$}
+
+
+
+Collaboration diagram for grw\+::sprite\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=152pt]{classgrw_1_1sprite__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgrw_1_1sprite_a3abdc21bd632a4dd2a82fe8fca0bfe6d}{sprite}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{texture}} $>$ \&, const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&, const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&)
+\item 
+\mbox{\hyperlink{classgrw_1_1sprite_a740c9fd7fda622d8a66984661828190b}{\texorpdfstring{$\sim$}{\string~}sprite}} ()
+\item 
+void \mbox{\hyperlink{classgrw_1_1sprite_a830cff3db301839eb962cd6b8ce00380}{set\+Position}} (const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&)
+\item 
+void \mbox{\hyperlink{classgrw_1_1sprite_a8ab2eb83663b53182f084e62bfe01fb8}{set\+Size}} (const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{texture}} $>$ \& \mbox{\hyperlink{classgrw_1_1sprite_a19dd5a60fff87afea479108ffaaf75e2}{get\+Texture}} ()
+\item 
+const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \& \mbox{\hyperlink{classgrw_1_1sprite_a382e39d58424c38fde72323c8cc1b3c8}{get\+Position}} () const
+\item 
+const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \& \mbox{\hyperlink{classgrw_1_1sprite_ab49c3a8990c33ddff3cddda09fc662d4}{get\+Size}} () const
+\item 
+void \mbox{\hyperlink{classgrw_1_1sprite_a9b92908540ae5b14b29943479c8cbb3f}{draw}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{texture}} $>$ \&) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgrw_1_1sprite_a3abdc21bd632a4dd2a82fe8fca0bfe6d}\label{classgrw_1_1sprite_a3abdc21bd632a4dd2a82fe8fca0bfe6d} 
+\index{grw::sprite@{grw::sprite}!sprite@{sprite}}
+\index{sprite@{sprite}!grw::sprite@{grw::sprite}}
+\doxysubsubsection{\texorpdfstring{sprite()}{sprite()}}
+{\footnotesize\ttfamily grw\+::sprite\+::sprite (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{texture}} $>$ \&}]{tex,  }\item[{const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&}]{position,  }\item[{const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&}]{size }\end{DoxyParamCaption})}
+
+\Hypertarget{classgrw_1_1sprite_a740c9fd7fda622d8a66984661828190b}\label{classgrw_1_1sprite_a740c9fd7fda622d8a66984661828190b} 
+\index{grw::sprite@{grw::sprite}!````~sprite@{\texorpdfstring{$\sim$}{\string~}sprite}}
+\index{````~sprite@{\texorpdfstring{$\sim$}{\string~}sprite}!grw::sprite@{grw::sprite}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}sprite()}{\string~sprite()}}
+{\footnotesize\ttfamily grw\+::sprite\+::\texorpdfstring{$\sim$}{\string~}sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgrw_1_1sprite_a9b92908540ae5b14b29943479c8cbb3f}\label{classgrw_1_1sprite_a9b92908540ae5b14b29943479c8cbb3f} 
+\index{grw::sprite@{grw::sprite}!draw@{draw}}
+\index{draw@{draw}!grw::sprite@{grw::sprite}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void grw\+::sprite\+::draw (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{texture}} $>$ \&}]{target }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classgrw_1_1sprite_a382e39d58424c38fde72323c8cc1b3c8}\label{classgrw_1_1sprite_a382e39d58424c38fde72323c8cc1b3c8} 
+\index{grw::sprite@{grw::sprite}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!grw::sprite@{grw::sprite}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \& grw\+::sprite\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classgrw_1_1sprite_ab49c3a8990c33ddff3cddda09fc662d4}\label{classgrw_1_1sprite_ab49c3a8990c33ddff3cddda09fc662d4} 
+\index{grw::sprite@{grw::sprite}!getSize@{getSize}}
+\index{getSize@{getSize}!grw::sprite@{grw::sprite}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \& grw\+::sprite\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classgrw_1_1sprite_a19dd5a60fff87afea479108ffaaf75e2}\label{classgrw_1_1sprite_a19dd5a60fff87afea479108ffaaf75e2} 
+\index{grw::sprite@{grw::sprite}!getTexture@{getTexture}}
+\index{getTexture@{getTexture}!grw::sprite@{grw::sprite}}
+\doxysubsubsection{\texorpdfstring{getTexture()}{getTexture()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgrw_1_1texture}{grw\+::texture}} $>$ \& grw\+::sprite\+::get\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classgrw_1_1sprite_a830cff3db301839eb962cd6b8ce00380}\label{classgrw_1_1sprite_a830cff3db301839eb962cd6b8ce00380} 
+\index{grw::sprite@{grw::sprite}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!grw::sprite@{grw::sprite}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void grw\+::sprite\+::set\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&}]{position }\end{DoxyParamCaption})}
+
+\Hypertarget{classgrw_1_1sprite_a8ab2eb83663b53182f084e62bfe01fb8}\label{classgrw_1_1sprite_a8ab2eb83663b53182f084e62bfe01fb8} 
+\index{grw::sprite@{grw::sprite}!setSize@{setSize}}
+\index{setSize@{setSize}!grw::sprite@{grw::sprite}}
+\doxysubsubsection{\texorpdfstring{setSize()}{setSize()}}
+{\footnotesize\ttfamily void grw\+::sprite\+::set\+Size (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classengine__math_1_1vector2}{engine\+\_\+math\+::vector2}}$<$ \mbox{\hyperlink{classint}{int}} $>$ \&}]{size }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{engineGraphic_8hpp}{engine\+Graphic.\+hpp}}\item 
+engine/graphic/wrapper/\mbox{\hyperlink{graphic_2wrapper_2sprite_8cpp}{sprite.\+cpp}}\end{DoxyCompactItemize}

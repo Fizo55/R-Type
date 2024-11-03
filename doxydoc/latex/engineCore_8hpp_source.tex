@@ -1,5 +1,5 @@
-\hypertarget{engineCore_8hpp_source}{}\doxysection{engine\+Core.\+hpp}
-\label{engineCore_8hpp_source}\index{include/engineCore.hpp@{include/engineCore.hpp}}
+\doxysection{engine\+Core.\+hpp}
+\hypertarget{engineCore_8hpp_source}{}\label{engineCore_8hpp_source}\index{include/engineCore.hpp@{include/engineCore.hpp}}
 \mbox{\hyperlink{engineCore_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ENGINE\_CORE\_HPP\_}}
@@ -14,113 +14,236 @@
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \#include\ <typeindex>}}
 \DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ \#include\ <unordered\_map>}}
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \#include\ <optional>}}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceengine}{engine}}\ \{}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{classengine_1_1EcsSystem}{EcsSystem}};}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{classengine_1_1ComponentPoolBase}{ComponentPoolBase}};}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{classengine_1_1Entity}{Entity}};}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{classengine_1_1Registry}{Registry}};}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structengine_1_1ComponentPool}{ComponentPool}};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1Entity}{Entity}}\ \{}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Entity_a98c96c52632eaa0c8ac3fb8067252962}{Entity}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\&\ \mbox{\hyperlink{classengine_1_1Entity_ac5f38f47e3fb6710304b34a6d73aa205}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}(std::size\_t\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ std::size\_t()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Entity_a1ff474b28e4f5bcfe52ed76df06cbf18}{attach\_system}}(std::unique\_ptr<EcsSystem>\ system);}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Entity_a3bc18413a90a13039d5709046a0c0ea4}{update\_systems}}(\mbox{\hyperlink{classengine_1_1Registry}{Registry}}\&\ registry,\ \textcolor{keywordtype}{float}\ delta\_time);}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ \_id;}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::unique\_ptr<EcsSystem>>\ \_systems;}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1EcsSystem}{EcsSystem}}\ \{}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classengine_1_1EcsSystem_a3603de91c65abce93b72519d2d1c3dc8}{\string~EcsSystem}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1EcsSystem_a5c6d168f86adef870e8d0ab7c401a756}{update}}(\mbox{\hyperlink{classengine_1_1Registry}{Registry}}\&\ registry,\ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\&\ entity,\ \textcolor{keywordtype}{float}\ delta\_time)\ =\ 0;}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1ComponentPoolBase}{ComponentPoolBase}}\ \{}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classengine_1_1ComponentPoolBase_afc69a1888fd13bdc8d4e0bdc68fdfed4}{\string~ComponentPoolBase}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ComponentPoolBase_a92be7602b6460fb48b963ffd5b979c01}{remove\_component}}(uint64\_t\ entity\_id)\ =\ 0;}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1Registry}{Registry}}\ \{}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\ \mbox{\hyperlink{classengine_1_1Registry_aa1f82a53fffe0e91a685ac87598a5be9}{create\_entity}}();}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Registry_a43f271e9d3451bc391f97c29f4042fe5}{destroy\_entity}}(\mbox{\hyperlink{classengine_1_1Entity}{Entity}}\ entity);}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structengine_1_1ComponentPool}{ComponentPool<Component>}}\&\ \mbox{\hyperlink{classengine_1_1Registry_ae2c493bee99b0c5103a4aca5f8b06405}{register\_component}}();}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Registry_a0a9b74e8165d9400e4692ed1757a48c8}{add\_component}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\&\ entity,\ \textcolor{keyword}{const}\ Component\&\ component);}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<Component>\&\ \mbox{\hyperlink{classengine_1_1Registry_aa7a33fec3e6a3dee09b6b5177ac5160d}{get\_component}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\&\ entity);}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structengine_1_1ComponentPool}{ComponentPool<Component>}}\&\ \mbox{\hyperlink{classengine_1_1Registry_ad87db26300bf5c8a47ab6a679a46bc05}{get\_component\_pool}}();}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Registry_a14a2a32f8f25f60ed093694917bc2609}{remove\_component}}(\mbox{\hyperlink{classengine_1_1Entity}{Entity}}\ entity);}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ \_next\_entity\_id\ =\ 0;}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unordered\_map<std::type\_index,\ std::unique\_ptr<ComponentPoolBase>>\ \_component\_pools;}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{structengine_1_1ComponentPool}{ComponentPool}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classengine_1_1ComponentPoolBase}{ComponentPoolBase}}\ \{}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structengine_1_1ComponentPool_ab7a78791508b64c4f8dfb887cd2fbfca}{add\_component}}(uint64\_t\ entity\_id,\ \textcolor{keyword}{const}\ Component\&\ component);}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<Component>\&\ \mbox{\hyperlink{structengine_1_1ComponentPool_a2d4ba95ac54ba564312e459d547fb1b1}{get\_component}}(uint64\_t\ entity\_id);}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structengine_1_1ComponentPool_a6d32e2636114f5c26a0b9fd1c306fa3f}{remove\_component}}(uint64\_t\ entity\_id)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structengine_1_1ComponentPool_a777cb91b89dd1705b060d07e1c8db22c}{size}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::optional<Component>>\ components;}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1Scene}{Scene}}\ \{}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Scene_af9a03c6a66bc5b1591519e42abd22269}{Scene}}();}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Scene_af9a03c6a66bc5b1591519e42abd22269}{Scene}}(\textcolor{keyword}{const}\ std::string\ \&);}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \_name;}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::unique\_ptr<Entity>>\ \_objects;}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::unique\_ptr<Entity>>\ \_huds;}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1Game}{Game}}\ \{}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Game_af8afdfbe63c381b656aff9b6ee799b2d}{Game}}();}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\ \ \ \ \#include\ <any>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \#include\ <functional>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \ \ \#include\ <yaml-\/cpp/yaml.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceengine}{engine}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }EcsSystem;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }ComponentPoolBase;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structEntity}{Entity}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }Registry;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }ComponentPool;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1Entity}{Entity}}\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classengine_1_1Entity_a9b2c2688843e655fe8e4d8c561b36ee9}{Entity}}(std::size\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ std::size\_t()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Entity_ada87c06aab805ed526d265f52ef7ac59}{attach\_system}}(std::unique\_ptr<EcsSystem>\ system);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Entity_a1828f0c1c1a24dbff5099f1bc9e78e22}{update\_systems}}(\mbox{\hyperlink{classengine_1_1Registry}{Registry}}\&\ registry,\ \textcolor{keywordtype}{float}\ delta\_time);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ \_id;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::unique\_ptr<EcsSystem>>\ \_systems;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1EcsSystem}{EcsSystem}}\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classengine_1_1EcsSystem_a3603de91c65abce93b72519d2d1c3dc8}{\string~EcsSystem}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1EcsSystem_a5c6d168f86adef870e8d0ab7c401a756}{update}}(\mbox{\hyperlink{classengine_1_1Registry}{Registry}}\&\ registry,\ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\&\ entity,\ \textcolor{keywordtype}{float}\ delta\_time)\ =\ 0;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1ComponentPoolBase}{ComponentPoolBase}}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classengine_1_1ComponentPoolBase_afc69a1888fd13bdc8d4e0bdc68fdfed4}{\string~ComponentPoolBase}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ComponentPoolBase_a92be7602b6460fb48b963ffd5b979c01}{remove\_component}}(uint64\_t\ entity\_id)\ =\ 0;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1Registry}{Registry}}\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\ \mbox{\hyperlink{classengine_1_1Registry_aa1f82a53fffe0e91a685ac87598a5be9}{create\_entity}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Registry_a43f271e9d3451bc391f97c29f4042fe5}{destroy\_entity}}(\mbox{\hyperlink{classengine_1_1Entity}{Entity}}\ entity);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structengine_1_1ComponentPool}{ComponentPool<Component>}}\&\ \mbox{\hyperlink{classengine_1_1Registry_ae2c493bee99b0c5103a4aca5f8b06405}{register\_component}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Registry_a0a9b74e8165d9400e4692ed1757a48c8}{add\_component}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\&\ entity,\ \textcolor{keyword}{const}\ Component\&\ component);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<Component>\&\ \mbox{\hyperlink{classengine_1_1Registry_aa7a33fec3e6a3dee09b6b5177ac5160d}{get\_component}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\&\ entity);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structengine_1_1ComponentPool}{ComponentPool<Component>}}\&\ \mbox{\hyperlink{classengine_1_1Registry_ad87db26300bf5c8a47ab6a679a46bc05}{get\_component\_pool}}();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Registry_a14a2a32f8f25f60ed093694917bc2609}{remove\_component}}(\mbox{\hyperlink{classengine_1_1Entity}{Entity}}\ entity);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ \_next\_entity\_id\ =\ 0;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unordered\_map<std::type\_index,\ std::unique\_ptr<ComponentPoolBase>>\ \_component\_pools;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{structengine_1_1ComponentPool}{ComponentPool}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classengine_1_1ComponentPoolBase}{ComponentPoolBase}}\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structengine_1_1ComponentPool_ab7a78791508b64c4f8dfb887cd2fbfca}{add\_component}}(uint64\_t\ entity\_id,\ \textcolor{keyword}{const}\ Component\&\ component);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<Component>\&\ \mbox{\hyperlink{structengine_1_1ComponentPool_a2d4ba95ac54ba564312e459d547fb1b1}{get\_component}}(uint64\_t\ entity\_id);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structengine_1_1ComponentPool_a6d32e2636114f5c26a0b9fd1c306fa3f}{remove\_component}}(uint64\_t\ entity\_id)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structengine_1_1ComponentPool_a777cb91b89dd1705b060d07e1c8db22c}{size}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::optional<Component>>\ components;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1ComponentBuildRoute}{ComponentBuildRoute}}\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1ComponentBuildRoute_a43bb75b9cdd4f7bb92581bcab7a6fcf8}{ComponentBuildRoute}}(\textcolor{keyword}{const}\ std::string\ \&\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keyword}{const}\ std::function<\textcolor{keywordtype}{void}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\ \&,\ \textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::vector<std::any>\ \&,\ \mbox{\hyperlink{classengine_1_1Registry}{Registry}}\ \&)>\ \&\ =\ std::function<\textcolor{keywordtype}{void}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\ \&,\ \textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::vector<std::any>\ \&,\ \mbox{\hyperlink{classengine_1_1Registry}{Registry}}\ \&)>());}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1ComponentBuildRoute_ad15cc5cb6b8cabc74f120ed168206471}{\string~ComponentBuildRoute}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classengine_1_1ComponentBuildRoute_a6cfd9c32fb9ee282e613fd41417d1a6b}{name}};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<void(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\ \&,\ \textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::vector<std::any>\ \&,\ \mbox{\hyperlink{classengine_1_1Registry}{Registry}}\ \&)>\ \mbox{\hyperlink{classengine_1_1ComponentBuildRoute_aacba83cab714604ffe889b8d2ec4ca4f}{callback}};}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1EntityBuildData}{EntityBuildData}}\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1EntityBuildData_a2cbade1226553904903e5357e6ff3d9a}{EntityBuildData}}(\textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::vector<std::any>\ \&);}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1EntityBuildData_a9b3721c4f460a51fb1ec5d9e8c7704c7}{\string~EntityBuildData}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::unique\_ptr<Entity>>\ \_objects;}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::unique\_ptr<Entity>>\ \_huds;}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ std::unique\_ptr<Scene>>\ \_scenes;}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \_loadedScene;}
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00116\ \ \ \ \ \}}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}engineCore.tpp"{}}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classengine_1_1EntityBuildData_a5edc3e1754666642b91841d60bdddc65}{nameRef}};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classengine_1_1EntityBuildData_a5b32ca78a7b3b69d5d1cdfdcc872a8fc}{name}};}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::any>\ \mbox{\hyperlink{classengine_1_1EntityBuildData_ab8971a863688aaa3a3170a14b1f1aa62}{buildArgs}};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1EntityFactory}{EntityFactory}}\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1EntityFactory_a11537e87934a60a0765d46150422e91f}{EntityFactory}}();}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1EntityFactory_a8e05c90212ae6400e3048467d3f0fc89}{\string~EntityFactory}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !ENGINE\_CORE\_HPP\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Component>}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1EntityFactory_ad036ca1567685e824d1e644961285ebe}{registerComponent}}()\ \{\ this-\/>\_registry.\mbox{\hyperlink{classengine_1_1Registry_ae2c493bee99b0c5103a4aca5f8b06405}{register\_component}}<Component>();\ \};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1EntityFactory_ad50d013ec2e01290b0ebd275cb2ad55b}{registerBuildComponentRoute}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1ComponentBuildRoute}{ComponentBuildRoute}}\ \&);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1EntityFactory_a341d9e498501b17607502ddbaaa31d88}{buildComponent}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1EntityBuildData}{EntityBuildData}}\ \&);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\ \mbox{\hyperlink{classengine_1_1EntityFactory_a38cc842c8971aa14857f92ebf6fc2238}{createEntityComponentReady}}(\textcolor{keyword}{const}\ std::vector<EntityBuildData>\ \&);}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Entity}{Entity}}\ \mbox{\hyperlink{classengine_1_1EntityFactory_a1cb81cb4366ab92627b4e48f5a1b1944}{createEntity}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Registry}{Registry}}\ \&\mbox{\hyperlink{classengine_1_1EntityFactory_af7635367361833dc0b090e6876f1cb88}{getRegistry}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Registry}{Registry}}\ \_registry;}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ ComponentBuildRoute>\ \_routes;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1ObjectRef}{ObjectRef}}\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1ObjectRef_a062fa0f918cdb918fb3ab50768c65743}{ObjectRef}}();}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1ObjectRef_a062fa0f918cdb918fb3ab50768c65743}{ObjectRef}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{classengine_1_1ObjectRef_a89daa91bdf24598670ce4a9b359d9b26}{getName}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ObjectRef_a56883e45596375429dbafeb45e6edca0}{setName}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ObjectRef_aa02d04435419597c455b36b972a12a58}{addBuildComponent}}(\textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ObjectRef_a825f425dfab33a2b48135e5c79ba70de}{removeBuildComponent}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{classengine_1_1ObjectRef_a5cd01c6e025ba2892f256f8e5434e451}{getBuildComponent}}(\textcolor{keyword}{const}\ std::string\ \&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{classengine_1_1ObjectRef_af592af1dff678c7f4cc6dd2234d9d8ba}{getAllBuildComponent}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ObjectRef_aba3b6c8a8b46428d507b44782fc5f183}{addBuildParameter}}(\textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::vector<std::any>\ \&);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1ObjectRef_a531a5ad002507434ea227b3de1893348}{removeBuildParameter}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::any>\ \mbox{\hyperlink{classengine_1_1ObjectRef_a35fa7a676174a17c469a89b18ebf6138}{getBuildParameter}}(\textcolor{keyword}{const}\ std::string\ \&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{classengine_1_1ObjectRef_aad4b755448032a6690a22f21693efcbc}{getAllBuildParameter}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::any\ \mbox{\hyperlink{classengine_1_1ObjectRef_a7639411609d812c3e2681f34d9c7d388}{parameterBuilder}}(\textcolor{keyword}{const}\ YAML::Node\ \&);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \_name;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ std::string>\ \_buildComponents;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ std::vector<std::any>>\ \_buildParameters;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1Object}{Object}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classengine_1_1ObjectRef}{ObjectRef}}\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Object_a371adfc8c098302f3a607421bd2e5dcf}{Object}}();}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Object_a371adfc8c098302f3a607421bd2e5dcf}{Object}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1ObjectRef}{ObjectRef}}\ \&);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Object_a88ff10ef5071d930b1945c1baa7a2498}{buildEntity}}(\mbox{\hyperlink{classengine_1_1EntityFactory}{EntityFactory}}\ \&);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::unique\_ptr<Entity>\ \&\mbox{\hyperlink{classengine_1_1Object_aafe8c830dcadc9bb22f3fa7b08d91cf2}{getEntity}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<Entity>\ \_entity;}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1Scene}{Scene}}\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Scene_af9a03c6a66bc5b1591519e42abd22269}{Scene}}();}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Scene_af9a03c6a66bc5b1591519e42abd22269}{Scene}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{classengine_1_1Scene_abd3ff0a5a64a1946ddff604da160d317}{getName}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Scene_af7034c62e72b7534e80c7167d3bcfcec}{setName}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Scene_a8eadb133dd02d40eac10fbecd89a28a1}{addHud}}(\textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1ObjectRef}{ObjectRef}}\ \&);}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Scene_abbc2c41273b5606cce34643db9d4947b}{addObject}}(\textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1ObjectRef}{ObjectRef}}\ \&);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::pair<std::string,\ ObjectRef>>\ \&\mbox{\hyperlink{classengine_1_1Scene_af0785f4feee1330f0f7c161d74fc68e5}{getHuds}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::pair<std::string,\ ObjectRef>>\ \&\mbox{\hyperlink{classengine_1_1Scene_ab2d7e8eecb60e4d8038741f69058b70a}{getObjects}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \_name;}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::pair<std::string,\ ObjectRef>>\ \_objects;}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::pair<std::string,\ ObjectRef>>\ \_huds;}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classengine_1_1Game}{Game}}\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Game_af8afdfbe63c381b656aff9b6ee799b2d}{Game}}();}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Scene}{Scene}}\ \&\mbox{\hyperlink{classengine_1_1Game_a49a3e1f559b4097b12f32b73d3fc484a}{getScene}}(\textcolor{keyword}{const}\ std::string\ \&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1ObjectRef}{ObjectRef}}\ \&\mbox{\hyperlink{classengine_1_1Game_a17786a0cf33f67bd9a789f7fc3a36839}{getObject}}(\textcolor{keyword}{const}\ std::string\ \&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Game_aaef218cdadb0bafbabca952e624bd696}{registerScene}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Game_aaef218cdadb0bafbabca952e624bd696}{registerScene}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1Scene}{Scene}}\ \&);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Game_ad8addcb642df0d4e1ab6bbaaf1d4e0fa}{registerObject}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Game_ad8addcb642df0d4e1ab6bbaaf1d4e0fa}{registerObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1ObjectRef}{ObjectRef}}\ \&);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Game_a075b4fd8f625584e35083b1fc955f5e0}{unregisterScene}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Game_a590740d4c168e0a490890c686e6e213f}{unregisterObject}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Game_aa65d82e206c30f20128c395ba816ff99}{loadObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1ObjectRef}{ObjectRef}}\ \&);}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Game_ad334454111c7ed347898d921ab1b17ca}{loadScene}}(\textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Game_ab1a7d1e6190e73cadcd17e4ebcfcd163}{unloadScene}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Object>\ \&\mbox{\hyperlink{classengine_1_1Game_a6170a2675d1d2ab562fbe172ad4ec759}{getLoadedObjects}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Object>\ \&\mbox{\hyperlink{classengine_1_1Game_a4565fa9db818556931083582e78b385c}{getLoadedHuds}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classengine_1_1Game_a6453d7e08fb10300ea0eeee02613637d}{addFactory}}(\mbox{\hyperlink{classengine_1_1EntityFactory}{EntityFactory}}\ *);}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1EntityFactory}{engine::EntityFactory}}\ *\mbox{\hyperlink{classengine_1_1Game_af712e0e882ffc8e1169121f8fdcba72b}{getFactory}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1Object}{Object}}\ \mbox{\hyperlink{classengine_1_1Game_ab3c575192ecfde3540b3bd9d243f20a7}{buildObjectRef}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classengine_1_1ObjectRef}{ObjectRef}}\ \&,\ \textcolor{keyword}{const}\ std::string\ \&);}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ ObjectRef>\ \_objects;}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ Scene>\ \_scenes;}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Object>\ \_loadedGameObjects;}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Object>\ \_loadedGameHuds;}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classengine_1_1EntityFactory}{EntityFactory}}\ *\_factory;}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \_loadedScene;}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00236\ \ \ \ \ \}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ std::ostream\ \&\mbox{\hyperlink{engineCore_8hpp_ac897aa2b78b10554084c689c0df8463a}{operator<<}}(std::ostream\ \&os,\ \mbox{\hyperlink{classengine_1_1ObjectRef}{engine::ObjectRef}}\ \textcolor{keyword}{const}\ \&obj);}
+\DoxyCodeLine{00239\ \ \ \ \ std::ostream\ \&\mbox{\hyperlink{engineCore_8hpp_ac897aa2b78b10554084c689c0df8463a}{operator<<}}(std::ostream\ \&os,\ \mbox{\hyperlink{classengine_1_1Object}{engine::Object}}\ \textcolor{keyword}{const}\ \&obj);}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}engineCore.tpp"{}}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !ENGINE\_CORE\_HPP\_\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

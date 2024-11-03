@@ -1,8 +1,0 @@
-digraph "grw::windowHandler"
-{
- // LATEX_PDF_SIZE
-  bgcolor="transparent";
-  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
-  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
-  Node1 [shape=record,label="{grw::windowHandler\n||+ windowHandler()\l+ ~windowHandler()\l+ addWindow()\l+ getWindow()\l+ hasWindow()\l+ closeWindow()\l+ isAllWindowClosed()\l+ isWindowClosed()\l+ buildEvent()\l+ eventWindows()\l+ updateWindows()\l+ drawWindows()\l}",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
-}

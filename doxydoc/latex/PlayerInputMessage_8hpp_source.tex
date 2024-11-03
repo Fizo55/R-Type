@@ -1,0 +1,33 @@
+\doxysection{Player\+Input\+Message.\+hpp}
+\hypertarget{PlayerInputMessage_8hpp_source}{}\label{PlayerInputMessage_8hpp_source}\index{server/include/PlayerInputMessage.hpp@{server/include/PlayerInputMessage.hpp}}
+\mbox{\hyperlink{PlayerInputMessage_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PLAYERINPUTMESSAGE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PLAYERINPUTMESSAGE\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MessageBase_8hpp}{MessageBase.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ISerializer_8hpp}{ISerializer.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{IDeserializer_8hpp}{IDeserializer.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MessageTypes_8hpp}{MessageTypes.hpp}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPlayerInputMessage}{PlayerInputMessage}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classMessageBase}{MessageBase}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{classPlayerInputMessage_a91591d88dece554de47f5b3dc01a40d0}{PlayerInputMessage}}();}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classPlayerInputMessage_afb5eab48df17bc4d565bd609d2d5c604}{inputFlags}};}
+\DoxyCodeLine{00014\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classPlayerInputMessage_abb1a5af02c5dc85ea8d712b794dc4ba7}{timestamp}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayerInputMessage_af92761c2d86e9e6791be673d5d945227}{serialize}}(std::vector<uint8\_t>\&\ outBuffer,\ uint16\_t\ sequenceId,\ uint8\_t\ flags)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayerInputMessage_a6adeb802eb5c6f703387b9e270d47bc7}{deserialize}}(\textcolor{keyword}{const}\ std::vector<uint8\_t>\&\ inBuffer)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{classPlayerInputMessage_a2b9d7a7f208441a3f81e66ee6d431b05}{getSequenceId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00020\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classPlayerInputMessage_a757b2c27db00c8a693b6173bdef73fb4}{getFlags}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ uint16\_t\ sequenceId\_;}
+\DoxyCodeLine{00024\ \ \ \ \ uint8\_t\ flags\_;}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
