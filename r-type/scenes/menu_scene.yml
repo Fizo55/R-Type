@@ -7,7 +7,7 @@ objects:
         - 0
         - 0
       sprite:
-        - "sprite_bg_lvl1"
+        - "sprite_bg_menu"
       size:
         - 1920
         - 1080

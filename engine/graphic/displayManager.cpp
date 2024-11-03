@@ -90,3 +90,8 @@ void engine::displayManager::useEntity(const engine::Entity &entity, engine::Reg
     grw::sprite newSprite(this->_textures[sprite->sprite], position->coordinates, size->coordinates);
     this->_rendering[windowId].push_back(newSprite);
 }
+
+grw::windowHandler engine::displayManager::getWindowHandler(void)
+{
+    return (this->_winHandler);
+}

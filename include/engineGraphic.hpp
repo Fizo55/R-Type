@@ -205,6 +205,8 @@
                 unsigned int createWindow(void);
 
                 void useEntity(const Entity &, Registry &, unsigned int);
+
+                grw::windowHandler getWindowHandler(void);
             private:
                 grw::windowHandler _winHandler;
 
