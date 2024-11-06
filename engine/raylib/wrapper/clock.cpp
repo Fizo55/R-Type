@@ -1,5 +1,7 @@
 #include "engineGraphicRay.hpp"
-#include <unistd.h>
+#include <thread>
+#include <chrono>
+#include <cmath>
 
 using namespace grw;
 
@@ -27,9 +29,8 @@ unsigned long clock::tick(int fps)
     sleepTime = executionTime - delta;
 
     if (sleepTime > 0.5) {
-        usleep(static_cast<useconds_t>(std::round(sleepTime)));
+        std::this_thread::sleep_for(std::chrono::microseconds(static_cast<int>(std::round(sleepTime * 1000))));
     }
     this->_oldTime = static_cast<unsigned long>(GetTime() * 1000);
     return (sleepTime > 0.0 ? delta + sleepTime : delta);
 }
-
