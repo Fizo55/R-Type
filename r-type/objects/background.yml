@@ -1,4 +1,4 @@
-name: bg_lvl1
+name: background
 components:
   - name: coords
     type: position

@@ -32,7 +32,7 @@ client::client(const std::string &configPath)
 
     YAML::Node gameData = YAML::LoadFile(configPath);
 
-    this->_gameWindow = this->_displayManager.createWindow();
+    this->_gameWindow = this->_displayManager.createWindow(1920, 1080);
     if (gameData["images"]) {
         for (YAML::const_iterator it = gameData["images"].begin(); it != gameData["images"].end(); ++it) {
             this->_displayManager.registerAsset(it->first.as<std::string>(), basePath + it->second.as<std::string>());

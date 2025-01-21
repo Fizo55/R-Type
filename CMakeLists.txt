@@ -116,12 +116,14 @@ target_link_libraries(server-executable PRIVATE engine-core network)
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main_base.cpp
     ${CLIENT_SRC_DIR}/src/client_base.cpp
+    ${ENGINE_SRC_DIR}/graphic/bindings/clock.cpp
 )
 target_include_directories(client-executable PRIVATE ./include)
 target_link_libraries(client-executable PRIVATE engine-graphic)
 target_link_libraries(client-executable PRIVATE engine-core)
 target_link_libraries(client-executable PRIVATE engine-scripting)
 target_link_libraries(client-executable PUBLIC yaml-cpp::yaml-cpp)
+target_link_libraries(client-executable PRIVATE ${LUA_LIBRARIES})
 
 add_executable(client-secondary
     ${CLIENT_SRC_DIR}/main.cpp

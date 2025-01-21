@@ -27,9 +27,9 @@ void engine::displayManager::addWindow(grw::window *window)
     this->_winHandler.addWindow(window);
 }
 
-unsigned int engine::displayManager::createWindow(void)
+unsigned int engine::displayManager::createWindow(int x, int y)
 {
-    grw::window *window = new grw::window("New Window", grw::videoMode(engine_math::vector2<int>(800, 600), engine_math::vector2<int>(0, 0), 32, grw::videoMode::CLOSABLE));
+    grw::window *window = new grw::window("New Window", grw::videoMode(engine_math::vector2<int>(x, y), engine_math::vector2<int>(0, 0), 32, grw::videoMode::CLOSABLE));
 
     SetTraceLogLevel(LOG_NONE);
     this->_winHandler.addWindow(window);

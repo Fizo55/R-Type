@@ -1,26 +1,36 @@
-name: scene1
+name: main_scene
 objects:
-  - name: test
-    id: obj0
-    values:
-      coords:
-        - 100
-        - 110
-      sprite:
-        - "sprite0"
-      main_script:
-        - "test"
+  # / ---- moving background ---- \
 
-  - name: test2
-    id: obj0
+  - name: background
+    id: background
     values:
       coords:
-        - 10
-        - 110
+        - 0
+        - 0
       sprite:
-        - "sprite0"
+        - "sprite_bg"
+      size:
+        - 1920
+        - 1080
       main_script:
-        - "test"
+        - "background_script"
+
+  - name: background2
+    id: background
+    values:
+      coords:
+        - 1920
+        - 0
+      sprite:
+        - "sprite_bg"
+      size:
+        - 1920
+        - 1080
+      main_script:
+        - "background_script"
+
+  # Zzz
 
 huds:
 

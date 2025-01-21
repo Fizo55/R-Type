@@ -170,7 +170,7 @@
                 void draw(void);
                 void clear(void);
 
-                unsigned int createWindow(void);
+                unsigned int createWindow(int x, int y);
 
                 void useEntity(const Entity &, Registry &, unsigned int);
             private:

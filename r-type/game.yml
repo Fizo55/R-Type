@@ -1,27 +1,19 @@
 scenes:
-  # - r-type/scenes/main_scene.yml
-  - r-type/scenes/menu_scene.yml
-  - r-type/scenes/level1.yml
-  # - r-type/scenes/scene_test.yml
+  - r-type/scenes/main_scene.yml
 
 objects:
-  - r-type/objects/test.yml
-  - r-type/objects/background_level1.yml
+  - r-type/objects/background.yml
   - r-type/objects/ennemies/ennemy_pata-pata.yml
-  - r-type/objects/allies/player1.yml
-  - r-type/objects/allies/shot1.yml
+  - r-type/objects/allies/player.yml
+  - r-type/objects/allies/bullet.yml
 
 scripts:
-  test: r-type/scripts/test.lua
-  empty: r-type/scripts/test1.lua
-  buttons: r-type/scripts/buttons.lua
+  background_script: r-type/scripts/background.lua
 
 images:
-  sprite_bg_lvl1: r-type/assets/images/backgrounds/level1_bg_1080p.png
-  sprite_bg_menu: r-type/assets/images/backgrounds/menu_background.png
-  sprite0:        r-type/assets/images/error.png
+  sprite_bg: r-type/assets/images/backgrounds/level1_bg_1080p.png
 
   sprite_player1: r-type/assets/images/allies/player1.png
   sprite_pata-pata: r-type/assets/images/ennemies/ennemy_pata-pata_left.png
 
-entryScene: scene0
+entryScene: main_scene

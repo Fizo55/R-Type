@@ -10,6 +10,7 @@ client::client(const std::string &configPath)
   : _running(false)
 {
     engine::ScriptTypeDefinitor<Game> *gameDefinitor = new engine::ScriptTypeDefinitor<Game>();
+    engine::ScriptTypeDefinitor<grw::clock> *clockDefinitor = new engine::ScriptTypeDefinitor<grw::clock>();
 
     this->_factory.registerComponent<engine_components::Position>();
     this->_factory.registerComponent<engine_components::Size>();
@@ -56,6 +57,8 @@ client::client(const std::string &configPath)
     }
 
     this->_orchestrator.registerGlobal(ScriptGlobalDefinition((engine::IScriptTypeDefinitor *)gameDefinitor, "game", "game", (void *)&(this->_game)));
+    this->_orchestrator.registerGlobal(ScriptGlobalDefinition((engine::IScriptTypeDefinitor *)clockDefinitor, "clock", "clock", (void *)&(this->_clock)));
+    this->_orchestrator.addBinding(clock_register);
 
     this->_game.addFactory(&this->_factory);
 
@@ -64,7 +67,7 @@ client::client(const std::string &configPath)
 
     this->_orchestrator.fromGameObject(this->_game);
 
-    this->_gameWindow = this->_displayManager.createWindow();
+    this->_gameWindow = this->_displayManager.createWindow(800, 600);
 }
 
 client::~client()
@@ -77,9 +80,6 @@ void client::event(void)
     this->_running = !this->_displayManager.event();
 
     if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::NO_EVENT)) {
-        std::cout << "noevent" << std::endl;
-
-        // ton code gadjo
     }
 
 }

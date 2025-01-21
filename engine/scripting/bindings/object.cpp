@@ -65,7 +65,31 @@ static int object_getpos(lua_State *ctx)
     return (0);
 }
 
+static int object_getsize(lua_State *ctx)
+{
+    std::string axis = luaL_checkstring(ctx, 2);
 
+    auto gIndex = lua_getglobal(ctx, "game");
+    auto self = *reinterpret_cast<engine::Object**>(luaL_checkudata(ctx, 1, "object"));
+    engine::Game *tempGame = *reinterpret_cast<engine::Game**>(lua_touserdata(ctx, 3));
+
+    std::optional<engine_components::Size> &tempSize = (tempGame->getFactory())->getRegistry().get_component<engine_components::Size>(*self->getEntity());
+
+    if (!tempSize)
+        return 0;
+
+    if (axis == "x") {
+        lua_pushinteger(ctx, tempSize->coordinates.x);
+        return 1;
+    }
+    if (axis == "y") {
+        lua_pushinteger(ctx, tempSize->coordinates.y);
+        return 1;
+    }
+
+    lua_pop(ctx, 3);
+    return (0);
+}
 
 static int object_getname(lua_State *ctx)
 {
@@ -91,6 +115,9 @@ void object_register(lua_State *ctx)
 
     lua_pushcfunction(ctx, object_getpos);
     lua_setfield(ctx, -2, "get_pos");
+
+    lua_pushcfunction(ctx, object_getsize);
+    lua_setfield(ctx, -2, "get_size");
 
     lua_pushcfunction(ctx, object_move);
     lua_setfield(ctx, -2, "move");

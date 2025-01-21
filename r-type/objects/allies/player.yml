@@ -1,4 +1,4 @@
-name: obj0
+name: player
 components:
   - name: coords
     type: position
