@@ -1,0 +1,20 @@
+scenes:
+  - secondary-game/scenes/main_game.yml
+
+objects:
+  - secondary-game/objects/background.yml
+  - secondary-game/objects/coin.yml
+  - secondary-game/objects/player.yml
+
+scripts:
+  bg_script: secondary-game/scripts/background.lua
+  main_player: secondary-game/scripts/main_player.lua
+  bg_script: secondary-game/scripts/background.lua
+  coin_script: secondary-game/scripts/coin_script.lua
+
+images:
+  sprite_bg: secondary-game/assets/big_background.png
+  sprite_player: secondary-game/assets/player.png
+  sprite_coin: secondary-game/assets/coin.png
+
+entryScene: main_game

@@ -114,14 +114,24 @@ target_include_directories(server-executable PRIVATE ./include)
 target_link_libraries(server-executable PRIVATE engine-core network)
 
 add_executable(client-executable
-    ${CLIENT_SRC_DIR}/main.cpp
-    ${CLIENT_SRC_DIR}/src/client.cpp
+    ${CLIENT_SRC_DIR}/main_base.cpp
+    ${CLIENT_SRC_DIR}/src/client_base.cpp
 )
 target_include_directories(client-executable PRIVATE ./include)
 target_link_libraries(client-executable PRIVATE engine-graphic)
 target_link_libraries(client-executable PRIVATE engine-core)
 target_link_libraries(client-executable PRIVATE engine-scripting)
 target_link_libraries(client-executable PUBLIC yaml-cpp::yaml-cpp)
+
+add_executable(client-secondary
+    ${CLIENT_SRC_DIR}/main.cpp
+    ${CLIENT_SRC_DIR}/src/client.cpp
+)
+target_include_directories(client-secondary PRIVATE ./include)
+target_link_libraries(client-secondary PRIVATE engine-graphic)
+target_link_libraries(client-secondary PRIVATE engine-core)
+target_link_libraries(client-secondary PRIVATE engine-scripting)
+target_link_libraries(client-secondary PUBLIC yaml-cpp::yaml-cpp)
 
 add_custom_command(TARGET client-executable POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
@@ -131,4 +141,14 @@ add_custom_command(TARGET client-executable POST_BUILD
 add_custom_command(TARGET client-executable POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
     ${ASSETS_DIR} ${CMAKE_BINARY_DIR}/r-type
+)
+
+add_custom_command(TARGET client-secondary POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/secondary-game $<TARGET_FILE_DIR:client-secondary>/secondary-game
+)
+
+add_custom_command(TARGET client-secondary POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/secondary-game ${CMAKE_BINARY_DIR}/secondary-game
 )
