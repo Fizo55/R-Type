@@ -15,7 +15,7 @@ using namespace engine;
 
 int main(int ac, char **av)
 {
-    client game = client("jetpack_joyride/game.yml");
+    client game = client("secondary-game/game.yml");
 
     game.mainloop();
     return 0;

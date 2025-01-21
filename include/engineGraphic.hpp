@@ -86,12 +86,43 @@
                     CLOSE = 1,
                     QUIT = 2,
                     KEY_PRESSED = 3,
-                    KEY_RELEASED = 4,
-                    UP = 5,
-                    DOWN = 6,
-                    LEFT = 7,
-                    RIGHT = 8,
-                    SPACE = 9
+                    KEY_RELEASED = 4
+                };
+
+                enum keys {
+                    K_UP = SDLK_UP,
+                    K_DOWN = SDLK_DOWN,
+                    K_LEFT = SDLK_LEFT,
+                    K_RIGHT = SDLK_RIGHT,
+
+                    K_A = SDLK_a,
+                    K_B = SDLK_b,
+                    K_C = SDLK_c,
+                    K_D = SDLK_d,
+                    K_E = SDLK_e,
+                    K_F = SDLK_f,
+                    K_G = SDLK_g,
+                    K_H = SDLK_h,
+                    K_I = SDLK_i,
+                    K_J = SDLK_j,
+                    K_K = SDLK_k,
+                    K_L = SDLK_l,
+                    K_M = SDLK_m,
+                    K_N = SDLK_n,
+                    K_O = SDLK_o,
+                    K_P = SDLK_p,
+                    K_Q = SDLK_q,
+                    K_R = SDLK_r,
+                    K_S = SDLK_s,
+                    K_T = SDLK_t,
+                    K_U = SDLK_u,
+                    K_V = SDLK_v,
+                    K_W = SDLK_w,
+                    K_X = SDLK_x,
+                    K_Y = SDLK_y,
+                    K_Z = SDLK_z,
+
+                    K_SPACE = SDLK_SPACE
                 };
 
                 event(unsigned long type = 0, const engine_math::vector2<int> &position = engine_math::vector2<int>(0, 0), int key = -1);

@@ -72,32 +72,40 @@ client::~client()
 
 }
 
-void client::event(bool &isFlying)
+void client::event(void)
 {
+    static bool isFlying = false;
+
     this->_running = !this->_displayManager.event();
 
     if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::NO_EVENT)) {
     }
-    if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_RELEASED)) {
-        std::cout << "released" << std::endl;
-        isFlying = false;
-    }
-    if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::UP)) {
+    if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_PRESSED) &&
+        this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_PRESSED).key == grw::event::keys::K_UP) {
         std::cout << "up" << std::endl;
         isFlying = true;
     }
-        if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::DOWN)) {
+        if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_PRESSED) &&
+        this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_PRESSED).key == grw::event::keys::K_DOWN) {
         std::cout << "down" << std::endl;
     }
-        if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::LEFT)) {
+        if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_PRESSED) &&
+        this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_PRESSED).key == grw::event::keys::K_LEFT) {
         std::cout << "left" << std::endl;
     }
-        if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::RIGHT)) {
+        if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_PRESSED) &&
+        this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_PRESSED).key == grw::event::keys::K_RIGHT) {
         std::cout << "right" << std::endl;
     }
-        if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::SPACE)) {
+        if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_PRESSED) &&
+        this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_PRESSED).key == grw::event::keys::K_SPACE) {
         std::cout << "space" << std::endl;
         isFlying = true;
+    }
+    if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_RELEASED) &&
+    this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_RELEASED).key == grw::event::keys::K_SPACE) {
+        std::cout << "released" << std::endl;
+        isFlying = false;
     }
     if (isFlying) {
         this->_orchestrator.callFunctionAll("move_up");
@@ -132,11 +140,10 @@ void client::draw(void)
 
 void client::mainloop(void)
 {
-    bool isFlying = false;
     this->_running = true;
 
     while (this->_running) {
-        this->event(isFlying);
+        this->event();
         this->update();
         this->draw();
         this->_clock.tick(60);
