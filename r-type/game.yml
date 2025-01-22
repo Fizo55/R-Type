@@ -10,8 +10,10 @@ objects:
 scripts:
   background_script: r-type/scripts/background.lua
   player_script: r-type/scripts/player.lua
+  bullet_script: r-type/scripts/bullet.lua
 
 images:
+  shoot0: r-type/assets/images/effects/shot3_3_right.png
   sprite_bg: r-type/assets/images/backgrounds/level1_bg_1080p.png
 
   sprite_player1: r-type/assets/images/allies/player1.png

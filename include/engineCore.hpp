@@ -212,8 +212,6 @@
                 void unregisterScene(const std::string &);
                 void unregisterObject(const std::string &);
 
-                void loadObject(const ObjectRef &);
-
                 void loadScene(const std::string &);
                 void unloadScene(void);
 

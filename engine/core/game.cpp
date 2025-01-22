@@ -8,11 +8,6 @@ engine::Game::Game()
     this->_factory = 0;
 }
 
-void engine::Game::loadObject(const ObjectRef &objref)
-{
-
-}
-
 engine::Object engine::Game::buildObjectRef(const engine::ObjectRef &obj, const std::string &name)
 {
     Object temp;

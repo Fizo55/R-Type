@@ -27,6 +27,20 @@ static int change_scene(lua_State *ctx)
     return 0;
 }
 
+static int add_object(lua_State *ctx)
+{
+    auto object = *reinterpret_cast<engine::Object**>(luaL_checkudata(ctx, 2, "object"));
+    engine::Game *mygame = (*reinterpret_cast<engine::Game**>(luaL_checkudata(ctx, 1, "game")));
+    auto gIndex = lua_getglobal(ctx, "orchestrator");
+    engine::ScriptOrchestrator *tempOrchestrator = *reinterpret_cast<engine::ScriptOrchestrator**>(lua_touserdata(ctx, 3));
+
+    mygame->loadObject((engine::Object &&)*object);
+
+    lua_pop(ctx, 3);
+
+    return 0;
+}
+
 void game_register(lua_State *ctx)
 {
     // lua_register(ctx, "game", game_new); NO CONSTRUCTOR FOR GAME, POR FAVOR
@@ -44,6 +58,9 @@ void game_register(lua_State *ctx)
 
     lua_pushcfunction(ctx, change_scene);
     lua_setfield(ctx, -2, "change_scene");
+
+    lua_pushcfunction(ctx, add_object);
+    lua_setfield(ctx, -2, "add_object");
 
     lua_pop(ctx, 1);
 }

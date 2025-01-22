@@ -27,6 +27,8 @@ void engine::ScriptEnvironment::buildCoreLibrary()
     // game
     game_register(this->_ctx);
 
+    any_list_register(this->_ctx);
+
     // object
     object_register(this->_ctx);
 

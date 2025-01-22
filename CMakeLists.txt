@@ -78,6 +78,7 @@ target_link_libraries(engine-core PUBLIC yaml-cpp::yaml-cpp)
 add_library(engine-scripting OBJECT
     ${ENGINE_SRC_DIR}/scripting/bindings/game.cpp
     ${ENGINE_SRC_DIR}/scripting/bindings/object.cpp
+    ${ENGINE_SRC_DIR}/scripting/bindings/any_list.cpp
     ${ENGINE_SRC_DIR}/scripting/bindings/orchestrator.cpp
     ${ENGINE_SRC_DIR}/scripting/ScriptEnvironment.cpp
     ${ENGINE_SRC_DIR}/scripting/ScriptOrchestrator.cpp
