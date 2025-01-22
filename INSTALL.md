@@ -71,7 +71,7 @@ This guide will walk you through the steps needed to configure, build, and run t
 
 5. Run CMake to configure the project:
     ```bash
-    cmake -B build "-DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake"
+    cmake -B build -G "Visual Studio 17 2022" -A x64 "-DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake"
     ```
 
 6. Open the project in Visual Studio:
