@@ -200,6 +200,9 @@
                 const Scene &getScene(const std::string &) const;
                 const ObjectRef &getObject(const std::string &) const;
 
+                void loadObject(Object &&obj);
+                void loadHud(Object &&obj);
+
                 void registerScene(const std::string &);
                 void registerScene(const Scene &);
 

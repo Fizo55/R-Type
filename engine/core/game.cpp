@@ -50,6 +50,16 @@ void engine::Game::loadScene(const std::string &sceneName)
     }
 }
 
+void engine::Game::loadObject(engine::Object &&obj)
+{
+    this->_loadedGameObjects.push_back((engine::Object &&)obj);
+}
+
+void engine::Game::loadHud(engine::Object &&obj)
+{
+    this->_loadedGameHuds.push_back((engine::Object &&)obj);
+}
+
 void engine::Game::unloadScene(void)
 {
     this->_loadedGameObjects = std::vector<Object>();

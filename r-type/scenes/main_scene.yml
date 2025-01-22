@@ -30,7 +30,21 @@ objects:
       main_script:
         - "background_script"
 
-  # Zzz
+  # /---- Player ----\
+
+  - name: player0
+    id: player
+    values:
+      coords:
+        - 100
+        - 110
+      sprite:
+        - "sprite_player1"
+      size:
+        - 36
+        - 18
+      main_script:
+        - "player_script"
 
 huds:
 

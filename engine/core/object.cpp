@@ -1,5 +1,6 @@
 #include "engineCore.hpp"
 
+#include <memory>
 #include <yaml-cpp/yaml.h>
 
 engine::ObjectRef::ObjectRef()
