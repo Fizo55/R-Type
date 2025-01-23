@@ -163,6 +163,8 @@ void client::draw(void)
         this->_displayManager.useEntity(*item->getEntity(), this->_game.getFactory()->getRegistry(), this->_gameWindow);
     }
 
+    this->_displayManager.useText("score: 0", "r-type/assets/font.ttf", 24, engine_math::vector2<int>(20, 20), engine_math::vector2<int>(100, 100), this->_gameWindow);
+
     this->_displayManager.draw();
 }
 
