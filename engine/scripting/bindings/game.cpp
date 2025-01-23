@@ -59,6 +59,22 @@ static int remove_object(lua_State *ctx)
     return 0;
 }
 
+static int get_object(lua_State *ctx)
+{
+    lua_Integer index = luaL_checkinteger(ctx, 2);
+    engine::Game *mygame = (*reinterpret_cast<engine::Game**>(luaL_checkudata(ctx, 1, "game")));
+    const std::vector<engine::Object *> objects = mygame->getLoadedObjects();
+
+    if (index >= objects.size())
+        lua_pushnil(ctx);
+    else
+        *reinterpret_cast<engine::Object**>(lua_newuserdata(ctx, sizeof(engine::Object*))) = objects[index];
+
+    luaL_setmetatable(ctx, "object");
+
+    return 1;
+}
+
 void game_register(lua_State *ctx)
 {
     // lua_register(ctx, "game", game_new); NO CONSTRUCTOR FOR GAME, POR FAVOR
@@ -82,6 +98,9 @@ void game_register(lua_State *ctx)
 
     lua_pushcfunction(ctx, remove_object);
     lua_setfield(ctx, -2, "remove_object");
+
+    lua_pushcfunction(ctx, get_object);
+    lua_setfield(ctx, -2, "get_object");
 
     lua_pop(ctx, 1);
 }

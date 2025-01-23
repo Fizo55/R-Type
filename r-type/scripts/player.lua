@@ -56,6 +56,8 @@ function key_space()
 
     local temp = object()
 
+    temp:set_name("gen_player_bullet")
+
     temp:add_component("coords", "position")
     temp:add_component("sprite", "sprite")
     temp:add_component("size", "size")

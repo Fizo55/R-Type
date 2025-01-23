@@ -7,6 +7,7 @@ objects:
   - r-type/objects/allies/player.yml
   - r-type/objects/allies/bullet.yml
   - r-type/objects/ennemy_spawner.yml
+  - r-type/objects/world_collider.yml
 
 scripts:
   background_script: r-type/scripts/background.lua
@@ -15,6 +16,7 @@ scripts:
   ennemy_spawner_script: r-type/scripts/ennemy_manager.lua
   ennemy_script: r-type/scripts/ennemy.lua
   ennemy_bullet_script: r-type/scripts/ennemy_bullet.lua
+  collision_script: r-type/scripts/collision_handler.lua
 
 images:
   shoot0: r-type/assets/images/effects/shot3_3_right.png

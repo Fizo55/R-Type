@@ -54,13 +54,26 @@ objects:
       coords:
         - 801
         - 0
-      sprite:
-        - "sprite_player1"
       size:
         - 1
         - 600
       main_script:
         - "ennemy_spawner_script"
+
+  # /---- Collision ----\
+
+  - name: collider
+    id: world_collider
+    values:
+      coords:
+        - 0
+        - 0
+      size:
+        - 0
+        - 0
+      main_script:
+        - "collision_script"
+
 
 huds:
 

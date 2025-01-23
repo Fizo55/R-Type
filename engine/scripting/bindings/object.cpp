@@ -141,6 +141,16 @@ static int object_getname(lua_State *ctx)
     return (1);
 }
 
+static int object_setname(lua_State *ctx)
+{
+    std::string name = luaL_checkstring(ctx, 2);
+    auto self = *reinterpret_cast<engine::Object**>(luaL_checkudata(ctx, 1, "object"));
+
+    self->setName(name);
+
+    return (0);
+}
+
 void object_register(lua_State *ctx)
 {
     lua_register(ctx, "object", object_create);
@@ -164,6 +174,9 @@ void object_register(lua_State *ctx)
 
     lua_pushcfunction(ctx, object_move);
     lua_setfield(ctx, -2, "move");
+
+    lua_pushcfunction(ctx, object_setname);
+    lua_setfield(ctx, -2, "set_name");
 
     lua_pushcfunction(ctx, object_add_component);
     lua_setfield(ctx, -2, "add_component");

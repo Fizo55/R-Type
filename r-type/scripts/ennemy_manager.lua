@@ -11,6 +11,8 @@ function create_ennemy()
 
     local temp = object()
 
+    temp:set_name("gen_ennemy")
+
     temp:add_component("coords", "position")
     temp:add_component("sprite", "sprite")
     temp:add_component("size", "size")

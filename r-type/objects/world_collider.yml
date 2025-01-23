@@ -1,0 +1,13 @@
+name: world_collider
+components:
+  - name: coords
+    type: position
+
+  - name: size
+    type: size
+
+  # - name: sprite
+  #   type: sprite
+
+  - name: main_script
+    type: script
