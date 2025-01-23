@@ -1,5 +1,6 @@
 #include "engineGraphic.hpp"
 #include "engineComponents.hpp"
+#include <SDL2/SDL_ttf.h>
 
 engine::displayManager::displayManager()
 {
@@ -104,5 +105,13 @@ void engine::displayManager::useEntity(const engine::Entity &entity, engine::Reg
         return;
 
     grw::sprite newSprite(this->_textures[sprite->sprite], position->coordinates, size->coordinates);
+    this->_rendering[windowId].push_back(newSprite);
+}
+
+void engine::displayManager::useText(const std::string &text, const std::string &font_path, int font_size, const engine_math::vector2<int> &pos, const engine_math::vector2<int> &size, unsigned int windowId)
+{
+    TTF_Font *font = TTF_OpenFont(font_path.c_str(), font_size);
+
+    grw::sprite newSprite(std::make_shared<grw::texture>(TTF_RenderText_Solid(font, text.c_str(), {255, 255, 255})), pos, size);
     this->_rendering[windowId].push_back(newSprite);
 }

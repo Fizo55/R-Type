@@ -243,6 +243,7 @@
                 unsigned int createWindow(int x, int y);
 
                 void useEntity(const Entity &, Registry &, unsigned int);
+                void useText(const std::string &, const std::string &, int, const engine_math::vector2<int> &, const engine_math::vector2<int> &, unsigned int);
 
                 bool hasEvent(unsigned int window, grw::event::eventTypes event);
                 grw::event getEvent(unsigned int window, grw::event::eventTypes event);

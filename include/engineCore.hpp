@@ -193,6 +193,18 @@
                 std::vector<std::pair<std::string, ObjectRef>> _huds;
         };
 
+        class GameDB {
+            public:
+                GameDB();
+                ~GameDB();
+
+                std::optional<std::any> readDB(std::size_t);
+                void writeDB(std::size_t, const std::any &);
+
+            private:
+                std::map<std::size_t, std::any> _dbRegister;
+        };
+
         class Game {
             public:
                 Game();
@@ -225,6 +237,9 @@
                 void addFactory(EntityFactory *);
                 engine::EntityFactory *getFactory(void);
 
+                std::int64_t readDBInt(std::size_t);
+                void writeDBInt(std::size_t, std::int64_t);
+
                 Object *buildObjectRef(const ObjectRef &, const std::string &);
 
             private:
@@ -235,6 +250,8 @@
                 std::vector<Object *> _loadedGameHuds;
 
                 EntityFactory *_factory;
+
+                GameDB _db;
 
                 std::string _loadedScene;
         };

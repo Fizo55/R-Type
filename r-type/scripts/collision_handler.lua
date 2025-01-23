@@ -18,6 +18,7 @@ function collision_bullet_to_ennemy(obj)
             if (are_colliding(obj, other)) then
                 game:remove_object(obj)
                 game:remove_object(other)
+                return
             end
         end
 
@@ -37,6 +38,7 @@ function collision_player_to_ennemy(obj)
             if (are_colliding(obj, other)) then
                 game:remove_object(obj)
                 game:remove_object(other)
+                return
             end
         end
 

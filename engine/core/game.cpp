@@ -167,7 +167,42 @@ const std::vector<engine::Object *> &engine::Game::getLoadedHuds(void)
     return (this->_loadedGameHuds);
 }
 
+std::int64_t engine::Game::readDBInt(std::size_t pos)
+{
+    auto read = this->_db.readDB(pos);
+
+    if (!read)
+        return (0);
+    return (std::any_cast<std::int64_t>(read));
+}
+
+void engine::Game::writeDBInt(std::size_t pos, std::int64_t value)
+{
+    this->_db.writeDB(pos, std::any(value));
+}
+
 engine::EntityFactory *engine::Game::getFactory(void)
 {
     return (this->_factory);
+}
+
+engine::GameDB::GameDB()
+{
+
+}
+
+engine::GameDB::~GameDB()
+{
+    this->_dbRegister.clear();
+}
+
+std::optional<std::any> engine::GameDB::readDB(std::size_t pos)
+{
+    if (this->_dbRegister.find(pos) != this->_dbRegister.end())
+        return (this->_dbRegister.at(pos));
+    return {};
+}
+void engine::GameDB::writeDB(std::size_t pos, const std::any &content)
+{
+    this->_dbRegister.emplace(pos, content);
 }

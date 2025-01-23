@@ -75,6 +75,27 @@ static int get_object(lua_State *ctx)
     return 1;
 }
 
+static int write_db_int(lua_State *ctx)
+{
+    lua_Integer index = luaL_checkinteger(ctx, 2);
+    lua_Integer value = luaL_checkinteger(ctx, 3);
+    engine::Game *mygame = (*reinterpret_cast<engine::Game**>(luaL_checkudata(ctx, 1, "game")));
+
+    mygame->writeDBInt(index, value);
+
+    return 0;
+}
+
+static int read_db_int(lua_State *ctx)
+{
+    lua_Integer index = luaL_checkinteger(ctx, 2);
+    engine::Game *mygame = (*reinterpret_cast<engine::Game**>(luaL_checkudata(ctx, 1, "game")));
+
+    lua_pushinteger(ctx, mygame->readDBInt(index));
+
+    return 1;
+}
+
 void game_register(lua_State *ctx)
 {
     // lua_register(ctx, "game", game_new); NO CONSTRUCTOR FOR GAME, POR FAVOR
@@ -101,6 +122,12 @@ void game_register(lua_State *ctx)
 
     lua_pushcfunction(ctx, get_object);
     lua_setfield(ctx, -2, "get_object");
+
+    lua_pushcfunction(ctx, read_db_int);
+    lua_setfield(ctx, -2, "read_int");
+
+    lua_pushcfunction(ctx, write_db_int);
+    lua_setfield(ctx, -2, "write_int");
 
     lua_pop(ctx, 1);
 }
