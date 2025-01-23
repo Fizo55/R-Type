@@ -149,11 +149,11 @@ void client::draw(void)
     this->_displayManager.clear();
 
     for (const auto &item : this->_game.getLoadedObjects()) {
-        this->_displayManager.useEntity(*item.getEntity(), this->_game.getFactory()->getRegistry(), this->_gameWindow);
+        this->_displayManager.useEntity(*item->getEntity(), this->_game.getFactory()->getRegistry(), this->_gameWindow);
     }
 
     for (const auto &item : this->_game.getLoadedHuds()) {
-        this->_displayManager.useEntity(*item.getEntity(), this->_game.getFactory()->getRegistry(), this->_gameWindow);
+        this->_displayManager.useEntity(*item->getEntity(), this->_game.getFactory()->getRegistry(), this->_gameWindow);
     }
 
     this->_displayManager.draw();

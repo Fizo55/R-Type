@@ -8,9 +8,9 @@ engine::Game::Game()
     this->_factory = 0;
 }
 
-engine::Object engine::Game::buildObjectRef(const engine::ObjectRef &obj, const std::string &name)
+engine::Object *engine::Game::buildObjectRef(const engine::ObjectRef &obj, const std::string &name)
 {
-    Object temp;
+    Object *temp;
     ObjectRef objRegisterd = this->_objects[obj.getName()];
     ObjectRef newObj = ObjectRef();
 
@@ -21,17 +21,36 @@ engine::Object engine::Game::buildObjectRef(const engine::ObjectRef &obj, const 
     for (const auto &item : obj.getAllBuildParameter()) {
         newObj.addBuildParameter(item, obj.getBuildParameter(item));
     }
-    temp = Object(newObj);
+    temp = new Object(newObj);
     if (!this->_factory)
         throw (engine::nullPtrError("factory as not been setup for game"));
-    temp.buildEntity(*this->_factory);
-    temp.setName(name);
+    temp->buildEntity(*this->_factory);
+    temp->setName(name);
     return (temp);
+}
+
+engine::Game::~Game() {
+    for (auto temp : this->_loadedGameObjects)
+        delete temp;
+
+    for (auto temp : this->_loadedGameHuds)
+        delete temp;
+
+    this->_loadedScene = "none";
+
+    this->_loadedGameObjects.clear();
+    this->_loadedGameHuds.clear();
 }
 
 void engine::Game::loadScene(const std::string &sceneName)
 {
     Scene scene = this->_scenes[sceneName];
+
+    for (auto temp : this->_loadedGameObjects)
+        delete temp;
+
+    for (auto temp : this->_loadedGameHuds)
+        delete temp;
 
     this->_loadedGameObjects.clear();
     this->_loadedGameHuds.clear();
@@ -45,20 +64,26 @@ void engine::Game::loadScene(const std::string &sceneName)
     }
 }
 
-void engine::Game::loadObject(engine::Object &&obj)
+void engine::Game::loadObject(engine::Object *obj)
 {
-    this->_loadedGameObjects.push_back((engine::Object &&)obj);
+    this->_loadedGameObjects.push_back(obj);
 }
 
-void engine::Game::loadHud(engine::Object &&obj)
+void engine::Game::loadHud(engine::Object *obj)
 {
-    this->_loadedGameHuds.push_back((engine::Object &&)obj);
+    this->_loadedGameHuds.push_back(obj);
 }
 
 void engine::Game::unloadScene(void)
 {
-    this->_loadedGameObjects = std::vector<Object>();
-    this->_loadedGameHuds = std::vector<Object>();
+    for (auto temp : this->_loadedGameObjects)
+        delete temp;
+
+    for (auto temp : this->_loadedGameHuds)
+        delete temp;
+
+    this->_loadedGameObjects.clear();
+    this->_loadedGameHuds.clear();
     this->_loadedScene = "none";
 }
 
@@ -112,12 +137,12 @@ void engine::Game::addFactory(EntityFactory *factory)
     this->_factory = factory;
 }
 
-const std::vector<engine::Object> &engine::Game::getLoadedObjects(void)
+const std::vector<engine::Object *> &engine::Game::getLoadedObjects(void)
 {
     return (this->_loadedGameObjects);
 }
 
-const std::vector<engine::Object> &engine::Game::getLoadedHuds(void)
+const std::vector<engine::Object *> &engine::Game::getLoadedHuds(void)
 {
     return (this->_loadedGameHuds);
 }

@@ -14,7 +14,7 @@ void engine::ScriptOrchestrator::fromGameObject(Game &game)
     this->_scripts.clear();
 
     for (const auto &obj : game.getLoadedObjects()) {
-        auto &script = game.getFactory()->getRegistry().get_component<engine_components::Script>(*obj.getEntity());
+        auto &script = game.getFactory()->getRegistry().get_component<engine_components::Script>(*obj->getEntity());
         std::vector<engine::ScriptGlobalDefinition> temp;
         engine::ScriptTypeDefinitor tempDefinitor = engine::ScriptTypeDefinitor<Object>();
         engine::ScriptTypeDefinitor tempDefinitorOrchestrator = engine::ScriptTypeDefinitor<engine::ScriptOrchestrator>();
@@ -29,7 +29,7 @@ void engine::ScriptOrchestrator::fromGameObject(Game &game)
     }
 
     for (const auto &obj : game.getLoadedHuds()) {
-        auto &script = game.getFactory()->getRegistry().get_component<engine_components::Script>(*obj.getEntity());
+        auto &script = game.getFactory()->getRegistry().get_component<engine_components::Script>(*obj->getEntity());
         std::vector<engine::ScriptGlobalDefinition> temp;
         engine::ScriptTypeDefinitor tempDefinitor = engine::ScriptTypeDefinitor<Object>();
                 engine::ScriptTypeDefinitor tempDefinitorOrchestrator = engine::ScriptTypeDefinitor<engine::ScriptOrchestrator>();

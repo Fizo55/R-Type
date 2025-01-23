@@ -34,7 +34,7 @@ static int add_object(lua_State *ctx)
     auto gIndex = lua_getglobal(ctx, "orchestrator");
     engine::ScriptOrchestrator *tempOrchestrator = *reinterpret_cast<engine::ScriptOrchestrator**>(lua_touserdata(ctx, 3));
 
-    mygame->loadObject((engine::Object &&)*object);
+    mygame->loadObject(object);
 
     lua_pop(ctx, 3);
 

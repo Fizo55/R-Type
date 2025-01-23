@@ -196,12 +196,13 @@
         class Game {
             public:
                 Game();
+                ~Game();
 
                 const Scene &getScene(const std::string &) const;
                 const ObjectRef &getObject(const std::string &) const;
 
-                void loadObject(Object &&obj);
-                void loadHud(Object &&obj);
+                void loadObject(Object *obj);
+                void loadHud(Object *obj);
 
                 void registerScene(const std::string &);
                 void registerScene(const Scene &);
@@ -215,20 +216,20 @@
                 void loadScene(const std::string &);
                 void unloadScene(void);
 
-                const std::vector<Object> &getLoadedObjects(void);
-                const std::vector<Object> &getLoadedHuds(void);
+                const std::vector<Object *> &getLoadedObjects(void);
+                const std::vector<Object *> &getLoadedHuds(void);
 
                 void addFactory(EntityFactory *);
                 engine::EntityFactory *getFactory(void);
 
-                Object buildObjectRef(const ObjectRef &, const std::string &);
+                Object *buildObjectRef(const ObjectRef &, const std::string &);
 
             private:
                 std::map<std::string, ObjectRef> _objects;
                 std::map<std::string, Scene> _scenes;
 
-                std::vector<Object> _loadedGameObjects;
-                std::vector<Object> _loadedGameHuds;
+                std::vector<Object *> _loadedGameObjects;
+                std::vector<Object *> _loadedGameHuds;
 
                 EntityFactory *_factory;
 
