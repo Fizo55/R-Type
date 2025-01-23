@@ -59,8 +59,6 @@ target_compile_definitions(engine-graphicRaylib PUBLIC OBJ)
 target_link_libraries(engine-graphicRaylib PRIVATE raylib)
 target_link_libraries(engine-graphicRaylib PRIVATE raylib glfw)
 
-
-
 add_library(engine-core OBJECT
     ${ENGINE_SRC_DIR}/core/scene.cpp
     ${ENGINE_SRC_DIR}/core/game.cpp
@@ -95,20 +93,7 @@ add_subdirectory(network)
 
 add_executable(server-executable
     ${SERVER_SRC_DIR}/main.cpp
-    ${SERVER_SRC_DIR}/MessageBase.cpp
-    ${SERVER_SRC_DIR}/BinaryDeserializer.cpp
-    ${SERVER_SRC_DIR}/BinarySerializer.cpp
-    ${SERVER_SRC_DIR}/ConsoleLogger.cpp
-    ${SERVER_SRC_DIR}/GameStateUpdateMessage.cpp
-    ${SERVER_SRC_DIR}/ServerWelcomeMessage.cpp
-    ${SERVER_SRC_DIR}/ClientHelloMessage.cpp
-    ${SERVER_SRC_DIR}/AcknowledgmentMessage.cpp
-    ${SERVER_SRC_DIR}/MessageDispatcher.cpp
-    ${SERVER_SRC_DIR}/MessageFactory.cpp
-    ${SERVER_SRC_DIR}/PlayerInputMessage.cpp
-    ${SERVER_SRC_DIR}/RTypeGameLogic.cpp
-    ${SERVER_SRC_DIR}/RTypeServer.cpp
-    ${SERVER_SRC_DIR}/ThreadPoolScheduler.cpp
+    ${SERVER_SRC_DIR}/ServerNetwork.cpp
     ${SERVER_SRC_DIR}/ArgumentParser.cpp
 )
 
