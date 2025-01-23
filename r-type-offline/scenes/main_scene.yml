@@ -1,0 +1,89 @@
+name: main_scene
+objects:
+  # / ---- moving background ---- \
+
+  - name: background
+    id: background
+    values:
+      coords:
+        - 0
+        - 0
+      sprite:
+        - "sprite_bg"
+      size:
+        - 800
+        - 600
+      main_script:
+        - "background_script"
+
+  - name: background2
+    id: background
+    values:
+      coords:
+        - 800
+        - 0
+      sprite:
+        - "sprite_bg"
+      size:
+        - 800
+        - 600
+      main_script:
+        - "background_script"
+
+  # /---- Player ----\
+
+  # - name: player0
+  #   id: player
+  #   values:
+  #     coords:
+  #       - 100
+  #       - 110
+  #     sprite:
+  #       - "sprite_player1"
+  #     size:
+  #       - 36
+  #       - 18
+  #     main_script:
+  #       - "player_script"
+
+    # /---- Ennemy ----\
+
+  - name: ennemy_spawner0
+    id: ennemy_spawner
+    values:
+      coords:
+        - 801
+        - 0
+      size:
+        - 1
+        - 600
+      main_script:
+        - "ennemy_spawner_script"
+
+  # /---- Collision ----\
+
+  - name: collider
+    id: world_collider
+    values:
+      coords:
+        - 0
+        - 0
+      size:
+        - 0
+        - 0
+      main_script:
+        - "collision_script"
+
+
+huds:
+  - name: score
+    id: score
+    values:
+      coords:
+        - 20
+        - 20
+      size:
+        - 100
+        - 100
+      main_script:
+        - "score_script"

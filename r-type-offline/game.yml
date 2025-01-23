@@ -1,0 +1,32 @@
+scenes:
+  - r-type-offline/scenes/main_scene.yml
+
+objects:
+  - r-type-offline/objects/background.yml
+  - r-type-offline/objects/ennemies/ennemy_pata-pata.yml
+  - r-type-offline/objects/allies/player.yml
+  - r-type-offline/objects/allies/bullet.yml
+  - r-type-offline/objects/ennemy_spawner.yml
+  - r-type-offline/objects/world_collider.yml
+  - r-type-offline/hud/score.yml
+
+scripts:
+  background_script: r-type-offline/scripts/background.lua
+  player_script: r-type-offline/scripts/player.lua
+  bullet_script: r-type-offline/scripts/bullet.lua
+  ennemy_spawner_script: r-type-offline/scripts/ennemy_manager.lua
+  ennemy_script: r-type-offline/scripts/ennemy.lua
+  ennemy_bullet_script: r-type-offline/scripts/ennemy_bullet.lua
+  collision_script: r-type-offline/scripts/collision_handler.lua
+  score_script: r-type-offline/scripts/score.lua
+
+images:
+  shoot0: r-type-offline/assets/images/effects/shot3_3_right.png
+  sprite_bg: r-type-offline/assets/images/backgrounds/sky.png
+
+  sprite_player1: r-type-offline/assets/images/allies/player1.png
+  sprite_ennemy1: r-type-offline/assets/images/ennemies/ennemy_pata-pata_left.png
+
+  shoot_ennemy0: r-type-offline/assets/images/ennemies/ennemy_scant_projectile_left.png
+
+entryScene: main_scene

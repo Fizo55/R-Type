@@ -114,6 +114,19 @@ target_link_libraries(client-executable PRIVATE engine-scripting)
 target_link_libraries(client-executable PUBLIC yaml-cpp::yaml-cpp)
 target_link_libraries(client-executable PRIVATE ${LUA_LIBRARIES})
 
+add_executable(client-offline
+    ${CLIENT_SRC_DIR}/main_offline.cpp
+    ${CLIENT_SRC_DIR}/src/client_offline.cpp
+    ${ENGINE_SRC_DIR}/graphic/bindings/clock.cpp
+    ${ENGINE_SRC_DIR}/graphic/bindings/displayManager.cpp
+)
+target_include_directories(client-offline PRIVATE ./include)
+target_link_libraries(client-offline PRIVATE engine-graphic)
+target_link_libraries(client-offline PRIVATE engine-core)
+target_link_libraries(client-offline PRIVATE engine-scripting)
+target_link_libraries(client-offline PUBLIC yaml-cpp::yaml-cpp)
+target_link_libraries(client-offline PRIVATE ${LUA_LIBRARIES})
+
 add_executable(client-secondary
     ${CLIENT_SRC_DIR}/main.cpp
     ${CLIENT_SRC_DIR}/src/client.cpp
@@ -132,6 +145,16 @@ add_custom_command(TARGET client-executable POST_BUILD
 add_custom_command(TARGET client-executable POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
     ${ASSETS_DIR} ${CMAKE_BINARY_DIR}/r-type
+)
+
+add_custom_command(TARGET client-offline POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/r-type-offline $<TARGET_FILE_DIR:client-executable>/r-type-offline
+)
+
+add_custom_command(TARGET client-offline POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/r-type-offline ${CMAKE_BINARY_DIR}/r-type-offline
 )
 
 add_custom_command(TARGET client-secondary POST_BUILD

@@ -2,7 +2,7 @@
 #include <thread>
 #include <boost/asio.hpp>
 #include "gameServer.hpp"
-#include "serverNetwork.hpp"
+#include "ServerNetwork.hpp"
 
 int main(int argc, char **argv)
 {

@@ -1,0 +1,10 @@
+name: score
+components:
+  - name: coords
+    type: position
+
+  - name: size
+    type: size
+
+  - name: main_script
+    type: script
