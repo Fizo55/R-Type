@@ -1,4 +1,9 @@
 local cooldown_timer = 480
+local x = 0
+
+function free()
+    self = nil
+end
 
 function create_bullet()
     local list_coords = any_list()
@@ -8,7 +13,7 @@ function create_bullet()
 
     local temp = object()
 
-    temp:set_name("gen_ennemy_bullet")
+    temp:set_name("gen_enn_bullet" .. self:get_name() .. tostring(x))
 
     temp:add_component("coords", "position")
     temp:add_component("sprite", "sprite")

@@ -1,4 +1,9 @@
 local cooldown_timer = 0
+local x = 0
+
+function free()
+    self = nil
+end
 
 function key_z()
     local dt = (clock:get_last_tick())
@@ -56,7 +61,7 @@ function key_space()
 
     local temp = object()
 
-    temp:set_name("gen_player_bullet")
+    temp:set_name("gen_player_bullet" .. self:get_name() .. tostring(x))
 
     temp:add_component("coords", "position")
     temp:add_component("sprite", "sprite")

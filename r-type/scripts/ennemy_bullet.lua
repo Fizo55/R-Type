@@ -1,3 +1,7 @@
+function free()
+    self = nil
+end
+
 function update()
     local dt = (clock:get_last_tick())
 

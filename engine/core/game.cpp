@@ -204,5 +204,5 @@ std::optional<std::any> engine::GameDB::readDB(std::size_t pos)
 }
 void engine::GameDB::writeDB(std::size_t pos, const std::any &content)
 {
-    this->_dbRegister.emplace(pos, content);
+    this->_dbRegister[pos] = content;
 }

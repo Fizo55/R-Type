@@ -11,7 +11,7 @@ function create_ennemy()
 
     local temp = object()
 
-    temp:set_name("gen_ennemy")
+    temp:set_name("gen_ennemy" .. tostring(spawn_count))
 
     temp:add_component("coords", "position")
     temp:add_component("sprite", "sprite")

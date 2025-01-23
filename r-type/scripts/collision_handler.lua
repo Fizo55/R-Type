@@ -14,11 +14,15 @@ function collision_bullet_to_ennemy(obj)
     while not (other == nil) do
         local name = other:get_name()
 
-        if (name == "gen_ennemy") then
+        if (name:sub(1, #"gen_ennemy") == "gen_ennemy") then
             if (are_colliding(obj, other)) then
                 game:remove_object(obj)
                 game:remove_object(other)
-                game:write_int(game:read_int(0x00), game:read_int(game:read_int(0x00)) + 1)
+
+                local score = game:read_int(game:read_int(0x00))
+                score = score + 1
+
+                game:write_int(game:read_int(0x00), score)
                 return
             end
         end
@@ -35,7 +39,7 @@ function collision_player_to_ennemy(obj)
     while not (other == nil) do
         local name = other:get_name()
 
-        if (name == "gen_ennemy" or name == "gen_ennemy_bullet") then
+        if ((name:sub(1, #"gen_ennemy") == "gen_ennemy") or (name:sub(1, #"gen_enn_bullet") == "gen_enn_bullet")) then
             if (are_colliding(obj, other)) then
                 game:remove_object(obj)
                 game:remove_object(other)
@@ -55,11 +59,11 @@ function update()
     while not (temp == nil) do
         local name = temp:get_name()
 
-        if (name == "gen_player_bullet") then
+        if (name:sub(1, #"gen_player_bullet") == "gen_player_bullet") then
             collision_bullet_to_ennemy(temp)
         end
 
-        if (name:find("^player") ~= nil) then
+        if (name:sub(1, #"player") == "player") then
             collision_player_to_ennemy(temp)
         end
 

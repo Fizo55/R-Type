@@ -97,7 +97,8 @@
                 void removeScript(std::size_t ep);
 
             private:
-                std::vector<ScriptEnvironment *> _scripts;
+                std::vector<std::shared_ptr<ScriptEnvironment>> _scripts;
+                std::map<std::size_t, std::shared_ptr<std::vector<engine::ScriptGlobalDefinition>>> _tempRegister;
                 std::map<std::string, std::string> _registeredScripts;
                 std::vector<ScriptGlobalDefinition> _luaGlobals;
                 std::vector<std::function<void(lua_State *)>> _bindings;
