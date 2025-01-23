@@ -115,14 +115,14 @@ client::client(const std::string &configPath)
     this->_game.addFactory(&this->_factory);
 
     if (gameData["entryScene"])
-        this->_game.loadScene(gameData["entryScene"].as<std::string>());
+        this->_game.loadSceneClient(gameData["entryScene"].as<std::string>());
 
     this->_gameWindow = this->_displayManager.createWindow(800, 600);
 
     this->_game.writeDBInt(0xF1, (std::int64_t)this->_gameWindow);
-    this->_game.writeDBInt(0x00, (int64_t)this->_game.buildObjectRef(createPlayer(), "player0"));
+    // this->_game.writeDBInt(0x00, (int64_t)this->_game.buildObjectRef(createPlayer(), "player0"));
 
-    this->_game.loadObject((Object *)this->_game.readDBInt(0x00));
+    // this->_game.loadObject((Object *)this->_game.readDBInt(0x00));
 
     this->_orchestrator.fromGameObject(this->_game);
 }
@@ -134,77 +134,57 @@ client::~client()
 
 void client::event(void)
 {
-    static bool up = false;
-    static bool down = false;
-    static bool left = false;
-    static bool right = false;
-    static bool space = false;
-
     this->_running = !this->_displayManager.event();
 
     if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_PRESSED) &&
         this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_PRESSED).key == grw::event::keys::K_Z) {
-            up = true;
+
     }
     if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_PRESSED) &&
         this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_PRESSED).key == grw::event::keys::K_S) {
-            down = true;
+
     }
     if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_PRESSED) &&
         this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_PRESSED).key == grw::event::keys::K_Q) {
-            left = true;
+
     }
     if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_PRESSED) &&
         this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_PRESSED).key == grw::event::keys::K_D) {
-            right = true;
+
     }
 
     if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_PRESSED) &&
         this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_PRESSED).key == grw::event::keys::K_SPACE) {
-            space = true;
+
     }
 
     if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_RELEASED) &&
         this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_RELEASED).key == grw::event::keys::K_Z) {
-            up = false;
+
     }
 
     if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_RELEASED) &&
         this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_RELEASED).key == grw::event::keys::K_Q) {
-            left = false;
+
     }
 
     if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_RELEASED) &&
         this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_RELEASED).key == grw::event::keys::K_S) {
-            down = false;
+
     }
 
     if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_RELEASED) &&
         this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_RELEASED).key == grw::event::keys::K_D) {
-            right = false;
+
     }
     if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_RELEASED) &&
         this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_RELEASED).key == grw::event::keys::K_SPACE) {
-            space = false;
-    }
 
-    if (up)
-        this->_orchestrator.callFunctionAll("key_z");
-    if (down)
-        this->_orchestrator.callFunctionAll("key_s");
-    if (left)
-        this->_orchestrator.callFunctionAll("key_q");
-    if (right) {
-        this->_orchestrator.callFunctionAll("key_d");
     }
-    if (space)
-        this->_orchestrator.callFunctionAll("key_space");
 }
 
 void client::update(void)
 {
-    this->_orchestrator.callFunctionAll("update");
-
     this->_displayManager.update();
 }
 

@@ -64,6 +64,20 @@ void engine::Game::loadScene(const std::string &sceneName)
     }
 }
 
+void engine::Game::loadSceneClient(const std::string &sceneName)
+{
+    Scene scene = this->_scenes[sceneName];
+
+    for (auto temp : this->_loadedGameHuds)
+        delete temp;
+
+    this->_loadedGameHuds.clear();
+
+    for (const auto &obj : scene.getHuds()) {
+        this->_loadedGameHuds.push_back(this->buildObjectRef(obj.second, obj.first));
+    }
+}
+
 void engine::Game::loadObject(engine::Object *obj)
 {
     this->_loadedGameObjects.push_back(obj);

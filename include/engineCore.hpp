@@ -229,6 +229,7 @@
                 void unregisterObject(const std::string &);
 
                 void loadScene(const std::string &);
+                void loadSceneClient(const std::string &);
                 void unloadScene(void);
 
                 const std::vector<Object *> &getLoadedObjects(void);
