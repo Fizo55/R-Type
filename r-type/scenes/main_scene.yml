@@ -46,5 +46,21 @@ objects:
       main_script:
         - "player_script"
 
+    # /---- Ennemy ----\
+
+  - name: ennemy_spawner0
+    id: ennemy_spawner
+    values:
+      coords:
+        - 801
+        - 0
+      sprite:
+        - "sprite_player1"
+      size:
+        - 1
+        - 600
+      main_script:
+        - "ennemy_spawner_script"
+
 huds:
 

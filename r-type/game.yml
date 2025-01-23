@@ -6,17 +6,23 @@ objects:
   - r-type/objects/ennemies/ennemy_pata-pata.yml
   - r-type/objects/allies/player.yml
   - r-type/objects/allies/bullet.yml
+  - r-type/objects/ennemy_spawner.yml
 
 scripts:
   background_script: r-type/scripts/background.lua
   player_script: r-type/scripts/player.lua
   bullet_script: r-type/scripts/bullet.lua
+  ennemy_spawner_script: r-type/scripts/ennemy_manager.lua
+  ennemy_script: r-type/scripts/ennemy.lua
+  ennemy_bullet_script: r-type/scripts/ennemy_bullet.lua
 
 images:
   shoot0: r-type/assets/images/effects/shot3_3_right.png
   sprite_bg: r-type/assets/images/backgrounds/level1_bg_1080p.png
 
   sprite_player1: r-type/assets/images/allies/player1.png
-  sprite_pata-pata: r-type/assets/images/ennemies/ennemy_pata-pata_left.png
+  sprite_ennemy1: r-type/assets/images/ennemies/ennemy_pata-pata_left.png
+
+  shoot_ennemy0: r-type/assets/images/ennemies/ennemy_scant_projectile_left.png
 
 entryScene: main_scene

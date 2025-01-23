@@ -8,12 +8,34 @@ engine::ScriptOrchestrator::ScriptOrchestrator()
 
 engine::ScriptOrchestrator::~ScriptOrchestrator()
 {
-    for (auto item : this->_scripts) {
+    for (const auto &item : this->_scripts) {
         item->stopUsing();
         delete item;
     }
 
     this->_scripts.clear();
+}
+
+void engine::ScriptOrchestrator::clearScripts(void)
+{
+    this->_scripts.erase(std::remove_if(
+        this->_scripts.begin(), this->_scripts.end(),
+        [](ScriptEnvironment *&x) {
+            bool condition = (x->ep == 0x00);
+
+            return (condition);
+        }), this->_scripts.end()
+    );
+}
+
+void engine::ScriptOrchestrator::removeScript(std::size_t ep)
+{
+    for (const auto &item : this->_scripts) {
+        if (item->ep == ep) {
+            item->stopUsing();
+            item->ep = 0x00;
+        }
+    }
 }
 
 void engine::ScriptOrchestrator::fromObject(engine::EntityFactory *factory, Object *object)
@@ -29,7 +51,7 @@ void engine::ScriptOrchestrator::fromObject(engine::EntityFactory *factory, Obje
     temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitorOrchestrator), "orchestrator", "orchestrator", (void *)(this)));
     temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitor), "object", "self", (void *)(object)));
 
-    this->buildScript(script->script, temp);
+    this->buildScript(script->script, temp, (long)object);
 }
 
 void engine::ScriptOrchestrator::fromGameObject(Game &game)
@@ -52,7 +74,7 @@ void engine::ScriptOrchestrator::fromGameObject(Game &game)
         temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitorOrchestrator), "orchestrator", "orchestrator", (void *)(this)));
         temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitor), "object", "self", (void *)(obj)));
 
-        this->buildScript(script->script, temp);
+        this->buildScript(script->script, temp, (long)obj);
     }
 
     for (const auto &obj : game.getLoadedHuds()) {
@@ -67,7 +89,7 @@ void engine::ScriptOrchestrator::fromGameObject(Game &game)
         temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitorOrchestrator), "orchestrator", "orchestrator", (void *)(this)));
         temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitor), "object", "self", (void *)(obj)));
 
-        this->buildScript(script->script, temp);
+        this->buildScript(script->script, temp, (long)obj);
     }
 }
 
@@ -76,6 +98,7 @@ void engine::ScriptOrchestrator::callFunctionAll(const std::string &name)
     for (auto it : this->_scripts) {
         it->callFunction(name);
     }
+    this->clearScripts();
 }
 
 void engine::ScriptOrchestrator::registerScript(const std::string &name, const std::string &path)
@@ -83,9 +106,9 @@ void engine::ScriptOrchestrator::registerScript(const std::string &name, const s
     this->_registeredScripts[name] = path;
 }
 
-void engine::ScriptOrchestrator::buildScript(const std::string &name, const std::vector<engine::ScriptGlobalDefinition> &extraDefs)
+void engine::ScriptOrchestrator::buildScript(const std::string &name, const std::vector<engine::ScriptGlobalDefinition> &extraDefs, std::size_t ep)
 {
-    ScriptEnvironment *newScript = new ScriptEnvironment();
+    ScriptEnvironment *newScript = new ScriptEnvironment(ep);
 
     newScript->buildCoreLibrary();
 

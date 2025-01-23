@@ -69,6 +69,26 @@ void engine::Game::loadObject(engine::Object *obj)
     this->_loadedGameObjects.push_back(obj);
 }
 
+void engine::Game::unloadObject(engine::Object *obj)
+{
+    this->_loadedGameObjects.erase(std::remove_if(
+        this->_loadedGameObjects.begin(), this->_loadedGameObjects.end(),
+        [&](Object *&x) {
+            return ((long)x == (long)obj);
+        }), this->_loadedGameObjects.end()
+    );
+}
+
+void engine::Game::unloadHud(engine::Object *obj)
+{
+    this->_loadedGameHuds.erase(std::remove_if(
+        this->_loadedGameHuds.begin(), this->_loadedGameHuds.end(),
+        [&](Object *&x) {
+            return ((long)x == (long)obj);
+        }), this->_loadedGameHuds.end()
+    );
+}
+
 void engine::Game::loadHud(engine::Object *obj)
 {
     this->_loadedGameHuds.push_back(obj);

@@ -36,11 +36,16 @@ function key_d()
     end
 end
 
-function key_space()
+function update()
     local dt = (clock:get_last_tick())
 
     if (cooldown_timer > 0) then
         cooldown_timer = cooldown_timer - dt
+    end
+end
+
+function key_space()
+    if (cooldown_timer > 0) then
         return
     end
 

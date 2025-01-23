@@ -1,8 +1,8 @@
 #include "engineScripting.hpp"
 #include "engineExceptions.hpp"
 
-engine::ScriptEnvironment::ScriptEnvironment()
-  : _ctx(luaL_newstate())
+engine::ScriptEnvironment::ScriptEnvironment(std::size_t ep)
+  : ep(ep), _ctx(luaL_newstate())
 {
     this->doStopUsing = false;
 
@@ -12,8 +12,12 @@ engine::ScriptEnvironment::ScriptEnvironment()
 
 engine::ScriptEnvironment::~ScriptEnvironment()
 {
+    this->doStopUsing = true;
+
     if (this->_ctx)
         lua_close(this->_ctx);
+
+    this->ep = 0x00;
     this->_ctx = (lua_State *)0;
 }
 

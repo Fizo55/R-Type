@@ -204,6 +204,9 @@
                 void loadObject(Object *obj);
                 void loadHud(Object *obj);
 
+                void unloadObject(engine::Object *obj);
+                void unloadHud(engine::Object *obj);
+
                 void registerScene(const std::string &);
                 void registerScene(const Scene &);
 

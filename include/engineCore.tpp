@@ -60,8 +60,11 @@
         std::optional<Component>& ComponentPool<Component>::get_component(uint64_t entity_id) {
             if (entity_id < components.size()) {
                 return components[entity_id];
+            } else {
+                static std::optional<Component> CONST_OPTIONNAL = {};
+
+                return CONST_OPTIONNAL;
             }
-            throw std::out_of_range("Entity ID out of range");
         }
 
         template <typename Component>

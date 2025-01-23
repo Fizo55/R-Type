@@ -52,7 +52,7 @@
 
         class ScriptEnvironment {
             public:
-                ScriptEnvironment();
+                ScriptEnvironment(std::size_t ep = SIZE_MAX);
                 ~ScriptEnvironment();
 
                 void buildCoreLibrary();
@@ -67,6 +67,8 @@
                 void stopUsing(void);
 
                 bool doStopUsing;
+
+                std::size_t ep;
             private:
                 lua_State *_ctx;
         };
@@ -78,17 +80,21 @@
 
                 void registerScript(const std::string &, const std::string &);
 
-                void buildScript(const std::string &name, const std::vector<engine::ScriptGlobalDefinition> &extraDefs = std::vector<engine::ScriptGlobalDefinition>());
+                void buildScript(const std::string &name, const std::vector<engine::ScriptGlobalDefinition> &extraDefs = std::vector<engine::ScriptGlobalDefinition>(), std::size_t ep = SIZE_MAX);
 
                 void registerGlobal(const ScriptGlobalDefinition &scriptDef)
                 {
                     this->_luaGlobals.push_back(scriptDef);
                 }
 
+                void clearScripts(void);
+
                 void fromGameObject(Game &);
                 void fromObject(engine::EntityFactory *, Object *);
                 void addBinding(std::function<void(lua_State *)>);
                 void callFunctionAll(const std::string &name);
+
+                void removeScript(std::size_t ep);
 
             private:
                 std::vector<ScriptEnvironment *> _scripts;
