@@ -95,8 +95,9 @@ void engine::ScriptOrchestrator::fromGameObject(Game &game)
 
 void engine::ScriptOrchestrator::callFunctionAll(const std::string &name)
 {
-    for (auto it : this->_scripts) {
-        it->callFunction(name);
+    for (auto &it : this->_scripts) {
+        if ((size_t)it < 0xdddddddddddddddd)
+            it->callFunction(name);
     }
     this->clearScripts();
 }
