@@ -65,7 +65,6 @@ client::client(const std::string &configPath)
         this->_game.loadScene(gameData["entryScene"].as<std::string>());
 
     this->_orchestrator.fromGameObject(this->_game);
-
 }
 
 client::~client()

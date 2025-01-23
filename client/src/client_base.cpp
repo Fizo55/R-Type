@@ -36,7 +36,28 @@ ObjectRef createPlayer()
 
 client::client(const std::string &configPath)
   : _running(false)
+  , _tcpSocket(std::make_unique<boost::asio::ip::tcp::socket>(_ioContext))
 {
+    std::string serverIp = "127.0.0.1";
+    unsigned short serverPort = 1337;
+
+    boost::system::error_code ec;
+    boost::asio::ip::tcp::resolver resolver(_ioContext);
+    auto endpoints = resolver.resolve(serverIp, std::to_string(serverPort), ec);
+    if (ec) {
+        std::cerr << "[Client] Failed to resolve " << serverIp << ":" << serverPort
+            << " => " << ec.message() << std::endl;
+    }
+    else {
+        boost::asio::connect(*_tcpSocket, endpoints, ec);
+        if (ec) {
+            std::cerr << "[Client] Connect error: " << ec.message() << std::endl;
+        }
+        else {
+            std::cout << "[Client] Connected to " << serverIp << ":" << serverPort << std::endl;
+        }
+    }
+
     engine::ScriptTypeDefinitor<Game> *gameDefinitor = new engine::ScriptTypeDefinitor<Game>();
     engine::ScriptTypeDefinitor<grw::clock> *clockDefinitor = new engine::ScriptTypeDefinitor<grw::clock>();
     engine::ScriptTypeDefinitor<engine::displayManager> *displayManagerDefinitor = new engine::ScriptTypeDefinitor<engine::displayManager>();
@@ -204,8 +225,47 @@ void client::draw(void)
     this->_displayManager.draw();
 }
 
+void client::login()
+{
+    if (!_tcpSocket || !_tcpSocket->is_open()) {
+        std::cerr << "[Client] Cannot login, TCP socket not connected.\n";
+        return;
+    }
+
+    std::string username = "test";
+
+    std::vector<char> payload(username.begin(), username.end());
+
+    std::uint16_t magic  = 0xEB27;
+    std::uint8_t  cmd    = 0x01;
+    std::uint16_t length = static_cast<std::uint16_t>(payload.size());
+
+    std::vector<char> buffer(5 + length);
+
+    std::memcpy(buffer.data(), &magic, 2);
+    buffer[2] = static_cast<char>(cmd);
+    std::memcpy(buffer.data() + 3, &length, 2);
+
+    if (length > 0) {
+        std::memcpy(buffer.data() + 5, payload.data(), length);
+    }
+
+    boost::system::error_code ec;
+    std::size_t written = boost::asio::write(*_tcpSocket,
+                                             boost::asio::buffer(buffer),
+                                             ec);
+
+    if (!ec) {
+        std::cout << "[Client] Sent HELLO with hardcoded username 'test' ("
+                  << written << " bytes)\n";
+    } else {
+        std::cerr << "[Client] Send error: " << ec.message() << std::endl;
+    }
+}
+
 void client::mainloop(void)
 {
+    this->login();
     this->_running = true;
 
     while (this->_running) {

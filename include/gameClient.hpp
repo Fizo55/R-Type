@@ -1,6 +1,7 @@
 #ifndef GAME_CLIENT_HPP_
     #define GAME_CLIENT_HPP_
 
+    #include <boost/asio.hpp>
     #include "engineCore.hpp"
     #include "engineGraphic.hpp"
     #include "engineScripting.hpp"
@@ -16,6 +17,8 @@
 
             void mainloop(void);
 
+            void login(void);
+
         private:
             bool _running;
 
@@ -29,6 +32,9 @@
             unsigned int _gameWindow;
 
             engine::ScriptOrchestrator _orchestrator;
+
+            boost::asio::io_context _ioContext;
+            std::unique_ptr<boost::asio::ip::tcp::socket> _tcpSocket;
     };
 
 #endif /* GAME_CLIENT_HPP_ */
