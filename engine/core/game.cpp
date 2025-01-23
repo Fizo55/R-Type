@@ -24,8 +24,8 @@ engine::Object *engine::Game::buildObjectRef(const engine::ObjectRef &obj, const
     temp = new Object(newObj);
     if (!this->_factory)
         throw (engine::nullPtrError("factory as not been setup for game"));
-    temp->buildEntity(*this->_factory);
     temp->setName(name);
+    temp->buildEntity(this->_factory);
     return (temp);
 }
 

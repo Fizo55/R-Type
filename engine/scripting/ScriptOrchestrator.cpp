@@ -6,11 +6,38 @@ engine::ScriptOrchestrator::ScriptOrchestrator()
 
 }
 
+engine::ScriptOrchestrator::~ScriptOrchestrator()
+{
+    for (auto item : this->_scripts) {
+        item->stopUsing();
+        delete item;
+    }
+
+    this->_scripts.clear();
+}
+
+void engine::ScriptOrchestrator::fromObject(engine::EntityFactory *factory, Object *object)
+{
+    auto &script = factory->getRegistry().get_component<engine_components::Script>(*object->getEntity());
+    std::vector<engine::ScriptGlobalDefinition> temp;
+    engine::ScriptTypeDefinitor tempDefinitor = engine::ScriptTypeDefinitor<Object>();
+    engine::ScriptTypeDefinitor tempDefinitorOrchestrator = engine::ScriptTypeDefinitor<engine::ScriptOrchestrator>();
+
+    if (!script)
+        return;
+
+    temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitorOrchestrator), "orchestrator", "orchestrator", (void *)(this)));
+    temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitor), "object", "self", (void *)(object)));
+
+    this->buildScript(script->script, temp);
+}
+
 void engine::ScriptOrchestrator::fromGameObject(Game &game)
 {
-    for (const auto &temp : this->_scripts)
+    for (const auto &temp : this->_scripts) {
         temp->stopUsing();
-
+        delete temp;
+    }
     this->_scripts.clear();
 
     for (const auto &obj : game.getLoadedObjects()) {
@@ -23,7 +50,7 @@ void engine::ScriptOrchestrator::fromGameObject(Game &game)
             continue;
 
         temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitorOrchestrator), "orchestrator", "orchestrator", (void *)(this)));
-        temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitor), "object", "self", (void *)(&obj)));
+        temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitor), "object", "self", (void *)(obj)));
 
         this->buildScript(script->script, temp);
     }
@@ -38,7 +65,7 @@ void engine::ScriptOrchestrator::fromGameObject(Game &game)
             continue;
 
         temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitorOrchestrator), "orchestrator", "orchestrator", (void *)(this)));
-        temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitor), "object", "self", (void *)(&obj)));
+        temp.push_back(engine::ScriptGlobalDefinition((IScriptTypeDefinitor *)(&tempDefinitor), "object", "self", (void *)(obj)));
 
         this->buildScript(script->script, temp);
     }
@@ -58,7 +85,7 @@ void engine::ScriptOrchestrator::registerScript(const std::string &name, const s
 
 void engine::ScriptOrchestrator::buildScript(const std::string &name, const std::vector<engine::ScriptGlobalDefinition> &extraDefs)
 {
-    std::shared_ptr<ScriptEnvironment> newScript = std::make_shared<ScriptEnvironment>();
+    ScriptEnvironment *newScript = new ScriptEnvironment();
 
     newScript->buildCoreLibrary();
 

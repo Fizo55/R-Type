@@ -119,14 +119,14 @@ engine::Object::Object(const ObjectRef &other) {
         this->addBuildParameter(item, other.getBuildParameter(item));
 }
 
-void engine::Object::buildEntity(EntityFactory &factory) {
+void engine::Object::buildEntity(EntityFactory *factory) {
     std::vector<EntityBuildData> buildData;
 
     for (const auto &item : this->getAllBuildComponent()) {
         buildData.push_back(EntityBuildData(this->getBuildComponent(item), item, this->getBuildParameter(item)));
     }
 
-    this->_entity = std::make_unique<Entity>(factory.createEntityComponentReady(buildData));
+    this->_entity = std::make_unique<Entity>(factory->createEntityComponentReady(buildData));
 }
 
 std::ostream &operator<<(std::ostream &os, engine::ObjectRef const &obj) {

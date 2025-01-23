@@ -81,6 +81,7 @@ void client::event(void)
     static bool down = false;
     static bool left = false;
     static bool right = false;
+    static bool space = false;
 
     this->_running = !this->_displayManager.event();
 
@@ -103,7 +104,7 @@ void client::event(void)
 
     if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_PRESSED) &&
         this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_PRESSED).key == grw::event::keys::K_SPACE) {
-            this->_orchestrator.callFunctionAll("key_space");
+            space = true;
     }
 
     if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_RELEASED) &&
@@ -125,6 +126,10 @@ void client::event(void)
         this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_RELEASED).key == grw::event::keys::K_D) {
             right = false;
     }
+    if (this->_displayManager.hasEvent(this->_gameWindow, grw::event::KEY_RELEASED) &&
+        this->_displayManager.getEvent(this->_gameWindow, grw::event::KEY_RELEASED).key == grw::event::keys::K_SPACE) {
+            space = false;
+    }
 
     if (up)
         this->_orchestrator.callFunctionAll("key_z");
@@ -135,6 +140,8 @@ void client::event(void)
     if (right) {
         this->_orchestrator.callFunctionAll("key_d");
     }
+    if (space)
+        this->_orchestrator.callFunctionAll("key_space");
 }
 
 void client::update(void)

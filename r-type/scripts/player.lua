@@ -1,3 +1,5 @@
+local cooldown_timer = 0
+
 function key_z()
     local dt = (clock:get_last_tick())
     local temp = self:get_pos("y") - math.floor(dt * 0.3)
@@ -35,6 +37,13 @@ function key_d()
 end
 
 function key_space()
+    local dt = (clock:get_last_tick())
+
+    if (cooldown_timer > 0) then
+        cooldown_timer = cooldown_timer - dt
+        return
+    end
+
     local list_coords = any_list()
     local list_sprite = any_list()
     local list_size = any_list()
@@ -42,43 +51,28 @@ function key_space()
 
     local temp = object()
 
-    print("start")
-    print(temp)
-
     temp:add_component("coords", "position")
     temp:add_component("sprite", "sprite")
     temp:add_component("size", "size")
     temp:add_component("main_script", "script")
 
-    print("push str")
-
     list_sprite:push_str("shoot0")
     list_script:push_str("bullet_script")
 
-    print("push int")
+    list_coords:push_int(self:get_pos("x") - self:get_size("x") / 2)
+    list_coords:push_int(self:get_pos("y") - self:get_size("y") / 2)
 
-    list_coords:push_int(0)
-    list_coords:push_int(0)
-
-    print("push int")
-
-    list_size:push_int(200)
-    list_size:push_int(200)
-
-    print("add params")
+    list_size:push_int(84)
+    list_size:push_int(36)
 
     temp:add_parameter("coords", list_coords)
     temp:add_parameter("sprite", list_sprite)
     temp:add_parameter("size", list_size)
     temp:add_parameter("main_script", list_script)
 
-    print("compile")
-
     temp:compile()
-
-    print("add obj")
 
     game:add_object(temp)
 
-    print("end")
+    cooldown_timer = 1200
 end

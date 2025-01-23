@@ -166,7 +166,7 @@
                 Object();
                 Object(const ObjectRef &);
 
-                void buildEntity(EntityFactory &);
+                void buildEntity(EntityFactory *);
 
                 const std::unique_ptr<Entity> &getEntity(void) const;
             private:

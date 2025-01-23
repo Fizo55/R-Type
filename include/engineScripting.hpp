@@ -74,7 +74,7 @@
         class ScriptOrchestrator {
             public:
                 ScriptOrchestrator();
-                ~ScriptOrchestrator() = default;
+                ~ScriptOrchestrator();
 
                 void registerScript(const std::string &, const std::string &);
 
@@ -86,11 +86,12 @@
                 }
 
                 void fromGameObject(Game &);
+                void fromObject(engine::EntityFactory *, Object *);
                 void addBinding(std::function<void(lua_State *)>);
                 void callFunctionAll(const std::string &name);
 
             private:
-                std::vector<std::shared_ptr<ScriptEnvironment>> _scripts;
+                std::vector<ScriptEnvironment *> _scripts;
                 std::map<std::string, std::string> _registeredScripts;
                 std::vector<ScriptGlobalDefinition> _luaGlobals;
                 std::vector<std::function<void(lua_State *)>> _bindings;

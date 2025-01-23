@@ -35,6 +35,7 @@ static int add_object(lua_State *ctx)
     engine::ScriptOrchestrator *tempOrchestrator = *reinterpret_cast<engine::ScriptOrchestrator**>(lua_touserdata(ctx, 3));
 
     mygame->loadObject(object);
+    tempOrchestrator->fromObject(mygame->getFactory(), object);
 
     lua_pop(ctx, 3);
 

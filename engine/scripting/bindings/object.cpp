@@ -9,7 +9,7 @@ static int object_create(lua_State *ctx)
     engine::Game *tempGame = *reinterpret_cast<engine::Game**>(lua_touserdata(ctx, 1));
 
     temp->addBuildComponent("__def_volatility", "volatile");
-    temp->buildEntity(*tempGame->getFactory());
+    temp->buildEntity(tempGame->getFactory());
 
     lua_pop(ctx, 1);
 
@@ -56,7 +56,7 @@ static int object_compile(lua_State *ctx)
     auto self = *reinterpret_cast<engine::Object**>(luaL_checkudata(ctx, 1, "object"));
     engine::Game *tempGame = *reinterpret_cast<engine::Game**>(lua_touserdata(ctx, 2));
 
-    self->buildEntity(*tempGame->getFactory());
+    self->buildEntity(tempGame->getFactory());
 
     lua_pop(ctx, 2);
     return (0);
