@@ -4,7 +4,7 @@
 
 engine::displayManager::displayManager()
 {
-
+    TTF_Init();
 }
 
 void engine::displayManager::registerAsset(const std::string &name, const std::string &path)
@@ -114,4 +114,5 @@ void engine::displayManager::useText(const std::string &text, const std::string 
 
     grw::sprite newSprite(std::make_shared<grw::texture>(TTF_RenderText_Solid(font, text.c_str(), {255, 255, 255})), pos, size);
     this->_rendering[windowId].push_back(newSprite);
+    TTF_CloseFont(font);
 }

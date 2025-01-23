@@ -32,19 +32,19 @@ objects:
 
   # /---- Player ----\
 
-  - name: player0
-    id: player
-    values:
-      coords:
-        - 100
-        - 110
-      sprite:
-        - "sprite_player1"
-      size:
-        - 36
-        - 18
-      main_script:
-        - "player_script"
+  # - name: player0
+  #   id: player
+  #   values:
+  #     coords:
+  #       - 100
+  #       - 110
+  #     sprite:
+  #       - "sprite_player1"
+  #     size:
+  #       - 36
+  #       - 18
+  #     main_script:
+  #       - "player_script"
 
     # /---- Ennemy ----\
 

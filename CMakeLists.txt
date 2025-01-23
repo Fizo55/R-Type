@@ -120,6 +120,7 @@ add_executable(client-executable
     ${CLIENT_SRC_DIR}/main_base.cpp
     ${CLIENT_SRC_DIR}/src/client_base.cpp
     ${ENGINE_SRC_DIR}/graphic/bindings/clock.cpp
+    ${ENGINE_SRC_DIR}/graphic/bindings/displayManager.cpp
 )
 target_include_directories(client-executable PRIVATE ./include)
 target_link_libraries(client-executable PRIVATE engine-graphic)

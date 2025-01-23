@@ -6,11 +6,40 @@
 
 using namespace engine;
 
+ObjectRef createPlayer()
+{
+    ObjectRef temp = ObjectRef();
+    std::vector<std::any> coords;
+    std::vector<std::any> size;
+    std::vector<std::any> script;
+    std::vector<std::any> sprite;
+
+    coords.push_back(std::any((std::int64_t)100));
+    coords.push_back(std::any((std::int64_t)110));
+
+    size.push_back(std::any((std::int64_t)36));
+    size.push_back(std::any((std::int64_t)18));
+
+    script.push_back(std::any((std::string)"player_script"));
+    sprite.push_back(std::any((std::string)"sprite_player1"));
+
+    temp.addBuildParameter("coords", coords);
+    temp.addBuildParameter("size", size);
+    temp.addBuildParameter("sprite", sprite);
+    temp.addBuildParameter("main_script", script);
+
+    temp.setName("player");
+
+    return (temp);
+}
+
+
 client::client(const std::string &configPath)
   : _running(false)
 {
     engine::ScriptTypeDefinitor<Game> *gameDefinitor = new engine::ScriptTypeDefinitor<Game>();
     engine::ScriptTypeDefinitor<grw::clock> *clockDefinitor = new engine::ScriptTypeDefinitor<grw::clock>();
+    engine::ScriptTypeDefinitor<engine::displayManager> *displayManagerDefinitor = new engine::ScriptTypeDefinitor<engine::displayManager>();
 
     this->_factory.registerComponent<engine_components::Position>();
     this->_factory.registerComponent<engine_components::Size>();
@@ -58,16 +87,23 @@ client::client(const std::string &configPath)
 
     this->_orchestrator.registerGlobal(ScriptGlobalDefinition((engine::IScriptTypeDefinitor *)gameDefinitor, "game", "game", (void *)&(this->_game)));
     this->_orchestrator.registerGlobal(ScriptGlobalDefinition((engine::IScriptTypeDefinitor *)clockDefinitor, "clock", "clock", (void *)&(this->_clock)));
+    this->_orchestrator.registerGlobal(ScriptGlobalDefinition((engine::IScriptTypeDefinitor *)displayManagerDefinitor, "display_manager", "renderer", (void *)&(this->_displayManager)));
     this->_orchestrator.addBinding(clock_register);
+    this->_orchestrator.addBinding(display_manager_register);
 
     this->_game.addFactory(&this->_factory);
 
     if (gameData["entryScene"])
         this->_game.loadScene(gameData["entryScene"].as<std::string>());
 
-    this->_orchestrator.fromGameObject(this->_game);
-
     this->_gameWindow = this->_displayManager.createWindow(800, 600);
+
+    this->_game.writeDBInt(0xF1, (std::int64_t)this->_gameWindow);
+    this->_game.writeDBInt(0x00, (int64_t)this->_game.buildObjectRef(createPlayer(), "player0"));
+
+    this->_game.loadObject((Object *)this->_game.readDBInt(0x00));
+
+    this->_orchestrator.fromGameObject(this->_game);
 }
 
 client::~client()
@@ -163,7 +199,7 @@ void client::draw(void)
         this->_displayManager.useEntity(*item->getEntity(), this->_game.getFactory()->getRegistry(), this->_gameWindow);
     }
 
-    this->_displayManager.useText("score: 0", "r-type/assets/font.ttf", 24, engine_math::vector2<int>(20, 20), engine_math::vector2<int>(100, 100), this->_gameWindow);
+    this->_orchestrator.callFunctionAll("post_draw");
 
     this->_displayManager.draw();
 }

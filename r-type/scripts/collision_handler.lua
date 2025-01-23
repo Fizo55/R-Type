@@ -18,6 +18,7 @@ function collision_bullet_to_ennemy(obj)
             if (are_colliding(obj, other)) then
                 game:remove_object(obj)
                 game:remove_object(other)
+                game:write_int(game:read_int(0x00), game:read_int(game:read_int(0x00)) + 1)
                 return
             end
         end

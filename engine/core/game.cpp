@@ -173,7 +173,7 @@ std::int64_t engine::Game::readDBInt(std::size_t pos)
 
     if (!read)
         return (0);
-    return (std::any_cast<std::int64_t>(read));
+    return (std::any_cast<std::int64_t>(*read));
 }
 
 void engine::Game::writeDBInt(std::size_t pos, std::int64_t value)

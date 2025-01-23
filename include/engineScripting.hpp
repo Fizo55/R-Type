@@ -109,5 +109,6 @@
     void orchestrator_register(lua_State *ctx);
     void any_list_register(lua_State *ctx);
     void clock_register(lua_State *ctx);
+    void display_manager_register(lua_State *ctx);
 
 #endif /* !ENGINE_SCRIPTING_HPP_ */
