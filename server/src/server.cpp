@@ -125,7 +125,7 @@ int server::listen(const std::string &ipAddress, uint16_t port)
     std::cout << "[Main] Starting server on IP=" << ipAddress 
               << " TCP=" << port << " UDP=" << (port+1) << "\n";
 
-    this->_server = std::make_shared<NetworkServer>(_io, ipAddress, port, port + 1);
+    this->_server = std::make_shared<NetworkServer>(_io, ipAddress, port, port + 1, this->_game, this->_orchestrator, createPlayer);
     this->_server->start();
 
     _ioThread = std::thread([&]() {

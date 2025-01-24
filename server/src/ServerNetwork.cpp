@@ -5,7 +5,10 @@
 NetworkServer::NetworkServer(boost::asio::io_context &io,
                              const std::string &ipAddress,
                              unsigned short tcpPort,
-                             unsigned short udpPort)
+                             unsigned short udpPort,
+                             engine::Game &game,
+                             engine::ScriptOrchestrator &orchestrator,
+                             std::function<engine::ObjectRef()> createPlayerFunc)
     : _ioContext(io)
     , _acceptor(io)
     , _ipAddress(ipAddress)
@@ -13,6 +16,9 @@ NetworkServer::NetworkServer(boost::asio::io_context &io,
     , _udpSocket(io)
     , _udpPort(udpPort)
     , _running(false)
+    , _game(game)
+    , _orchestrator(orchestrator)
+    , _createPlayerFunc(std::move(createPlayerFunc))
 {
     _udpBuffer.fill(0);
 }
@@ -205,6 +211,10 @@ void NetworkServer::handleHello(std::shared_ptr<ClientSession> session,
     session->name = name;
     std::cout << "[Server] Client " << session->id
               << " logged in with name: " << name << "\n";
+
+    auto player = _game.buildObjectRef(_createPlayerFunc(), "player" + std::to_string(session->id));
+    _game.loadObject(player);
+    _orchestrator.fromObject(_game.getFactory(), player);
 
     std::string idStr = std::to_string(session->id);
 

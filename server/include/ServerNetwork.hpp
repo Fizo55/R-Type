@@ -7,6 +7,8 @@
 #include <unordered_map>
 #include <atomic>
 #include <string>
+#include "engineCore.hpp"
+#include "engineScripting.hpp"
 
 static const std::uint16_t PROTOCOL_MAGIC = 0xEB27;
 
@@ -65,7 +67,10 @@ public:
     NetworkServer(boost::asio::io_context &io,
                   const std::string &ipAddress,
                   unsigned short tcpPort,
-                  unsigned short udpPort);
+                  unsigned short udpPort,
+                  engine::Game &game,
+                  engine::ScriptOrchestrator &orchestrator,
+                  std::function<engine::ObjectRef()> createPlayerFunc);
 
     void start();
     void stop();
@@ -123,6 +128,10 @@ private:
     std::atomic<std::uint64_t> _nextSessionId{1};
 
     bool _running;
+
+    engine::Game &_game;
+    engine::ScriptOrchestrator &_orchestrator;
+    std::function<engine::ObjectRef()> _createPlayerFunc;
 };
 
 #endif
