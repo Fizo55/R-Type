@@ -42,7 +42,7 @@ int main(int argc, char **argv)
     }
 
     uint16_t port = 1337;
-    std::string ipAddress = "0.0.0.0";
+    std::string ipAddress = "127.0.0.1";
 
     if (parser.hasArg("--port")) {
         try {
