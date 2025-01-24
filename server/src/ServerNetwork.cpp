@@ -250,6 +250,19 @@ bool NetworkServer::parseHeader(const char *data, std::size_t size, NetworkMessa
 
 void NetworkServer::removeSession(std::uint64_t sessionId)
 {
+    auto &gameObjects = this->_game.getLoadedObjects();
+    auto tempPos = std::find_if(gameObjects.begin(), gameObjects.end(), [&](const engine::Object* item) {
+        return (item->getName().compare("player" + std::to_string(sessionId)) == 0);
+    });
+    
+    if (tempPos == gameObjects.end()) {
+        return;
+    }
+
+    auto obj = *tempPos;
+    this->_orchestrator.removeScript((std::size_t)obj);
+    this->_game.unloadObject(obj);
+
     auto it = _sessions.find(sessionId);
     if (it != _sessions.end()) {
         boost::system::error_code ec;
