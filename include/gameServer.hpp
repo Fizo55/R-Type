@@ -7,6 +7,7 @@
     #include "ServerNetwork.hpp"
     #include "gameArguments.hpp"
 
+    #include <deque>
     #include <thread>
     #include <boost/asio.hpp>
 
@@ -36,6 +37,10 @@
 
             void mainloop(void);
 
+            void send_object(const std::vector<char>& payload);
+
+            void start_send_object();
+
         private:
             bool _running;
 
@@ -49,6 +54,11 @@
             boost::asio::io_context _io;
             std::shared_ptr<NetworkServer> _server;
             std::thread _ioThread;
+
+            std::mutex _sendMutex;
+            std::deque<std::vector<char>> _sendQueue;
+            bool _sendInProgress;
+            std::string _delimiter = "\r\n\r\n";
     };
 
 #endif /* GAME_SERVER_HPP_ */

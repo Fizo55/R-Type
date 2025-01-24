@@ -108,24 +108,58 @@ void server::event(void)
 
 }
 
+std::vector<char> serialize_uint32(std::uint32_t value) {
+    std::uint32_t network_order = htonl(value);
+    std::vector<char> buffer(sizeof(network_order));
+    std::memcpy(buffer.data(), &network_order, sizeof(network_order));
+    return buffer;
+}
+
 void server::update(void)
 {
     const auto& gameObjects = _game.getLoadedObjects();
+    bool objectsSent = false;
 
     for (const auto& obj : gameObjects) {
         if (!obj) continue;
 
         std::vector<char> payload = obj->serializeToBytes();
+        std::uint32_t payloadSize = static_cast<std::uint32_t>(payload.size());
+        std::vector<char> sizeBuffer = serialize_uint32(payloadSize);
+
+        std::cout << "[Server] Payload size (before sending): " << payload.size() << std::endl;
+
+        std::vector<char> buffer;
+        buffer.reserve(sizeBuffer.size() + payload.size());
+        buffer.insert(buffer.end(), sizeBuffer.begin(), sizeBuffer.end());
+        buffer.insert(buffer.end(), payload.begin(), payload.end());
 
         for (const auto& [sessionId, session] : this->_server->_sessions) {
             if (session->tcpSocket.is_open()) {
                 boost::system::error_code ec;
                 boost::asio::write(session->tcpSocket,
-                                   boost::asio::buffer(payload),
-                                   ec);
+                    boost::asio::buffer(buffer),
+                    ec);
                 if (ec) {
                     std::cerr << "[Server] Failed to send object to client " << sessionId
-                              << ": " << ec.message() << "\n";
+                        << ": " << ec.message() << "\n";
+                } else {
+                    objectsSent = true;
+                }
+            }
+        }
+    }
+
+    if (objectsSent) {
+        for (const auto& [sessionId, session] : this->_server->_sessions) {
+            if (session->tcpSocket.is_open()) {
+                boost::system::error_code ec;
+                boost::asio::write(session->tcpSocket,
+                    boost::asio::buffer(_delimiter),
+                    ec);
+                if (ec) {
+                    std::cerr << "[Server] Failed to send delimiter to client " << sessionId
+                        << ": " << ec.message() << "\n";
                 }
             }
         }

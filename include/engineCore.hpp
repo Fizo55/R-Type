@@ -15,6 +15,15 @@
 
     #include <yaml-cpp/yaml.h>
 
+    #include <boost/archive/text_oarchive.hpp>
+    #include <boost/archive/text_iarchive.hpp>
+    #include <boost/serialization/map.hpp>
+    #include <boost/serialization/vector.hpp>
+    #include <boost/serialization/string.hpp>
+    #include <boost/serialization/unique_ptr.hpp>
+    #include <boost/serialization/optional.hpp>
+    #include <boost/serialization/access.hpp>
+
     namespace engine {
         struct EcsSystem;
         struct ComponentPoolBase;
@@ -140,6 +149,40 @@
                 ObjectRef();
                 ObjectRef(const std::string &);
 
+                friend class boost::serialization::access;
+
+                template <class Archive>
+                void serialize_any(Archive& ar, std::any& a, const unsigned int version) {
+                    if (a.type() == typeid(int)) {
+                        int value = std::any_cast<int>(a);
+                        ar & value;
+                        a = value;
+                    } else if (a.type() == typeid(double)) {
+                        double value = std::any_cast<double>(a);
+                        ar & value;
+                        a = value;
+                    } else if (a.type() == typeid(std::string)) {
+                        std::string value = std::any_cast<std::string>(a);
+                        ar & value;
+                        a = value;
+                    } else {
+                        throw std::runtime_error("Unsupported type for serialization");
+                    }
+                }
+
+                template <class Archive>
+                void serialize(Archive& ar, const unsigned int version) {
+                    ar & _name;
+                    ar & _buildComponents;
+
+                    for (auto& [key, value_list] : _buildParameters) {
+                        ar & key;
+                        for (auto& value : value_list) {
+                            serialize_any(ar, value, version);
+                        }
+                    }
+                }
+
                 const std::string &getName(void) const;
                 void setName(const std::string &);
 
@@ -166,13 +209,38 @@
                 Object();
                 Object(const ObjectRef &);
 
+                friend class boost::serialization::access;
+
+                template<class Archive>
+                void serialize(Archive & ar, const unsigned int version) {
+                    ar & boost::serialization::base_object<ObjectRef>(*this);
+
+                    if (Archive::is_saving::value) {
+                        if (_entity) {
+                            std::size_t entityId = static_cast<std::size_t>(*_entity);
+                            ar & entityId;
+                        } else {
+                            std::size_t invalidId = std::numeric_limits<std::size_t>::max();
+                            ar & invalidId;
+                        }
+                    } else {
+                        std::size_t entityId;
+                        ar & entityId;
+                        if (entityId != std::numeric_limits<std::size_t>::max()) {
+                            // idk
+                        } else {
+                            _entity.reset();
+                        }
+                    }
+                }
+
                 void buildEntity(EntityFactory *);
 
                 const std::unique_ptr<Entity> &getEntity(void) const;
 
                 std::vector<char> serializeToBytes() const;
 
-                static Object *deserializeFromBytes(const std::vector<char>& buffer);
+                static Object *deserializeFromBytes(const std::string& buffer, EntityFactory *factory);
             private:
                 std::unique_ptr<Entity> _entity;
         };

@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Boost REQUIRED)
+find_package(Boost REQUIRED COMPONENTS serialization)
 find_package(Lua REQUIRED)
 find_package(SDL2 CONFIG REQUIRED)
 find_package(SDL2_image CONFIG REQUIRED)
@@ -73,7 +74,7 @@ add_library(engine-core OBJECT
 )
 target_include_directories(engine-core PRIVATE ./include)
 target_compile_definitions(engine-core PUBLIC OBJ)
-target_link_libraries(engine-core PUBLIC yaml-cpp::yaml-cpp)
+target_link_libraries(engine-core PUBLIC yaml-cpp::yaml-cpp Boost::serialization)
 
 add_library(engine-scripting OBJECT
     ${ENGINE_SRC_DIR}/scripting/bindings/game.cpp

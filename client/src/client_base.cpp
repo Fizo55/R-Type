@@ -10,6 +10,7 @@ client::client(const std::string &configPath)
   : _running(false)
   , _tcpSocket(std::make_unique<boost::asio::ip::tcp::socket>(_ioContext))
   , _loginCompleted(false)
+  , _delimiter("\r\n\r\n")
 {
     engine::ScriptTypeDefinitor<Game> *gameDefinitor = new engine::ScriptTypeDefinitor<Game>();
     engine::ScriptTypeDefinitor<grw::clock> *clockDefinitor = new engine::ScriptTypeDefinitor<grw::clock>();
@@ -158,56 +159,165 @@ void client::event(void)
     }
 }
 
-void client::update(void)
-{
+void client::start_read_size() {
+    _readState = ReadState::READING_SIZE;
+    boost::asio::async_read(*_tcpSocket,
+        boost::asio::buffer(_sizeBuffer),
+        boost::asio::transfer_exactly(_sizeBuffer.size()),
+        [this](const boost::system::error_code& ec, std::size_t bytes_transferred) {
+            handle_read_size(ec, bytes_transferred);
+        });
+}
+
+void client::handle_read_size(const boost::system::error_code& ec, std::size_t bytes_transferred) {
+    std::cout << "handle_read_size called\n";
+    if (ec) {
+        std::cerr << "[Client] Error reading object size: " << ec.message() << "\n";
+        return;
+    }
+
+    if (bytes_transferred != _sizeBuffer.size()) {
+        std::cerr << "[Client] Incomplete size received: " << bytes_transferred << " bytes\n";
+        return;
+    }
+
+    std::uint32_t network_size;
+    std::memcpy(&network_size, _sizeBuffer.data(), sizeof(network_size));
+    _objectSize = ntohl(network_size);
+
+    std::cout << "[Client] Received object size: " << _objectSize << " bytes\n";
+
+    if (_objectSize == 0) {
+        std::cerr << "[Client] Received object size of 0!\n";
+        return;
+    }
+
+    _objectBuffer.clear();
+    _objectBuffer.reserve(_objectSize);
+
+    start_read_object();
+}
+
+void client::start_read_object() {
+    _readState = ReadState::READING_OBJECT;
+
+    _objectBuffer.resize(_objectSize);
+
+    boost::asio::async_read(*_tcpSocket,
+        boost::asio::buffer(&_objectBuffer[0], _objectSize),
+        boost::asio::transfer_exactly(_objectSize),
+        [this](const boost::system::error_code& ec, std::size_t bytes_transferred) {
+            std::cout << "[Client] Received object data (hex): ";
+            for (size_t i = 0; i < bytes_transferred; ++i) {
+                std::cout << std::hex << std::setw(2) << std::setfill('0') 
+                          << (static_cast<unsigned int>(static_cast<unsigned char>(_objectBuffer[i])) & 0xFF) << " ";
+            }
+            std::cout << std::dec << std::endl;
+
+            if (ec) {
+                std::cerr << "[Client] Error reading object data: " << ec.message() << "\n";
+                return;
+            }
+
+            auto factory = this->_game.getFactory();
+            
+            engine::Object *obj = engine::Object::deserializeFromBytes(_objectBuffer, factory);
+            if (!obj) {
+                std::cerr << "[Client] Failed to deserialize object\n";
+                return;
+            }
+            obj->buildEntity(this->_game.getFactory());
+            std::cout << "[Client] Received and deserialized object: " << obj->getName() << "\n";
+            this->_game.loadObject(obj);
+
+            start_read_until_delimiter();
+        });
+}
+
+void client::start_read_until_delimiter() {
+    _readState = ReadState::READING_UNTIL_DELIMITER;
+
+    boost::asio::async_read_until(*_tcpSocket,
+        boost::asio::dynamic_buffer(_objectBuffer),
+        _delimiter,
+        [this](const boost::system::error_code& ec, std::size_t bytes_transferred) {
+            if (ec) {
+                if (ec == boost::asio::error::eof) {
+                    std::cout << "[Client] Server closed the connection.\n";
+                    _running = false;
+                } else {
+                    std::cerr << "[Client] Error reading until delimiter: " << ec.message() << "\n";
+                }
+                return;
+            }
+
+            std::cout << "[Client] Received delimiter data (hex): ";
+            for (size_t i = bytes_transferred - _delimiter.size(); i < bytes_transferred; ++i) {
+                std::cout << std::hex << std::setw(2) << std::setfill('0') 
+                          << (static_cast<unsigned int>(static_cast<unsigned char>(_objectBuffer[i])) & 0xFF) << " ";
+            }
+            std::cout << std::dec << std::endl;
+
+            std::string receivedData = _objectBuffer.substr(0, bytes_transferred - _delimiter.size());
+            std::cout << "[Client] Received Data: " << receivedData << "\n";
+
+            if (!receivedData.empty()) {
+                auto factory = this->_game.getFactory();
+                engine::Object* obj = engine::Object::deserializeFromBytes(receivedData, factory);
+                if (!obj) {
+                    std::cerr << "[Client] Failed to deserialize object\n";
+                    return;
+                }
+
+                obj->buildEntity(this->_game.getFactory());
+                std::cout << "[Client] Received and deserialized object: " << obj->getName() << "\n";
+                this->_game.loadObject(obj);
+            }
+
+            _objectBuffer.erase(0, bytes_transferred);
+
+            start_write_ack();
+        });
+}
+
+void client::start_write_ack() {
+    _readState = ReadState::SENDING_ACK;
+    std::string ack = "ACK";
+    boost::asio::async_write(*_tcpSocket,
+        boost::asio::buffer(ack),
+        [this](const boost::system::error_code& ec, std::size_t bytes_transferred) {
+            handle_write_ack(ec, bytes_transferred);
+        });
+}
+
+void client::handle_write_ack(const boost::system::error_code& ec, std::size_t bytes_transferred) {
+    std::cout << "handle_write_ack called\n";
+    if (ec) {
+        std::cerr << "[Client] Failed to send acknowledgment: " << ec.message() << "\n";
+        return;
+    }
+    std::cout << "[Client] Sent acknowledgment to server.\n";
+    start_read_size();
+}
+
+void client::do_read() {
+    start_read_size();
+}
+
+void client::update(void) {
     {
         std::unique_lock<std::mutex> lock(_loginMutex);
         _loginCondVar.wait(lock, [this] { return _loginCompleted; });
     }
 
+    std::cout << "Before do_read/ioContext.poll()\n";
+
     this->_game.unloadAllObjects();
+    do_read();
 
-    try {
-        while (_tcpSocket->available() > 0) {
-            char sizeBuffer[2];
-            boost::system::error_code ec;
+    std::cout << "After do_read/ioContext.poll()\n";
 
-            boost::asio::read(
-                *_tcpSocket,
-                boost::asio::buffer(sizeBuffer, sizeof(sizeBuffer)),
-                boost::asio::transfer_exactly(sizeof(sizeBuffer)),
-                ec
-            );
-
-            if (ec) {
-                std::cerr << "[Client] Error reading object size: " << ec.message() << "\n";
-                break;
-            }
-
-            uint16_t objectSize = 0;
-            std::memcpy(&objectSize, sizeBuffer, sizeof(objectSize));
-
-            std::vector<char> objectBuffer(objectSize);
-            boost::asio::read(
-                *_tcpSocket,
-                boost::asio::buffer(objectBuffer),
-                boost::asio::transfer_exactly(objectSize),
-                ec
-            );
-
-            if (ec) {
-                std::cerr << "[Client] Error reading object data: " << ec.message() << "\n";
-                break;
-            }
-
-            engine::Object *obj = engine::Object::deserializeFromBytes(objectBuffer);
-            obj->buildEntity(this->_game.getFactory());
-            std::cout << "[Client] Received and deserialized object: " << obj->getName() << "\n";
-            this->_game.loadObject(obj);
-        }
-    } catch (const std::exception &e) {
-        std::cerr << "[Client] Exception during update: " << e.what() << "\n";
-    }
+    _ioContext.poll();
 
     this->_displayManager.update();
 }
@@ -266,37 +376,17 @@ void client::login()
         return;
     }
 
-    {
-        char idBuffer[64];
-        boost::system::error_code readEc;
-
-        std::size_t bytesRead = boost::asio::read(
-            *_tcpSocket,
-            boost::asio::buffer(idBuffer),
-            boost::asio::transfer_at_least(1),
-            readEc
-        );
-
-        if (!readEc) {
-            std::string sessionID(idBuffer, bytesRead);
-            std::cout << "[Client] Received session ID from server: " 
-                    << sessionID << std::endl;
-            this->_game.writeDBInt(0x00, (std::int64_t)std::stoul(sessionID));
-            {
-                std::lock_guard<std::mutex> lock(_loginMutex);
-                _loginCompleted = true;
-            }
-            _loginCondVar.notify_all();
-        } else {
-            std::cerr << "[Client] Read error: " << readEc.message() << std::endl;
-        }
-    }
+    start_read_size();
 }
 
 void client::mainloop(void)
 {
     this->login();
     this->_running = true;
+
+    _ioThread = std::thread([this]() {
+        _ioContext.run();
+    });
 
     while (this->_running) {
         this->event();
@@ -305,4 +395,8 @@ void client::mainloop(void)
         this->_clock.tick(60);
     }
 
+    _ioContext.stop();
+    if (_ioThread.joinable()) {
+        _ioThread.join();
+    }
 }
