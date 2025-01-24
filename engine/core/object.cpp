@@ -21,10 +21,15 @@ engine::Object *engine::Object::deserializeFromBytes(const std::vector<char>& bu
     std::string name(buffer.begin() + offset, buffer.begin() + offset + nameLength);
     offset += nameLength;
 
+    std::cout << "Deserialized name: " << name << ", offset: " << offset << std::endl;
+
     engine::Object* obj = new engine::Object();
     obj->setName(name);
 
     size_t numComponents = static_cast<unsigned char>(buffer[offset++]);
+
+    std::cout << "Number of components: " << numComponents << ", offset: " << offset << std::endl;
+
     for (size_t i = 0; i < numComponents; ++i) {
         size_t compNameLength = static_cast<unsigned char>(buffer[offset++]);
         std::string compName(buffer.begin() + offset, buffer.begin() + offset + compNameLength);
@@ -35,9 +40,13 @@ engine::Object *engine::Object::deserializeFromBytes(const std::vector<char>& bu
         offset += compValueLength;
 
         obj->addBuildComponent(compName, compValue);
+        std::cout << "Added component: " << compName << "=" << compValue << ", offset: " << offset << std::endl;
     }
 
     size_t numParameters = static_cast<unsigned char>(buffer[offset++]);
+
+    std::cout << "Number of parameters: " << numParameters << ", offset: " << offset << std::endl;
+
     for (size_t i = 0; i < numParameters; ++i) {
         size_t paramNameLength = static_cast<unsigned char>(buffer[offset++]);
         std::string paramName(buffer.begin() + offset, buffer.begin() + offset + paramNameLength);
@@ -72,6 +81,7 @@ engine::Object *engine::Object::deserializeFromBytes(const std::vector<char>& bu
             }
         }
         obj->addBuildParameter(paramName, paramValues);
+        std::cout << "Added parameter: " << paramName << ", offset: " << offset << std::endl;
     }
 
     return obj;

@@ -160,9 +160,9 @@ void client::event(void)
 
 void client::update(void)
 {
-    if (!_loginCompleted) {
-        std::cout << "[Server] Skipping update, login not completed.\n";
-        return;
+    {
+        std::unique_lock<std::mutex> lock(_loginMutex);
+        _loginCondVar.wait(lock, [this] { return _loginCompleted; });
     }
 
     this->_game.unloadAllObjects();
@@ -282,7 +282,11 @@ void client::login()
             std::cout << "[Client] Received session ID from server: " 
                     << sessionID << std::endl;
             this->_game.writeDBInt(0x00, (std::int64_t)std::stoul(sessionID));
-            _loginCompleted = true;
+            {
+                std::lock_guard<std::mutex> lock(_loginMutex);
+                _loginCompleted = true;
+            }
+            _loginCondVar.notify_all();
         } else {
             std::cerr << "[Client] Read error: " << readEc.message() << std::endl;
         }

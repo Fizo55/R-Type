@@ -1,6 +1,9 @@
 #ifndef GAME_CLIENT_HPP_
     #define GAME_CLIENT_HPP_
 
+    #include <mutex>
+    #include <condition_variable>
+
     #include <boost/asio.hpp>
     #include "engineCore.hpp"
     #include "engineGraphic.hpp"
@@ -40,6 +43,8 @@
             std::unique_ptr<boost::asio::ip::tcp::socket> _tcpSocket;
 
             bool _loginCompleted;
+            std::mutex _loginMutex;
+            std::condition_variable _loginCondVar;
     };
 
 #endif /* GAME_CLIENT_HPP_ */
