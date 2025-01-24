@@ -14,8 +14,13 @@
     #include <functional>
 
     #include <yaml-cpp/yaml.h>
+    #include <nlohmann/json.hpp>
+
+    #include <variant>
 
     namespace engine {
+        using SerializableVariant = std::variant<std::string, int64_t, bool>;
+        
         struct EcsSystem;
         struct ComponentPoolBase;
         struct Entity;
@@ -173,8 +178,13 @@
                 std::vector<char> serializeToBytes() const;
 
                 static Object *deserializeFromBytes(const std::vector<char>& buffer);
+                
+                std::string serializeToJson() const;
+                static std::unique_ptr<Object> deserializeFromJson(const std::string &jsonString);
             private:
                 std::unique_ptr<Entity> _entity;
+                static nlohmann::json anyToJson(const std::any &value);
+                static std::any jsonToAny(const nlohmann::json &j);
         };
 
         class Scene {

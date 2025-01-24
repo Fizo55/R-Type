@@ -9,131 +9,7 @@ engine::ObjectRef::ObjectRef()
 
 }
 
-#include <sstream>
-#include <cstring>
-
 namespace engine {
-
-engine::Object *engine::Object::deserializeFromBytes(const std::vector<char>& buffer) {
-    size_t offset = 0;
-
-    size_t nameLength = static_cast<unsigned char>(buffer[offset++]);
-    std::string name(buffer.begin() + offset, buffer.begin() + offset + nameLength);
-    offset += nameLength;
-
-    std::cout << "Deserialized name: " << name << ", offset: " << offset << std::endl;
-
-    engine::Object* obj = new engine::Object();
-    obj->setName(name);
-
-    size_t numComponents = static_cast<unsigned char>(buffer[offset++]);
-
-    std::cout << "Number of components: " << numComponents << ", offset: " << offset << std::endl;
-
-    for (size_t i = 0; i < numComponents; ++i) {
-        size_t compNameLength = static_cast<unsigned char>(buffer[offset++]);
-        std::string compName(buffer.begin() + offset, buffer.begin() + offset + compNameLength);
-        offset += compNameLength;
-
-        size_t compValueLength = static_cast<unsigned char>(buffer[offset++]);
-        std::string compValue(buffer.begin() + offset, buffer.begin() + offset + compValueLength);
-        offset += compValueLength;
-
-        obj->addBuildComponent(compName, compValue);
-        std::cout << "Added component: " << compName << "=" << compValue << ", offset: " << offset << std::endl;
-    }
-
-    size_t numParameters = static_cast<unsigned char>(buffer[offset++]);
-
-    std::cout << "Number of parameters: " << numParameters << ", offset: " << offset << std::endl;
-
-    for (size_t i = 0; i < numParameters; ++i) {
-        size_t paramNameLength = static_cast<unsigned char>(buffer[offset++]);
-        std::string paramName(buffer.begin() + offset, buffer.begin() + offset + paramNameLength);
-        offset += paramNameLength;
-
-        size_t numValues = static_cast<unsigned char>(buffer[offset++]);
-        std::vector<std::any> paramValues;
-        for (size_t j = 0; j < numValues; ++j) {
-            uint8_t valueType = static_cast<unsigned char>(buffer[offset++]);
-            switch (valueType) {
-                case 0x01: {
-                    size_t strLength = static_cast<unsigned char>(buffer[offset++]);
-                    std::string strValue(buffer.begin() + offset, buffer.begin() + offset + strLength);
-                    offset += strLength;
-                    paramValues.push_back(strValue);
-                    break;
-                }
-                case 0x02: {
-                    int64_t intValue;
-                    std::memcpy(&intValue, buffer.data() + offset, sizeof(int64_t));
-                    offset += sizeof(int64_t);
-                    paramValues.push_back(intValue);
-                    break;
-                }
-                case 0x03: {
-                    bool boolValue = static_cast<bool>(buffer[offset++]);
-                    paramValues.push_back(boolValue);
-                    break;
-                }
-                default:
-                    throw std::runtime_error("Unknown parameter value type");
-            }
-        }
-        obj->addBuildParameter(paramName, paramValues);
-        std::cout << "Added parameter: " << paramName << ", offset: " << offset << std::endl;
-    }
-
-    return obj;
-}
-
-std::vector<char> Object::serializeToBytes() const {
-    std::vector<char> buffer;
-
-    std::string name = getName();
-    buffer.push_back(static_cast<char>(name.size()));
-    buffer.insert(buffer.end(), name.begin(), name.end());
-
-    const auto& components = getAllBuildComponent();
-    buffer.push_back(static_cast<char>(components.size()));
-    for (const auto& compName : components) {
-        std::string compValue = getBuildComponent(compName);
-        buffer.push_back(static_cast<char>(compName.size()));
-        buffer.insert(buffer.end(), compName.begin(), compName.end());
-        buffer.push_back(static_cast<char>(compValue.size()));
-        buffer.insert(buffer.end(), compValue.begin(), compValue.end());
-    }
-
-    const auto& parameters = getAllBuildParameter();
-    buffer.push_back(static_cast<char>(parameters.size()));
-    for (const auto& paramName : parameters) {
-        buffer.push_back(static_cast<char>(paramName.size()));
-        buffer.insert(buffer.end(), paramName.begin(), paramName.end());
-
-        const auto& paramValues = getBuildParameter(paramName);
-        buffer.push_back(static_cast<char>(paramValues.size()));
-        for (const auto& value : paramValues) {
-            if (value.type() == typeid(std::string)) {
-                std::string strValue = std::any_cast<std::string>(value);
-                buffer.push_back(0x01);
-                buffer.push_back(static_cast<char>(strValue.size()));
-                buffer.insert(buffer.end(), strValue.begin(), strValue.end());
-            } else if (value.type() == typeid(int64_t)) {
-                int64_t intValue = std::any_cast<int64_t>(value);
-                buffer.push_back(0x02);
-                char intBuffer[sizeof(int64_t)];
-                std::memcpy(intBuffer, &intValue, sizeof(int64_t));
-                buffer.insert(buffer.end(), intBuffer, intBuffer + sizeof(int64_t));
-            } else if (value.type() == typeid(bool)) {
-                bool boolValue = std::any_cast<bool>(value);
-                buffer.push_back(0x03);
-                buffer.push_back(static_cast<char>(boolValue));
-            }
-        }
-    }
-
-    return buffer;
-}
 
 engine::ObjectRef::ObjectRef(const std::string &path)
 {
@@ -253,6 +129,105 @@ void engine::Object::buildEntity(EntityFactory *factory) {
     }
 
     this->_entity = std::make_unique<Entity>(factory->createEntityComponentReady(buildData));
+}
+
+nlohmann::json Object::anyToJson(const std::any &value)
+{
+    nlohmann::json j;
+    if (value.type() == typeid(std::string)) {
+        j["type"] = "string";
+        j["value"] = std::any_cast<std::string>(value);
+    }
+    else if (value.type() == typeid(int64_t)) {
+        j["type"] = "int64";
+        j["value"] = std::any_cast<int64_t>(value);
+    }
+    else if (value.type() == typeid(bool)) {
+        j["type"] = "bool";
+        j["value"] = std::any_cast<bool>(value);
+    }
+    else {
+        throw std::runtime_error("Unsupported std::any type during serialization");
+    }
+    return j;
+}
+
+std::any Object::jsonToAny(const nlohmann::json &j)
+{
+    std::string type = j.at("type").get<std::string>();
+    if (type == "string") {
+        return j.at("value").get<std::string>();
+    }
+    else if (type == "int64") {
+        return j.at("value").get<int64_t>();
+    }
+    else if (type == "bool") {
+        return j.at("value").get<bool>();
+    }
+    else {
+        throw std::runtime_error("Unsupported type during deserialization: " + type);
+    }
+}
+
+std::string Object::serializeToJson() const
+{
+    nlohmann::json j;
+    j["name"] = this->getName();
+
+    j["buildComponents"] = this->getAllBuildComponent();
+    for (const auto &comp : this->getAllBuildComponent()) {
+        j["buildComponents"][comp] = this->getBuildComponent(comp);
+    }
+
+    j["buildParameters"] = nlohmann::json::array();
+    for (const auto &paramName : this->getAllBuildParameter()) {
+        for (const auto &value : this->getBuildParameter(paramName)) {
+            j["buildParameters"].push_back(anyToJson(value));
+        }
+    }
+
+    return j.dump();
+}
+
+std::unique_ptr<Object> Object::deserializeFromJson(const std::string &jsonString)
+{
+    nlohmann::json j = nlohmann::json::parse(jsonString);
+    auto obj = std::make_unique<Object>();
+
+    if (j.contains("name") && j["name"].is_string()) {
+        obj->setName(j["name"].get<std::string>());
+    }
+    else {
+        throw std::runtime_error("Invalid or missing 'name' field in JSON");
+    }
+
+    if (j.contains("buildComponents") && j["buildComponents"].is_object()) {
+        for (auto &el : j["buildComponents"].items()) {
+            obj->addBuildComponent(el.key(), el.value().get<std::string>());
+        }
+    }
+    else {
+        throw std::runtime_error("Invalid or missing 'buildComponents' field in JSON");
+    }
+
+    if (j.contains("buildParameters") && j["buildParameters"].is_object()) {
+        for (const auto& [paramName, paramValues] : j["buildParameters"].items()) {
+            if (!paramValues.is_array()) {
+                throw std::runtime_error("Each 'buildParameters' entry must be an array.");
+            }
+            std::vector<std::any> values;
+            for (const auto& item : paramValues) {
+                std::any value = jsonToAny(item);
+                values.emplace_back(value);
+            }
+            obj->addBuildParameter(paramName, values);
+        }
+    }
+    else {
+        throw std::runtime_error("Invalid or missing 'buildParameters' field in JSON");
+    }
+
+    return obj;
 }
 }
 

@@ -158,6 +158,44 @@ void client::event(void)
     }
 }
 
+bool receiveWithSizeHeader(boost::asio::ip::tcp::socket& socket, std::string& data)
+{
+    char sizeBuffer[2];
+    boost::system::error_code ec;
+
+    size_t bytesRead = boost::asio::read(
+        socket,
+        boost::asio::buffer(sizeBuffer, 2),
+        boost::asio::transfer_exactly(2),
+        ec
+    );
+
+    if (ec) {
+        std::cerr << "[Client] Failed to read size header: " << ec.message() << "\n";
+        return false;
+    }
+
+    uint16_t size = 0;
+    std::memcpy(&size, sizeBuffer, sizeof(size));
+    size = ntohs(size);
+
+    std::vector<char> payloadBuffer(size);
+    bytesRead = boost::asio::read(
+        socket,
+        boost::asio::buffer(payloadBuffer),
+        boost::asio::transfer_exactly(size),
+        ec
+    );
+
+    if (ec) {
+        std::cerr << "[Client] Failed to read JSON payload: " << ec.message() << "\n";
+        return false;
+    }
+
+    data.assign(payloadBuffer.begin(), payloadBuffer.end());
+    return true;
+}
+
 void client::update(void)
 {
     {
@@ -167,45 +205,34 @@ void client::update(void)
 
     this->_game.unloadAllObjects();
 
-    try {
-        while (_tcpSocket->available() > 0) {
-            char sizeBuffer[2];
-            boost::system::error_code ec;
-
-            boost::asio::read(
-                *_tcpSocket,
-                boost::asio::buffer(sizeBuffer, sizeof(sizeBuffer)),
-                boost::asio::transfer_exactly(sizeof(sizeBuffer)),
-                ec
-            );
-
-            if (ec) {
-                std::cerr << "[Client] Error reading object size: " << ec.message() << "\n";
+     try {
+        while (true) {
+            std::string jsonString;
+            if (!receiveWithSizeHeader(*_tcpSocket, jsonString)) {
                 break;
             }
 
-            uint16_t objectSize = 0;
-            std::memcpy(&objectSize, sizeBuffer, sizeof(objectSize));
+            std::cout << "[Client] Received JSON: " << jsonString << "\n";
 
-            std::vector<char> objectBuffer(objectSize);
-            boost::asio::read(
-                *_tcpSocket,
-                boost::asio::buffer(objectBuffer),
-                boost::asio::transfer_exactly(objectSize),
-                ec
-            );
+            try {
+                std::unique_ptr<engine::Object> obj = engine::Object::deserializeFromJson(jsonString);
+                if (obj) {
+                    obj->buildEntity(this->_game.getFactory());
 
-            if (ec) {
-                std::cerr << "[Client] Error reading object data: " << ec.message() << "\n";
-                break;
+                    std::cout << "[Client] Deserialized Object: " << obj->getName() << "\n";
+
+                    this->_game.loadObject(obj.get());
+                }
+                else {
+                    std::cerr << "[Client] Failed to deserialize object.\n";
+                }
             }
-
-            engine::Object *obj = engine::Object::deserializeFromBytes(objectBuffer);
-            obj->buildEntity(this->_game.getFactory());
-            std::cout << "[Client] Received and deserialized object: " << obj->getName() << "\n";
-            this->_game.loadObject(obj);
+            catch (const std::exception& e) {
+                std::cerr << "[Client] Deserialization exception: " << e.what() << "\n";
+            }
         }
-    } catch (const std::exception &e) {
+    }
+    catch (const std::exception &e) {
         std::cerr << "[Client] Exception during update: " << e.what() << "\n";
     }
 
@@ -282,11 +309,7 @@ void client::login()
             std::cout << "[Client] Received session ID from server: " 
                     << sessionID << std::endl;
             this->_game.writeDBInt(0x00, (std::int64_t)std::stoul(sessionID));
-            {
-                std::lock_guard<std::mutex> lock(_loginMutex);
-                _loginCompleted = true;
-            }
-            _loginCondVar.notify_all();
+            _loginCompleted = true;
         } else {
             std::cerr << "[Client] Read error: " << readEc.message() << std::endl;
         }
