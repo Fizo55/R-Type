@@ -159,6 +159,50 @@ void client::event(void)
 
 void client::update(void)
 {
+    this->_game.unloadAllObjects();
+
+    try {
+        while (_tcpSocket->available() > 0) {
+            char sizeBuffer[2];
+            boost::system::error_code ec;
+
+            boost::asio::read(
+                *_tcpSocket,
+                boost::asio::buffer(sizeBuffer, sizeof(sizeBuffer)),
+                boost::asio::transfer_exactly(sizeof(sizeBuffer)),
+                ec
+            );
+
+            if (ec) {
+                std::cerr << "[Client] Error reading object size: " << ec.message() << "\n";
+                break;
+            }
+
+            uint16_t objectSize = 0;
+            std::memcpy(&objectSize, sizeBuffer, sizeof(objectSize));
+
+            std::vector<char> objectBuffer(objectSize);
+            boost::asio::read(
+                *_tcpSocket,
+                boost::asio::buffer(objectBuffer),
+                boost::asio::transfer_exactly(objectSize),
+                ec
+            );
+
+            if (ec) {
+                std::cerr << "[Client] Error reading object data: " << ec.message() << "\n";
+                break;
+            }
+
+            engine::Object *obj = engine::Object::deserializeFromBytes(objectBuffer);
+            std::cout << "[Client] Received and deserialized object: " << obj->getName() << "\n";
+
+            this->_game.loadObject(obj);
+        }
+    } catch (const std::exception &e) {
+        std::cerr << "[Client] Exception during update: " << e.what() << "\n";
+    }
+
     this->_displayManager.update();
 }
 

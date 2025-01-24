@@ -72,6 +72,8 @@ public:
                   engine::ScriptOrchestrator &orchestrator,
                   std::function<engine::ObjectRef()> createPlayerFunc);
 
+    std::unordered_map<std::uint64_t, std::shared_ptr<ClientSession>> _sessions;
+
     void start();
     void stop();
 
@@ -124,7 +126,6 @@ private:
     std::array<char, 2048> _udpBuffer;
     boost::asio::ip::udp::endpoint _udpRemoteSender;
 
-    std::unordered_map<std::uint64_t, std::shared_ptr<ClientSession>> _sessions;
     std::atomic<std::uint64_t> _nextSessionId{1};
 
     bool _running;

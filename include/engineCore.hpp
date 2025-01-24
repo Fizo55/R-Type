@@ -169,6 +169,10 @@
                 void buildEntity(EntityFactory *);
 
                 const std::unique_ptr<Entity> &getEntity(void) const;
+
+                std::vector<char> serializeToBytes() const;
+
+                static Object *deserializeFromBytes(const std::vector<char>& buffer);
             private:
                 std::unique_ptr<Entity> _entity;
         };

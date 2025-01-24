@@ -110,6 +110,27 @@ void server::event(void)
 
 void server::update(void)
 {
+    const auto& gameObjects = _game.getLoadedObjects();
+
+    for (const auto& obj : gameObjects) {
+        if (!obj) continue;
+
+        std::vector<char> payload = obj->serializeToBytes();
+
+        for (const auto& [sessionId, session] : this->_server->_sessions) {
+            if (session->tcpSocket.is_open()) {
+                boost::system::error_code ec;
+                boost::asio::write(session->tcpSocket,
+                                   boost::asio::buffer(payload),
+                                   ec);
+                if (ec) {
+                    std::cerr << "[Server] Failed to send object to client " << sessionId
+                              << ": " << ec.message() << "\n";
+                }
+            }
+        }
+    }
+
     this->_orchestrator.callFunctionAll("update");
 }
 
