@@ -174,7 +174,7 @@ std::string Object::serializeToJson() const
     nlohmann::json j;
     j["name"] = this->getName();
 
-    j["buildComponents"] = nlohmann::json::object();
+    j["buildComponents"] = this->getAllBuildComponent();
     for (const auto &comp : this->getAllBuildComponent()) {
         j["buildComponents"][comp] = this->getBuildComponent(comp);
     }
