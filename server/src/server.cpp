@@ -108,18 +108,6 @@ void server::event(void)
 
 }
 
-void hexDump(const std::vector<char>& buffer) {
-    std::cout << "Hex Dump of Serialized Data:" << std::endl;
-    for (size_t i = 0; i < buffer.size(); ++i) {
-        if (i % 16 == 0) {
-            if (i > 0) std::cout << std::endl;
-            printf("%08zX: ", i);
-        }
-        printf("%02X ", static_cast<unsigned char>(buffer[i]));
-    }
-    std::cout << std::endl << std::endl;
-}
-
 void server::update(void)
 {
     const auto& gameObjects = _game.getLoadedObjects();
@@ -127,23 +115,13 @@ void server::update(void)
     for (const auto& obj : gameObjects) {
         if (!obj) continue;
 
-        std::string jsonString = obj->serializeToJson();
-
-        if (jsonString.size() > 65535) {
-            std::cerr << "[Server] Payload too large to send\n";
-            continue;
-        }
-
-        uint16_t size = static_cast<uint16_t>(jsonString.size());
-        uint16_t net_size = htons(size);
-        std::vector<char> sizeBuffer(2);
-        std::memcpy(sizeBuffer.data(), &net_size, sizeof(net_size));
+        std::vector<char> payload = obj->serializeToBytes();
 
         for (const auto& [sessionId, session] : this->_server->_sessions) {
             if (session->tcpSocket.is_open()) {
                 boost::system::error_code ec;
                 boost::asio::write(session->tcpSocket,
-                                   boost::asio::buffer(jsonString),
+                                   boost::asio::buffer(payload),
                                    ec);
                 if (ec) {
                     std::cerr << "[Server] Failed to send object to client " << sessionId

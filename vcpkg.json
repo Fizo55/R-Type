@@ -10,7 +10,6 @@
         "boost-system",
         "boost-thread",
         "lua",
-        "raylib",
-        "nlohmann-json"
+        "raylib"
     ]
 }

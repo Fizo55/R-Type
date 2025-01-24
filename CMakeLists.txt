@@ -12,7 +12,6 @@ find_package(SDL2_ttf CONFIG REQUIRED)
 find_package(raylib REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(yaml-cpp CONFIG REQUIRED)
-find_package(nlohmann_json REQUIRED)
 
 include_directories(${Boost_INCLUDE_DIRS})
 
@@ -74,7 +73,7 @@ add_library(engine-core OBJECT
 )
 target_include_directories(engine-core PRIVATE ./include)
 target_compile_definitions(engine-core PUBLIC OBJ)
-target_link_libraries(engine-core PUBLIC yaml-cpp::yaml-cpp nlohmann_json::nlohmann_json)
+target_link_libraries(engine-core PUBLIC yaml-cpp::yaml-cpp)
 
 add_library(engine-scripting OBJECT
     ${ENGINE_SRC_DIR}/scripting/bindings/game.cpp
