@@ -201,8 +201,8 @@ void client::update(void)
             }
 
             engine::Object *obj = engine::Object::deserializeFromBytes(objectBuffer);
+            obj->buildEntity(this->_game.getFactory());
             std::cout << "[Client] Received and deserialized object: " << obj->getName() << "\n";
-
             this->_game.loadObject(obj);
         }
     } catch (const std::exception &e) {
