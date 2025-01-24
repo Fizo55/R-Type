@@ -14,6 +14,7 @@ NetworkServer::NetworkServer(boost::asio::io_context &io,
     , _udpPort(udpPort)
     , _running(false)
 {
+    _udpBuffer.fill(0);
 }
 
 void NetworkServer::start()
@@ -61,6 +62,8 @@ void NetworkServer::start()
         return;
     }
 
+    startReceiveUdp();
+
     std::cout << "[Server] Started on " << _ipAddress 
               << ", TCP=" << _tcpPort << " UDP=" << _udpPort << "\n";
 }
@@ -86,7 +89,6 @@ void NetworkServer::doAccept()
 {
     auto session = std::make_shared<ClientSession>(_ioContext);
     session->id = _nextSessionId.fetch_add(1, std::memory_order_relaxed);
-    session->tcpSocket = boost::asio::ip::tcp::socket(_ioContext);
 
     _acceptor.async_accept(
         session->tcpSocket,
@@ -130,9 +132,9 @@ void NetworkServer::startReadTcp(std::shared_ptr<ClientSession> session)
 }
 
 void NetworkServer::onReadHeader(std::shared_ptr<ClientSession> session,
-    std::shared_ptr<std::vector<char>> buffer,
-    const boost::system::error_code& ec,
-    std::size_t bytesTransferred)
+                                 std::shared_ptr<std::vector<char>> buffer,
+                                 const boost::system::error_code &ec,
+                                 std::size_t bytesTransferred)
 {
     if (ec || bytesTransferred < 5) {
         removeSession(session->id);
@@ -148,14 +150,13 @@ void NetworkServer::onReadHeader(std::shared_ptr<ClientSession> session,
 
     if (msg.length == 0) {
         onReadPayload(session, msg, {}, 0);
-    }
-    else {
+    } else {
         auto payloadBuf = std::make_shared<std::vector<char>>(msg.length);
         boost::asio::async_read(
             session->tcpSocket,
             boost::asio::buffer(*payloadBuf),
-            [this, session, msg, payloadBuf](const boost::system::error_code& ec2,
-                std::size_t bytesTransferred2) mutable
+            [this, session, msg, payloadBuf](const boost::system::error_code &ec2,
+                                             std::size_t bytesTransferred2) mutable
             {
                 if (!ec2 && bytesTransferred2 == msg.length) {
                     std::copy(payloadBuf->begin(), payloadBuf->end(), std::back_inserter(msg.payload));
@@ -165,7 +166,6 @@ void NetworkServer::onReadHeader(std::shared_ptr<ClientSession> session,
         );
     }
 }
-
 
 void NetworkServer::onReadPayload(std::shared_ptr<ClientSession> session,
                                   NetworkMessage &msg,
@@ -178,19 +178,19 @@ void NetworkServer::onReadPayload(std::shared_ptr<ClientSession> session,
     }
 
     switch (msg.command) {
-        case NetworkCmd::HELLO: {
-            handleHello(session, msg.payload);
-            break;
-        }
-        case NetworkCmd::GOODBYE: {
-            handleGoodbye(session);
-            break;
-        }
-        default:
-            std::cerr << "[Server] Unknown command 0x"
-                      << std::hex << (int)msg.command << std::dec
-                      << " from client " << session->id << "\n";
-            break;
+    case NetworkCmd::HELLO: {
+        handleHello(session, msg.payload);
+        break;
+    }
+    case NetworkCmd::GOODBYE: {
+        handleGoodbye(session);
+        break;
+    }
+    default:
+        std::cerr << "[Server] Unknown command 0x"
+                  << std::hex << (int)msg.command << std::dec
+                  << " from client " << session->id << "\n";
+        break;
     }
 
     if (session->tcpSocket.is_open()) {
@@ -199,13 +199,24 @@ void NetworkServer::onReadPayload(std::shared_ptr<ClientSession> session,
 }
 
 void NetworkServer::handleHello(std::shared_ptr<ClientSession> session,
-    const std::vector<char>& payload)
+                                const std::vector<char>& payload)
 {
-    std::vector<char> payloadCopy(payload);
-    std::string name(payloadCopy.begin(), payloadCopy.end());
+    std::string name(payload.begin(), payload.end());
     session->name = name;
     std::cout << "[Server] Client " << session->id
-        << " logged in with name: " << name << "\n";
+              << " logged in with name: " << name << "\n";
+
+    std::string idStr = std::to_string(session->id);
+
+    boost::system::error_code ec;
+    boost::asio::write(session->tcpSocket, boost::asio::buffer(idStr), ec);
+
+    if (ec) {
+        std::cerr << "[Server] Error sending session ID: " << ec.message() << "\n";
+    } else {
+        std::cout << "[Server] Sent session ID " << idStr
+                  << " to client " << session->id << "\n";
+    }
 }
 
 void NetworkServer::handleGoodbye(std::shared_ptr<ClientSession> session)
@@ -219,7 +230,7 @@ bool NetworkServer::parseHeader(const char *data, std::size_t size, NetworkMessa
     if (size < 5) return false;
     std::memcpy(&outMsg.magic, data, 2);
     outMsg.command = static_cast<NetworkCmd>(data[2]);
-    std::memcpy(&outMsg.length, data+3, 2);
+    std::memcpy(&outMsg.length, data + 3, 2);
 
     if (outMsg.magic != PROTOCOL_MAGIC) {
         return false;
@@ -236,4 +247,116 @@ void NetworkServer::removeSession(std::uint64_t sessionId)
         _sessions.erase(it);
         std::cout << "[Server] Removed client session " << sessionId << "\n";
     }
+}
+
+void NetworkServer::startReceiveUdp()
+{
+    _udpSocket.async_receive_from(
+        boost::asio::buffer(_udpBuffer),
+        _udpRemoteSender,
+        [this](const boost::system::error_code &ec, std::size_t bytesTransferred)
+        {
+            onReceiveUdp(ec, bytesTransferred);
+        }
+    );
+}
+
+void NetworkServer::onReceiveUdp(const boost::system::error_code &ec,
+                                 std::size_t bytesTransferred)
+{
+    if (!ec && bytesTransferred >= sizeof(UdpHeader)) {
+        UdpHeader hdr;
+        if (parseUdpHeader(_udpBuffer.data(), bytesTransferred, hdr)) {
+            std::vector<char> payload;
+            if (hdr.length > 0 && (sizeof(UdpHeader) + hdr.length) <= bytesTransferred) {
+                payload.insert(payload.end(),
+                               _udpBuffer.begin() + sizeof(UdpHeader),
+                               _udpBuffer.begin() + sizeof(UdpHeader) + hdr.length);
+            }
+            handleUdpPacket(hdr, payload, _udpRemoteSender);
+        }
+    }
+    if (_running) {
+        startReceiveUdp();
+    }
+}
+
+bool NetworkServer::parseUdpHeader(const char *data, std::size_t size, UdpHeader &outHdr)
+{
+    if (size < sizeof(UdpHeader)) return false;
+
+    std::memcpy(&outHdr.magic, data, 2);
+    std::memcpy(&outHdr.cmd, data+2, 1);
+    std::memcpy(&outHdr.sequenceNumber, data+3, 4);
+    std::memcpy(&outHdr.ackNumber, data+7, 4);
+    std::memcpy(&outHdr.length, data+11,2);
+
+    if (outHdr.magic != 0xDEAD) {
+        return false;
+    }
+    return true;
+}
+
+void NetworkServer::handleUdpPacket(const UdpHeader &hdr,
+                                    const std::vector<char> &payload,
+                                    const boost::asio::ip::udp::endpoint &sender)
+{
+    auto &session = _udpSessions[sender];
+
+    if (hdr.sequenceNumber <= session.lastSequenceReceived) {
+        std::cout << "[Server][UDP] Duplicate or old packet seq=" << hdr.sequenceNumber
+                  << " from " << sender << std::endl;
+        return;
+    }
+
+    session.lastSequenceReceived = hdr.sequenceNumber;
+
+    switch ((UdpCmd)hdr.cmd) {
+        case UdpCmd::CLIENT_UPDATE: {
+            std::cout << "[Server][UDP] new packet seq=" << hdr.sequenceNumber
+                      << " ack=" << hdr.ackNumber
+                      << " from " << sender << ", payload size=" << payload.size() << "\n";
+            break;
+        // TODO : message
+        }
+        default: {
+            std::cout << "[Server][UDP] Unknown udp cmd=0x"
+                      << std::hex << (int)hdr.cmd << std::dec
+                      << " from " << sender << "\n";
+            break;
+        }
+    }
+
+    sendUdpAck(hdr.sequenceNumber, 0, sender);
+}
+
+void NetworkServer::sendUdpAck(std::uint32_t seqNumber, std::uint32_t ackNumber,
+                               const boost::asio::ip::udp::endpoint &dest)
+{
+    UdpHeader hdr;
+    hdr.magic = 0xDEAD;
+    hdr.cmd = (std::uint8_t)UdpCmd::ACK;
+    hdr.sequenceNumber = seqNumber;
+    hdr.ackNumber = ackNumber;
+    hdr.length = 0;
+
+    std::vector<char> buffer;
+    buffer.resize(sizeof(UdpHeader));
+    std::memcpy(buffer.data(), &hdr.magic, 2);
+    std::memcpy(buffer.data()+2, &hdr.cmd, 1);
+    std::memcpy(buffer.data()+3, &hdr.sequenceNumber, 4);
+    std::memcpy(buffer.data()+7, &hdr.ackNumber, 4);
+    std::memcpy(buffer.data()+11,&hdr.length, 2);
+
+    _udpSocket.async_send_to(
+        boost::asio::buffer(buffer),
+        dest,
+        [dest](const boost::system::error_code &ec, std::size_t bytesSent)
+        {
+            if (ec) {
+                std::cerr << "[Server][UDP] sendAck error to " << dest
+                          << ": " << ec.message() << std::endl;
+            }
+        }
+    );
 }
