@@ -205,6 +205,18 @@ void NetworkServer::handleHello(std::shared_ptr<ClientSession> session,
     session->name = name;
     std::cout << "[Server] Client " << session->id
               << " logged in with name: " << name << "\n";
+
+    std::string idStr = std::to_string(session->id);
+
+    boost::system::error_code ec;
+    boost::asio::write(session->tcpSocket, boost::asio::buffer(idStr), ec);
+
+    if (ec) {
+        std::cerr << "[Server] Error sending session ID: " << ec.message() << "\n";
+    } else {
+        std::cout << "[Server] Sent session ID " << idStr
+                  << " to client " << session->id << "\n";
+    }
 }
 
 void NetworkServer::handleGoodbye(std::shared_ptr<ClientSession> session)
