@@ -187,11 +187,10 @@ void client::login()
     }
 
     std::string username = "test";
-
     std::vector<char> payload(username.begin(), username.end());
 
-    std::uint16_t magic  = 0xEB27;
-    std::uint8_t  cmd    = 0x01;
+    std::uint16_t magic = 0xEB27;
+    std::uint8_t  cmd = 0x01;
     std::uint16_t length = static_cast<std::uint16_t>(payload.size());
 
     std::vector<char> buffer(5 + length);
@@ -210,10 +209,31 @@ void client::login()
                                              ec);
 
     if (!ec) {
-        std::cout << "[Client] Sent HELLO with hardcoded username 'test' ("
-                  << written << " bytes)\n";
+        std::cout << "[Client] Sent HELLO (username='test') -> " 
+                  << written << " bytes\n";
     } else {
         std::cerr << "[Client] Send error: " << ec.message() << std::endl;
+        return;
+    }
+
+    {
+        char idBuffer[64];
+        boost::system::error_code readEc;
+
+        std::size_t bytesRead = boost::asio::read(
+            *_tcpSocket,
+            boost::asio::buffer(idBuffer),
+            boost::asio::transfer_at_least(1),
+            readEc
+        );
+
+        if (!readEc) {
+            std::string sessionID(idBuffer, bytesRead);
+            std::cout << "[Client] Received session ID from server: " 
+                    << sessionID << std::endl;
+        } else {
+            std::cerr << "[Client] Read error: " << readEc.message() << std::endl;
+        }
     }
 }
 
