@@ -10,6 +10,7 @@ end
 function collision_bullet_to_ennemy(obj)
     local i = 0
     local other = game:get_object(i)
+    local id = tonumber(string.match(string.match(obj:get_name(), "player(.*)"), "(.*)_"))
 
     while not (other == nil) do
         local name = other:get_name()
@@ -19,10 +20,10 @@ function collision_bullet_to_ennemy(obj)
                 game:remove_object(obj)
                 game:remove_object(other)
 
-                local score = game:read_int(game:read_int(0x00))
+                local score = game:read_int(game:read_int(0xF1 + 1 + id))
                 score = score + 1
 
-                game:write_int(game:read_int(0x00), score)
+                game:write_int(game:read_int(0xF1 + 1 + id), score)
                 return
             end
         end

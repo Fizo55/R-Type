@@ -61,7 +61,7 @@ function key_space()
 
     local temp = object()
 
-    temp:set_name("gen_player_bullet" .. self:get_name() .. tostring(x))
+    temp:set_name("gen_player_bullet" .. self:get_name() .. "_" .. tostring(x))
 
     temp:add_component("coords", "position")
     temp:add_component("sprite", "sprite")

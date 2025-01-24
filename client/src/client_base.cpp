@@ -231,6 +231,7 @@ void client::login()
             std::string sessionID(idBuffer, bytesRead);
             std::cout << "[Client] Received session ID from server: " 
                     << sessionID << std::endl;
+            this->_game.writeDBInt(0x00, (std::int64_t)std::stoul(sessionID));
         } else {
             std::cerr << "[Client] Read error: " << readEc.message() << std::endl;
         }
