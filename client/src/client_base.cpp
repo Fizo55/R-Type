@@ -6,58 +6,10 @@
 
 using namespace engine;
 
-ObjectRef createPlayer()
-{
-    ObjectRef temp = ObjectRef();
-    std::vector<std::any> coords;
-    std::vector<std::any> size;
-    std::vector<std::any> script;
-    std::vector<std::any> sprite;
-
-    coords.push_back(std::any((std::int64_t)100));
-    coords.push_back(std::any((std::int64_t)110));
-
-    size.push_back(std::any((std::int64_t)36));
-    size.push_back(std::any((std::int64_t)18));
-
-    script.push_back(std::any((std::string)"player_script"));
-    sprite.push_back(std::any((std::string)"sprite_player1"));
-
-    temp.addBuildParameter("coords", coords);
-    temp.addBuildParameter("size", size);
-    temp.addBuildParameter("sprite", sprite);
-    temp.addBuildParameter("main_script", script);
-
-    temp.setName("player");
-
-    return (temp);
-}
-
-
 client::client(const std::string &configPath)
   : _running(false)
   , _tcpSocket(std::make_unique<boost::asio::ip::tcp::socket>(_ioContext))
 {
-    std::string serverIp = "127.0.0.1";
-    unsigned short serverPort = 1337;
-
-    boost::system::error_code ec;
-    boost::asio::ip::tcp::resolver resolver(_ioContext);
-    auto endpoints = resolver.resolve(serverIp, std::to_string(serverPort), ec);
-    if (ec) {
-        std::cerr << "[Client] Failed to resolve " << serverIp << ":" << serverPort
-            << " => " << ec.message() << std::endl;
-    }
-    else {
-        boost::asio::connect(*_tcpSocket, endpoints, ec);
-        if (ec) {
-            std::cerr << "[Client] Connect error: " << ec.message() << std::endl;
-        }
-        else {
-            std::cout << "[Client] Connected to " << serverIp << ":" << serverPort << std::endl;
-        }
-    }
-
     engine::ScriptTypeDefinitor<Game> *gameDefinitor = new engine::ScriptTypeDefinitor<Game>();
     engine::ScriptTypeDefinitor<grw::clock> *clockDefinitor = new engine::ScriptTypeDefinitor<grw::clock>();
     engine::ScriptTypeDefinitor<engine::displayManager> *displayManagerDefinitor = new engine::ScriptTypeDefinitor<engine::displayManager>();
@@ -130,6 +82,28 @@ client::client(const std::string &configPath)
 client::~client()
 {
 
+}
+
+void client::connect(const std::string &serverIp, unsigned short serverPort)
+{
+    boost::system::error_code ec;
+    boost::asio::ip::tcp::resolver resolver(_ioContext);
+    auto endpoints = resolver.resolve(serverIp, std::to_string(serverPort), ec);
+
+    if (ec) {
+        std::cerr << "[Client] Failed to resolve " << serverIp << ":" << serverPort
+            << " => " << ec.message() << std::endl;
+    }
+
+    else {
+        boost::asio::connect(*_tcpSocket, endpoints, ec);
+        if (ec) {
+            std::cerr << "[Client] Connect error: " << ec.message() << std::endl;
+        }
+        else {
+            std::cout << "[Client] Connected to " << serverIp << ":" << serverPort << std::endl;
+        }
+    }
 }
 
 void client::event(void)

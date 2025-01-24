@@ -6,6 +6,8 @@
     #include "engineGraphic.hpp"
     #include "engineScripting.hpp"
 
+    #include "gameArguments.hpp"
+
     class client {
         public:
             client(const std::string &);
@@ -17,6 +19,7 @@
 
             void mainloop(void);
 
+            void connect(const std::string &serverIp, unsigned short serverPort);
             void login(void);
 
         private:
