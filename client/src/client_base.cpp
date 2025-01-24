@@ -9,6 +9,7 @@ using namespace engine;
 client::client(const std::string &configPath)
   : _running(false)
   , _tcpSocket(std::make_unique<boost::asio::ip::tcp::socket>(_ioContext))
+  , _loginCompleted(false)
 {
     engine::ScriptTypeDefinitor<Game> *gameDefinitor = new engine::ScriptTypeDefinitor<Game>();
     engine::ScriptTypeDefinitor<grw::clock> *clockDefinitor = new engine::ScriptTypeDefinitor<grw::clock>();
@@ -159,6 +160,11 @@ void client::event(void)
 
 void client::update(void)
 {
+    if (!_loginCompleted) {
+        std::cout << "[Server] Skipping update, login not completed.\n";
+        return;
+    }
+
     this->_game.unloadAllObjects();
 
     try {
@@ -276,6 +282,7 @@ void client::login()
             std::cout << "[Client] Received session ID from server: " 
                     << sessionID << std::endl;
             this->_game.writeDBInt(0x00, (std::int64_t)std::stoul(sessionID));
+            _loginCompleted = true;
         } else {
             std::cerr << "[Client] Read error: " << readEc.message() << std::endl;
         }

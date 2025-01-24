@@ -38,6 +38,8 @@
 
             boost::asio::io_context _ioContext;
             std::unique_ptr<boost::asio::ip::tcp::socket> _tcpSocket;
+
+            bool _loginCompleted;
     };
 
 #endif /* GAME_CLIENT_HPP_ */
