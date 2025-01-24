@@ -48,42 +48,13 @@ int main(int argc, char **argv)
         ipAddress = std::any_cast<std::string>(parser.getArg("--ip").value);
     }
 
-    boost::system::error_code ec;
-    boost::asio::ip::make_address(ipAddress, ec);
-    if (ec) {
-        std::cerr << "Invalid IP address: " << ipAddress << "\n";
-        return 84;
-    }
+    server game = server("r-type/game.yml");
 
-    std::cout << "[Main] Starting server on IP=" << ipAddress 
-              << " TCP=" << port << " UDP=" << (port+1) << "\n";
+    game.listen(ipAddress, port);
 
-    boost::asio::io_context io;
+    std::cout << "Server is running.\n";
 
-    auto server = std::make_shared<NetworkServer>(io, ipAddress, port, port + 1);
-
-    server->start();
-
-    std::cout << "Server is running. Type 'exit' to stop.\n";
-
-    std::thread ioThread([&io]() {
-        io.run();
-    });
-
-    while (true) {
-        std::string command;
-        std::getline(std::cin, command);
-        if (command == "exit") {
-            break;
-        }
-    }
-
-    server->stop();
-
-    io.stop();
-    if (ioThread.joinable()) {
-        ioThread.join();
-    }
+    game.mainloop();
 
     std::cout << "[Main] Server has been stopped.\n";
     return 0;

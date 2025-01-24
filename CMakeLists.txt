@@ -95,11 +95,18 @@ add_executable(server-executable
     ${SERVER_SRC_DIR}/main.cpp
     ${SERVER_SRC_DIR}/ServerNetwork.cpp
     ${SERVER_SRC_DIR}/ArgumentParser.cpp
+    ${SERVER_SRC_DIR}/server.cpp
+    ${SERVER_SRC_DIR}/clock.cpp
+    ${SERVER_SRC_DIR}/bindings/clock.cpp
 )
 
 target_include_directories(server-executable PRIVATE ${CMAKE_SOURCE_DIR}/server/include)
 target_include_directories(server-executable PRIVATE ./include)
-target_link_libraries(server-executable PRIVATE engine-core network)
+target_link_libraries(server-executable  PRIVATE engine-core)
+target_link_libraries(server-executable  PRIVATE engine-scripting)
+target_link_libraries(server-executable  PUBLIC yaml-cpp::yaml-cpp)
+target_link_libraries(server-executable  PRIVATE ${LUA_LIBRARIES})
+target_link_libraries(server-executable PRIVATE network)
 
 add_executable(client-executable
     ${CLIENT_SRC_DIR}/main_base.cpp
