@@ -216,6 +216,8 @@
                 void loadObject(Object *obj);
                 void loadHud(Object *obj);
 
+                void unloadAllObjects(void);
+
                 void unloadObject(engine::Object *obj);
                 void unloadHud(engine::Object *obj);
 

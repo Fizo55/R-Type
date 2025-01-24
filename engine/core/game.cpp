@@ -42,6 +42,13 @@ engine::Game::~Game() {
     this->_loadedGameHuds.clear();
 }
 
+void engine::Game::unloadAllObjects(void) {
+    for (auto temp : this->_loadedGameObjects)
+        delete temp;
+
+    this->_loadedGameObjects.clear();
+}
+
 void engine::Game::loadScene(const std::string &sceneName)
 {
     Scene scene = this->_scenes[sceneName];
